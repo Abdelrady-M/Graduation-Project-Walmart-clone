@@ -4,10 +4,11 @@ const productSchema = new mongoose.Schema({
     product_id: {
         type: Number,
         required: true,
-        Unique: true
+        unique: true
     },
     userId: {
-        type: Schema.Types.ObjectId,
+        // type: mongoose.Schema.Types.ObjectId,
+        type: Number,
         ref: "Users",
         required: true,
     },
@@ -28,7 +29,8 @@ const productSchema = new mongoose.Schema({
         required: true,
     },
     subCategory: {
-        type: Schema.Types.ObjectId,
+        // type: mongoose.Schema.Types.ObjectId,
+        type: Number,
         ref: "Categories",
         required: true,
     },
@@ -36,13 +38,17 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    images: {
-        type: [String],
-        required: true,
-    },
+    images: [
+        {
+            url: {
+                type: String,
+                required: true,
+            },
+        }
+    ]
 },
     {
-        timestamps: true,
+        timestamps: true, collection: 'Products'
     }
 );
 
