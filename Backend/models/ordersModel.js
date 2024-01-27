@@ -1,8 +1,37 @@
-const express = require('express')
-const router = express.Router()
+const mongoose=require('mongoose')
 
-const {postNewOrder,patchOrdeByTitle,deleteOrdeById,getAllOrdes,getOrdeById}=require('../controllers/ordersControl')
-router.route("/").post(postNewOrder).get(getAllOrdes)
-router.route("/:id").patch(patchOrdeByTitle).delete(deleteOrdeById).get(getOrdeById)
+const ordersSchema=mongoose.Schema({
+    order_id:{
+        type:Number,
+        require:true
+    },
+    user_id:{
+        type:Number,
+        require:true
+    },
+    total_price:{
+        type:String
+    },
+    products:[
+        {product_id:Number,quantity:Number},
+        {product_id:Number,quantity:Number}
+],
+    order_status:{
+        type:String,
+        optional:true
+    },
+    createdAt:{
+        type:Date
+    }
+},
+// {
+//     timestamps: true, collection: 'Orders'
+// }
+)
 
-module.exports = router 
+
+const ordersModel=mongoose.model('Orders',ordersSchema)
+
+module.exports=ordersModel
+
+
