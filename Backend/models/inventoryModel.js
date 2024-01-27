@@ -1,10 +1,26 @@
-const express = require('express')
-const router = express.Router()
-const { addInventory, getInventory, deleteInventory, patchInventory } = require('../controllers/inventoryControl')
+const mongoose=require('mongoose')
+
+const inventorySchema=mongoose.Schema({
+    product_id:{
+        type:String
+    },
+    quantity_available:{
+        type:Number
+    },
+    last_restock_date:{
+        type:Date,
+    },
+    restock_interval:{
+        type:Number
+    }
+},
+{
+    timestamps: true, collection: 'Inventory'
+})
 
 
-router.route("/").post(addInventory).get(getInventory)
-router.route("/:id").delete(deleteInventory).patch(patchInventory)
+const inventoryModel=mongoose.model('Inventory',inventorySchema)
+
+module.exports=inventoryModel
 
 
-module.exports = router
