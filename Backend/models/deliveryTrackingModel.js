@@ -1,9 +1,36 @@
-const express = require('express')
-const router = express.Router()
+const mongoose=require('mongoose')
 
-const {postNewDeliveryTracking,patchDeliveryTrackingByTitle,deleteDeliveryTrackingById,getAllDeliveryTracking,getDeliveryTrackingById}=require('../controllers/deliveryTrackingControl')
+const deliveryTrackingSchema=mongoose.Schema({
+    order_id:{
+        type:Number,
+        require:true
+    },
+    user_id:{
+        type:Number,
+        require:true
+    },
+    total_price:{
+        type:String
+    },
+    products:[
+        {product_id:Number,quantity:Number},
+        {product_id:Number,quantity:Number}
+],
+    order_status:{
+        type:String,
+        optional:true
+    },
+    createdAt:{
+        type:Date
+    }
+},
+{
+    timestamps: true, collection: 'Delivery Tracking'
+})
 
-router.route("/").post(postNewDeliveryTracking).get(getAllDeliveryTracking)
-router.route("/:id").patch(patchDeliveryTrackingByTitle).delete(deleteDeliveryTrackingById).get(getDeliveryTrackingById)
 
-module.exports = router 
+const deliveryTrackingModel=mongoose.model('DeliveryTracking',deliveryTrackingSchema)
+
+module.exports=deliveryTrackingModel
+
+
