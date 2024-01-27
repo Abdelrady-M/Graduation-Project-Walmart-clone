@@ -13,6 +13,7 @@ const productsRouts = require('./routes/productsRouts')
 const usersRouts = require('./routes/usersRouts')
 const reviewRouts = require('./routes/reviewsRouts')
 const PaymentRouts = require('./routes/paymentsRouts')
+const wishlistRouts = require('./routes/wishlistRouts')
 //express middleware
 app.use(express.json());
 app.use(cors());
@@ -23,6 +24,7 @@ app.use('/users', usersRouts)
 app.use('/products', productsRouts)
 app.use('/reviews', reviewRouts)
 app.use('/payment', PaymentRouts)
+app.use('/wishlist', wishlistRouts)
 //mongoose database
 mongoose.connect(process.env.MONGOOSEURL)
     .then(() => {

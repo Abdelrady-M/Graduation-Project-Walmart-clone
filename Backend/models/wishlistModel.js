@@ -7,7 +7,7 @@ const wishlistSchema = new mongoose.Schema({
         unique: true
     },
     user_id: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Users",
         required: true,
     },
@@ -15,6 +15,8 @@ const wishlistSchema = new mongoose.Schema({
         type: [Number],
         required: true,
     },
+}, {
+    timestamps: true, collection: 'Wishlist'
 });
 
 const wishlistModel = mongoose.model('Wishlist', wishlistSchema);
