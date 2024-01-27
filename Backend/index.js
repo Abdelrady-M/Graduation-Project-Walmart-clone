@@ -10,6 +10,7 @@ const app = express();
 
 // const carts = require('./routes/cartsRouts')
 const productsRouts = require('./routes/productsRouts')
+const usersRouts = require('./routes/usersRouts')
 
 //express middleware
 app.use(express.json());
@@ -17,6 +18,8 @@ app.use(cors());
 //routs for All Project routes
 
 // app.use('/Carts', carts)
+app.use('/users', usersRouts)
+app.use('/products', productsRouts)
 
 //mongoose database
 mongoose.connect(process.env.MONGOOSEURL)
@@ -27,7 +30,7 @@ mongoose.connect(process.env.MONGOOSEURL)
         console.error("Error connecting to DB:", err);
     });
 
-app.use('/products', productsRouts)
+
 // if path is not specified
 app.use("*", (req, res, next) => {
     res.status(404).json({ message: "Not Found path" })

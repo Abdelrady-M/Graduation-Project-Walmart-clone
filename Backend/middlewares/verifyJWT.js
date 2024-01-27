@@ -1,29 +1,23 @@
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
+const { promisify } = require('util');
+const dotenv = require('dotenv');
 
-const verifyJWT = (req, res, next) => {
-    const authHeader = req.headers.authorization;
+dotenv.config();
 
-    if (!authHeader) {
-        return res.sendStatus(401);
+const verifyToken = async (req, res, next) => {
+    const token = req.header('Authorization');
+
+    if (!token) {
+        return res.status(401).json({ message: 'Access denied. Token is missing.' });
     }
-    const token = authHeader.split(' ')[1];
 
-    jwt.verify(
-        token,
-        process.env.ACCESS_TOKEN_SECRET,
-        (err, decoded) => {
-            if (err) return res.status(403).json({ 'message': err });
-
-            if (!req.user) {
-                req.user = {};
-            }
-
-            req.user.user_id = decoded.user_id;
-            req.user.user_name = decoded.user_name;
-            req.user.user_role = decoded.user_role;
-        }
-    )
-    next();
+    try {
+        const decoded = await promisify(jwt.verify)(token, process.env.ACCESS_TOKEN_SECRET);
+        req.user_id = decoded.user_id;
+        next();
+    } catch (error) {
+        return res.status(403).json({ message: 'Invalid token.' });
+    }
 };
-module.exports = verifyJWT;
+
+module.exports = verifyToken;

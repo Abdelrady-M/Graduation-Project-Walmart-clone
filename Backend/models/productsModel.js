@@ -7,8 +7,8 @@ const productSchema = new mongoose.Schema({
         unique: true
     },
     userId: {
-        // type: mongoose.Schema.Types.ObjectId,
-        type: Number,
+        type: mongoose.Schema.Types.Number, // Corrected type
+        // type: Number,
         ref: "Users",
         required: true,
     },

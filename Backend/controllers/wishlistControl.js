@@ -1,6 +1,5 @@
-const Wishlist = require('./wishlistModel');  // Adjust the path based on your project structure
+const Wishlist = require('./wishlistModel');
 
-// Controller functions
 const createWishlist = async (wishlistData) => {
     try {
         const wishlist = new Wishlist(wishlistData);

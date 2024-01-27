@@ -1,9 +1,11 @@
-const user = require('../models/usersModel')
-const bcrypt = require('bcrypt');
+const user = require('../models/usersModel');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+require("dotenv").config();
 
 const getAllUsers = async (req, res) => {
     try {
-        const usersList = await user.findAll();
+        const usersList = await user.find();
         return res.json(usersList);
 
     } catch (error) {
@@ -12,21 +14,21 @@ const getAllUsers = async (req, res) => {
 };
 
 const storeNewUser = async (req, res) => {
-    const { username, password_hash, email, } = req.body;
-
     try {
-        const encryptedPassword = await bcrypt.hash(password_hash, 10);
-
-        const newUser = await user.create(
-            {
-                user_name: username,
-                user_password: encryptedPassword,
-                email: email
-            }
-        )
-        return res.status(201).json(newUser);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
+        let newUser = req.body;
+        const userCount = await user.countDocuments();
+        console.log('User Count:', userCount);
+        newUser.user_id = userCount + 1;
+        newUser = await user.create(newUser);
+        res.status(201).json({ data: newUser });
+    } catch (err) {
+        if (err.name === 'ValidationError') {
+            console.error('Validation Errors:', err.errors);
+            res.status(400).json({ message: 'Validation failed', errors: err.errors });
+        } else {
+            console.error('Error:', err);
+            res.status(500).json({ message: err.message });
+        }
     }
 };
 
@@ -34,53 +36,47 @@ const getUserById = async (req, res) => {
     const { user_id } = req.params;
 
     try {
-        const user = await user.findAll({
-            where: { user_id: user_id }
-        });
+        const userRecord = await user.findOne(user_id);
 
-        if (!user) {
+        if (!userRecord) {
             return res.status(404).json({ error: 'User not found' });
-        };
+        }
 
-        res.status(201).json(user);
+        res.status(201).json(userRecord);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 };
 
 const editUser = async (req, res) => {
-    const { user_id } = req.params;
-    const { username, password_hash } = req.body;
+    const userId = parseInt(req.params.id, 10);
+    const update = req.body;
 
     try {
-        const updatedUser = await user.update(
-            {
-                user_name: username,
-                user_password: password_hash
-            },
-            { where: { user_id: user_id } }
+        const editedUser = await user.findOneAndUpdate(
+            { user_id: userId },
+            { $set: update },
+            { new: true, runValidators: true }
         );
-
-        return res.status(200).json(updatedUser);
-
-    } catch (error) {
-        res.status(500).json({ error: error.message });
+        if (editedUser) {
+            res.status(200).json({ message: 'User edited successfully', user: editedUser });
+        } else {
+            res.status(404).json({ message: 'User not found' });
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message });
     }
 };
 
 const deleteUser = async (req, res) => {
-    const { user_id } = req.params;
+    const userId = parseInt(req.params.id, 10);
 
     try {
-        const account = await user.findByPk(user_id);
+        const deletedUser = await user.findOneAndDelete({ user_id: userId });
 
-        if (!account) {
+        if (!deletedUser) {
             return res.status(404).json({ error: 'User not found' });
         }
-
-        await user.destroy({
-            where: { user_id: user_id }
-        });
 
         res.json({ message: 'User account deleted successfully' });
     } catch (error) {
@@ -88,4 +84,40 @@ const deleteUser = async (req, res) => {
     }
 };
 
-module.exports = { getAllUsers, getUserById, editUser, storeNewUser, deleteUser };
+const login = async function (req, res, next) {
+    const { email, password_hash } = req.body;
+
+    if (!email || !password_hash) {
+        return res.status(400).json({ message: "You must provide a valid email and password" });
+    }
+
+    try {
+        const userRecord = await user.findOne({ email });
+
+        if (!userRecord) {
+            return res.status(401).json({ message: "Invalid email and password" });
+        }
+        const isValid = await bcrypt.compare(password_hash, userRecord.password_hash);
+        if (!isValid) {
+            return res.status(401).json({ message: "Invalid email and password" });
+        }
+
+        const token = jwt.sign({
+            email: userRecord.email,
+            user_id: userRecord.user_id,
+        }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1h" });
+
+        res.status(200).json({ token: token });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+module.exports = {
+    getAllUsers,
+    storeNewUser,
+    getUserById,
+    editUser,
+    deleteUser,
+    login
+};
