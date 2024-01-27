@@ -7,7 +7,7 @@ const paymentSchema = new mongoose.Schema({
         unique: true
     },
     order_id: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Orders",
         required: true,
     },
@@ -28,7 +28,7 @@ const paymentSchema = new mongoose.Schema({
         required: true,
     },
 }, {
-    timestamps: true,
+    timestamps: true, collection: "Payments"
 });
 
 const paymentModel = mongoose.model('Payment', paymentSchema);

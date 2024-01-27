@@ -1,56 +1,41 @@
-const Order = require('../models/ordersModel');
+const Payment = require('../models/paymentsModel');
 
-const processPayment = async (req, res) => {
+const createPayment = async (req, res) => {
     try {
-        const { user_id } = req.user;
-        const { cardInfo } = req.body;
+        const body = req.body;
 
-        const orderDetails = await Order.findOne({
-            where: { user_id: user_id },
-        });
-
-        if (!orderDetails) {
-            return res.status(404).json({ message: "Order not found" });
-        }
-
-        const totalPrice = orderDetails.totalPrice;
-
-        const paymentSuccess = validatePayment(cardInfo);
-
-        if (paymentSuccess) {
-            await orderDetails.update({ status: 'paid' });
-            return res.status(200).json({ message: "Payment successful", totalPrice });
-
-        } else {
-            return res.status(400).json({ message: 'Payment failed. Please try again.' });
-        }
+        const savedPayment = await Payment.create(body);
+        return res.status(201).json({ status: 201, data: savedPayment });
     } catch (error) {
         console.error(error);
-        return res.status(500).json({ message: 'Internal server error' });
+        return res.status(500).json({ status: 500, message: 'Internal Server Error' });
     }
-}
+};
 
-const validatePayment = (cardInfo) => {
-    const correctCardInfo = {
-        cardNumber: '1234567890123456',
-        expirationDate: '12/25',
-        cardholderName: 'John Doe',
-        cvv: '123'
-    };
-
-
-    if (
-        cardInfo.cardNumber === correctCardInfo.cardNumber &&
-        cardInfo.expirationDate === correctCardInfo.expirationDate &&
-        cardInfo.cardholderName === correctCardInfo.cardholderName &&
-        cardInfo.cvv === correctCardInfo.cvv
-    ) {
-        console.log("true!!");
-        return true;
-    } else {
-        console.log("FALSE!!");
-        return false;
+const getAllPayments = async (req, res) => {
+    try {
+        const payments = await Payment.find();
+        return res.status(200).json({ status: 200, data: payments });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ status: 500, message: 'Internal Server Error' });
     }
-}
+};
 
-module.exports = { processPayment };
+const getPaymentById = async (req, res) => {
+    try {
+        const { payment_id } = req.params;
+        const payment = await Payment.findOne({ payment_id });
+
+        if (!payment) {
+            return res.status(404).json({ status: 404, message: 'Payment not found' });
+        }
+
+        return res.status(200).json({ status: 200, data: payment });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ status: 500, message: 'Internal Server Error' });
+    }
+};
+
+module.exports = { createPayment, getAllPayments, getPaymentById };

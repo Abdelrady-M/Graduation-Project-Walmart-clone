@@ -7,12 +7,12 @@ const reviewSchema = new mongoose.Schema({
         unique: true
     },
     product_id: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,  // Corrected line
         ref: "Products",
         required: true,
     },
     user_id: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,  // Corrected line
         ref: "Users",
         required: true,
     },
@@ -29,8 +29,8 @@ const reviewSchema = new mongoose.Schema({
 },
     {
         timestamps: true,
-    }
-);
+        collection: "Reviews",
+    });
 
 const reviewModel = mongoose.model('Reviews', reviewSchema);
 
