@@ -119,7 +119,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            <div className="hidden bg-[#0071dc] mt-[1px] text-white px-3 py-2 lg:px-8 lg:flex items-center justify-between">
+            <div className="hidden bg-[#0071dc] mt-[1px] text-white px-3 py-0 lg:px-8 lg:flex items-center justify-between">
                 <div className="flex items-center gap-2 ">
                     <div className="flex items-center gap-2 hover:underline">
                         <BsPhone />
