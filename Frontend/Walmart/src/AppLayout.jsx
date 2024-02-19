@@ -18,7 +18,6 @@ const AppLayout = () => {
                 <Deals />
                 <Footer />
                 <Outlet />
-
             </div>
 
         </>
