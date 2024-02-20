@@ -4,6 +4,7 @@ import AppLayout from "./AppLayout";
 // import Electronics from "./pages/Electronics";
 import Login from "./pages/login"
 import Register from "./pages/register"
+import GrocerieEessentials from "./pages/GrocerieEessentials"
 
 const routes = createBrowserRouter([
   {
@@ -18,6 +19,11 @@ const routes = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  }
+  },
+  {
+    path: "/GrocerieEessentials",
+    element: <GrocerieEessentials />,
   }
 ]);
 const App = () => {
