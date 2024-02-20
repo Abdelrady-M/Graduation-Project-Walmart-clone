@@ -113,7 +113,7 @@ const Navbar = () => {
                         <AiOutlineShoppingCart className="w-7 h-7" />
                         <div
                             className="absolute top-1 right-1 w-[16px] h-[16px] rounded-full flex justify-center text-center 
-                                bg-[#ffc220] text-black border text-[12px] border-black ">
+                                bg-[#ffc220] text-black border text-[12px] border-black items-center">
                             <span className="">0</span>
                         </div>
                     </div>
