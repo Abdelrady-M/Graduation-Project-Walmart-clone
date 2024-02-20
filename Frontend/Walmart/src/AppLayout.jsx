@@ -5,6 +5,10 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Deals from './components/Deals';
+import PatioFurniture from './components/PatioFurniture';
+
+
+
 
 const AppLayout = () => {
 
@@ -16,6 +20,8 @@ const AppLayout = () => {
                 <Navbar />
                 <Hero />
                 <Deals />
+                <PatioFurniture />
+                <Hero />
                 <Footer />
                 <Outlet />
             </div>
