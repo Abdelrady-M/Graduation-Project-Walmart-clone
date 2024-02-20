@@ -27,41 +27,17 @@ const cards = [
 ];
 
 
-function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-        <div
-            className={className}
-            style={{ ...style, display: "block", background: "red" }}
-            onClick={onClick}
-        >
-            NEXT
-        </div>
-    );
-}
 
-function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-        <div
-            className={className}
-            style={{ ...style, display: "block", background: "green" }}
-            onClick={onClick}
-        >
-            BACK
-        </div>
-    );
-}
 const Deals = () => {
     const slider = React.useRef(null);
 
     const settings = {
-        dots: true,
+
         infinite: true,
-        arrows: false,
-        speed: 500,
+        arrows: true,
+        speed: 1000,
         slidesToShow: 4,
-        slidesToScroll: 1,
+        slidesToScroll: 6,
 
         responsive: [
             {
@@ -70,7 +46,7 @@ const Deals = () => {
                     slidesToShow: 3,
                     slidesToScroll: 3,
                     infinite: true,
-                    dots: true,
+
                 },
             },
 
@@ -80,7 +56,7 @@ const Deals = () => {
                     slidesToShow: 2,
                     slidesToScroll: 2,
                     infinite: true,
-                    dots: true,
+
                 },
             },
             {
@@ -93,26 +69,13 @@ const Deals = () => {
             },
         ],
 
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
     };
 
     return (
-        <div className="container mb-10 mx-auto">
-            <h1 style={{ textAlign: "center", margin: "20px 0px" }}>
+        <div className="container mb-10 mx-auto mt-5">
+            <h1 className="algin-start mb-4 font-bold">
                 DEALS
             </h1>
-
-            <div style={{ margin: 20 }}>
-                <button onClick={() => slider?.current?.slickPrev()}>Prev</button>
-                <button
-                    style={{ marginLeft: 20 }}
-                    onClick={() => slider?.current?.slickNext()}
-                >
-                    Next
-                </button>
-            </div>
-
             <Slider ref={slider} {...settings}>
                 {cards.map((card, index) => (
                     <div key={index}>

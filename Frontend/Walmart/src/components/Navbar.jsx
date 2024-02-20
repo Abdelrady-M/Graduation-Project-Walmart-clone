@@ -37,7 +37,7 @@ const Navbar = () => {
                         onClick={toggleDepartmentsDropdown}
                     >
                         <FaLayerGroup className="text-[17px]" />
-                        <p className="text-[16px] font-semibold">Departments</p>
+                        <p className="text-[16px] font-normal">Departments</p>
                         {showDepartmentsDropdown && (
                             <div className="absolute top-full left-0 bg-[#FFFFFF] text-black max-h-[761px] overflow-auto rounded shadow-md z-50 w-[246px] flex flex-col">
                                 <a className="p-3 font-semibold text-2xs rounded">All Department</a>
@@ -70,7 +70,7 @@ const Navbar = () => {
                         className="md:flex  items-center gap-2 hidden hover:bg-[#06529a] p-3 rounded-full cursor-pointer relative z-50" onClick={toggleServicesDropdown}
                     >
                         <HiUserGroup className="text-[20px]" />
-                        <p className="text-[16px] font-semibold">Services</p>
+                        <p className="text-[16px] font-normal">Services</p>
                         {showServicesDropdown && (
                             <div className="absolute top-full left-0 bg-[#FFFFFF] text-black max-h-[761px] overflow-auto rounded shadow-md z-50 w-[246px] flex flex-col">
                                 <a className="p-3 font-semibold text-2xs rounded">All Services</a>
@@ -123,7 +123,7 @@ const Navbar = () => {
                 <div className="flex items-center gap-2 ">
                     <div className="flex items-center gap-2 hover:underline">
                         <BsPhone />
-                        <p className="text-[14px] font-bold gap-1">Place an order on the App</p>
+                        <p className="text-[14px] font-semibold gap-1">Place an order on the App</p>
                     </div>
                     <div>
                         <p className="flex items-center gap-1 text-[14px] hover:underline">
@@ -138,18 +138,18 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="text-white py-2  lg:px-8 flex items-center gap-4 ">
-                    <a href="#" className="hover:underline font-bold text-[14px]">Deals</a>
-                    <a href="#" className="hover:underline font-bold text-[14px]">Grocery & Essentials</a>
-                    <a href="#" className="hover:underline font-bold text-[14px]">Easter</a>
-                    <a href="#" className="hover:underline font-bold text-[14px]">Walmart Style</a>
-                    <a href="#" className="hover:underline font-bold text-[14px]">Baby Days</a>
-                    <a href="#" className="hover:underline font-bold text-[14px]">Black & Unlimited</a>
-                    <a href="#" className="hover:underline font-bold text-[14px]">Fashion</a>
-                    <a href="#" className="hover:underline font-bold text-[14px]">Home</a>
-                    <a href="#" className="hover:underline font-bold text-[14px]">Spring Outdoor Refresh</a>
-                    <a href="#" className="hover:underline font-bold text-[14px]">Registry</a>
-                    <a href="#" className="hover:underline font-bold text-[14px]">ONE Debit</a>
-                    <a href="#" className="hover:underline font-bold text-[14px]">Walmart+</a>
+                    <a href="#" className="hover:underline font-semibold text-[14px]">Deals</a>
+                    <a href="#" className="hover:underline font-semibold text-[14px]">Grocery & Essentials</a>
+                    <a href="#" className="hover:underline font-semibold text-[14px]">Easter</a>
+                    <a href="#" className="hover:underline font-semibold text-[14px]">Walmart Style</a>
+                    <a href="#" className="hover:underline font-semibold text-[14px]">Baby Days</a>
+                    <a href="#" className="hover:underline font-semibold text-[14px]">Black & Unlimited</a>
+                    <a href="#" className="hover:underline font-semibold text-[14px]">Fashion</a>
+                    <a href="#" className="hover:underline font-semibold text-[14px]">Home</a>
+                    <a href="#" className="hover:underline font-semibold text-[14px]">Spring Outdoor Refresh</a>
+                    <a href="#" className="hover:underline font-semibold text-[14px]">Registry</a>
+                    <a href="#" className="hover:underline font-semibold text-[14px]">ONE Debit</a>
+                    <a href="#" className="hover:underline font-semibold text-[14px]">Walmart+</a>
                 </div>
             </div>
             {showOverlay && (

@@ -3,18 +3,60 @@
 @tailwind utilities;
 
 
-@font-face {
-  font-family: 'Bogle';
-  src: local('Bogle'), url(../src/assets/font/BOGLEBLACK.OTF) format('ttf'),
-       url(../src/assets/font/BOGLEBLACKITALIC.OTF) format('otf'),
-       url(../src/assets/font/BOGLEBOLD.OTF) format('otf'),
-       url(../src/assets/font/BOGLEBOLDITALIC.OTF) format('otf'),
-       url(../src/assets/font/BOGLEITALIC.OTF) format('otf'),
-       url(../src/assets/font/BOGLEREGULAR.OTF) format('otf');
+* {
+  font-family: 'Poppins', sans-serif;
+  font-weight: normal;
+}
+.slick-prev {
+  color:black;
+  border-radius:50%;
+  background-color:inherit !important;
+  border:1px solid black;
+  width:50px;
+  height:50px;
+  top:40%;
+  z-index:40;
+  display:flex; 
+  align-items: center !important;
+  justify-content:center !important;
+  text-align:center !important;
+}
+.slick-prev:before{
+  content: '←';
+  color:black;
+  display:flex !important; 
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  font-size: 40px;
+  line-height:1.3;
 }
 
+.slick-next {
+  color:black;
+  border-radius:50%;
+  background-color:inherit !important;
+  border:1px solid black;
+  width:50px;
+  height:50px;
+  top:40%;
+  z-index:40;
+  display:flex; 
+  align-items: center !important;
+  justify-content:center !important;
+  text-align:center !important;
+}
+.slick-next:before{
+  content: '→';
+  color:black;
+  display:flex !important; 
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  font-size: 40px;
+  line-height:1.3;
+}
 
-* {
-  font-family: 'Bogle', sans-serif;
-  font-weight: normal;
+.slick-slide{
+  width:260px !important;
 }
