@@ -5,14 +5,16 @@
 
 @font-face {
   font-family: 'Bogle';
-  src: url('../src/assets/font/BOGLEBLACK.OTF') format('otf'),
-       url('../src/assets/font/BOGLEBLACKITALIC.OTF') format('otf'),
-       url('../src/assets/font/BOGLEBOLD.OTF') format('otf'),
-       url('../src/assets/font/BOGLEBOLDITALIC.OTF') format('otf'),
-       url('../src/assets/font/BOGLEITALIC.OTF') format('otf'),
-       url('../src/assets/font/BOGLEREGULAR.OTF') format('otf');
+  src: local('Bogle'), url(../src/assets/font/BOGLEBLACK.OTF) format('ttf'),
+       url(../src/assets/font/BOGLEBLACKITALIC.OTF) format('otf'),
+       url(../src/assets/font/BOGLEBOLD.OTF) format('otf'),
+       url(../src/assets/font/BOGLEBOLDITALIC.OTF) format('otf'),
+       url(../src/assets/font/BOGLEITALIC.OTF) format('otf'),
+       url(../src/assets/font/BOGLEREGULAR.OTF) format('otf');
 }
+
+
 * {
-    /* font-family: 'Bogle', sans-serif; */
-    font-weight: normal;
+  font-family: 'Bogle', sans-serif;
+  font-weight: normal;
 }

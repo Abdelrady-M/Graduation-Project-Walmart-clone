@@ -12,7 +12,6 @@ import jacket3 from "../assets/3.jpg";
 export default function MultiCarousal() {
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 6
     },
@@ -51,10 +50,10 @@ export default function MultiCarousal() {
   return (
     <Carousel
       responsive={responsive}
-      className="md:w-max xl:w-[90vw] gap-4 mt-4 mx-auto"
+      className="md:w-max xl:w-[70vw] gap-5 mt-4 mx-auto"
     >
       {cards.map((card, index) => (
-        <div key={index} className="my-4">
+        <div key={index} className="my-4 max-w [200px]">
           <Card photo={card.photo} title={card.title} price={card.price} />
         </div>
       ))}

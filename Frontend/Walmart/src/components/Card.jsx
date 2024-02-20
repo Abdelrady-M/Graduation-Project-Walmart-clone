@@ -4,20 +4,16 @@ import { AiOutlinePlus } from "react-icons/ai";
 
 const Card = ({ photo, title, price }) => {
     return (
-        <div className="relative flex flex-col w-100 h-100">
-            <img src={photo} alt="" className="w-[175px] h-[175px] rounded-[1rem]" />
-            <div className="flex flex-col w-[13rem] mb-2">
+        <div className="relative flex flex-col w-full md:w-[80%] lg:w-[60%] xl:w-[40%] h-[280px]">
+            <img src={photo} alt="" className="w-[40%] h-auto rounded-[1rem] md:w-[50%] lg:w-[60%] xl:w-[70%]" />
+            <div className="flex flex-col w-full mb-2">
                 <p className="font-bold">Now {price}</p>
-                <p className="text-[13px]">
-                    {title + "Rapid Charger & Stylus Pen"}
-                </p>
+                <p className="text-[13px]">{title + "Rapid Charger & Stylus Pen"}</p>
             </div>
-            <div className="absolute top-0 right-9 z-40 w-[24px] h-[24px] text-[24px] ">
+            <div className="absolute top-1 right-1 z-40 w-[24px] h-[24px] text-[24px] p-2">
                 <CiHeart />
             </div>
-            <button
-                className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black"
-            >
+            <button className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
                 <AiOutlinePlus />
                 Add
             </button>
