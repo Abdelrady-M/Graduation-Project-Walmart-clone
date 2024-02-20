@@ -9,25 +9,25 @@ import jacket from "../assets/jacket.jpg";
 import jacket2 from "../assets/2.jpg";
 import jacket3 from "../assets/3.jpg";
 
-export default function MultiCarousal() {
+export default function MultiCarousal({ title, desc }) {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 6
+      items: 8,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 8
+      items: 6,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 3
+      items: 3,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 2
-    }
+      items: 2,
+    },
   };
 
   const cards = [
@@ -49,15 +49,23 @@ export default function MultiCarousal() {
     { photo: costume, title: "Costume", price: "$17" },
   ];
   return (
-    <Carousel
-      responsive={responsive}
-      className="md:w-max xl:w-[90vw] gap-4 mt-4 mx-auto"
-    >
-      {cards.map((card, index) => (
-        <div key={index} className="my-4">
-          <Card photo={card.photo} title={card.title} price={card.price} />
-        </div>
-      ))}
-    </Carousel>
+
+    <>
+      <div style={{paddingLeft: "60px"}}>
+        <h3 className="font-bold text-[15px]">{title}</h3>
+        <h3>{desc}</h3>
+      </div>
+
+      <Carousel
+        responsive={responsive}
+        className="md:w-max xl:w-[90vw] gap-4 mt-4 mx-auto"
+      >
+        {cards.map((card, index) => (
+          <div key={index} className="my-4">
+            <Card photo={card.photo} title={card.title} price={card.price} />
+          </div>
+        ))}
+      </Carousel>
+    </>
   );
 }

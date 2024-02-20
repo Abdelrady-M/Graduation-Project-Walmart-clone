@@ -7,7 +7,14 @@ export default function Electronics() {
   return (
     <>
       <Navbar />
-      <MultiCarousal />
+      <main className="container-fluid w-100">
+        <section className="my-5">
+          <MultiCarousal
+            title="Apple Deals"
+            desc="Save on the gadgets you love, for less."
+          />
+        </section>
+      </main>
       <Footer />
     </>
   );
