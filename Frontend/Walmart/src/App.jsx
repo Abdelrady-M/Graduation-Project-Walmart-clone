@@ -18,9 +18,9 @@ const routes = createBrowserRouter([
   },
   {
     path: "/register",
-    element: <Register />,
-  }
+    element: <Register />
   },
+
   {
     path: "/GrocerieEessentials",
     element: <GrocerieEessentials />,
