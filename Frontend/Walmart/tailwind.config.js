@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        Revet: ['YourCustomFont', 'sans-serif'],
+        Bogle: ['Bogle', 'Helvetica', 'Arial', 'sans-serif'],
       },
     },
   },
