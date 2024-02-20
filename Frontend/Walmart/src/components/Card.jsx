@@ -1,5 +1,5 @@
 import React from "react";
-import { FaRegHeart } from "react-icons/fa";
+import { CiHeart } from "react-icons/ci";
 import { AiOutlinePlus } from "react-icons/ai";
 
 const Card = ({ photo, title, price }) => {
@@ -13,7 +13,7 @@ const Card = ({ photo, title, price }) => {
                 </p>
             </div>
             <div className="absolute top-0 right-9 z-40 w-[24px] h-[24px] text-[24px] ">
-                <FaRegHeart />
+                <CiHeart />
             </div>
             <button
                 className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black"

@@ -12,21 +12,22 @@ import jacket3 from "../assets/3.jpg";
 export default function MultiCarousal() {
   const responsive = {
     superLargeDesktop: {
-      breakpoint: { max: 1200, min: 993 },
-      items: 6,
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 6
     },
     desktop: {
-      breakpoint: { max: 992, min: 769 },
-      items: 5,
+      breakpoint: { max: 3000, min: 1024 },
+      items: 8
     },
     tablet: {
-      breakpoint: { max: 768, min: 577 },
-      items: 3,
+      breakpoint: { max: 1024, min: 464 },
+      items: 3
     },
     mobile: {
-      breakpoint: { max: 576, min: 0 },
-      items: 2,
-    },
+      breakpoint: { max: 464, min: 0 },
+      items: 2
+    }
   };
 
   const cards = [
@@ -50,7 +51,7 @@ export default function MultiCarousal() {
   return (
     <Carousel
       responsive={responsive}
-      className="md:w-max xl:w-[90vw] gap-4 mt-4 mx-auto "
+      className="md:w-max xl:w-[90vw] gap-4 mt-4 mx-auto"
     >
       {cards.map((card, index) => (
         <div key={index} className="my-4">
