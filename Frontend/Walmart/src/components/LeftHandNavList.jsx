@@ -5,10 +5,13 @@ export default function LeftHandNavList() {
   return (
     <>
       <div className="d-flex flex-column justify-start items-center">
-        <h2 className="pb-3 text-2xl text-bold">Featured Shops</h2>
+        <h2 className="pb-3 text-xl text-bold">Featured Shops</h2>
         <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="0">
-            <Accordion.Header>Deals</Accordion.Header>
+            <Accordion.Header>
+              <img className="round-cirlce" />
+              Deals
+            </Accordion.Header>
             <Accordion.Body>
               <ul>
                 <li>Tech Deals</li>
@@ -52,11 +55,10 @@ export default function LeftHandNavList() {
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="4">
-            <Accordion.Header>Tax Prep</Accordion.Header>
+            <Accordion.Header>Premium Tech</Accordion.Header>
             <Accordion.Body>
               <ul>
-                <li>Tech Deals</li>
-                <li>Tech Value Deals</li>
+                <li>Premium Tech</li>
               </ul>
             </Accordion.Body>
           </Accordion.Item>

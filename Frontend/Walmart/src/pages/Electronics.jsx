@@ -3,6 +3,11 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import MultiCarousal from "../components/MultiCarousal";
 import LeftHandNavList from "../components/LeftHandNavList";
+<<<<<<< Updated upstream
+=======
+import "bootstrap/dist/css/bootstrap.min.css";
+
+>>>>>>> Stashed changes
 export default function Electronics() {
   return (
     <>
@@ -15,7 +20,9 @@ export default function Electronics() {
           />
         </section>
         <section className="flex justify-between">
-          <aside className="h-100 relative w-25 flex -column">
+          <aside className="h-100 relative w-25 d-flex flex-column">
+            <LeftHandNavList />
+            <LeftHandNavList />
             <LeftHandNavList />
           </aside>
           <article></article>
