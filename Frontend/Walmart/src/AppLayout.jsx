@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Deals from './components/Deals';
 import PatioFurniture from './components/PatioFurniture';
+import Departments from './components/Departments';
 
 
 
@@ -22,6 +23,7 @@ const AppLayout = () => {
                 <Deals />
                 <PatioFurniture />
                 <Hero />
+                <Departments />
                 <Footer />
                 <Outlet />
             </div>

@@ -60,4 +60,9 @@
 .slick-slide{
   width:260px !important;
 }
-
+/* .slick-list {
+  display:flex !important;
+} */
+.departSlide {
+  display:flex !important;
+}

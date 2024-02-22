@@ -11,14 +11,14 @@ const CustomSlider = ({ cards, mainTitle }) => {
         infinite: true,
         arrows: true,
         speed: 1000,
-        slidesToShow: 4,
-        slidesToScroll: 6,
+        slidesToShow: 2,
+        slidesToScroll: 4,
 
         responsive: [
             {
                 breakpoint: 1424,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 1,
                     slidesToScroll: 3,
                     infinite: true,
 
@@ -28,7 +28,7 @@ const CustomSlider = ({ cards, mainTitle }) => {
             {
                 breakpoint: 1124,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 2,
                     infinite: true,
 
