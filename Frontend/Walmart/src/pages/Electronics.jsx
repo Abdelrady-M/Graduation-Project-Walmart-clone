@@ -2,17 +2,13 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import MultiCarousal from "../components/MultiCarousal";
-import LeftHandNavList from "../components/LeftHandNavList";
-<<<<<<< Updated upstream
-=======
-import "bootstrap/dist/css/bootstrap.min.css";
+import LeftHandNavList from "../components/LeftHandNavList/LeftHandNavList";
 
->>>>>>> Stashed changes
 export default function Electronics() {
   return (
     <>
       <Navbar />
-      <main className="container-fluid w-100">
+      <main className="container mx-auto">
         <section className="my-5">
           <MultiCarousal
             title="Apple Deals"
@@ -22,10 +18,8 @@ export default function Electronics() {
         <section className="flex justify-between">
           <aside className="h-100 relative w-25 d-flex flex-column">
             <LeftHandNavList />
-            <LeftHandNavList />
-            <LeftHandNavList />
           </aside>
-          <article></article>
+          <article>hello from article</article>
         </section>
       </main>
       <Footer />

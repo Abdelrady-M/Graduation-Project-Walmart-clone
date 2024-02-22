@@ -49,9 +49,9 @@ export default function MultiCarousal({ title, desc }) {
 
   return (
     <>
-      <div style={{ paddingLeft: "60px" }}>
-        <h3 className="font-bold text-[15px]">{title}</h3>
-        <h3>{desc}</h3>
+      <div className="flex flex-col justify-between ms-4">
+        <h1 className="algin-start mb-4 font-bold text-xl">{title}</h1>
+        <h3 className="color-[#6b7280]">{desc}</h3>
       </div>
 
       <Carousel
