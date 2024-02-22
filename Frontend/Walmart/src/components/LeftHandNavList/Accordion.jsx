@@ -16,6 +16,7 @@ export default function Accordion({ feature, idx }) {
           toggleHandler(idx);
         }}
       >
+        {feature.Img && <img src={feature.Img} />}
         <span className="flex-auto text-base text-left">{feature.title}</span>
         <IoIosArrowDown />
       </button>
