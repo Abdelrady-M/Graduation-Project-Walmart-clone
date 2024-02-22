@@ -4,7 +4,7 @@
 
 
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Jost', sans-serif;
   font-weight: normal;
 }
 .slick-prev {
@@ -60,3 +60,4 @@
 .slick-slide{
   width:260px !important;
 }
+

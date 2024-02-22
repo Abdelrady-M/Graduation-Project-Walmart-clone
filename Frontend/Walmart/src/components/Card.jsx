@@ -2,8 +2,9 @@ import React from "react";
 import { CiHeart } from "react-icons/ci";
 import { AiOutlinePlus } from "react-icons/ai";
 
-const Card = ({ photo, title, price }) => {
+const Card = ({ photo, title, price, discount }) => {
     return (
+
         <div className="relative flex flex-col w-full h-[280px]">
             <img src={photo} alt="" className="w-[160px] h-[160px] rounded-[1rem]" />
             <div className="flex flex-col w-[13rem] mb-2">
@@ -27,3 +28,5 @@ const Card = ({ photo, title, price }) => {
 };
 
 export default Card;
+
+

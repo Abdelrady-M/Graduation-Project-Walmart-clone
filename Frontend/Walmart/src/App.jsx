@@ -6,6 +6,9 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import GroceriesEessentials from "./pages/GroceriesEssentials.jsx";
+import DetailsPage from "./pages/details/Details.jsx";
+
+
 
 const routes = createBrowserRouter([
   {
@@ -24,6 +27,10 @@ const routes = createBrowserRouter([
   {
     path: "/GrocerieEessentials",
     element: <GroceriesEessentials />,
+  },
+  {
+    path: "/details",
+    element: <DetailsPage />,
   },
 ]);
 const App = () => {
