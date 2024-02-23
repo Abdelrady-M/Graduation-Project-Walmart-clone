@@ -52,6 +52,13 @@ export default function Electronics() {
     },
     { title: "Audio", listItems: ["AirPods", "Sound Bars"] },
   ];
+
+  const brands = [
+    {
+      title: "Shop Brands",
+      listItems: ["Apple", "Beats", "Bose", "Chromebook"],
+    },
+  ];
   return (
     <>
       <Navbar />
@@ -63,11 +70,19 @@ export default function Electronics() {
           />
         </section>
         <section className="flex justify-between">
-          <aside className="h-100 relative w-25 d-flex flex-column">
+          <aside className="h-100 relative w-1/4 flex flex-col px-8">
             <LeftHandNavList items={features} section="Features Shop" />
             <LeftHandNavList items={categories} section="Categories" />
+            <LeftHandNavList items={brands} section="Featured Brands" />
           </aside>
-          <article>hello from article</article>
+
+          <article className="h-100 w-3/4 relative flex flex-col px-8">
+            <MultiCarousal
+              title="Apple Deals"
+              desc="Save on the gadgets you love, for less."
+        
+            />
+          </article>
         </section>
       </main>
       <Footer />
