@@ -8,21 +8,21 @@ import Video from "../assets/Walmart.mp4";
 
 
 const cards = [
-    { photo: costume, title: "Costume", price: "$17" },
-    { photo: jacket, title: "Costume", price: "$17" },
-    { photo: jacket2, title: "Costume", price: "$17" },
-    { photo: jacket3, title: "Costume", price: "$17" },
-    { photo: costume, title: "Costume", price: "$17" },
-    { photo: jacket, title: "Costume", price: "$17" },
-    { photo: jacket2, title: "Costume", price: "$17" },
-    { photo: jacket3, title: "Costume", price: "$17" },
-    { photo: costume, title: "Costume", price: "$17" },
-    { photo: jacket, title: "Costume", price: "$17" },
-    { photo: jacket2, title: "Costume", price: "$17" },
-    { photo: jacket3, title: "Costume", price: "$17" },
-    { photo: costume, title: "Costume", price: "$17" },
-    { photo: jacket, title: "Costume", price: "$17" },
-    { photo: jacket2, title: "Costume", price: "$17" },
+    { photo: costume, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
+    { photo: jacket, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
+    { photo: jacket2, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
+    { photo: jacket3, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
+    { photo: costume, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
+    { photo: jacket, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
+    { photo: jacket2, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
+    { photo: jacket3, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
+    { photo: costume, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
+    { photo: jacket, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
+    { photo: jacket2, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
+    { photo: jacket3, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
+    { photo: costume, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
+    { photo: jacket, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
+    { photo: jacket2, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
 ];
 const tittle = "Renew your everything"
 

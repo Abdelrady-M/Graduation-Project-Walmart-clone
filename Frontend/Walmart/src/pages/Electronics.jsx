@@ -52,7 +52,11 @@ export default function Electronics() {
     },
     { title: "Audio", listItems: ["AirPods", "Sound Bars"] },
   ];
-
+  const images = [
+    {
+      imgUrl: "https://i5.walmartimages.com/dfw/4ff9c6c9-b035/k2-_9c76b273-177b-485f-a2c4-7be90ce92515.v1.jpg?odnHeight=48&odnWidth=48&odnBg=FFFFFF"
+    }
+  ]
   const brands = [
     {
       title: "Shop Brands",
@@ -80,7 +84,7 @@ export default function Electronics() {
             <MultiCarousal
               title="Apple Deals"
               desc="Save on the gadgets you love, for less."
-        
+
             />
           </article>
         </section>

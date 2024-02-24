@@ -1,7 +1,15 @@
 import React from 'react';
 import InnerImageZoom from 'react-inner-image-zoom';
-
+import { CiHeart } from "react-icons/ci";
+import Accordion from '@mui/material/Accordion';
+import AccordionActions from '@mui/material/AccordionActions';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Button from '@mui/material/Button';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
+import Deals from '../../components/Deals';
+import Card from '../../components/Card';
 
 const Details = () => {
     return (
@@ -18,25 +26,23 @@ const Details = () => {
                 </ol>
             </nav>
             <section>
-                <div className='mainDetails container mx-auto flex items-center justify-between '>
+                <div className='mainDetails container mx-auto xl:flex  justify-between items-start relative '>
                     <div className='rightSide'>
                         <div className='imagesShow hidden md:flex items-center justify-between'>
                             <div className='rightBar flex flex-col items-center justify-center w-[117px] h-[117px] mr-20'>
-                                <div className='mb-5'>
+                                <div className='mb-5  p-2 hover:border border-blue-800 rounded'>
                                     <img src='https://i5.walmartimages.com/seo/ALROCKET-Air-Purifier-with-H13-True-HEPA-Filter-Remove-99-9-Smoke-Dust-Allergies-for-300-SQ-ft_60eb9e3f-5d5d-4306-bdc1-91ab7729a09d.8b95fc2d3f2ee96ea70df58ae9ae9178.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF' />
                                 </div>
-                                <div className='mb-5'>
+                                <div className='mb-5 hover:border border-blue-800 rounded'>
                                     <img src='https://i5.walmartimages.com/seo/ALROCKET-Air-Purifier-with-H13-True-HEPA-Filter-Remove-99-9-Smoke-Dust-Allergies-for-300-SQ-ft_60eb9e3f-5d5d-4306-bdc1-91ab7729a09d.8b95fc2d3f2ee96ea70df58ae9ae9178.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF' />
                                 </div>
-                                <div className='mb-5'>
+                                <div className='mb-5 hover:border border-blue-800 rounded'>
                                     <img src='https://i5.walmartimages.com/seo/ALROCKET-Air-Purifier-with-H13-True-HEPA-Filter-Remove-99-9-Smoke-Dust-Allergies-for-300-SQ-ft_60eb9e3f-5d5d-4306-bdc1-91ab7729a09d.8b95fc2d3f2ee96ea70df58ae9ae9178.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF' />
                                 </div>
-                                <div className='mb-5'>
+                                <div className='mb-5 hover:border border-blue-800 rounded'>
                                     <img src='https://i5.walmartimages.com/seo/ALROCKET-Air-Purifier-with-H13-True-HEPA-Filter-Remove-99-9-Smoke-Dust-Allergies-for-300-SQ-ft_60eb9e3f-5d5d-4306-bdc1-91ab7729a09d.8b95fc2d3f2ee96ea70df58ae9ae9178.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF' />
                                 </div>
-                                <div className=''>
-                                    <img src='https://i5.walmartimages.com/seo/ALROCKET-Air-Purifier-with-H13-True-HEPA-Filter-Remove-99-9-Smoke-Dust-Allergies-for-300-SQ-ft_60eb9e3f-5d5d-4306-bdc1-91ab7729a09d.8b95fc2d3f2ee96ea70df58ae9ae9178.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF' />
-                                </div>
+
                             </div>
                             <div className='middleBar'>
                                 <div className='w-[640px] h-[640px]'>
@@ -45,8 +51,92 @@ const Details = () => {
                                 </div>
                             </div>
                         </div>
+                        <div className='mt-20 mb-5'>
+                            <h1 className='font-bold text-[20px]'>At a glance</h1>
+                        </div>
+                        <div className='glance bg-[#f8f8f8] rounded p-5 flex flex-col md:flex-row'>
+                            <div className='w-[445px] border-r-2'>
+                                <div className='flex items-center gap-3 mb-3'>
+                                    <h1 className='text-[#515357] font-bold text-[14px]' >Screen size</h1>
+                                    <span className='text-[14px]'>16 in</span>
+                                </div>
+                                <div className='flex items-center gap-3 mb-2'>
+                                    <h1 className='text-[#515357] font-bold text-[14px]'>Screen size</h1>
+                                    <span className='text-[14px]'>16 in</span>
+                                </div>
+                                <div className='flex items-center gap-3'>
+                                    <h1 className='text-[#515357] font-bold text-[14px]'>Screen size</h1>
+                                    <span className='text-[14px]'>16 in</span>
+                                </div>
+
+                            </div>
+                            <div className=' ml-5'>
+                                <div className='flex items-center gap-3 mb-3'>
+                                    <h1 className='text-[#515357] font-bold text-[14px]'>Screen size</h1>
+                                    <span className='text-[14px]'>16 in</span>
+                                </div>
+                                <div className='flex items-center gap-3 mb-2'>
+                                    <h1 className='text-[#515357] font-bold text-[14px]'>Screen size</h1>
+                                    <span className='text-[14px]'>16 in</span>
+                                </div>
+                                <div className='flex items-center gap-3'>
+                                    <h1 className='text-[#515357] font-bold text-[14px]'>Screen size</h1>
+                                    <span className='text-[14px]'>16 in</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='ProductInfo'>
+                            <div className='mt-20 py-5'>
+                                <h1 className='font-bold text-[20px]'>About this item</h1>
+                            </div>
+                            <hr></hr>
+                            <div>
+                                <Accordion>
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel1-content"
+                                        id="panel1-header"
+                                    >
+                                        Product details
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                        Why choose our HEPA air purifiers?
+                                    </AccordionDetails>
+                                </Accordion>
+                                <Accordion>
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel2-content"
+                                        id="panel2-header"
+                                    >
+                                        About the brand
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                                        malesuada lacus ex, sit amet blandit leo lobortis eget.
+                                    </AccordionDetails>
+                                </Accordion>
+                                <Accordion defaultExpanded>
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel3-content"
+                                        id="panel3-header"
+                                    >
+                                        Specifications
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                                        malesuada lacus ex, sit amet blandit leo lobortis eget.
+                                    </AccordionDetails>
+
+                                </Accordion>
+                            </div>
+                            <div className='lg:w-[900px] mt-20'>
+                                <Deals />
+                            </div>
+                        </div>
                     </div>
-                    <div className='container mx-auto leftSide hidden lg:flex flex-col justify-center lg:w-[545px] border border-[#b7b7b7] rounded p-5'>
+                    <div className='leftSide fixed top-0 right-36 md:relative md:right-auto container mx-auto hidden md:flex flex-col justify-center lg:w-[500px] border border-[#b7b7b7] rounded p-5'>
                         <div>
                             <span class="py-1 px-2.5 mr-3 border-none rounded bg-indigo-100 text-[14px] text-indigo-800 font-medium">Best seller</span>
                             <span class="border border-gray-300  px-4 text-sm text-gray-700 py-0.5">
@@ -130,6 +220,16 @@ const Details = () => {
                                     <img src='https://i5.walmartimages.com/dfwrs/76316474-39c2/k2-_8deea800-0d44-4984-b1ce-5a3f12b192b7.v1.png' className='w-[30px] h-[30px]' />
                                     <span className='text-[14px] mt-1'>Delivery<br />Not available</span>
                                 </div>
+                            </div>
+                            <div className='mt-2 mb-3'>
+                                <h1 className='text-[14px]'> Delivery to <span className='text-[#2e2f32] text-[12px] font-bold underline '>Sacramento, 95829</span></h1>
+                            </div>
+                        </div>
+                        <hr></hr>
+                        <div className='mt-3'>
+                            <div className='flex items-center'>
+                                <CiHeart />
+                                <span className='underline ml-4 text-[14px] hover:no-underline cursor-pointer'>Add to list</span>
                             </div>
                         </div>
                     </div>
