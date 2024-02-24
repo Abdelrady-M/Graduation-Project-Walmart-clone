@@ -1,0 +1,19 @@
+/* Login.css */
+.login-container {
+  max-width: 400px;
+  margin: auto;
+}
+
+.login-form {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.login-input {
+  margin-bottom: 15px;
+}
+
+.login-error {
+  color: #ff0000;
+}
