@@ -7,6 +7,8 @@ import Register from "./pages/register";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import GroceriesEessentials from "./pages/GroceriesEssentials.jsx";
 import DetailsPage from "./pages/details/Details.jsx";
+import Details from "./pages/details/Details.jsx";
+import Home from "./pages/HomePage/Home.jsx";
 
 
 
@@ -14,8 +16,26 @@ const routes = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
+    children: [
+      {
+        path: "",
+        element: <Home />
+      },
+      {
+        path: "details",
+        element: <Details />
+      },
+      {
+        path: "/electronics",
+        element: <Electronics />
+      },
+      {
+        path: "/GrocerieEessentials",
+        element: <GroceriesEessentials />,
+      },
+    ]
   },
-  { path: "/electronics", element: <Electronics /> },
+
   {
     path: "/login",
     element: <Login />,
@@ -24,14 +44,7 @@ const routes = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
-  {
-    path: "/GrocerieEessentials",
-    element: <GroceriesEessentials />,
-  },
-  {
-    path: "/details",
-    element: <DetailsPage />,
-  },
+
 ]);
 const App = () => {
   return <RouterProvider router={routes} />;

@@ -54,7 +54,7 @@ export default function Electronics() {
   ];
   return (
     <>
-      <Navbar />
+
       <main className="container mx-auto">
         <section className="my-5">
           <MultiCarousal
@@ -70,7 +70,7 @@ export default function Electronics() {
           <article>hello from article</article>
         </section>
       </main>
-      <Footer />
+
     </>
   );
 }
