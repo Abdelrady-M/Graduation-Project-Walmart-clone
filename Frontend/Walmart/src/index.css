@@ -64,7 +64,27 @@
 .departSlide {
   display:flex !important;
 }
-/* .titleCat{
+.Accordion {
   display:flex !important;
-  align-items:start !important;
+}
+.shadow-1{
+  box-shadow: 0 0.0625rem 0.125rem 0.0625rem #00000026;
+}
+
+/* @media (min-width: 1850px)
+.rightSideCheckout {
+    display: flex;
+    postion: relative !important;
 } */
+
+@media (max-width: 1850px) {
+    .mainSection {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    .rightSideCheckout {
+        position: static !important; /* Changed from "none" to "static" */
+        right: 0 !important;
+        top: 0 !important;
+    }
+}

@@ -10,6 +10,7 @@ import Grocery from "./pages/Grocery.jsx";
 import DetailsPage from "./pages/details/Details.jsx";
 import Details from "./pages/details/Details.jsx";
 import Home from "./pages/HomePage/Home.jsx";
+import Cart from "./pages/Cart/Cart.jsx";
 
 
 
@@ -37,6 +38,10 @@ const routes = createBrowserRouter([
       {
         path: "/Grocery",
         element: <Grocery />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ]
   },

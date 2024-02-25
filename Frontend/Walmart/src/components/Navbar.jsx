@@ -119,7 +119,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            <div className="hidden bg-[#0071dc] mt-[1px] text-white px-3 py-0 lg:px-8 lg:flex items-center justify-between ">
+            <div className="hidden bg-[#0071dc] mt-[1px] text-white  py-0 lg:px-1 lg:flex items-center justify-between ">
                 <div className="flex flex-col md:flex-row items-center gap-2 ">
                     <div className="flex items-center gap-2 hover:underline">
                         <BsPhone />
@@ -137,7 +137,7 @@ const Navbar = () => {
                         </p>
                     </div>
                 </div>
-                <div className="text-white py-2 flex items-center gap-4 lg:text-[10px] ">
+                <div className="text-white xl:py-2 xl:flex items-center gap-4 lg:text-[10px] ">
                     <a href="#" className="hover:underline font-semibold text-[14px]">Deals</a>
                     <a href="#" className="hover:underline font-semibold text-[14px]">Grocery & Essentials</a>
                     <a href="#" className="hover:underline font-semibold text-[14px]">Easter</a>
