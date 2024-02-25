@@ -6,6 +6,7 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import GroceriesEessentials from "./pages/GroceriesEssentials.jsx";
+import Grocery from "./pages/Grocery.jsx";
 import DetailsPage from "./pages/details/Details.jsx";
 import Details from "./pages/details/Details.jsx";
 import Home from "./pages/HomePage/Home.jsx";
@@ -32,6 +33,10 @@ const routes = createBrowserRouter([
       {
         path: "/GrocerieEessentials",
         element: <GroceriesEessentials />,
+      },
+      {
+        path: "/Grocery",
+        element: <Grocery />,
       },
     ]
   },
