@@ -20,24 +20,21 @@ export const Login = () => {
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email"
                         {...register("email", { required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ })} />
-                    {errors.email && <p className="login-error">Invalid Email</p>}
+                    {errors.email && <p className="text-danger">Invalid Email</p>}
                 </Form.Group>
 
                 <Form.Group className="login-input" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <div>
+                    
                         <Form.Control type={visible ? "text" : "password"} placeholder="Password"
                             {...register('password', { required: true, minLength: 8 })} />
                         <div className='p-2' onClick={() => setVisible(!visible)}>
                             {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
-                        </div>
                     </div>
-                    {errors.password && <p className="login-error">Invalid Password</p>}
+                    {errors.password && <p className="text-danger">Invalid Password</p>}
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
+                <Button as="input" type="submit" value="Submit" />
             </Form>
         </div>
     );
