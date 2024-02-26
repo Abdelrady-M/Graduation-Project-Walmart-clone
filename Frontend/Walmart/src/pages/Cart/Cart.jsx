@@ -53,6 +53,9 @@ const Cart = () => {
                                         expandIcon={<ExpandMoreIcon />}
                                         aria-controls="panel1-content"
                                         id="panel1-header"
+                                        sx={{
+                                            backgroundColor: "#f2f8fd"
+                                        }}
                                     >
                                         <div className='flex items-center text-center'>
                                             <img src='https://i5.walmartimages.com/dfwrs/76316474-2775/k2-_3691ba8c-cbca-4439-9112-adb25c1b1803.v1.svg ' className='mr-5' />
@@ -85,6 +88,9 @@ const Cart = () => {
                                         expandIcon={<ExpandMoreIcon />}
                                         aria-controls="panel1-content"
                                         id="panel1-header"
+                                        sx={{
+                                            backgroundColor: "#f2f8fd"
+                                        }}
                                     >
                                         <div className='flex items-center'>
                                             <div className='mr-5'>
