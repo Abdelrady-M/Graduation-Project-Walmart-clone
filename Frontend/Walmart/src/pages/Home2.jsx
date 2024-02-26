@@ -1,5 +1,6 @@
 import CustomSlider from "../components/CustomSlider ";
 import Deals from "../components/Deals";
+import LeftHandNavList from "../components/LeftHandNavList/LeftHandNavList";
 // import CustomSlider from "../components/CustomSlider";
 
 
@@ -41,7 +42,7 @@ export default function Home2(){
 
 <div className="flex">
 <div className="w-1/8">
-                    <div className="flex flex-col items-center mb-8">
+                    {/* <div className="flex flex-col items-center mb-8">
                         <h2 className="pb-3 text-xl">Now Trending</h2>
                         <ul className="w-full pl-0 mt-0 list-unstyled ml-4 mr-3">
                             <li className="border-b-2 grid justify-center mt-4">Easter Meal</li>
@@ -81,7 +82,10 @@ export default function Home2(){
                             <li className="border-b-2 grid justify-center mt-4">Family Movie Night</li>
                             <li className="border-b-2 grid justify-center mt-4">Taco Shop</li>
                         </ul>
-                    </div>
+                    </div> */}
+
+<LeftHandNavList items={features} section="Features Shop" />
+
                 </div>
 <div className="w-3/4 m-8">
 <div className="border-1 shadow-md rounded-2xl"><img className="justify-center" style={{width :"100%"}} src="https://i5.walmartimages.com/dfw/4ff9c6c9-603e/k2-_710168df-eb48-46ac-b6fe-7c98ba7db9b6.v1.jpg?odnHeight=680&odnWidth=1208&odnBg=FFFFFF" alt="" />
