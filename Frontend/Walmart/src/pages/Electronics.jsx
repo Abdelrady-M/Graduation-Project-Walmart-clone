@@ -3,10 +3,16 @@ import MultiCarousal from "../components/MultiCarousal";
 import LeftHandNavList from "../components/LeftHandNavList/LeftHandNavList";
 import HeroCard from "../components/HeroCard";
 import CustomSlider from "../components/CustomSlider ";
+import ShopByCategory from "../components/ShopByCategory";
+
 import costume from "../assets/costume.jpg";
 import jacket from "../assets/jacket.jpg";
 import jacket2 from "../assets/2.jpg";
 import jacket3 from "../assets/3.jpg";
+import trending from "../assets/trending.jpg";
+import laptop1 from "../assets/laptop.png";
+import gift from "../assets/gift.webp";
+import gamers from "../assets/gamer.webp";
 
 export default function Electronics() {
   const features = [
@@ -104,8 +110,36 @@ export default function Electronics() {
           </aside>
 
           <article className="h-100 w-3/4 relative flex flex-col px-8">
+            <HeroCard
+              img={laptop1}
+              Title="Apple on save"
+              desc="Now's the time to score devices you want, for less."
+              style="flex"
+            />
             <CustomSlider mainTitle="Apple deals" cards={cards} />
-            <HeroCard />
+            <ShopByCategory />
+            <section className="relative overflow-hidden shadow-lg w-full h-100 flex flex-col my-8">
+              <div>
+                <img src={trending} alt="" />
+              </div>
+              <div className="flex justify-between items-baseline px-8 py-4">
+                <CustomSlider mainTitle="New & trending tech" cards={cards} />
+              </div>
+            </section>
+            <section className="flex">
+              <HeroCard
+                img={gift}
+                Title="Entertaining gift"
+                desc="Surprise them with tech goodies"
+                style="flex flex-col-reverse"
+              />
+              <HeroCard
+                img={gamers}
+                Title="Just for gamers"
+                desc="Level up with Easter with trending video games & gears"
+                style="flex flex-col-reverse"
+              />
+            </section>
           </article>
         </section>
       </main>
