@@ -12,8 +12,7 @@ import Details from "./pages/details/Details.jsx";
 import Home from "./pages/HomePage/Home.jsx";
 import Cart from "./pages/Cart/Cart.jsx";
 import Checkout from "./pages/Checkout/Checkout.jsx";
-
-
+import Fashion from "./pages/Fashion.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -22,15 +21,15 @@ const routes = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Home />
+        element: <Home />,
       },
       {
         path: "details",
-        element: <Details />
+        element: <Details />,
       },
       {
         path: "/electronics",
-        element: <Electronics />
+        element: <Electronics />,
       },
       {
         path: "/Grocery",
@@ -48,7 +47,8 @@ const routes = createBrowserRouter([
         path: "/checkout",
         element: <Checkout />,
       },
-    ]
+      { path: "/fashion", element: <Fashion /> },
+    ],
   },
 
   {
@@ -59,7 +59,6 @@ const routes = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
-
 ]);
 const App = () => {
   return <RouterProvider router={routes} />;
