@@ -131,13 +131,13 @@ export default function Electronics() {
                 img={gift}
                 Title="Entertaining gift"
                 desc="Surprise them with tech goodies"
-                style="flex flex-col-reverse"
+                style="flex"
               />
               <HeroCard
                 img={gamers}
                 Title="Just for gamers"
                 desc="Level up with Easter with trending video games & gears"
-                style="flex flex-col-reverse"
+                style="flex"
               />
             </section>
           </article>
