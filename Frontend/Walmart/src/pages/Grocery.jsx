@@ -100,7 +100,6 @@ export default function Grocery() {
                                 </p>
                             </div>
                             <div className="px-6 py-4">
-                                {/* <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#photography</span> */}
                                 <button className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
                                     Shop
                                 </button>
@@ -335,7 +334,8 @@ export default function Grocery() {
                             {cards3.map((card, index) => (
                                 <div key={index} className="w-1/3"><Card photo={card.photo} title={card.title} price={card.price} /></div>
                             ))}
-                        </div></div>
+                        </div>
+                        </div>
 
                     </div>
                 </div>
