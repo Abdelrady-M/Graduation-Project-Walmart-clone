@@ -8,6 +8,8 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import { MdPayments } from "react-icons/md";
+
 const Checkout = () => {
     return (
         <section className='h-[200vh] relative'>
@@ -178,7 +180,7 @@ const Checkout = () => {
                                         }}
                                     >
                                         <div className='flex items-center text-center'>
-                                            <img src='https://i5.walmartimages.com/dfwrs/76316474-2775/k2-_3691ba8c-cbca-4439-9112-adb25c1b1803.v1.svg ' className='mr-5' />
+                                            <MdPayments className='mr-5' />
                                             <h1 className='font-bold text-[24px] '>2. Payment method</h1>
                                         </div>
                                     </AccordionSummary>
