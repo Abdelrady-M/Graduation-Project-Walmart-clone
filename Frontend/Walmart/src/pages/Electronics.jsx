@@ -4,6 +4,7 @@ import LeftHandNavList from "../components/LeftHandNavList/LeftHandNavList";
 import HeroCard from "../components/HeroCard";
 import CustomSlider from "../components/CustomSlider ";
 import ShopByCategory from "../components/ShopByCategory";
+import ShopByPrice from "../components/ShopByPrice";
 
 import costume from "../assets/costume.jpg";
 import jacket from "../assets/jacket.jpg";
@@ -126,7 +127,19 @@ export default function Electronics() {
                 <CustomSlider mainTitle="New & trending tech" cards={cards} />
               </div>
             </section>
-            <section className="flex">
+            <section className="flex flex-col">
+              <div className="flex justify-between">
+                <div>
+                  <h1 className="algin-start mb-4 font-bold text-xl">
+                    Busket-building finds
+                  </h1>
+                </div>
+                <div>
+                  <a href="#" className="hover:underline">
+                    View all
+                  </a>
+                </div>
+              </div>
               <HeroCard
                 img={gift}
                 Title="Entertaining gift"
@@ -140,6 +153,7 @@ export default function Electronics() {
                 style="flex"
               />
             </section>
+            <ShopByPrice />
           </article>
         </section>
       </main>
