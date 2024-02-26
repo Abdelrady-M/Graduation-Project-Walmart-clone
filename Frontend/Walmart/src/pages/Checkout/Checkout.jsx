@@ -240,8 +240,7 @@ const Checkout = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='shadow-1 container w-[850px] h-[400px] p-8 rounded'>
-                    </div>
+
                 </div>
                 <div class='rightSideCheckout xl:w-[394px] shadow-1 sm:relative xl:fixed xl:top-1/4 xl:right-[25rem] flex flex-col rounded p-5'>
                     <div>
@@ -265,7 +264,7 @@ const Checkout = () => {
                             </div>
                             <div className='flex justify-between mb-3'>
                                 <h1 className='font-bold'>Taxes</h1>
-                                <span class="py-1 px-2.5 border-none rounded  bg-[#eaf3e6] text-[14px] ">Calculated at checkout
+                                <span class="py-1 px-2.5 border-none rounded  bg-[#eaf3e6] text-[14px] ">Pending
                                 </span>
                             </div>
                             <hr></hr>
