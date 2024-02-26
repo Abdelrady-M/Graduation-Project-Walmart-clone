@@ -4,11 +4,11 @@ import LeftHandNavList from "../components/LeftHandNavList/LeftHandNavList";
 import Card from "../components/Card";
 
 const cards = [
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-d626/k2-_303f18c5-d2b7-4ca0-af55-84b04a6578ed.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-d626/k2-_303f18c5-d2b7-4ca0-af55-84b04a6578ed.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-d626/k2-_303f18c5-d2b7-4ca0-af55-84b04a6578ed.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-d626/k2-_303f18c5-d2b7-4ca0-af55-84b04a6578ed.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-d626/k2-_303f18c5-d2b7-4ca0-af55-84b04a6578ed.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
+    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
+    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
+    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
+    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
+    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
 
 ];
 
