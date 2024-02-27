@@ -1,0 +1,13 @@
+{
+  "name": "graduation-project-walmart-clone",
+  "version": "1.0.0",
+  "description": "The project builds RESTful APIs using Node.js, Express and Mongoose, ...",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
