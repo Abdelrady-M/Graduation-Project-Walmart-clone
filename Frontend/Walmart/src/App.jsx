@@ -2,7 +2,7 @@ import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AppLayout from "./AppLayout";
 import Electronics from "./pages/Electronics";
-import Register from "./pages/register";
+import Register from "./pages/register/register.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import GroceriesEessentials from "./pages/GroceriesEssentials.jsx";
 import DetailsPage from "./pages/details/Details.jsx";

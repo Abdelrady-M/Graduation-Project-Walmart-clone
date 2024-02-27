@@ -1,0 +1,338 @@
+.h {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    font-weight: bold;
+}
+
+.fontp {
+    text-align: center;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #2e2f32;
+    font-family: Arial, sans-serif;
+}
+
+.f {
+    font-size: .875rem;
+    margin-left: 0.25rem;
+    font-weight: 700;
+    font-family: Arial, sans-serif;
+}
+
+.div2 {
+    flex-direction: column;
+}
+
+.div2 p {
+    font-size: 1rem;
+    color: gray;
+}
+
+.div2 div {
+    font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.div2 span {
+    font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+    box-sizing: inherit;
+    color: #74767c;
+    margin-top: 0;
+    font-size: 1rem;
+}
+
+.buttonSub {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    padding: 0 1.5rem;
+    font-size: 1rem;
+    height: 2.5rem;
+    display: flex;
+    width: 100%;
+
+    background: #0071dc;
+    color: #fff;
+    font-weight: 700;
+    align-items: center;
+    border: 0;
+    border-radius: 62.5rem;
+    cursor: pointer;
+    font-family: Helvetica, Arial, sans-serif;
+    justify-content: center;
+    text-decoration: none;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.para {
+    box-sizing: border-box;
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 1.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #2e2f32;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    margin-left: .5rem;
+    margin-bottom: .25rem;
+    margin-top: .25rem;
+}
+
+
+.in {
+    background: #0000;
+    border: 0;
+    box-sizing: border-box;
+    color: #000;
+    flex: 1 1 auto;
+    font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin: 0;
+    min-width: 0;
+    padding: 1rem
+}
+
+.indiv {
+    align-items: center;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 1px #909196;
+    display: flex
+}
+
+.inContainer {
+    font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    padding-bottom: .5rem;
+}
+
+.showS {
+    font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+    box-sizing: inherit;
+    display: inline-block;
+    flex: none;
+    padding: 0 .75rem 0 .25rem;
+}
+
+.showbtn {
+    box-sizing: inherit;
+    margin: 0;
+    overflow: visible;
+    text-transform: none;
+    appearance: button;
+    border-style: none;
+    border-width: 0;
+    font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+    line-height: 1;
+    color: #000;
+    background-color: initial;
+    padding: 0;
+    text-decoration: underline;
+    text-align: center;
+    font-size: .875rem;
+}
+
+.checkLabel {
+    box-sizing: inherit;
+    align-items: flex-start;
+    color: #515357;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    min-height: 20px;
+    position: relative;
+    font-weight: 700;
+}
+
+.checkin {
+    font-family: sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    overflow: visible;
+    appearance: none;
+    cursor: pointer;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    top: 1px;
+    width: 50px;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.v-top {
+    font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+    box-sizing: inherit;
+    color: #74767c;
+    margin-left: .5rem;
+    font-size: .875rem;
+    vertical-align: top;
+}
+.para0{
+    font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+        box-sizing: border-box;
+        color: #74767c;
+        margin-top: 0;
+        font-size: .875rem;
+}
+
+/* .i {
+    color: #515357;
+    cursor: pointer;
+    font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 1px #000;
+    box-sizing: initial;
+    display: inline-block;
+    flex-shrink: 0;
+    height: 18px;
+    margin: 1px 0 0;
+    pointer-events: none;
+    position: relative;
+    width: 18px;
+    z-index: 1;
+    margin-right: 12px;
+} */
+
+/* .add-i {
+    appearance: none;
+    cursor: pointer;
+    height: 18px;
+    left: 0;
+    position: absolute;
+    top: 1px;
+    width: 18px
+}
+
+
+.i {
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 1px #000;
+    box-sizing: initial;
+    display: inline-block;
+    flex-shrink: 0;
+    height: 18px;
+    margin: 1px 0 0;
+    pointer-events: none;
+    position: relative;
+    width: 18px;
+    z-index: 1
+}
+
+.add-i .i {
+    background: #000;
+}
+
+.add-i .i::before {
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    content: "";
+    display: inline-flex;
+    height: 11px;
+    justify-content: center;
+    left: 6px;
+    position: absolute;
+    top: 1px;
+    transform: rotate(45deg);
+    width: 4px
+}
+
+.focus .i,
+.hover .i,
+.checkLabel:hover .i,
+.checkin::after .i {
+    box-shadow:inset 0 0 0 2px #000;
+} */
+
+.foot {
+
+    font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-color: #f1f1f2;
+    display: flex;
+    align-items: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1280px;
+
+}
+
+li {
+    display: inline-block;
+
+}
+
+.footbtn {
+    height: 72px;
+    color: rgb(70, 71, 74);
+    margin-left: 0px;
+    font-size: 0.875rem;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    padding: 0;
+    background-color: initial;
+    line-height: 1.5;
+    font-family: 'Bogle', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    display: inline-block;
+    border-style: none;
+    border-width: 0;
+
+}
+
+.D {
+    display: inline-block;
+}
+
+.list {
+    list-style-type: none;
+}
+
+.u {
+    font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    line-height: 1.25;
+    color: #46474a;
+    padding-bottom: 1.75rem;
+    padding-top: .25rem;
+    margin-top: 1.5rem;
+    font-size: .75rem;
+}
+
+.footspan {
+    font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+    box-sizing: inherit;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+span {
+    color: #46474a;
+    text-align: inherit;
+
+}
+
+.tag {
+    text-align: center;
+}

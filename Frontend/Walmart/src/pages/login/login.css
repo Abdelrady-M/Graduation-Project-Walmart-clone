@@ -80,16 +80,6 @@
         margin-right: auto;
         max-width: 1280px;
 
-  /* font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
-  box-sizing: border-box;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-color: #f1f1f2;
-  display: flex;
-  align-items: flex-start;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1280px; */
 }
 
 li {
@@ -118,6 +108,23 @@ li {
 }
 .list{
   list-style-type: none;
+}
+.u{
+      font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+        box-sizing: border-box;
+        flex-shrink: 0;
+        line-height: 1.25;
+        color: #46474a;
+        padding-bottom: 1.75rem;
+        padding-top: .25rem;
+        margin-top: 1.5rem;
+        font-size: .75rem;
+}
+.footspan{
+    font-family: Bogle, Helvetica Neue, Helvetica, Arial, sans-serif;
+      box-sizing: inherit;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
 }
 span{
   color: #46474a;

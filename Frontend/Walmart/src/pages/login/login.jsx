@@ -1,17 +1,14 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-
-
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
+//import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
+//import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 import { useForm } from 'react-hook-form';
 import './login.css'; // Import the CSS file
 
 export const Login = () => {
     const { register, handleSubmit, formState: { errors }, watch } = useForm({ mode: 'onChange' });
-    const [visible, setVisible] = useState(false);
+    //const [visible, setVisible] = useState(false);
 
     // to handle api
     const onSubmit = data => console.log(data);
@@ -46,20 +43,20 @@ export const Login = () => {
 
             </Row>
         </Container>
-
+<span className='footspan'>
         <footer  className="foot" style={{ maxWidth: '1280px' }}>
             <div className=" ml-0 mt-4 pb-5 pt-1  flex-shrink-0">© 2024 Walmart. All Rights Reserved.</div>
-            <ul className="list mt-4 mb-0" style={{ flexBasis: '100%' }}>
-                <li className=" D ml-4">
+            <ul className="u list mt-4 mb-0" style={{ flexBasis: '100%' }}>
+                <li className="D ml-2">
                     <button className=" footbtn bg-transparent mb-3 ml-3 ml-4-l" type="button" style={{ color: 'rgb(70, 71, 74)', marginLeft: '0px' }}>Give feedback</button>
                 </li>
-                <li className=" D ml-4">
+                <li className=" D ml-2">
                     <a className="no-underline tag mb-3 flex items-center" target="_blank" href="https://corporate.walmart.com/privacy-security/california-privacy-rights">
                         <span>CA Privacy Rights</span>
                     </a>
                 </li>
                 <li className="D ml-4">
-                    <a className=" no-underline tag mb-3 flex items-center" target="_blank" href="https://www.walmart.com/account/api/ccpa-intake?native=false&amp;app=gm&amp;type=sod">
+                    <a className="no-underline tag mb-3 flex items-center" target="_blank" href="https://www.walmart.com/account/api/ccpa-intake?native=false&amp;app=gm&amp;type=sod">
                         <img loading="lazy" width="29" height="14" src="//i5.walmartimages.com/dfwrs/76316474-d730/k2-_3c5ba298-4f19-46be-9fc3-ac49225d19bd.v1.png" className="mr-1" />
                         <span className="self-baseline">Your Privacy Choices</span>
                     </a>
@@ -80,10 +77,10 @@ export const Login = () => {
                     <a className="no-underline mb-3 flex items-center" target="_blank" href="https://corporate.walmart.com/california-transparency">
                         <span className="">California Supply Chains Act</span>
                     </a>
-                </li>
+                    </li>
             </ul>
         </footer>
-
+        </span>
 
 
 
@@ -92,29 +89,6 @@ export const Login = () => {
 
 
     </>
-        // <div classNameName="login-container">
-        //     <Form classNameName="login-form" onSubmit={handleSubmit(onSubmit)}>
-        //         <Form.Group classNameName="login-input" controlId="formBasicEmail">
-        //             <Form.Label>Email address</Form.Label>
-        //             <Form.Control type="email" placeholder="Enter email"
-        //                 {...register("email", { required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ })} />
-        //             {errors.email && <p classNameName="text-danger">Invalid Email</p>}
-        //         </Form.Group>
-
-        //         <Form.Group classNameName="login-input" controlId="formBasicPassword">
-        //             <Form.Label>Password</Form.Label>
-
-        //                 <Form.Control type={visible ? "text" : "password"} placeholder="Password"
-        //                     {...register('password', { required: true, minLength: 8 })} />
-        //                 <div classNameName='p-2' onClick={() => setVisible(!visible)}>
-        //                     {visible ? <EyeOutlined /> : <EyeInvisibleOutlined />}
-        //             </div>
-        //             {errors.password && <p classNameName="text-danger">Invalid Password</p>}
-        //         </Form.Group>
-
-        //         <Button as="input" type="submit" value="Submit" />
-        //     </Form>
-        // </div>
     );
 }
 
