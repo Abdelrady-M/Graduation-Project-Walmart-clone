@@ -38,7 +38,7 @@ export const Login = () => {
                         <Form.Label className='f'>Email address</Form.Label>
                         <Form.Control type="email" placeholder="name@example.com" as="textarea" rows={3} />
                     </Form.Group>
-                    <button className='btn' type="submit" id="login-continue-button" >Continue</button>
+                    <button className='buttonSub' type="submit" id="login-continue-button" >Continue</button>
                     <p className="para">Securing your personal information is our priority.
                         <br /><a className="dark-gray a" target="_blank" href="https://corporate.walmart.com/privacy-security">See our privacy measures.
                         </a></p>
