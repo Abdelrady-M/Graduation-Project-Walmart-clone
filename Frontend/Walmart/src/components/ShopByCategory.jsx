@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function ShopByCategory({ categories }) {
-  console.log(categories[1].Img);
   return (
     <>
       <header className="flex justify-between items-baseline">

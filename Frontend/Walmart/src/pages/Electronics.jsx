@@ -15,7 +15,22 @@ import laptop1 from "../assets/laptop.png";
 import gift from "../assets/gift.webp";
 import gamers from "../assets/gamer.webp";
 
+import phones from "../assets/phones.webp";
+import savings from "../assets/savings.webp";
+import games from "../assets/games.webp";
+import tvs from "../assets/TV.webp";
+import tablets from "../assets/tablets.webp";
+import laptopp from "../assets/laptoop.webp";
+
 export default function Electronics() {
+  const category = [
+    { Img: { savings }, title: "Tech savings", category: "savings" },
+    { Img: { phones }, title: "Cell phones", category: "phones" },
+    { Img: { games }, title: "Video games", category: "games" },
+    { Img: { tvs }, title: "Smart TVs", category: "tvs" },
+    { Img: { tablets }, title: "Tablets", category: "tablets" },
+    { Img: { laptopp }, title: "Computers", category: "laptopp" },
+  ];
   const features = [
     { title: "Deals", listItems: ["Tech Deals", "Tech Value Deals"] },
     { title: "Tax Prep", listItems: ["Tax Prep"] },
@@ -118,7 +133,7 @@ export default function Electronics() {
               style="flex"
             />
             <CustomSlider mainTitle="Apple deals" cards={cards} />
-            <ShopByCategory />
+            <ShopByCategory categories={category} />
             <section className="relative overflow-hidden shadow-lg w-full h-100 flex flex-col my-8">
               <div>
                 <img src={trending} alt="" />
