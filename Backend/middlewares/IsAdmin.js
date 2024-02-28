@@ -1,7 +1,8 @@
+
 const jwt = require('jsonwebtoken');
 const { promisify } = require('util');
 const dotenv = require('dotenv');
-const userModel = require('../models/usersModel'); // Import your user model
+const userModel = require('../models/usersModel');
 
 dotenv.config();
 
@@ -16,15 +17,13 @@ const isAdmin = async (req, res, next) => {
         const decoded = await promisify(jwt.verify)(token, process.env.ACCESS_TOKEN_SECRET);
 
         if (decoded) {
-            // Query based on user_id as a number
-            const user = await userModel.findOne({ user_id: parseInt(decoded.user_id) });
-            console.log(user);
+            // Query based on _id
+            const user = await userModel.findById(decoded._id);
 
             if (user && user.role === 'admin') {
-                req.user_id = Number(decoded.user_id);
+                req.userId = decoded._id
                 next();
             } else {
-                // User doesn't have 'admin' role or user not found, send forbidden status
                 return res.status(403).json({ message: 'Permission denied. Admin role required.' });
             }
         }

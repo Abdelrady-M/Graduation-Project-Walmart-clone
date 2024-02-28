@@ -25,19 +25,21 @@ const inventoryRouter = require('./routes/inventoryRouts')
 app.use(express.json());
 app.use(cors());
 //routs for All Project routes
+// Routes for All Project routes
 app.use("/Carts", carts);
-app.use("./Coupons", coupons);
+app.use("/Coupons", coupons);
 app.use("/Categories", categories);
-app.use("./subcategory", subcategory);
+app.use("/subcategory", subcategory);
 app.use("/users", usersRouts);
 app.use("/products", productsRouts);
 app.use("/reviews", reviewRouts);
 app.use("/payment", PaymentRouts);
 app.use("/wishlist", wishlistRouts);
-app.use(('/orders'),ordersRouter)
-app.use(('/ProductRatings'),prodRatingRouter)
-app.use(('/deliveryTraking'),deliveryTrakingRouter)
-app.use(('/inventory'),inventoryRouter)
+app.use("/orders", ordersRouter);
+app.use("/ProductRatings", prodRatingRouter);
+app.use("/deliveryTraking", deliveryTrakingRouter);
+app.use("/inventory", inventoryRouter);
+
 //mongoose database
 mongoose
   .connect(process.env.MONGOOSEURL)
@@ -53,8 +55,9 @@ app.use("*", (req, res, next) => {
   res.status(404).json({ message: "Not Found path" });
 });
 // error handling
-app.use((err, res, req, next) => {
-  res.status(500).json({ message: "routs not found" });
+app.use((err, req, res, next) => {
+  console.error("Error:", err); // Log the error for debugging purposes
+  res.status(500).json({ message: "Internal Server Error" });
 });
 //listening
 app.listen(process.env.PORT, () => {

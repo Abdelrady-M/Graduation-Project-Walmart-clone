@@ -1,21 +1,8 @@
 const Product = require('../models/productsModel');
-const Category = require('../models/categoriesModel');
-const mongoose = require('mongoose');
-const User = require('../models/usersModel');
 
 const getAllProducts = async (req, res) => {
     try {
-        const productsList = await Product.find().lean();
-        const userIds = productsList.map(product => product.userId);
-        const users = await User.find({ user_id: { $in: userIds } }).lean();
-        const usersMap = {};
-        users.forEach(user => {
-            usersMap[user.user_id] = user;
-        });
-        productsList.forEach(product => {
-            product.userId = usersMap[product.userId];
-        });
-
+        const productsList = await Product.find()
         return res.json(productsList);
     } catch (error) {
         res.status(500).json({ message: "Error fetching products" });
@@ -26,19 +13,12 @@ const getAllProducts = async (req, res) => {
 
 const createProduct = async (req, res) => {
     try {
-        const newProduct = req.body;
-        const productCount = await Product.countDocuments();
+        const { userId } = req; // Assuming userId is set by your authentication middleware
 
-        // Ensure req.user_id is present and convert it to a number
-        if (!req.user_id) {
-            return res.status(401).json({ message: 'Access denied. User not authenticated.' });
-        }
-
-        newProduct.product_id = productCount + 1;
-        newProduct.userId = Number(req.user_id);  // Add userId to newProduct
+        // Assuming req.body contains product details
+        const newProduct = { ...req.body, userId: userId };
 
         const createdProduct = await Product.create(newProduct);
-
         res.status(201).json(createdProduct);
     } catch (error) {
         console.error("Error creating product:", error);
@@ -49,10 +29,11 @@ const createProduct = async (req, res) => {
 
 
 
+
 const getProductById = async (req, res) => {
     const id = req.params.id;
     try {
-        const foundProduct = await Product.findOne({ product_id: id });
+        const foundProduct = await Product.findById(id);
 
         if (!foundProduct) {
             return res.status(404).json({ error: "Product not found" });
@@ -64,12 +45,12 @@ const getProductById = async (req, res) => {
     }
 };
 const editProduct = async (req, res) => {
-    const productId = parseInt(req.params.id, 10);
+    const productId = req.params.id;
     const updateData = req.body;
 
     try {
-        const updatedProduct = await Product.findOneAndUpdate(
-            { product_id: productId },
+        const updatedProduct = await Product.findByIdAndUpdate(
+            productId,
             { $set: updateData },
             { new: true }
         );
@@ -78,7 +59,7 @@ const editProduct = async (req, res) => {
             return res.status(404).json({ error: 'Product not found' });
         }
 
-        res.status(200).json({ updatedProduct });
+        res.status(200).json(updatedProduct);
     } catch (error) {
         console.error("Error:", error.message);
         res.status(500).json({ error: error.message });
@@ -87,11 +68,12 @@ const editProduct = async (req, res) => {
 
 
 
+
 const deleteProduct = async (req, res) => {
-    const productId = parseInt(req.params.id, 10);
+    const productId = req.params.id;
 
     try {
-        const product = await Product.findOneAndDelete({ product_id: productId });
+        const product = await Product.findByIdAndDelete(productId);
 
         if (!product) {
             return res.status(404).json({ error: 'Product not found' });
@@ -103,7 +85,6 @@ const deleteProduct = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
-
 
 
 // const getProductsByCategory = async (req, res) => {

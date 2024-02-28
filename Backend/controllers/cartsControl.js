@@ -1,7 +1,6 @@
 const CartsModel = require("../models/cartsModel");
 const Product = require("../models/productsModel");
 const Order = require("../models/ordersModel");
-//middleware catch error
 const asyncHandler = require("express-async-handler");
 
 exports.addItemToCart = asyncHandler(async (req, res) => {
@@ -42,7 +41,7 @@ exports.updateCartItemQuantity = asyncHandler(async (req, res) => {
 exports.removeItemFromCart = asyncHandler(async (req, res) => {
   const { cartItemId } = req.body;
 
-  const cart = await Cart.findOneAndUpdate(
+  const cart = await CartsModel.findOneAndUpdate(
     { "items._id": cartItemId },
     { $pull: { items: { _id: cartItemId } } },
     { new: true }
@@ -85,34 +84,36 @@ exports.calculateCartTotal = asyncHandler(async (req, res) => {
 });
 
 exports.proceedToCheckout = asyncHandler(async (req, res) => {
-  const cart = await CartsModel.findOne({ user: req.user._id });
+  try {
+    const cart = await CartsModel.findOne({ user: req.user._id });
 
-  if (!cart || cart.items.length === 0) {
-    return res.status(400).json({ message: "Cart is empty" });
+    if (!cart || cart.items.length === 0) {
+      return res.status(400).json({ message: "Cart is empty" });
+    }
+
+    const order = new Order({
+      user: req.user._id,
+      items: cart.items.map((item) => ({
+        product: item.product,
+        quantity: item.quantity,
+        price: item.price,
+      })),
+      total: cart.items.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+      ),
+    });
+
+    await order.save();
+
+    await CartsModel.findOneAndUpdate(
+      { user: req.user._id },
+      { $set: { items: [] } }
+    );
+
+    res.json(order);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal Server Error" });
   }
-
-  // Create an order based on the items in the cart
-  const order = new Order({
-    user: req.user._id,
-    items: cart.items.map((item) => ({
-      product: item.product,
-      quantity: item.quantity,
-      price: item.price,
-    })),
-    total: cart.items.reduce(
-      (acc, item) => acc + item.price * item.quantity,
-      0
-    ),
-  });
-
-  // Save the order to the database
-  await order.save();
-
-  // Clear the user's cart
-  await CartsModel.findOneAndUpdate(
-    { user: req.user._id },
-    { $set: { items: [] } }
-  );
-
-  res.json(order);
 });

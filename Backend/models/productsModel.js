@@ -1,14 +1,8 @@
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
-    product_id: {
-        type: Number,
-        required: true,
-        unique: true
-    },
     userId: {
-        type: mongoose.Schema.Types.Number, // Corrected type
-        // type: Number,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Users",
         required: true,
     },
@@ -29,14 +23,14 @@ const productSchema = new mongoose.Schema({
         required: true,
     },
     subCategory: {
-        // type: mongoose.Schema.Types.ObjectId,
-        type: Number,
-        ref: "Categories",
-        required: true,
+        type: String, // Change to String type
     },
     manufacturer: {
         type: String,
         required: true,
+    },
+    rating: {
+        type: Number,
     },
     images: [
         {
@@ -49,8 +43,7 @@ const productSchema = new mongoose.Schema({
 },
     {
         timestamps: true, collection: 'Products'
-    }
-);
+    });
 
 const productModel = mongoose.model('Products', productSchema);
 

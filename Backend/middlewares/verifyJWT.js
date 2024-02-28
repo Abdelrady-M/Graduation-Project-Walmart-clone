@@ -13,7 +13,7 @@ const verifyToken = async (req, res, next) => {
 
     try {
         const decoded = await promisify(jwt.verify)(token, process.env.ACCESS_TOKEN_SECRET);
-        req.user_id = decoded.user_id;
+        req.userId = decoded._id; // Change to _id
         next();
     } catch (error) {
         return res.status(403).json({ message: 'Invalid token.' });

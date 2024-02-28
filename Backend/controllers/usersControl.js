@@ -16,9 +16,6 @@ const getAllUsers = async (req, res) => {
 const storeNewUser = async (req, res) => {
     try {
         let newUser = req.body;
-        const userCount = await user.countDocuments();
-        console.log('User Count:', userCount);
-        newUser.user_id = userCount + 1;
         newUser = await user.create(newUser);
         res.status(201).json({ data: newUser });
     } catch (err) {
@@ -33,46 +30,49 @@ const storeNewUser = async (req, res) => {
 };
 
 const getUserById = async (req, res) => {
-    const { user_id } = req.params;
+    const { _id } = req.params;
 
     try {
-        const userRecord = await user.findOne(user_id);
+        const userRecord = await user.findOne({ _id });
 
         if (!userRecord) {
             return res.status(404).json({ error: 'User not found' });
         }
 
-        res.status(201).json(userRecord);
+        res.status(200).json(userRecord);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 };
 
 const editUser = async (req, res) => {
-    const userId = parseInt(req.params.id, 10);
+    const userId = req.params.id; // Assuming the id parameter is _id
     const update = req.body;
 
     try {
         const editedUser = await user.findOneAndUpdate(
-            { user_id: userId },
+            { _id: userId }, // Change user_id to _id
             { $set: update },
             { new: true, runValidators: true }
         );
+
         if (editedUser) {
             res.status(200).json({ message: 'User edited successfully', user: editedUser });
         } else {
             res.status(404).json({ message: 'User not found' });
         }
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        // Error handling
     }
 };
 
+
+
 const deleteUser = async (req, res) => {
-    const userId = parseInt(req.params.id, 10);
+    const userId = req.params.id; // Assuming the id parameter is _id
 
     try {
-        const deletedUser = await user.findOneAndDelete({ user_id: userId });
+        const deletedUser = await user.findOneAndDelete({ _id: userId }); // Change user_id to _id
 
         if (!deletedUser) {
             return res.status(404).json({ error: 'User not found' });
@@ -80,9 +80,10 @@ const deleteUser = async (req, res) => {
 
         res.json({ message: 'User account deleted successfully' });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        // Error handling
     }
 };
+
 
 const login = async function (req, res, next) {
     const { email, password_hash } = req.body;
@@ -104,7 +105,7 @@ const login = async function (req, res, next) {
 
         const token = jwt.sign({
             email: userRecord.email,
-            user_id: userRecord.user_id,
+            _id: userRecord._id,
         }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1h" });
 
         res.status(200).json({ token: token });
