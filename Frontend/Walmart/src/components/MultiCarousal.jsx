@@ -56,7 +56,7 @@ export default function MultiCarousal({ title, desc }) {
 
       <Carousel
         responsive={responsive}
-        className="md:w-max xl:w-full gap-4 mt-4 mx-auto"
+        className="md:w-max xl:w-full mt-4 mx-auto"
       >
         {cards.map((card, index) => (
           <div key={index} className="my-4">
