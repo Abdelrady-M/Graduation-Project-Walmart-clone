@@ -1,15 +1,15 @@
 import React from "react";
-import HeroCard from "./../components/HeroCard";
-import ShopByCategory from "./../components/ShopByCategory";
-import fashion from "../assets/HeroFashion.jpg";
-import girls from "../assets/kidsFashion.webp";
-import boys from "../assets/boysFashion.webp";
-import baby from "../assets/baby.webp";
-import men from "../assets/men.webp";
-import sheos from "../assets/shoes.webp";
-import women from "../assets/women's.webp";
-import womenPlus from "../assets/womenPlus.webp";
-import young from "../assets/young.webp";
+import HeroCard from "../../components/HeroCard";
+import ShopByCategory from "../../components/ShopByCategory";
+import fashion from "../../assets/HeroFashion.jpg";
+import girls from "../../assets/kidsFashion.webp";
+import boys from "../../assets/boysFashion.webp";
+import baby from "../../assets/baby.webp";
+import men from "../../assets/men.webp";
+import sheos from "../../assets/shoes.webp";
+import women from "../../assets/women's.webp";
+import womenPlus from "../../assets/womenPlus.webp";
+import young from "../../assets/young.webp";
 // import womenPlus from "../assets/womenPlus.webp";
 
 export default function Fashion() {

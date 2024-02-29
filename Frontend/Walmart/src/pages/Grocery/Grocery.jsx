@@ -1,6 +1,6 @@
 import React from "react";
-import Deals from "../components/Deals";
-import Card from "../components/Card";
+import Deals from "../../components/Deals";
+import Card from "../../components/Card";
 
 const cards = [
     { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-d626/k2-_303f18c5-d2b7-4ca0-af55-84b04a6578ed.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },

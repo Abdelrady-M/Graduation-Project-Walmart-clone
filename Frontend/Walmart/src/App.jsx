@@ -1,12 +1,13 @@
 import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AppLayout from "./AppLayout";
-import Electronics from "./pages/Electronics";
-import Grocery from "./pages/Grocery.jsx";
-import Home2 from "./pages/Home2.jsx";
+import Electronics from "./pages/Electronics/Electronics.jsx";
+import Grocery from "./pages/Grocery/Grocery.jsx";
+import Home2 from "./pages/Home2/Home2.jsx";
+import PatioGarden from "./pages/PatioGarden/PatioGarden.jsx";
 import Cart from "./pages/Cart/Cart.jsx";
 import Checkout from "./pages/Checkout/Checkout.jsx";
-import Fashion from "./pages/Fashion.jsx";
+import Fashion from "./pages/Fashion/Fashion.jsx";
 import Details from "./pages/details/Details.jsx";
 import Home from "./pages/HomePage/Home.jsx";
 
@@ -35,6 +36,10 @@ const routes = createBrowserRouter([
       {
         path: "/Home2",
         element: <Home2 />,
+      },
+      {
+        path: "/PatioGarden",
+        element: <PatioGarden />,
       },
       {
         path: "/cart",

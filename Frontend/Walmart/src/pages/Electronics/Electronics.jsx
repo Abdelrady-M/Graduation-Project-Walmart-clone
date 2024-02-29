@@ -1,26 +1,26 @@
 import React from "react";
-import MultiCarousal from "../components/MultiCarousal";
-import LeftHandNavList from "../components/LeftHandNavList/LeftHandNavList";
-import HeroCard from "../components/HeroCard";
-import CustomSlider from "../components/CustomSlider ";
-import ShopByCategory from "../components/ShopByCategory";
-import ShopByPrice from "../components/ShopByPrice";
+import MultiCarousal from "../../components/MultiCarousal";
+import LeftHandNavList from "../../components/LeftHandNavList/LeftHandNavList";
+import HeroCard from "../../components/HeroCard";
+import CustomSlider from "../../components/CustomSlider ";
+import ShopByCategory from "../../components/ShopByCategory";
+import ShopByPrice from "../../components/ShopByPrice";
 
-import costume from "../assets/costume.jpg";
-import jacket from "../assets/jacket.jpg";
-import jacket2 from "../assets/2.jpg";
-import jacket3 from "../assets/3.jpg";
-import trending from "../assets/trending.jpg";
-import laptop1 from "../assets/laptop.png";
-import gift from "../assets/gift.webp";
-import gamers from "../assets/gamer.webp";
+import costume from "../../assets/costume.jpg";
+import jacket from "../../assets/jacket.jpg";
+import jacket2 from "../../assets/2.jpg";
+import jacket3 from "../../assets/3.jpg";
+import trending from "../../assets/trending.jpg";
+import laptop1 from "../../assets/laptop.png";
+import gift from "../../assets/gift.webp";
+import gamers from "../../assets/gamer.webp";
 
-import phones from "../assets/phones.webp";
-import savings from "../assets/savings.webp";
-import games from "../assets/games.webp";
-import tvs from "../assets/TV.webp";
-import tablets from "../assets/tablets.webp";
-import laptopp from "../assets/laptoop.webp";
+import phones from "../../assets/phones.webp";
+import savings from "../../assets/savings.webp";
+import games from "../../assets/games.webp";
+import tvs from "../../assets/TV.webp";
+import tablets from "../../assets/tablets.webp";
+import laptopp from "../../assets/laptoop.webp";
 
 export default function Electronics() {
   const category = [
