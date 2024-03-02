@@ -10,7 +10,7 @@ import Checkout from "./pages/Checkout/Checkout.jsx";
 import Fashion from "./pages/Fashion/Fashion.jsx";
 import Details from "./pages/details/Details.jsx";
 import Home from "./pages/HomePage/Home.jsx";
-
+import Beauty from "./pages/Beauty/Beauty.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -50,10 +50,9 @@ const routes = createBrowserRouter([
         element: <Checkout />,
       },
       { path: "/fashion", element: <Fashion /> },
+      { path: "/beauty", element: <Beauty /> },
     ],
   },
-
-
 ]);
 const App = () => {
   return <RouterProvider router={routes} />;
