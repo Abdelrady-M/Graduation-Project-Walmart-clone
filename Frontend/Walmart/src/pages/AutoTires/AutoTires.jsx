@@ -1,6 +1,6 @@
 import CustomSlider from "../../components/CustomSlider ";
 import LeftHandNavList from "../../components/LeftHandNavList/LeftHandNavList";
-
+// rgegegegegwf
 export default function AutoTires(){
     const cards = [
         {
