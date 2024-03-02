@@ -11,6 +11,8 @@ import Fashion from "./pages/Fashion/Fashion.jsx";
 import Details from "./pages/details/Details.jsx";
 import Home from "./pages/HomePage/Home.jsx";
 import Beauty from "./pages/Beauty/Beauty.jsx";
+import PersonalCare from "./pages/PersonalCare/PersonalCare.jsx";
+import AutoTires from "./pages/AutoTires/AutoTires.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -51,6 +53,8 @@ const routes = createBrowserRouter([
       },
       { path: "/fashion", element: <Fashion /> },
       { path: "/beauty", element: <Beauty /> },
+      { path: "/personalCare", element: <PersonalCare /> },
+      { path: "/autoTires", element: <AutoTires /> },
     ],
   },
 ]);

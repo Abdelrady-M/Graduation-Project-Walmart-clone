@@ -1,25 +1,24 @@
 import React from "react";
 import ShopByCategory from "../../components/ShopByCategory";
-import hairTools from "../../assets/hairTools.webp";
-import hairCare from "../../assets/hairCare.webp";
-import makeup from "../../assets/makeup.webp";
-import nails from "../../assets/nails.webp";
-import suncare from "../../assets/suncare.webp";
-import skincare from "../../assets/skincare.webp";
-import shampoo from "../../assets/mondayShampoo.webp";
-import frizz from "../../assets/fizz.webp";
-import LeftHandNavList from "../../components/LeftHandNavList/LeftHandNavList";
 import CustomSlider from "../../components/CustomSlider ";
+import LeftHandNavList from "../../components/LeftHandNavList/LeftHandNavList";
 import HeroCard from "../../components/HeroCard";
 
-export default function Beauty() {
+import bathBody from "../../assets/bath&body.webp";
+import equate from "../../assets/equate.webp";
+import feminine from "../../assets/femininecare.webp";
+import mens from "../../assets/menGrooming.webp";
+import oral from "../../assets/oralCare.webp";
+import welness from "../../assets/wellness.webp";
+
+export default function PersonalCare() {
   const category = [
-    { Img: { hairTools }, title: "Hair Tools", category: "hairTools" },
-    { Img: { hairCare }, title: "Hair care", category: "hairCare" },
-    { Img: { makeup }, title: "Makeup", category: "makeup" },
-    { Img: { nails }, title: "Nails tools", category: "nails" },
-    { Img: { suncare }, title: "Suncare", category: "suncare" },
-    { Img: { skincare }, title: "Skin care", category: "skincare" },
+    { Img: { bathBody }, title: "Bath & body", category: "bathBody" },
+    { Img: { equate }, title: "Equate", category: "equate" },
+    { Img: { feminine }, title: "Feminine care", category: "feminine" },
+    { Img: { mens }, title: "Men's grooming", category: "mens" },
+    { Img: { oral }, title: "Oral care", category: "oral" },
+    { Img: { welness }, title: "Skin care", category: "welness" },
   ];
 
   const categoriess = [
@@ -95,12 +94,11 @@ export default function Beauty() {
   ];
 
   const card = [
-    { photo: shampoo, title: "Monday Shampoo", price: "$7" },
-    { photo: shampoo, title: "Monday Shampoo", price: "$7" },
-    { photo: shampoo, title: "Monday Shampoo", price: "$7" },
-    { photo: shampoo, title: "Monday Shampoo", price: "$7" },
+    { photo: feminine, title: "Monday Shampoo", price: "$7" },
+    { photo: feminine, title: "Monday Shampoo", price: "$7" },
+    { photo: feminine, title: "Monday Shampoo", price: "$7" },
+    { photo: feminine, title: "Monday Shampoo", price: "$7" },
   ];
-
   return (
     <>
       <div className="mx-8 my-4">
@@ -113,7 +111,7 @@ export default function Beauty() {
         <article className="h-100 w-3/4 relative flex flex-col px-8">
           <CustomSlider mainTitle="New arrivals" cards={card} />
           <HeroCard
-            img={frizz}
+            img={oral}
             Title="More texture less frizz"
             desc="Bring your best curls into sharp focus"
             style="flex"
