@@ -54,7 +54,6 @@ const routes = createBrowserRouter([
       { path: "/fashion", element: <Fashion /> },
       { path: "/beauty", element: <Beauty /> },
       { path: "/personalCare", element: <PersonalCare /> },
-      { path: "/autoTires", element: <AutoTires /> },
     ],
   },
 ]);
