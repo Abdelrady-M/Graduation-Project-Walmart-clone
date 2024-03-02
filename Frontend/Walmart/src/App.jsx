@@ -12,7 +12,6 @@ import Details from "./pages/details/Details.jsx";
 import Home from "./pages/HomePage/Home.jsx";
 import Beauty from "./pages/Beauty/Beauty.jsx";
 import PersonalCare from "./pages/PersonalCare/PersonalCare.jsx";
-import AutoTires from "./pages/AutoTires/AutoTires.jsx";
 
 const routes = createBrowserRouter([
   {
