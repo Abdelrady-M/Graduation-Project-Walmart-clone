@@ -261,50 +261,26 @@ const category1 = [
     const tittle = "Home Improvement deals";
     return (
         <>
-            <div
-                className="container mx-auto my-8 md:w-32sm lg:w-auto"
-                style={{
-                    backgroundImage: `url("https://i5.walmartimages.com/dfw/4ff9c6c9-36ef/k2-_f2a04374-5396-4ec2-8276-cd314d82984d.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70")`,
-                    backgroundRepeat: "no-repeat",
-                    overflow: "hidden",
-                    backgroundPosition: "center",
-                    backgroundSize: "150vh",
-                    height: "70vh",
-                    width: "100%",
-                }}
-            >
-                <div className="ml-44">
-                    <h2
-                        className="mt-32 text-3xl"
-                        style={{
-                            textAlign: "start",
-                            width: "100%",
-                        }}
-                    >
-                        Lots to love for less
-                    </h2>
-                    <p
-                        style={{
-                            position: "relative",
-                            textAlign: "start",
-                            justifyContent: "center",
-                        }}
-                    >
-                        Refresh? No stress!
-                        <br /> All you need is here.
-                    </p>
-                    <p
-                        style={{
-                            position: "relative",
-                            textAlign: "start",
-                            justifyContent: "center",
-                            textDecoration: "underline",
-                        }}
-                    >
-                        Shop Now
-                    </p>
-                </div>
+                <div className=" container h-[] w-[100%] relative mx-auto my-8">
+            <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-36ef/k2-_f2a04374-5396-4ec2-8276-cd314d82984d.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70" alt="" />
+            <div className="absolute bottom-16 md:bottom-40 px-4 py-3 w-full">
+                <h1 className="mt-20 md:text-3xl text-xl">Lots to love for less</h1>
+                <p className="">
+                Refresh? No stress! <br /> All you need is here.
+                </p>
+                <p
+                    style={{
+                        position: "relative",
+                        textAlign: "start",
+                        justifyContent: "center",
+                        textDecoration: "underline",
+                    }}
+                >
+                    Shop Now
+                </p>
             </div>
+        </div>
+
 
             <CustomSlider cards={cards} mainTitle={tittle} />
 
@@ -320,7 +296,7 @@ const category1 = [
                                 Make things clean & tidy
                             </h2>
                         </div>
-                        <div className="grid grid-cols-4 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                             <div
                                 className="max-w-sm rounded overflow-hidden shadow-lg"
                                 style={{ minHeight: "55vh" }}
@@ -427,7 +403,7 @@ const category1 = [
                                 {category.map((ctg, index) => (
                                     <div
                                         key={index}
-                                        className="w-1/4 px-2 flex flex-col items-center mt-2 grow-0 justify-between"
+                                        className="md:w-1/2 lg:w-1/4 px-2 flex flex-col items-center mt-2 grow-0 justify-between"
                                     >
                                         <img src={ctg.Img} alt="" />
                                         <a href="">{ctg.title}</a>
@@ -435,51 +411,28 @@ const category1 = [
                                 ))}
                             </div>
                         </div>
-                        <div
-                            className="container mx-auto my-8 md:w-32sm lg:w-auto"
-                            style={{
-                                backgroundImage: `url("https://i5.walmartimages.com/dfw/4ff9c6c9-59b3/k2-_9cb26a87-e068-4f82-a73c-95bbb6fc7031.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70%201x,%20https://i5.walmartimages.com/dfw/4ff9c6c9-59b3/k2-_9cb26a87-e068-4f82-a73c-95bbb6fc7031.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70%202x")`,
-                                backgroundRepeat: "no-repeat",
-                                overflow: "hidden",
-                                backgroundPosition: "center",
-                                backgroundSize: "140vh",
-                                height: "70vh",
-                                width: "100%",
-                            }}
-                        >
-                            <div className="ml-8">
-                                <h2
-                                    className="mt-32 text-2xl"
-                                    style={{
-                                        textAlign: "start",
-                                        width: "100%",
-                                    }}
-                                >
-                                    Best bets <br /> for a bathroom reno
-                                </h2>
-                                <p
-                                    style={{
-                                        position: "relative",
-                                        textAlign: "start",
-                                        justifyContent: "center",
-                                    }}
-                                >
-                                    Best bets for a bathroom reno
-                                    <br />
-                                </p>
-                                <p
-                                    style={{
-                                        position: "relative",
-                                        textAlign: "start",
-                                        justifyContent: "center",
-                                        textDecoration: "underline",
-                                    }}
-                                >
-                                    Shop Now
-                                </p>
-                            </div>
-                        </div>
-                        <div className="ml-8 grid grid-cols-2">
+
+                        <div className=" container h-[] w-[100%] relative mx-auto my-8">
+            <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-59b3/k2-_9cb26a87-e068-4f82-a73c-95bbb6fc7031.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70%201x,%20https://i5.walmartimages.com/dfw/4ff9c6c9-59b3/k2-_9cb26a87-e068-4f82-a73c-95bbb6fc7031.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70%202x" alt="" />
+            <div className="absolute bottom-8 px-4 py-3 w-full">
+                <h1 className="mt-20 md:text-3xl text-xl">Best bets for a<br /> bathroom reno</h1>
+                <p className="">
+                Best bets for a bathroom reno
+                </p>
+                <p
+                    style={{
+                        position: "relative",
+                        textAlign: "start",
+                        justifyContent: "center",
+                        textDecoration: "underline",
+                    }}
+                >
+                    Shop Now
+                </p>
+            </div>
+        </div>
+
+                        <div className="ml-8 md:space-x-4 justify-between grid grid-cols-1 md:grid-cols-2 ">
                             <div
                                 className="max-w-sm rounded overflow-hidden shadow-lg"
                                 style={{ minHeight: "55vh" }}
@@ -523,51 +476,26 @@ const category1 = [
                                 </div>
                             </div>
                         </div>
-                        <div
-                            className="container mx-auto my-8 md:w-32sm lg:w-auto"
-                            style={{
-                                backgroundImage: `url("https://i5.walmartimages.com/dfw/4ff9c6c9-4afa/k2-_a5ce58da-0b01-4153-908c-df464596dfa8.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70%201x,%20https://i5.walmartimages.com/dfw/4ff9c6c9-4afa/k2-_a5ce58da-0b01-4153-908c-df464596dfa8.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70%202x")`,
-                                backgroundRepeat: "no-repeat",
-                                overflow: "hidden",
-                                backgroundPosition: "center",
-                                backgroundSize: "140vh",
-                                height: "70vh",
-                                width: "100%",
-                            }}
-                        >
-                            <div className="ml-8">
-                                <h2
-                                    className="mt-32 text-2xl"
-                                    style={{
-                                        textAlign: "start",
-                                        width: "100%",
-                                    }}
-                                >
-                                    Now here:
-                                    <br /> color of the year
-                                </h2>
-                                <p
-                                    style={{
-                                        position: "relative",
-                                        textAlign: "start",
-                                        justifyContent: "center",
-                                    }}
-                                >
-                                    Looking for a versatile,
-                                    <br /> happy hue? Meet Limitless.
-                                </p>
-                                <p
-                                    style={{
-                                        position: "relative",
-                                        textAlign: "start",
-                                        justifyContent: "center",
-                                        textDecoration: "underline",
-                                    }}
-                                >
-                                    Shop Now
-                                </p>
-                            </div>
-                        </div>
+                        <div className=" container h-[] w-[100%] relative mx-auto my-8">
+            <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-4afa/k2-_a5ce58da-0b01-4153-908c-df464596dfa8.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70%201x,%20https://i5.walmartimages.com/dfw/4ff9c6c9-4afa/k2-_a5ce58da-0b01-4153-908c-df464596dfa8.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70%202x" alt="" />
+            <div className="absolute bottom-8 px-4 py-3 w-full">
+                <h1 className="mt-20 md:text-3xl text-xl">Now here:<br /> color of the year</h1>
+                <p className="">
+                Looking for a versatile,<br /> happy hue? Meet Limitless.
+                </p>
+                <p
+                    style={{
+                        position: "relative",
+                        textAlign: "start",
+                        justifyContent: "center",
+                        textDecoration: "underline",
+                    }}
+                >
+                    Shop Now
+                </p>
+            </div>
+        </div>
+
                         {/* <ShopByCategory title={"Brands we love"} categories={category1} /> */}
                         <div>
                             <header className="flex justify-between items-baseline">
@@ -578,7 +506,7 @@ const category1 = [
                                 {category1.map((ctg, index) => (
                                     <div
                                         key={index}
-                                        className="w-1/6 px-2 flex flex-col items-center mt-2 grow-0 justify-between"
+                                        className=" md:w-1/3 lg:w-1/6 px-2 flex flex-col items-center mt-2 grow-0 justify-between"
                                     >
                                         <img src={ctg.Img} alt="" />
                                         <a href="">{ctg.title}</a>

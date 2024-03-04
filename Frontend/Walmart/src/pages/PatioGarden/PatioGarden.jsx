@@ -251,91 +251,49 @@ export default function PatioGarden() {
 
     return (
         <>
-            <div className="container mx-auto my-8 md:w-32sm lg:w-auto"
-                style={{
-                    backgroundImage: `url("https://i5.walmartimages.com/dfw/4ff9c6c9-ade1/k2-_ae69e3a6-6399-4567-a98b-629f88cbb731.v1.jpg")`,
-                    backgroundRepeat: "no-repeat",
-                    overflow: "hidden",
-                    backgroundPosition: "center",
-                    backgroundSize: "150vh",
-                    height: "20vh",
-                }}
-            >
-                <div className="">
-                    <h2
-                        className="mt-8 text-3xl"
-                        style={{
-                            textAlign: "center",
-                            justifyContent: "center",
-                            width: "100%",
-                        }}
-                    >
-                        Pickup or delivery
-                    </h2>
-                    <p
-                        style={{
-                            position: "relative",
-                            textAlign: "center",
-                            justifyContent: "center",
-                        }}
-                    >
-                        Easy ways to create your outdoor oasis
-                    </p>
-                    <p
-                        style={{
-                            position: "relative",
-                            textAlign: "center",
-                            justifyContent: "center",
-                            textDecoration: "underline",
-                        }}
-                    >
-                        Shop mulch & soil & patio
-                    </p>
-                </div>
-            </div>
 
-            <div className="container mx-auto my-8 md:w-32sm lg:w-auto"
-                style={{
-                    backgroundImage: `url("https://i5.walmartimages.com/dfw/4ff9c6c9-c871/k2-_ac0cf1ef-28ef-4156-966c-7a586fa2897c.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70")`,
-                    backgroundRepeat: "no-repeat",
-                    overflow: "hidden",
-                    backgroundPosition: "center",
-                    backgroundSize: "170vh",
-                    height: "75vh",
-                }}
-            >
-                <div className="mt-40">
-                    <h2
-                        className="mt-8 text-3xl"
-                        style={{
+        <div className=" container h-[] w-[100%] relative mx-auto my-8">
+                        <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-89b1/k2-_d409ad9e-22b5-4946-aaf3-16448705bef7.v1.jpg" width={"1500vh"} />
+                        <div className="absolute bottom-4 w-full" style={{
                             textAlign: "center",
                             justifyContent: "center",
                             width: "100%",
-                        }}
-                    >
-                        Mainstays
-                    </h2>
-                    <p
-                        style={{
-                            position: "relative",
+                        }}>
+                            <h1 className="md:text-3xl text-xl"> Pickup or delivery </h1>
+                            <p className="">
+                            Easy ways to create your outdoor oasis.
+                            </p>
+                            <p
+                                style={{
+                                    textDecoration: "underline",
+                                }}
+                            >
+                                Shop Now
+                            </p>
+                        </div>
+                    </div>
+
+        <div className=" container h-[] w-[100%] relative mx-auto my-8">
+                        <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-c871/k2-_ac0cf1ef-28ef-4156-966c-7a586fa2897c.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70" width={"1500vh"} />
+                        <div className="absolute bottom-8 w-full" style={{
                             textAlign: "center",
                             justifyContent: "center",
-                        }}
-                    >
-                        Stylish finds made to be lived in, for less.
-                    </p>
-                    <p
-                        style={{
-                            position: "relative",
-                            textAlign: "center",
-                            justifyContent: "center",
-                            textDecoration: "underline",
-                        }}
-                    >
-                        Shop Now
-                    </p>
-                </div>
-            </div>
+                            width: "100%",
+                        }}>
+                            <h1 className="md:text-3xl text-xl"> Mainstays </h1>
+                            <p className="">
+                            Stylish finds made to be lived in, for less.
+                            </p>
+                            <p
+                                style={{
+                                    textDecoration: "underline",
+                                }}
+                            >
+                                Shop Now
+                            </p>
+                        </div>
+                    </div>
+
 
             <div className="flex ">
                 <div className="w-1/8 mx-8">
@@ -349,7 +307,7 @@ export default function PatioGarden() {
                         <div>
                             <h2 className="font-bold text-xl mb-2">Patio for less</h2>
                         </div>
-                        <div className="grid grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div
                                 className="max-w-sm rounded overflow-hidden shadow-lg"
                                 style={{ minHeight: "55vh" }}
@@ -423,7 +381,7 @@ export default function PatioGarden() {
                     </div>
                     <div>
                         <div className="font-bold text-xl m-8">Refresh your outdoors</div>
-                        <div className="grid grid-cols-5 gap-16">
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-16">
                             {card.map((card, index) => (
                                 <div key={index}>
                                     <Card
@@ -440,7 +398,7 @@ export default function PatioGarden() {
                             <div>
                                 <h2 className="font-bold text-xl mb-2">Patio for less</h2>
                             </div>
-                            <div className="grid grid-cols-3 gap-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                 <div
                                     className="max-w-sm rounded overflow-hidden shadow-lg"
                                     style={{ minHeight: "55vh" }}
@@ -514,51 +472,32 @@ export default function PatioGarden() {
 
                             
                             <div><Deals /></div>
-                            <div className="container mx-auto my-8 md:w-32sm lg:w-auto"
-                style={{
-                    backgroundImage: `url("https://i5.walmartimages.com/dfw/4ff9c6c9-b6e4/k2-_b4bc9a86-5b49-4f55-8815-0c5b2eade04e.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70")`,
-                    backgroundRepeat: "no-repeat",
-                    overflow: "hidden",
-                    backgroundPosition: "center",
-                    backgroundSize: "150vh",
-                    height: "70vh",
-                }}
-            >
-                <div className="ml-8">
-                    <h2
-                        className="mt-40 text-3xl"
-                        style={{
-                            textAlign: "start",
-                            width: "100%",
-                        }}
-                    >
-                        Garden center
-                    </h2>
-                    <p
-                        style={{
-                            position: "relative",
-                            textAlign: "start",
-                            justifyContent: "center",
-                        }}
-                    >
-                        Welcome spring with a yard that’s ready <br/> for sunshine.
-                    </p>
-                    <p
-                        style={{
-                            position: "relative",
-                            textAlign: "start",
-                            justifyContent: "center",
-                            textDecoration: "underline",
-                        }}
-                    >
-                        Shop Now
-                    </p>
-                </div>
+
+
+                            <div className=" container h-[] w-[100%] relative mx-auto my-8">
+            <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-b6e4/k2-_b4bc9a86-5b49-4f55-8815-0c5b2eade04e.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70" alt="" />
+            <div className="absolute bottom-10 px-4 py-3 w-full">
+                <h1 className="mt-20 md:text-3xl text-xl"> Garden center</h1>
+                <p className="">
+                Welcome spring with <br /> a yard that’s ready <br/> for sunshine.
+                </p>
+                <p
+                    style={{
+                        position: "relative",
+                        textAlign: "start",
+                        justifyContent: "center",
+                        textDecoration: "underline",
+                    }}
+                >
+                    Shop Now
+                </p>
             </div>
+        </div>
+
 
             <div>
                         <div className="font-bold text-xl m-8">Refresh your outdoors</div>
-                        <div className="grid grid-cols-5 gap-16">
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-16">
                             {card1.map((card, index) => (
                                 <div key={index}>
                                     <Card
@@ -576,7 +515,7 @@ export default function PatioGarden() {
                         <div>
                             <h2 className="font-bold text-xl mb-2">Mulch & Soil</h2>
                         </div>
-                        <div className="grid grid-cols-2 gap-2">
+                        <div className=" grid md:grid-cols-1 lg:grid-cols-2 gap-20">
                             <div
                                 className="max-w-sm rounded overflow-hidden shadow-lg"
                                 style={{ minHeight: "55vh",minWidth:"60vh" }}
@@ -626,48 +565,28 @@ export default function PatioGarden() {
                         </div>
                     </div>
             </div>
-            <div className="container mx-auto my-8 md:w-32sm lg:w-auto"
-                style={{
-                    backgroundImage: `url("https://i5.walmartimages.com/dfw/4ff9c6c9-bfde/k2-_d045c7dc-4349-493c-a14f-045a5df8be4f.v1.jpg")`,
-                    backgroundRepeat: "no-repeat",
-                    overflow: "hidden",
-                    backgroundPosition: "center",
-                    backgroundSize: "150vh",
-                    height: "20vh",
-                }}
-            >
-                <div className="">
-                    <h2
-                        className="mt-8 text-3xl"
-                        style={{
+
+            <div className=" container h-[] w-[100%] relative mx-auto my-8">
+                        <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-bfde/k2-_d045c7dc-4349-493c-a14f-045a5df8be4f.v1.jpg" width={"1500vh"} />
+                        <div className="absolute bottom-4 w-full" style={{
                             textAlign: "center",
                             justifyContent: "center",
                             width: "100%",
-                        }}
-                    >
-Spring savings
-                    </h2>
-                    <p
-                        style={{
-                            position: "relative",
-                            textAlign: "center",
-                            justifyContent: "center",
-                        }}
-                    >
-Get lots to love at low, low prices
-                    </p>
-                    <p
-                        style={{
-                            position: "relative",
-                            textAlign: "center",
-                            justifyContent: "center",
-                            textDecoration: "underline",
-                        }}
-                    >
-Shop now
-                    </p>
-                </div>
-            </div>
+                        }}>
+                            <h1 className="md:text-3xl text-xl"> Spring savings </h1>
+                            <p className="">
+                            Get lots to love at low, low prices
+                            </p>
+                            <p
+                                style={{
+                                    textDecoration: "underline",
+                                }}
+                            >
+                                Shop Now
+                            </p>
+                        </div>
+                    </div>
+
                             </div>
                     </div>
                 </div>
