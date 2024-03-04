@@ -1,9 +1,6 @@
 import CustomSlider from "../../components/CustomSlider ";
-import HeroCard from "../../components/HeroCard";
 import LeftHandNavList from "../../components/LeftHandNavList/LeftHandNavList";
-import laptop1 from "../../assets/laptop.png";
 
-// rgegegegegwf
 export default function AutoTires() {
     const cards = [
         {
@@ -369,7 +366,7 @@ export default function AutoTires() {
                                 <p className="text-gray-700 text-base">
                                     Manage your personal vehicles & more—all in one place.                                    </p>
                                 <div className="flix">
-                                    <button className="w-1/3 min-h-10 min-w-40  bg-inherit font-medium rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
+                                    <button className=" w-1/3 min-h-10 min-w-40  bg-inherit font-medium rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
                                         Learn more
                                     </button>
                                 </div>
