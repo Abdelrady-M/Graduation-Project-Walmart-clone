@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function ShopByCategory({ categories }) {
+export default function ShopByCategory({ title , categories }) {
   return (
     <>
       <header className="flex justify-between items-baseline">
-        <h2 className="font-bold">Shop by category</h2>
+        <h2 className="font-bold">{title}</h2>
         <button>See less</button>
       </header>
       <div className="flex flex-wrap w-full mb-4">
