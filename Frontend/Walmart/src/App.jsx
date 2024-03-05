@@ -15,11 +15,11 @@ import PersonalCare from "./pages/PersonalCare/PersonalCare.jsx";
 import HomeImprovement from "./pages/HomeImprovement/HomeImprovement.jsx";
 import AutoTires from "./pages/AutoTires/AutoTires.jsx";
 import BabyProducts from "./pages/BabyProducts/BabyProducts.jsx";
-import Login from './pages/login/login.jsx';
-import Register from './pages/register/register.jsx';
+import Login from "./pages/login/login.jsx";
+import Register from "./pages/register/register.jsx";
 import PhoneVerification from "./pages/PhoneVerification/PhoneVerification.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
-
+import Toys from "./pages/Toys/Toys.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -64,6 +64,10 @@ const routes = createBrowserRouter([
         element: <BabyProducts />,
       },
       {
+        path: "/toys",
+        element: <Toys />,
+      },
+      {
         path: "/cart",
         element: <Cart />,
       },
@@ -79,7 +83,6 @@ const routes = createBrowserRouter([
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Register /> },
   { path: "/phoneverification", element: <PhoneVerification /> },
-
 ]);
 const App = () => {
   return <RouterProvider router={routes} />;
