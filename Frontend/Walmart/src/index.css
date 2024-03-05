@@ -83,7 +83,7 @@
         flex-direction: column !important;
     }
     .rightSideCheckout {
-        position: static !important; /* Changed from "none" to "static" */
+        position: static !important; 
         right: 0 !important;
         top: 0 !important;
     }
