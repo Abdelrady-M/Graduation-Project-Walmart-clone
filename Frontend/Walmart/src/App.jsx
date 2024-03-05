@@ -1,7 +1,7 @@
 import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AppLayout from "./AppLayout";
-import Electronics from "./pages/electronics/Electronics.jsx";
+import Electronics from "./pages/Electronics/Electronics.jsx";
 import Grocery from "./pages/Grocery/Grocery.jsx";
 import Home2 from "./pages/Home2/Home2.jsx";
 import PatioGarden from "./pages/PatioGarden/PatioGarden.jsx";
@@ -14,8 +14,8 @@ import Beauty from "./pages/Beauty/Beauty.jsx";
 import HomeImprovement from "./pages/HomeImprovement/HomeImprovement.jsx";
 import AutoTires from "./pages/AutoTires/AutoTires.jsx";
 import BabyProducts from "./pages/BabyProducts/BabyProducts.jsx";
-import Login from './pages/login/Login.jsx';
-import Register from './pages/register/Register.jsx';
+import Login from './pages/login/login.jsx';
+import Register from './pages/register/register.jsx';
 import PhoneVerification from "./pages/PhoneVerification/PhoneVerification.jsx";
 
 
