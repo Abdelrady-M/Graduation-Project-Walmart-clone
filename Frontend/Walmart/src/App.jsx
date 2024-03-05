@@ -17,12 +17,14 @@ import BabyProducts from "./pages/BabyProducts/BabyProducts.jsx";
 import Login from './pages/login/login.jsx';
 import Register from './pages/register/register.jsx';
 import PhoneVerification from "./pages/PhoneVerification/PhoneVerification.jsx";
+import NotFound from "./pages/NotFound/NotFound.jsx";
 
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
+    errorElement: <NotFound />,
     children: [
       {
         path: "",
@@ -74,7 +76,8 @@ const routes = createBrowserRouter([
   },
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Register /> },
-  { path: "/phoneverification", element: <PhoneVerification /> }
+  { path: "/phoneverification", element: <PhoneVerification /> },
+
 ]);
 const App = () => {
   return <RouterProvider router={routes} />;
