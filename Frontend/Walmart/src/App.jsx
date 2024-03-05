@@ -12,18 +12,27 @@ import Details from "./pages/details/Details.jsx";
 import Home from "./pages/HomePage/Home.jsx";
 import Beauty from "./pages/Beauty/Beauty.jsx";
 import PersonalCare from "./pages/PersonalCare/PersonalCare.jsx";
+import HomeImprovement from "./pages/HomeImprovement/HomeImprovement.jsx";
+import AutoTires from "./pages/AutoTires/AutoTires.jsx";
+import BabyProducts from "./pages/BabyProducts/BabyProducts.jsx";
+import Login from './pages/login/login.jsx';
+import Register from './pages/register/register.jsx';
+import PhoneVerification from "./pages/PhoneVerification/PhoneVerification.jsx";
+import NotFound from "./pages/NotFound/NotFound.jsx";
+
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
+    errorElement: <NotFound />,
     children: [
       {
         path: "",
         element: <Home />,
       },
       {
-        path: "details",
+        path: "/details",
         element: <Details />,
       },
       {
@@ -43,6 +52,18 @@ const routes = createBrowserRouter([
         element: <PatioGarden />,
       },
       {
+        path: "/HomeImprovement",
+        element: <HomeImprovement />,
+      },
+      {
+        path: "/AutoTires",
+        element: <AutoTires />,
+      },
+      {
+        path: "/BabyProducts",
+        element: <BabyProducts />,
+      },
+      {
         path: "/cart",
         element: <Cart />,
       },
@@ -55,6 +76,10 @@ const routes = createBrowserRouter([
       { path: "/personalCare", element: <PersonalCare /> },
     ],
   },
+  { path: "/login", element: <Login /> },
+  { path: "/register", element: <Register /> },
+  { path: "/phoneverification", element: <PhoneVerification /> },
+
 ]);
 const App = () => {
   return <RouterProvider router={routes} />;

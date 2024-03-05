@@ -9,6 +9,11 @@ const cards = [
     { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
     { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
     { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
+    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
+    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
+    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
+    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
+    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
 
 ];
 
@@ -202,13 +207,25 @@ export default function Home2() {
     return (
         <>
         <div className="container">
-            <div className="ml-6">
-                <article className="relative isolate flex flex-col overflow-hidden size-max m-8 ">
-                    <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-e2ad/k2-_4de43013-971a-444c-b405-4a3d339f0252.v1.jpg?" />
-                    <h3 className="z-10 mt-3 text-3xl font-bold text-white"></h3>
-                    <div className="overflow-hidden text-lg text-gray-300"></div>
-                </article>
+
+
+            <div className="my-4 h-[] w-[100%] relative mx-8">
+            <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-e2ad/k2-_4de43013-971a-444c-b405-4a3d339f0252.v1.jpg?" alt="" />
+            <div className="absolute bottom-10 px-4 py-3 w-full">
+                <h1 className="mt-20 md:text-3xl text-xl"></h1>
+                <p className="">
+                </p>
+                <p
+                    style={{
+                        position: "relative",
+                        textAlign: "start",
+                        justifyContent: "center",
+                        textDecoration: "underline",
+                    }}
+                >
+                </p>
             </div>
+        </div>
 
             <div>
                 <div className="text-3xl">Shop the look</div>
@@ -244,14 +261,16 @@ export default function Home2() {
                 </div>
             </div>
             <div className="font-bold text-xl my-8"><h1>Save with Great Value</h1>
-                        <div className="flex container mb-10 mx-auto mt-5">
+
+                                                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-16">
                             {cards.map((card, index) => (
-                                <div key={index} className="w-1/3"><Card photo={card.photo} title={card.title} price={card.price} /></div>
-                            ))}
-                        </div>
-                        <div className="flex container mb-10 mx-auto mt-5">
-                            {cards.map((card, index) => (
-                                <div key={index} className="w-1/3"><Card photo={card.photo} title={card.title} price={card.price} /></div>
+                                <div key={index}>
+                                    <Card
+                                        photo={card.photo}
+                                        title={card.title}
+                                        price={card.price}
+                                    />
+                                </div>
                             ))}
                         </div>
                         </div>
