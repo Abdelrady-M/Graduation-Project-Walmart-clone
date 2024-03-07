@@ -301,8 +301,8 @@ export default function AutoTires() {
 
         <div className=" container h-[] w-[100%] relative mx-auto my-8">
             <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-cde1/k2-_241c007d-b3ac-41ca-923f-3ee55f3fa634.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70%201x,%20https://i5.walmartimages.com/dfw/4ff9c6c9-cde1/k2-_241c007d-b3ac-41ca-923f-3ee55f3fa634.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70%202x" alt="" />
-            <div className="absolute bottom-16 md:bottom-28 px-4 py-3 w-full">
-                <h1 className="mt-20 md:text-3xl text-xl"> Stay on top<br /> of your  auto care </h1>
+            <div className="absolute w-full px-4 py-3 bottom-16 md:bottom-28">
+                <h1 className="mt-20 text-xl md:text-3xl"> Stay on top<br /> of your  auto care </h1>
                 <p className="">
                     Fix up & tune up your ride <br />for spring.
                 </p>
@@ -322,32 +322,32 @@ export default function AutoTires() {
         <div><CustomSlider cards={cards} mainTitle={tittle} /></div>
 
         <div className="flex">
-            <div className=" w-1/6">
+            <div className="w-1/6 ">
                 <LeftHandNavList items={features} section="Categories" />
                 <LeftHandNavList items={features} section="Savings" />
             </div>
             <div className="w-3/4">
                 <div className="ml-20">
                     <div>
-                        <h2 className="font-bold text-xl mb-2">
+                        <h2 className="mb-2 text-xl font-bold">
                             Auto services
 
                         </h2>
                     </div>
-                    <div className="space-y-8 md:space-x-8 m-8 grid grid-cols-1 md:grid-cols-2">
-                        <div className="flex max-w-sm rounded overflow-hidden shadow-lg " >
-                            <div className=" px-6 py-4">
+                    <div className="grid grid-cols-1 m-8 space-y-8 md:space-y-0 md:space-x-8 md:grid-cols-2">
+                        <div className="flex max-w-sm overflow-hidden rounded shadow-lg " >
+                            <div className="px-6 py-4 ">
                                 <img className="w-1/3"
                                     src="https://i5.walmartimages.com/dfw/4ff9c6c9-a70b/k2-_4ef79d21-8e3b-47c2-a2e1-1391055055f7.v1.jpg"
                                     alt="Sunset in the mountains"
                                     style={{ width: "70px" }}
                                 />
-                                <div className="font-bold text-xl mb-2">Oil Changes From $24.88</div>
-                                <p className="text-gray-700 text-base">
+                                <div className="mb-2 text-xl font-bold">Oil Changes From $24.88</div>
+                                <p className="text-base text-gray-700">
                                     Schedule with our certified techs today.
                                 </p>
                                 <div className="flix">
-                                    <button className="w-1/3 min-h-10 min-w-40  bg-inherit font-medium rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
+                                    <button className="flex items-center justify-center gap-1 font-medium text-center border border-black rounded-full min-h-10 min-w-40 bg-inherit border-black-800 hover:border-2">
                                         Book a service
                                     </button>
                                 </div>
@@ -355,18 +355,18 @@ export default function AutoTires() {
 
                         </div>
 
-                        <div className="flex max-w-sm rounded overflow-hidden shadow-lg " >
-                            <div className=" px-6 py-4">
+                        <div className="flex max-w-sm overflow-hidden rounded shadow-lg " >
+                            <div className="px-6 py-4 ">
                                 <img className="w-1/3"
                                     src="https://i5.walmartimages.com/dfw/4ff9c6c9-b662/k2-_26159243-9a6e-46ba-a238-79345ab9437d.v1.png"
                                     alt="Sunset in the mountains"
                                     style={{ width: "70px" }}
                                 />
-                                <div className="font-bold text-xl mb-2">Virtual Garage</div>
-                                <p className="text-gray-700 text-base">
+                                <div className="mb-2 text-xl font-bold">Virtual Garage</div>
+                                <p className="text-base text-gray-700">
                                     Manage your personal vehicles & more—all in one place.                                    </p>
                                 <div className="flix">
-                                    <button className=" w-1/3 min-h-10 min-w-40  bg-inherit font-medium rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
+                                    <button className="flex items-center justify-center gap-1 font-medium text-center border border-black rounded-full min-h-10 min-w-40 bg-inherit border-black-800 hover:border-2">
                                         Learn more
                                     </button>
                                 </div>
@@ -379,7 +379,7 @@ export default function AutoTires() {
                     {/* <div className="text-xl">Shop home improvement</div>
                             <ShopByCategory categories={category} /> */}
                     <div>
-                        <header className="flex justify-between items-baseline">
+                        <header className="flex items-baseline justify-between">
                             <h2 className="font-bold">Routine auto care
                             </h2>
                             <button>See less</button>
@@ -388,7 +388,7 @@ export default function AutoTires() {
                             {category.map((ctg, index) => (
                                 <div
                                     key={index}
-                                    className="sm:w-1/3 lg:w-1/6 px-2 flex flex-col items-center mt-2 grow-0 justify-between"
+                                    className="flex flex-col items-center justify-between px-2 mt-2 sm:w-1/3 lg:w-1/6 grow-0"
                                 >
                                     <img src={ctg.Img} alt="" />
                                     <a href="">{ctg.title}</a>
@@ -402,12 +402,12 @@ export default function AutoTires() {
 
                     <div className=" container h-[] w-[100%] relative mx-auto my-8">
                         <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-89b1/k2-_d409ad9e-22b5-4946-aaf3-16448705bef7.v1.jpg" width={"1500vh"} />
-                        <div className="absolute bottom-2 w-full" style={{
+                        <div className="absolute w-full bottom-2" style={{
                             textAlign: "center",
                             justifyContent: "center",
                             width: "100%",
                         }}>
-                            <h1 className="md:text-3xl text-xl"> Stop by your Auto Care Center </h1>
+                            <h1 className="text-xl md:text-3xl"> Stop by your Auto Care Center </h1>
                             <p className="">
                                 Let our certified techs do the rest.
                             </p>
@@ -422,7 +422,7 @@ export default function AutoTires() {
                     </div>
 
                     <div>
-                        <header className="flex justify-between items-baseline">
+                        <header className="flex items-baseline justify-between">
                             <h2 className="font-bold">Time for an upgrade
 
                             </h2>
@@ -432,7 +432,7 @@ export default function AutoTires() {
                             {category1.map((ctg, index) => (
                                 <div
                                     key={index}
-                                    className="sm:w-1/3 md:w-1/6 px-2 flex flex-col items-center mt-2 grow-0 justify-between"
+                                    className="flex flex-col items-center justify-between px-2 mt-2 sm:w-1/3 md:w-1/6 grow-0"
                                 >
                                     <img src={ctg.Img} alt="" />
                                     <a href="">{ctg.title}</a>
@@ -441,9 +441,9 @@ export default function AutoTires() {
                         </div>
                     </div>
 
-                    <div className="space-y-4 mt-12 grid grid-cols-1 md:grid-cols-2 md:space-x-4">
+                    <div className="grid grid-cols-1 mt-12 space-y-4 md:space-y-0 md:grid-cols-2 md:space-x-4">
                         <div
-                            className="max-w-sm rounded overflow-hidden shadow-lg"
+                            className="max-w-sm overflow-hidden rounded shadow-lg"
                             style={{ minHeight: "55vh" }}
                         >
                             <img
@@ -452,12 +452,12 @@ export default function AutoTires() {
                                 alt="Sunset in the mountains"
                             />
                             <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">Find the right tires
+                                <div className="mb-2 text-xl font-bold">Find the right tires
 
 
 
                                 </div>
-                                <p className="text-gray-700 text-base">
+                                <p className="text-base text-gray-700">
                                     Low-priced & long-lasting selections for all vehicles.
                                 </p>
                             </div>
@@ -468,7 +468,7 @@ export default function AutoTires() {
                             </div>
                         </div>
                         <div
-                            className="max-w-sm rounded overflow-hidden shadow-lg"
+                            className="max-w-sm overflow-hidden rounded shadow-lg"
                             style={{ minHeight: "55vh" }}
                         >
                             <img
@@ -477,8 +477,8 @@ export default function AutoTires() {
                                 alt="Sunset in the mountains"
                             />
                             <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">All about wheels & rims</div>
-                                <p className="text-gray-700 text-base">
+                                <div className="mb-2 text-xl font-bold">All about wheels & rims</div>
+                                <p className="text-base text-gray-700">
                                     Find the material & style that vibes with your ride
                                 </p>
                             </div>
@@ -490,10 +490,10 @@ export default function AutoTires() {
                         </div>
                     </div>
 
-                    <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-3 mt-20">
+                    <div className="grid gap-3 mt-20 sm:grid-cols-1 md:grid-cols-3">
 
                         <div
-                            className="max-w-sm rounded overflow-hidden shadow-lg"
+                            className="max-w-sm overflow-hidden rounded shadow-lg"
                             style={{ minHeight: "20px" }}
                         >
                             <img
@@ -502,9 +502,9 @@ export default function AutoTires() {
                                 alt="Sunset in the mountains"
                             />
                             <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">Goodyear
+                                <div className="mb-2 text-xl font-bold">Goodyear
                                 </div>
-                                <p className="text-gray-700 text-base">
+                                <p className="text-base text-gray-700">
                                     Tried & true, with a reputation to match
                                 </p>
                             </div>
@@ -515,7 +515,7 @@ export default function AutoTires() {
                             </div>
                         </div>
                         <div
-                            className="max-w-sm rounded overflow-hidden shadow-lg"
+                            className="max-w-sm overflow-hidden rounded shadow-lg"
                             style={{ minHeight: "55vh" }}
                         >
                             <img
@@ -524,9 +524,9 @@ export default function AutoTires() {
                                 alt="Sunset in the mountains"
                             />
                             <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">Douglas
+                                <div className="mb-2 text-xl font-bold">Douglas
                                 </div>
-                                <p className="text-gray-700 text-base">
+                                <p className="text-base text-gray-700">
                                     Dependability at every turn
                                 </p>
                             </div>
@@ -537,7 +537,7 @@ export default function AutoTires() {
                             </div>
                         </div>
                         <div
-                            className="max-w-sm rounded overflow-hidden shadow-lg"
+                            className="max-w-sm overflow-hidden rounded shadow-lg"
                             style={{ minHeight: "55vh" }}
                         >
                             <img
@@ -546,10 +546,10 @@ export default function AutoTires() {
                                 alt="Sunset in the mountains"
                             />
                             <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">
+                                <div className="mb-2 text-xl font-bold">
                                     Cooper
                                 </div>
-                                <p className="text-gray-700 text-base">
+                                <p className="text-base text-gray-700">
                                     An assortnment of tires that go the distance
                                 </p>
                             </div>
@@ -563,7 +563,7 @@ export default function AutoTires() {
 
                     {/* <ShopByCategory title={"Brands we love"} categories={category1} /> */}
                     <div className="mt-20">
-                        <header className="flex justify-between items-baseline">
+                        <header className="flex items-baseline justify-between">
                             <h2 className="font-bold">Brands we love</h2>
                             <button>See less</button>
                         </header>
@@ -571,7 +571,7 @@ export default function AutoTires() {
                             {category2.map((ctg, index) => (
                                 <div
                                     key={index}
-                                    className="sm:w-1/3 md:w-1/6 px-2 flex flex-col items-center mt-2 grow-0 justify-between"
+                                    className="flex flex-col items-center justify-between px-2 mt-2 sm:w-1/3 md:w-1/6 grow-0"
                                 >
                                     <img src={ctg.Img} alt="" />
                                     <a href="">{ctg.title}</a>
