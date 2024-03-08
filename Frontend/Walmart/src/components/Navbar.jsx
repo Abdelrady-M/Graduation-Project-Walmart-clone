@@ -90,22 +90,22 @@ const Navbar = () => {
                         )}
                     </div>
                 </div>
-                <div className="hidden relative lg:flex items-center flex-1 mx-6 ">
+                <div className="relative lg:flex items-center flex-1 mx-6 ">
                     <input
                         type="search"
                         className="text-black rounded-full py-2 px-5 outline-0 flex-1"
                         placeholder="Search Everything at Walmart online and in store"
                     />
-                    <div className="absolute bg-[#ffc220] p-2 rounded-full right-1.5">
+                    <div className="absolute bg-[#ffc220] p-2 rounded-full lg:right-1.5 top-1">
                         <GoSearch className="text-black " />
                     </div>
                 </div>
                 <div className="flex  items-center gap-x-2">
-                    <div className="flex items-center gap-2 hover:bg-[#06529a] p-3 rounded-full cursor-pointer">
+                    <div className="lg:flex hidden items-center gap-2 hover:bg-[#06529a] p-3 rounded-full cursor-pointer">
                         <MdLogin className="text-[17px] rotate-90" />
                         <p className="text-[16px] font-semibold">Register</p>
                     </div>
-                    <div className="flex items-center gap-2 hover:bg-[#06529a] p-3 rounded-full whitespace-nowrap cursor-pointer">
+                    <div className="lg:flex hidden items-center gap-2 hover:bg-[#06529a] p-3 rounded-full whitespace-nowrap cursor-pointer">
                         <MdLogout className="text-[20px] -rotate-90" />
                         <p className="text-[16px] font-semibold">Sign in</p>
                     </div>
@@ -119,7 +119,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            <div className="hidden bg-[#0071dc] mt-[1px] text-white  py-0 lg:px-1 lg:flex items-center justify-between ">
+            <div className="hidden bg-[#0071dc] mt-[1px] text-white py-0 lg:px-10 lg:flex items-center justify-between ">
                 <div className="flex flex-col md:flex-row items-center gap-2 ">
                     <div className="flex items-center gap-2 hover:underline">
                         <BsPhone />
