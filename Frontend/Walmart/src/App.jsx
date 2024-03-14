@@ -20,6 +20,8 @@ import Register from "./pages/register/register.jsx";
 import PhoneVerification from "./pages/PhoneVerification/PhoneVerification.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import Toys from "./pages/Toys/Toys.jsx";
+import AllDepartments from "./pages/AllDepartments/AllDepartments.jsx";
+import AllServices from './pages/AllServices/AllServices.jsx'
 
 const routes = createBrowserRouter([
   {
@@ -78,6 +80,8 @@ const routes = createBrowserRouter([
       { path: "/fashion", element: <Fashion /> },
       { path: "/beauty", element: <Beauty /> },
       { path: "/personalCare", element: <PersonalCare /> },
+      { path: "/allDepartments", element: <AllDepartments /> },
+      { path: "/allServices", element: <AllServices /> },
     ],
   },
   { path: "/login", element: <Login /> },
