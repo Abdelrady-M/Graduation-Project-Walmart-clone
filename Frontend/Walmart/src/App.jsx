@@ -18,7 +18,6 @@ import Login from './pages/login/login.jsx';
 import Register from './pages/register/register.jsx';
 import PhoneVerification from "./pages/PhoneVerification/PhoneVerification.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
-import Account from "./pages/Account/Account.jsx";
 
 
 const routes = createBrowserRouter([
@@ -73,7 +72,6 @@ const routes = createBrowserRouter([
       },
       { path: "/fashion", element: <Fashion /> },
       { path: "/beauty", element: <Beauty /> },
-      { path: "/account", element: <Account /> },
     ],
   },
   { path: "/login", element: <Login /> },
