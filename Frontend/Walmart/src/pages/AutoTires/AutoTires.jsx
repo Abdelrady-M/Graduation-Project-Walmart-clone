@@ -300,7 +300,7 @@ export default function AutoTires() {
     return <>
 
         <div className=" container h-[] w-[100%] relative mx-auto my-8">
-            <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-cde1/k2-_241c007d-b3ac-41ca-923f-3ee55f3fa634.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70%201x,%20https://i5.walmartimages.com/dfw/4ff9c6c9-cde1/k2-_241c007d-b3ac-41ca-923f-3ee55f3fa634.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70%202x" alt="" />
+            <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-cde1/k2-_241c007d-b3ac-41ca-923f-3ee55f3fa634.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70%201x,%20https://i5.walmartimages.com/dfw/4ff9c6c9-cde1/k2-_241c007d-b3ac-41ca-923f-3ee55f3fa634.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70%202x" alt="" />
             <div className="absolute w-full px-4 py-3 bottom-16 md:bottom-28">
                 <h1 className="mt-20 text-xl md:text-3xl"> Stay on top<br /> of your  auto care </h1>
                 <p className="">
@@ -319,7 +319,9 @@ export default function AutoTires() {
             </div>
         </div>
 
-        <div><CustomSlider cards={cards} mainTitle={tittle} /></div>
+        <div className="px-12">
+            <CustomSlider cards={cards} mainTitle={tittle} />
+            </div>
 
         <div className="flex w-[100%]">
             <div className="hidden w-1/6 lg:flex">
@@ -394,13 +396,10 @@ export default function AutoTires() {
                             ))}
                         </div>
                     </div>
-                    <div className="w-[90%] mx-auto">
-                        <CustomSlider cards={cards} mainTitle={"Shop garage shelving"} />
-                    </div>
 
                     <div className=" container h-[] w-[100%] relative mx-auto my-8">
-                        <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-89b1/k2-_d409ad9e-22b5-4946-aaf3-16448705bef7.v1.jpg" width={"1500vh"} />
-                        <div className="absolute w-full bottom-2" style={{
+                        <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-89b1/k2-_d409ad9e-22b5-4946-aaf3-16448705bef7.v1.jpg"  />
+                        <div className="absolute bottom-0 w-full" style={{
                             textAlign: "center",
                             justifyContent: "center",
                             width: "100%",
@@ -430,7 +429,7 @@ export default function AutoTires() {
                             {category1.map((ctg, index) => (
                                 <div
                                     key={index}
-                                    className="flex flex-col items-center justify-between px-2 mt-2 sm:w-1/3 md:w-1/6 grow-0"
+                                    className="flex flex-col items-center justify-between w-1/3 px-2 mt-2 md:w-1/6 grow-0"
                                 >
                                     <img src={ctg.Img} alt="" />
                                     <a href="">{ctg.title}</a>

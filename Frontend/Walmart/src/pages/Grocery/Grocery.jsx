@@ -155,7 +155,7 @@ export default function Grocery() {
                     </div>
 
 
-            <div className="ml-10">
+            <div className="p-8 mx-auto">
                 <div>
                     <h2 className="mb-2 text-xl font-bold">For your shopping list</h2>
                 </div>
@@ -227,8 +227,8 @@ export default function Grocery() {
             </div>
                 <div className="w-9/2">
                     <div className="mb-2 ml-8 text-xl font-bold">Featured items</div>
-                    <div className="ml-20">
-                        <div className="container grid mx-auto mt-5 mb-10 sm:grid-cols-3 lg:grid-cols-4">
+                    <div className="pl-10">
+                        <div className="container grid grid-cols-2 mx-auto mt-5 mb-10 md:grid-cols-3">
                             {cards.map((card, index) => (
                                 <div key={index} ><Card photo={card.photo} title={card.title} price={card.price} /></div>
                             ))}
@@ -327,7 +327,7 @@ export default function Grocery() {
                             </div>
                         </div>
                         <div className="my-8 text-xl font-bold"><h1>Save with Great Value</h1>
-                        <div className="container grid mx-auto mt-5 mb-10 sm:grid-cols-3 lg:grid-cols-4">
+                        <div className="container grid grid-cols-2 mx-auto mt-5 mb-10 md:grid-cols-3">
                             {cards2.map((card, index) => (
                                 <div key={index} ><Card photo={card.photo} title={card.title} price={card.price} /></div>
                             ))}
