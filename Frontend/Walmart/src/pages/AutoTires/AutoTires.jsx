@@ -321,20 +321,19 @@ export default function AutoTires() {
 
         <div><CustomSlider cards={cards} mainTitle={tittle} /></div>
 
-        <div className="flex">
-            <div className="w-1/6 ">
+        <div className="flex w-[100%]">
+            <div className="hidden w-1/6 lg:flex">
                 <LeftHandNavList items={features} section="Categories" />
-                <LeftHandNavList items={features} section="Savings" />
             </div>
-            <div className="w-3/4">
-                <div className="ml-20">
+            <div className="w-[100%]">
+                <div className="ml-8">
                     <div>
                         <h2 className="mb-2 text-xl font-bold">
                             Auto services
 
                         </h2>
                     </div>
-                    <div className="grid grid-cols-1 m-8 space-y-8 md:space-y-0 md:space-x-8 md:grid-cols-2">
+                    <div className="grid grid-cols-1 my-8 space-y-8 md:space-y-0 md:space-x-2 md:grid-cols-2">
                         <div className="flex max-w-sm overflow-hidden rounded shadow-lg " >
                             <div className="px-6 py-4 ">
                                 <img className="w-1/3"
@@ -376,19 +375,18 @@ export default function AutoTires() {
 
 
                     </div>
-                    {/* <div className="text-xl">Shop home improvement</div>
-                            <ShopByCategory categories={category} /> */}
+
                     <div>
                         <header className="flex items-baseline justify-between">
                             <h2 className="font-bold">Routine auto care
                             </h2>
                             <button>See less</button>
                         </header>
-                        <div className="flex flex-wrap w-full mb-4">
+                        <div className="flex flex-wrap w-full mx-auto mb-4">
                             {category.map((ctg, index) => (
                                 <div
                                     key={index}
-                                    className="flex flex-col items-center justify-between px-2 mt-2 sm:w-1/3 lg:w-1/6 grow-0"
+                                    className="items-center justify-between w-1/6 mt-2 grow-0"
                                 >
                                     <img src={ctg.Img} alt="" />
                                     <a href="">{ctg.title}</a>
@@ -396,7 +394,7 @@ export default function AutoTires() {
                             ))}
                         </div>
                     </div>
-                    <div>
+                    <div className="w-[90%] mx-auto">
                         <CustomSlider cards={cards} mainTitle={"Shop garage shelving"} />
                     </div>
 

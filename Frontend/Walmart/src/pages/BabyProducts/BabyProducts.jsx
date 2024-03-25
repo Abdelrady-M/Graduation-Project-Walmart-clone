@@ -1,7 +1,7 @@
 import Deals from "../../components/Deals";
 import LeftHandNavList from "../../components/LeftHandNavList/LeftHandNavList";
 
-export default function BabyProducts (){
+export default function BabyProducts() {
     const features = [
         {
             title: "Appliances",
@@ -178,7 +178,7 @@ export default function BabyProducts (){
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-62b9/k2-_059bedd2-983f-4f1b-b14d-d04e0d51d053.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Toddler furniture",
         },
-        
+
     ];
 
     const category3 = [
@@ -186,27 +186,27 @@ export default function BabyProducts (){
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-4ff0/k2-_08b2a636-cb42-4b79-a437-3605c40e2a07.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Pampers",
         },
-        
+
         {
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-e918/k2-_3003ceee-74aa-4506-890d-00b01fa90cb2.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Carter's Child of Mine",
         },
-        
+
         {
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-9b23/k2-_9965a81e-47e4-46cc-8815-abe98576d499.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Graco",
         },
-        
+
         {
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-96e4/k2-_cfd58664-7439-4d10-b5e5-50fd237d32fb.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Enfamil",
         },
-        
+
         {
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-254a/k2-_4f2b2daf-9e58-495c-bffa-dee84faf03de.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Evenflo",
         },
-        
+
         {
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-aab1/k2-_e5b50ebe-3206-4d43-83ff-885c1b580a74.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Baby Dove",
@@ -215,27 +215,27 @@ export default function BabyProducts (){
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-4ff0/k2-_08b2a636-cb42-4b79-a437-3605c40e2a07.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Pampers",
         },
-        
+
         {
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-e918/k2-_3003ceee-74aa-4506-890d-00b01fa90cb2.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Carter's Child of Mine",
         },
-        
+
         {
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-9b23/k2-_9965a81e-47e4-46cc-8815-abe98576d499.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Graco",
         },
-        
+
         {
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-96e4/k2-_cfd58664-7439-4d10-b5e5-50fd237d32fb.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Enfamil",
         },
-        
+
         {
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-254a/k2-_4f2b2daf-9e58-495c-bffa-dee84faf03de.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Evenflo",
         },
-        
+
         {
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-aab1/k2-_e5b50ebe-3206-4d43-83ff-885c1b580a74.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Baby Dove",
@@ -244,32 +244,32 @@ export default function BabyProducts (){
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-4ff0/k2-_08b2a636-cb42-4b79-a437-3605c40e2a07.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Pampers",
         },
-        
+
         {
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-e918/k2-_3003ceee-74aa-4506-890d-00b01fa90cb2.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Carter's Child of Mine",
         },
-        
+
         {
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-9b23/k2-_9965a81e-47e4-46cc-8815-abe98576d499.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Graco",
         },
-        
+
         {
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-96e4/k2-_cfd58664-7439-4d10-b5e5-50fd237d32fb.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Enfamil",
         },
-        
+
         {
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-254a/k2-_4f2b2daf-9e58-495c-bffa-dee84faf03de.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Evenflo",
         },
-        
+
         {
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-aab1/k2-_e5b50ebe-3206-4d43-83ff-885c1b580a74.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Baby Dove",
         },
-        
+
     ];
 
     const category = [
@@ -290,37 +290,37 @@ export default function BabyProducts (){
             title: "Toddler",
         },
     ];
-    return<>
-<div className=" container h-[] w-[100%] relative mx-auto my-8">
-                        <img className="shadow-md rounded-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-d51d/k2-_d866af0e-bb1c-4bc3-b4d5-876764fbf45d.v1.png" width={"1500vh"} />
-                        <div className="absolute bottom-2 md:bottom-6 w-full" style={{
-                            textAlign: "center",
-                            justifyContent: "center",
-                            width: "100%",
-                        }}>
-                            <h1 className="md:text-3xl text-xl"> Up to 20% off activity & gear </h1>
-                            <p className="">
-                            Save big on top brands.
+    return <>
+        <div className=" container h-[] w-[100%] relative mx-auto my-8">
+            <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-d51d/k2-_d866af0e-bb1c-4bc3-b4d5-876764fbf45d.v1.png" width={"1500vh"} />
+            <div className="absolute w-full bottom-2 md:bottom-6" style={{
+                textAlign: "center",
+                justifyContent: "center",
+                width: "100%",
+            }}>
+                <h1 className="text-xl md:text-3xl"> Up to 20% off activity & gear </h1>
+                <p className="">
+                    Save big on top brands.
 
-                            </p>
-                            <p
-                                style={{
-                                    textDecoration: "underline",
-                                }}
-                            >
-                                Shop Now
-                            </p>
-                        </div>
-                    </div>
+                </p>
+                <p
+                    style={{
+                        textDecoration: "underline",
+                    }}
+                >
+                    Shop Now
+                </p>
+            </div>
+        </div>
 
 
-<div className=" container h-[] w-[100%] relative mx-auto my-8">
-            <img className="shadow-md rounded-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-1d8f/k2-_0713c3bc-5c88-4e05-8455-0731eed435f9.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70 1x, https://i5.walmartimages.com/dfw/4ff9c6c9-1d8f/k2-_0713c3bc-5c88-4e05-8455-0731eed435f9.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70 2x" alt="" />
-            <div className="absolute bottom-20 px-4 py-3 w-full">
+        <div className=" container h-[] w-[100%] relative mx-auto my-8">
+            <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-1d8f/k2-_0713c3bc-5c88-4e05-8455-0731eed435f9.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70 1x, https://i5.walmartimages.com/dfw/4ff9c6c9-1d8f/k2-_0713c3bc-5c88-4e05-8455-0731eed435f9.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70 2x" alt="" />
+            <div className="absolute w-full px-4 py-3 bottom-20">
                 <p className="">
                     Now at Walmart
                 </p>
-            <h1 className="mt-20 md:text-3xl text-xl"> Stay on top<br /> 4moms baby gear </h1>
+                <h1 className="mt-20 text-xl md:text-3xl"> Stay on top<br /> 4moms baby gear </h1>
                 <p className="">
                     High-tech designs that make it <br /> easier to navigate parenthood.
                 </p>
@@ -328,7 +328,7 @@ export default function BabyProducts (){
                     style={{
                         position: "relative",
                         textAlign: "start",
-               	         justifyContent: "center",
+                        justifyContent: "center",
                         textDecoration: "underline",
                     }}
                 >
@@ -338,251 +338,251 @@ export default function BabyProducts (){
         </div>
 
         <div className="flex ">
-        <div className=" w-1/6">
+            <div className="hidden w-1/6 lg:grid-cols-1 lg:grid">
                 <LeftHandNavList items={features} section="Categories" />
                 <LeftHandNavList items={features} section="Savings" />
             </div>
-            <div className=" w-3/4 ml-8">
+            <div className="w-3/4 mx-auto ">
                 <Deals />
                 <hr />
 
-                                        <div className="">
-                            <header className="flex justify-between items-baseline">
-                                <h2 className="font-bold">Shop by age</h2>
-                                <button>See less</button>
-                            </header>
-                            <div className="flex flex-wrap w-full mb-4">
-                                {category.map((ctg, index) => (
-                                    <div
-                                        key={index}
-                                        className="md:w-1/2 lg:w-1/4 px-2 flex flex-col items-center mt-2 grow-0 justify-between"
-                                    >
-                                        <img src={ctg.Img} alt="" />
-                                        <a href="">{ctg.title}</a>
-                                    </div>
-                                ))}
+                <div className="">
+                    <header className="flex items-baseline justify-between">
+                        <h2 className="font-bold">Shop by age</h2>
+                        <button>See less</button>
+                    </header>
+                    <div className="flex flex-wrap w-full mb-4">
+                        {category.map((ctg, index) => (
+                            <div
+                                key={index}
+                                className="flex flex-col items-center justify-between w-1/2 px-2 mt-2 md:w-1/4 grow-0"
+                            >
+                                <img src={ctg.Img} alt="" />
+                                <a href="">{ctg.title}</a>
                             </div>
-                        </div>
-                        <hr />
-                                        <div className="">
-                            <header className="flex justify-between items-baseline">
-                                <h2 className="font-bold">Shop by price</h2>
-                                <button>See less</button>
-                            </header>
-                            <div className="flex flex-wrap w-full mb-4">
-                                {category1.map((ctg, index) => (
-                                    <div
-                                        key={index}
-                                        className="md:w-1/2 lg:w-1/6 px-2 flex flex-col items-center mt-2 grow-0 justify-between"
-                                    >
-                                        <img src={ctg.Img} alt="" />
-                                        <a href="">{ctg.title}</a>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        <hr />
-                        <div>
-                        <div className="font-bold text-1xl">More you’ll both love</div>
-                        <div className="ml-10 mt-10 grid sm:grid-cols-1 md:grid-cols-2 space-y-8 md:space-y-0">
-                    <div className="">
-                        <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                            <img
-                                className="w-full"
-                                src="https://i5.walmartimages.com/dfw/4ff9c6c9-27d2/k2-_6561ba9f-d6e0-43ae-884a-5d4fcbaa9048.v1.jpg?odnHeight=340&odnWidth=604&odnBg=FFFFFF"
-                                alt="Sunset in the mountains"
-                            />
-                            <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">
-                                Mealtime must-haves
-                                </div>
-                                <p className="text-gray-700 text-base">
-                                Flavorful snacks, colorful tableware & more to surprise them.
-                                </p>
-                            </div>
-                            <div className="px-6 py-4">
-                                <button className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
-                                    Shop
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="">
-                        <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                            <img
-                                className="w-full"
-                                src="https://i5.walmartimages.com/dfw/4ff9c6c9-2460/k2-_1026a6cf-088d-441f-8dfe-c9a11f85e11b.v1.jpg?odnHeight=340&odnWidth=604&odnBg=FFFFFF"
-                                alt="Sunset in the mountains"
-                            />
-                            <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">Breastfeeding supplies</div>
-                                <p className="text-gray-700 text-base">
-                                Find just what you need for easier nursing sessions.
-                                </p>
-                            </div>
-                            <div className="px-6 py-4">
-                                <button className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
-                                    Shop
-                                </button>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
+                <hr />
+                <div className="">
+                    <header className="flex items-baseline justify-between">
+                        <h2 className="font-bold">Shop by price</h2>
+                        <button>See less</button>
+                    </header>
+                    <div className="flex flex-wrap w-full mb-4">
+                        {category1.map((ctg, index) => (
+                            <div
+                                key={index}
+                                className="flex flex-col items-center justify-between w-1/3 px-2 mt-2 md:w-1/6 grow-0"
+                            >
+                                <img src={ctg.Img} alt="" />
+                                <a href="">{ctg.title}</a>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <hr />
+                <div>
+                    <div className="font-bold text-1xl">More you’ll both love</div>
+                    <div className="grid mt-10 ml-10 space-y-8 sm:grid-cols-1 md:grid-cols-2 md:space-y-0">
+                        <div className="">
+                            <div className="max-w-sm overflow-hidden rounded shadow-lg">
+                                <img
+                                    className="w-full"
+                                    src="https://i5.walmartimages.com/dfw/4ff9c6c9-27d2/k2-_6561ba9f-d6e0-43ae-884a-5d4fcbaa9048.v1.jpg?odnHeight=340&odnWidth=604&odnBg=FFFFFF"
+                                    alt="Sunset in the mountains"
+                                />
+                                <div className="px-6 py-4">
+                                    <div className="mb-2 text-xl font-bold">
+                                        Mealtime must-haves
+                                    </div>
+                                    <p className="text-base text-gray-700">
+                                        Flavorful snacks, colorful tableware & more to surprise them.
+                                    </p>
+                                </div>
+                                <div className="px-6 py-4">
+                                    <button className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
+                                        Shop
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="">
+                            <div className="max-w-sm overflow-hidden rounded shadow-lg">
+                                <img
+                                    className="w-full"
+                                    src="https://i5.walmartimages.com/dfw/4ff9c6c9-2460/k2-_1026a6cf-088d-441f-8dfe-c9a11f85e11b.v1.jpg?odnHeight=340&odnWidth=604&odnBg=FFFFFF"
+                                    alt="Sunset in the mountains"
+                                />
+                                <div className="px-6 py-4">
+                                    <div className="mb-2 text-xl font-bold">Breastfeeding supplies</div>
+                                    <p className="text-base text-gray-700">
+                                        Find just what you need for easier nursing sessions.
+                                    </p>
+                                </div>
+                                <div className="px-6 py-4">
+                                    <button className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
+                                        Shop
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className="mt-20">
-                        <header className="flex justify-between items-baseline">
-                            <h2 className="font-bold">Shop by category</h2>
-                            <button>See less</button>
-                        </header>
-                        <div className="flex flex-wrap w-full mb-4">
-                            {category2.map((ctg, index) => (
-                                <div
-                                    key={index}
-                                    className="sm:w-1/3 md:w-1/6 px-2 flex flex-col items-center mt-2 grow-0 justify-between"
-                                >
-                                    <img src={ctg.Img} alt="" />
-                                    <a href="">{ctg.title}</a>
-                                </div>
-                            ))}
-                        </div>
+                    <header className="flex items-baseline justify-between">
+                        <h2 className="font-bold">Shop by category</h2>
+                        <button>See less</button>
+                    </header>
+                    <div className="flex flex-wrap w-full mb-4">
+                        {category2.map((ctg, index) => (
+                            <div
+                                key={index}
+                                className="flex flex-col items-center justify-between w-1/3 px-2 mt-2 md:w-1/6 grow-0"
+                            >
+                                <img src={ctg.Img} alt="" />
+                                <a href="">{ctg.title}</a>
+                            </div>
+                        ))}
                     </div>
-                    <div>
+                </div>
+                <div>
                     <div className="font-bold text-1xl">Smile, Baby Days are on</div>
-                        <div className="ml-10 mt-10 grid sm:grid-cols-1 md:grid-cols-2 space-y-8 md:space-y-0">
-                    <div className="">
-                        <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                            <img
-                                className="w-full"
-                                src="https://i5.walmartimages.com/dfw/4ff9c6c9-af77/k2-_e3ba67d3-c9a3-4137-8ef6-eba03bca9fc6.v1.jpg?odnHeight=340&odnWidth=604&odnBg=FFFFFF"
-                                alt="Sunset in the mountains"
-                            />
-                            <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">
-                                Baby clothes starting at $7
+                    <div className="grid mt-10 ml-10 space-y-8 sm:grid-cols-1 md:grid-cols-2 md:space-y-0">
+                        <div className="">
+                            <div className="max-w-sm overflow-hidden rounded shadow-lg">
+                                <img
+                                    className="w-full"
+                                    src="https://i5.walmartimages.com/dfw/4ff9c6c9-af77/k2-_e3ba67d3-c9a3-4137-8ef6-eba03bca9fc6.v1.jpg?odnHeight=340&odnWidth=604&odnBg=FFFFFF"
+                                    alt="Sunset in the mountains"
+                                />
+                                <div className="px-6 py-4">
+                                    <div className="mb-2 text-xl font-bold">
+                                        Baby clothes starting at $7
+                                    </div>
+                                    <p className="text-base text-gray-700">
+                                        Save on Carter's Child of MIne & more brands you love.
+                                    </p>
                                 </div>
-                                <p className="text-gray-700 text-base">
-                                Save on Carter's Child of MIne & more brands you love.
-                                </p>
-                            </div>
-                            <div className="px-6 py-4">
-                                <button className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
-                                    Shop
-                                </button>
+                                <div className="px-6 py-4">
+                                    <button className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
+                                        Shop
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="">
-                        <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                            <img
-                                className="w-full"
-                                src="https://i5.walmartimages.com/dfw/4ff9c6c9-401a/k2-_194bacc2-6288-4957-9355-0e42d251b2d0.v1.jpg?odnHeight=340&odnWidth=604&odnBg=FFFFFF"
-                                alt="Sunset in the mountains"
-                            />
-                            <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">Up to 30% off maternity looks</div>
-                                <p className="text-gray-700 text-base">
-                                Save on clothes, nursing bras & more looks for moms-to-be.
-                                </p>
-                            </div>
-                            <div className="px-6 py-4">
-                                <button className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
-                                    Shop
-                                </button>
+                        <div className="">
+                            <div className="max-w-sm overflow-hidden rounded shadow-lg">
+                                <img
+                                    className="w-full"
+                                    src="https://i5.walmartimages.com/dfw/4ff9c6c9-401a/k2-_194bacc2-6288-4957-9355-0e42d251b2d0.v1.jpg?odnHeight=340&odnWidth=604&odnBg=FFFFFF"
+                                    alt="Sunset in the mountains"
+                                />
+                                <div className="px-6 py-4">
+                                    <div className="mb-2 text-xl font-bold">Up to 30% off maternity looks</div>
+                                    <p className="text-base text-gray-700">
+                                        Save on clothes, nursing bras & more looks for moms-to-be.
+                                    </p>
+                                </div>
+                                <div className="px-6 py-4">
+                                    <button className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
+                                        Shop
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
-<div><Deals /></div>
-<div>
-<div className="font-bold text-1xl">Complete their routine</div>
-<div className=" mt-10 grid sm:grid-cols-1 md:grid-cols-3 space-y-4  md:space-y-0 md:space-x-4">
-                    <div className="">
-                        <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                            <img
-                                className="w-full"
-                                src="https://i5.walmartimages.com/dfw/4ff9c6c9-1f99/k2-_683ce394-a114-4b92-8623-1a97342177e7.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF"
-                                alt="Sunset in the mountains"
-                            />
-                            <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">
-                                Mealtime
+                <div><Deals /></div>
+                <div>
+                    <div className="font-bold text-1xl">Complete their routine</div>
+                    <div className="grid grid-cols-1 mx-auto mt-10 space-y-4 md:grid-cols-3 md:space-y-0 md:space-x-4">
+                        <div className="">
+                            <div className="max-w-sm overflow-hidden rounded shadow-lg">
+                                <img
+                                    className="w-full"
+                                    src="https://i5.walmartimages.com/dfw/4ff9c6c9-1f99/k2-_683ce394-a114-4b92-8623-1a97342177e7.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF"
+                                    alt="Sunset in the mountains"
+                                />
+                                <div className="px-6 py-4">
+                                    <div className="mb-2 text-xl font-bold">
+                                        Mealtime
+                                    </div>
+                                    <p className="text-base text-gray-700">
+                                        Formulas & more for your good little eaters.
+                                    </p>
                                 </div>
-                                <p className="text-gray-700 text-base">
-                                Formulas & more for your good little eaters.
-                                </p>
-                            </div>
-                            <div className="px-6 py-4">
-                                <button className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
-                                    Shop
-                                </button>
+                                <div className="px-6 py-4">
+                                    <button className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
+                                        Shop
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="">
-                        <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                            <img
-                                className="w-full"
-                                src="https://i5.walmartimages.com/dfw/4ff9c6c9-89a2/k2-_d4ec5ee6-75c6-4e52-b4df-61940391d6c8.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF"
-                                alt="Sunset in the mountains"
-                            />
-                            <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">
-                                Diapering
+                        <div className="">
+                            <div className="max-w-sm overflow-hidden rounded shadow-lg">
+                                <img
+                                    className="w-full"
+                                    src="https://i5.walmartimages.com/dfw/4ff9c6c9-89a2/k2-_d4ec5ee6-75c6-4e52-b4df-61940391d6c8.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF"
+                                    alt="Sunset in the mountains"
+                                />
+                                <div className="px-6 py-4">
+                                    <div className="mb-2 text-xl font-bold">
+                                        Diapering
+                                    </div>
+                                    <p className="text-base text-gray-700">
+                                        From absorbent diapers to sensitive wipes, it’s all here.
+                                    </p>
                                 </div>
-                                <p className="text-gray-700 text-base">
-                                From absorbent diapers to sensitive wipes, it’s all here.
-                                </p>
-                            </div>
-                            <div className="px-6 py-4">
-                                <button className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
-                                    Shop
-                                </button>
+                                <div className="px-6 py-4">
+                                    <button className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
+                                        Shop
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="">
-                        <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                            <img
-                                className="w-full"
-                                src="https://i5.walmartimages.com/dfw/4ff9c6c9-8c0a/k2-_6e8537a0-d0e3-4563-97ed-558c962b729d.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF"
-                                alt="Sunset in the mountains"
-                            />
-                            <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">
-                                Bathtime
+                        <div className="">
+                            <div className="max-w-sm overflow-hidden rounded shadow-lg">
+                                <img
+                                    className="w-full"
+                                    src="https://i5.walmartimages.com/dfw/4ff9c6c9-8c0a/k2-_6e8537a0-d0e3-4563-97ed-558c962b729d.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF"
+                                    alt="Sunset in the mountains"
+                                />
+                                <div className="px-6 py-4">
+                                    <div className="mb-2 text-xl font-bold">
+                                        Bathtime
+                                    </div>
+                                    <p className="text-base text-gray-700">
+                                        Gentle care products that nourish delicate baby skin.
+                                    </p>
                                 </div>
-                                <p className="text-gray-700 text-base">
-                                Gentle care products that nourish delicate baby skin.
-                                </p>
-                            </div>
-                            <div className="px-6 py-4">
-                                <button className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
-                                    Shop
-                                </button>
+                                <div className="px-6 py-4">
+                                    <button className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black">
+                                        Shop
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                </div>
-</div>
-<div className="mt-20">
-                        <header className="flex justify-between items-baseline">
-                            <h2 className="font-bold">Brands we love</h2>
-                            <button>See less</button>
-                        </header>
-                        <div className="flex flex-wrap w-full mb-4">
-                            {category3.map((ctg, index) => (
-                                <div
-                                    key={index}
-                                    className="sm:w-1/3 md:w-1/6 px-2 flex flex-col items-center mt-2 grow-0 justify-between"
-                                >
-                                    <img src={ctg.Img} alt="" />
-                                    <a href="">{ctg.title}</a>
-                                </div>
-                            ))}
-                        </div>
                     </div>
+                </div>
+                <div className="mt-20">
+                    <header className="flex items-baseline justify-between">
+                        <h2 className="font-bold">Brands we love</h2>
+                        <button>See less</button>
+                    </header>
+                    <div className="flex flex-wrap w-full mb-4">
+                        {category3.map((ctg, index) => (
+                            <div
+                                key={index}
+                                className="flex flex-col items-center justify-between w-1/3 px-2 mt-2 md:w-1/6 grow-0"
+                            >
+                                <img src={ctg.Img} alt="" />
+                                <a href="">{ctg.title}</a>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
     </>

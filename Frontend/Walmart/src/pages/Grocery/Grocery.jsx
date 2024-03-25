@@ -134,7 +134,7 @@ export default function Grocery() {
     return (
         <>
                 <div className=" container h-[] w-[100%] relative mx-auto my-8">
-                        <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-49b2/k2-_90314a02-b0c6-4a2d-98be-1394b83bc8b9.v1.png" width={"1500vh"} />
+                        <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-49b2/k2-_90314a02-b0c6-4a2d-98be-1394b83bc8b9.v1.png" width={"1500vh"} />
                         <div className="absolute w-full bottom-4" style={{
                             textAlign: "center",
                             justifyContent: "center",
@@ -159,8 +159,7 @@ export default function Grocery() {
                 <div>
                     <h2 className="mb-2 text-xl font-bold">For your shopping list</h2>
                 </div>
-                <div className="grid justify-between grid-cols-1 space-y-3 md:space-y-0 md:grid-cols-3">
-                    <div className="">
+                <div className="grid mx-auto mt-4 space-y-8 md:space-x-8 sm:grid-cols-1 md:grid-cols-3 md:space-y-0">
                         <div className="max-w-sm overflow-hidden rounded shadow-lg">
                             <img
                                 className="w-full"
@@ -179,8 +178,6 @@ export default function Grocery() {
                                 </button>
                             </div>
                         </div>
-                    </div>
-                    <div className="">
                         <div className="max-w-sm overflow-hidden rounded shadow-lg">
                             <img
                                 className="w-full"
@@ -200,9 +197,7 @@ export default function Grocery() {
                                     Shop
                                 </button>
                             </div>
-                        </div>
                     </div>
-                    <div className="">
                         <div className="max-w-sm overflow-hidden rounded shadow-lg">
                             <img
                                 className="w-full"
@@ -221,20 +216,19 @@ export default function Grocery() {
                                 </button>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
 
 
             <div className="flex mt-6 ml-8">
-            <div className="w-1/6 ">
+            <div className="hidden w-1/6 grid-cols-1 lg:grid">
                 <LeftHandNavList items={features} section="Categories" />
                 <LeftHandNavList items={features} section="Savings" />
             </div>
                 <div className="w-9/2">
                     <div className="mb-2 ml-8 text-xl font-bold">Featured items</div>
                     <div className="ml-20">
-                        <div className="container grid mx-auto mt-5 mb-10 sm:grid-cols-2 lg:grid-cols-5">
+                        <div className="container grid mx-auto mt-5 mb-10 sm:grid-cols-3 lg:grid-cols-4">
                             {cards.map((card, index) => (
                                 <div key={index} ><Card photo={card.photo} title={card.title} price={card.price} /></div>
                             ))}
@@ -243,7 +237,7 @@ export default function Grocery() {
 
                         
                         <div className=" container h-[] w-[100%] relative mx-auto my-8">
-                        <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-2788/k2-_10e61826-2453-4aff-8afe-c40cafaf38a9.v1.png" width={"1500vh"} />
+                        <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-2788/k2-_10e61826-2453-4aff-8afe-c40cafaf38a9.v1.png" width={"1500vh"} />
                         <div className="absolute bottom-0 w-full" style={{
                             textAlign: "center",
                             justifyContent: "center",
@@ -333,7 +327,7 @@ export default function Grocery() {
                             </div>
                         </div>
                         <div className="my-8 text-xl font-bold"><h1>Save with Great Value</h1>
-                        <div className="container grid mx-auto mt-5 mb-10 sm:grid-cols-2 lg:grid-cols-5">
+                        <div className="container grid mx-auto mt-5 mb-10 sm:grid-cols-3 lg:grid-cols-4">
                             {cards2.map((card, index) => (
                                 <div key={index} ><Card photo={card.photo} title={card.title} price={card.price} /></div>
                             ))}
@@ -346,8 +340,8 @@ export default function Grocery() {
             </div>
 
 
-            <div className=" container h-[] w-[100%] relative mx-auto my-8">
-                        <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-89ab/k2-_54948667-12e4-4f0a-bf0b-8bbb37e8ab76.v1.jpg" width={"1500vh"} />
+            <div className=" container h-[] w-[85%] relative mx-auto my-8">
+                        <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-89ab/k2-_54948667-12e4-4f0a-bf0b-8bbb37e8ab76.v1.jpg" width={"1400vh"} />
                         <div className="absolute bottom-0 w-full" style={{
                             textAlign: "center",
                             justifyContent: "center",

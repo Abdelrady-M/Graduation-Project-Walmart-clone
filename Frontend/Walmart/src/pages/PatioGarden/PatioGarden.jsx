@@ -254,12 +254,12 @@ export default function PatioGarden() {
 
         <div className=" container h-[] w-[100%] relative mx-auto my-8">
                         <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-89b1/k2-_d409ad9e-22b5-4946-aaf3-16448705bef7.v1.jpg" width={"1500vh"} />
-                        <div className="absolute bottom-4 w-full" style={{
+                        <div className="absolute w-full bottom-4" style={{
                             textAlign: "center",
                             justifyContent: "center",
                             width: "100%",
                         }}>
-                            <h1 className="md:text-3xl text-xl"> Pickup or delivery </h1>
+                            <h1 className="text-xl md:text-3xl"> Pickup or delivery </h1>
                             <p className="">
                             Easy ways to create your outdoor oasis.
                             </p>
@@ -275,12 +275,12 @@ export default function PatioGarden() {
 
         <div className=" container h-[] w-[100%] relative mx-auto my-8">
                         <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-c871/k2-_ac0cf1ef-28ef-4156-966c-7a586fa2897c.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70" width={"1500vh"} />
-                        <div className="absolute bottom-8 w-full" style={{
+                        <div className="absolute w-full bottom-8" style={{
                             textAlign: "center",
                             justifyContent: "center",
                             width: "100%",
                         }}>
-                            <h1 className="md:text-3xl text-xl"> Mainstays </h1>
+                            <h1 className="text-xl md:text-3xl"> Mainstays </h1>
                             <p className="">
                             Stylish finds made to be lived in, for less.
                             </p>
@@ -296,20 +296,19 @@ export default function PatioGarden() {
 
 
             <div className="flex ">
-                <div className="w-1/8 mx-8">
+                <div className="hidden mx-8 w-1/8 lg:flex-row">
                     <LeftHandNavList items={features} section="Categories" />
                     <LeftHandNavList items={features} section="Savings" />
                     <LeftHandNavList items={features} section="Categories" />
                     <LeftHandNavList items={features} section="Savings" />
                 </div>
-                <div className="w-3/4">
-                    <div className="ml-10">
+                <div className="mx-auto lg:w-3/4 ">
                         <div>
-                            <h2 className="font-bold text-xl mb-2">Patio for less</h2>
+                            <h2 className="mb-2 text-xl font-bold">Patio for less</h2>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-2">
                             <div
-                                className="max-w-sm rounded overflow-hidden shadow-lg"
+                                className="max-w-sm overflow-hidden rounded shadow-lg"
                                 style={{ minHeight: "55vh" }}
                             >
                                 <img
@@ -318,10 +317,10 @@ export default function PatioGarden() {
                                     alt="Sunset in the mountains"
                                 />
                                 <div className="px-6 py-4">
-                                    <div className="font-bold text-xl mb-2">
+                                    <div className="mb-2 text-xl font-bold">
                                         Patio sets from $398
                                     </div>
-                                    <p className="text-gray-700 text-base">
+                                    <p className="text-base text-gray-700">
                                         Styles that fit your taste & budget.
                                     </p>
                                 </div>
@@ -332,7 +331,7 @@ export default function PatioGarden() {
                                 </div>
                             </div>
                             <div
-                                className="max-w-sm rounded overflow-hidden shadow-lg"
+                                className="max-w-sm overflow-hidden rounded shadow-lg"
                                 style={{ minHeight: "55vh" }}
                             >
                                 <img
@@ -341,10 +340,10 @@ export default function PatioGarden() {
                                     alt="Sunset in the mountains"
                                 />
                                 <div className="px-6 py-4">
-                                    <div className="font-bold text-xl mb-2">
+                                    <div className="mb-2 text-xl font-bold">
                                         Outdoor pillows from $5
                                     </div>
-                                    <p className="text-gray-700 text-base">
+                                    <p className="text-base text-gray-700">
                                         Designs so good, you’ll want to kick back all day.
                                     </p>
                                 </div>
@@ -355,7 +354,7 @@ export default function PatioGarden() {
                                 </div>
                             </div>
                             <div
-                                className="max-w-sm rounded overflow-hidden shadow-lg"
+                                className="max-w-sm overflow-hidden rounded shadow-lg"
                                 style={{ minHeight: "55vh" }}
                             >
                                 <img
@@ -364,10 +363,10 @@ export default function PatioGarden() {
                                     alt="Sunset in the mountains"
                                 />
                                 <div className="px-6 py-4">
-                                    <div className="font-bold text-xl mb-2">
+                                    <div className="mb-2 text-xl font-bold">
                                         Outdoor rugs from $35
                                     </div>
-                                    <p className="text-gray-700 text-base">
+                                    <p className="text-base text-gray-700">
                                         Spruce up your outdoor space from the ground up.
                                     </p>
                                 </div>
@@ -378,10 +377,9 @@ export default function PatioGarden() {
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <div>
-                        <div className="font-bold text-xl m-8">Refresh your outdoors</div>
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-16">
+                        <div className="m-8 text-xl font-bold">Refresh your outdoors</div>
+                        <div className="grid grid-cols-2 gap-16 md:grid-cols-3">
                             {card.map((card, index) => (
                                 <div key={index}>
                                     <Card
@@ -393,14 +391,14 @@ export default function PatioGarden() {
                             ))}
                         </div>
                     </div>
-                    <div className="ml-10">
+                    <div className="mt-10">
                         <div>
                             <div>
-                                <h2 className="font-bold text-xl mb-2">Patio for less</h2>
+                                <h2 className="mb-2 text-xl font-bold">Patio for less</h2>
                             </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                                 <div
-                                    className="max-w-sm rounded overflow-hidden shadow-lg"
+                                    className="max-w-sm overflow-hidden rounded shadow-lg"
                                     style={{ minHeight: "55vh" }}
                                 >
                                     <img
@@ -409,10 +407,10 @@ export default function PatioGarden() {
                                         alt="Sunset in the mountains"
                                     />
                                     <div className="px-6 py-4">
-                                        <div className="font-bold text-xl mb-2">
+                                        <div className="mb-2 text-xl font-bold">
                                             Conversation sets
                                         </div>
-                                        <p className="text-gray-700 text-base">
+                                        <p className="text-base text-gray-700">
                                             The perfect setup for chatting & hanging out.
                                         </p>
                                     </div>
@@ -423,7 +421,7 @@ export default function PatioGarden() {
                                     </div>
                                 </div>
                                 <div
-                                    className="max-w-sm rounded overflow-hidden shadow-lg"
+                                    className="max-w-sm overflow-hidden rounded shadow-lg"
                                     style={{ minHeight: "55vh" }}
                                 >
                                     <img
@@ -432,10 +430,10 @@ export default function PatioGarden() {
                                         alt="Sunset in the mountains"
                                     />
                                     <div className="px-6 py-4">
-                                        <div className="font-bold text-xl mb-2">
+                                        <div className="mb-2 text-xl font-bold">
                                             Dining sets
                                         </div>
-                                        <p className="text-gray-700 text-base">
+                                        <p className="text-base text-gray-700">
                                             Gather ’round for good times & great food.
                                         </p>
                                     </div>
@@ -446,7 +444,7 @@ export default function PatioGarden() {
                                     </div>
                                 </div>
                                 <div
-                                    className="max-w-sm rounded overflow-hidden shadow-lg"
+                                    className="max-w-sm overflow-hidden rounded shadow-lg"
                                     style={{ minHeight: "55vh" }}
                                 >
                                     <img
@@ -455,10 +453,10 @@ export default function PatioGarden() {
                                         alt="Sunset in the mountains"
                                     />
                                     <div className="px-6 py-4">
-                                        <div className="font-bold text-xl mb-2">
+                                        <div className="mb-2 text-xl font-bold">
                                             Bistro sets
                                         </div>
-                                        <p className="text-gray-700 text-base">
+                                        <p className="text-base text-gray-700">
                                             Create your own little oasis.
                                         </p>
                                     </div>
@@ -470,14 +468,10 @@ export default function PatioGarden() {
                                 </div>
                             </div>
 
-                            
-                            <div><Deals /></div>
-
-
                             <div className=" container h-[] w-[100%] relative mx-auto my-8">
-            <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-b6e4/k2-_b4bc9a86-5b49-4f55-8815-0c5b2eade04e.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70" alt="" />
-            <div className="absolute bottom-10 px-4 py-3 w-full">
-                <h1 className="mt-20 md:text-3xl text-xl"> Garden center</h1>
+            <img className="rounded-lg shadow-lg" src="https://i5.walmartimages.com/dfw/4ff9c6c9-b6e4/k2-_b4bc9a86-5b49-4f55-8815-0c5b2eade04e.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70" alt="" />
+            <div className="absolute w-full px-4 py-3 bottom-10">
+                <h1 className="mt-20 text-xl md:text-3xl"> Garden center</h1>
                 <p className="">
                 Welcome spring with <br /> a yard that’s ready <br/> for sunshine.
                 </p>
@@ -496,8 +490,8 @@ export default function PatioGarden() {
 
 
             <div>
-                        <div className="font-bold text-xl m-8">Refresh your outdoors</div>
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-16">
+                        <div className="m-8 text-xl font-bold">Refresh your outdoors</div>
+                        <div className="grid grid-cols-2 gap-16 md:grid-cols-3 ">
                             {card1.map((card, index) => (
                                 <div key={index}>
                                     <Card
@@ -513,11 +507,11 @@ export default function PatioGarden() {
             <div>
             <div className="ml-10">
                         <div>
-                            <h2 className="font-bold text-xl mb-2">Mulch & Soil</h2>
+                            <h2 className="mb-2 text-xl font-bold">Mulch & Soil</h2>
                         </div>
-                        <div className=" grid md:grid-cols-1 lg:grid-cols-2 gap-20">
+                        <div className="grid gap-20 md:grid-cols-1 lg:grid-cols-2">
                             <div
-                                className="max-w-sm rounded overflow-hidden shadow-lg"
+                                className="max-w-sm overflow-hidden rounded shadow-lg"
                                 style={{ minHeight: "55vh",minWidth:"60vh" }}
                             >
                                 <img
@@ -526,10 +520,10 @@ export default function PatioGarden() {
                                     alt="Sunset in the mountains"
                                 />
                                 <div className="px-6 py-4">
-                                    <div className="font-bold text-xl mb-2">
+                                    <div className="mb-2 text-xl font-bold">
                                     Mulch
                                     </div>
-                                    <p className="text-gray-700 text-base">
+                                    <p className="text-base text-gray-700">
                                     Retains moisture & beautifies your garden.
                                     </p>
                                 </div>
@@ -540,7 +534,7 @@ export default function PatioGarden() {
                                 </div>
                             </div>
                             <div
-                                className="max-w-sm rounded overflow-hidden shadow-lg"
+                                className="max-w-sm overflow-hidden rounded shadow-lg"
                                 style={{ minHeight: "55vh",minWidth:"60vh" }}
                             >
                                 <img
@@ -549,10 +543,10 @@ export default function PatioGarden() {
                                     alt="Sunset in the mountains"
                                 />
                                 <div className="px-6 py-4">
-                                    <div className="font-bold text-xl mb-2">
+                                    <div className="mb-2 text-xl font-bold">
                                     Soil
                                     </div>
-                                    <p className="text-gray-700 text-base">
+                                    <p className="text-base text-gray-700">
                                     Up your garden game with nutrient-rich bases.
                                     </p>
                                 </div>
@@ -568,12 +562,12 @@ export default function PatioGarden() {
 
             <div className=" container h-[] w-[100%] relative mx-auto my-8">
                         <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-bfde/k2-_d045c7dc-4349-493c-a14f-045a5df8be4f.v1.jpg" width={"1500vh"} />
-                        <div className="absolute bottom-4 w-full" style={{
+                        <div className="absolute w-full bottom-4" style={{
                             textAlign: "center",
                             justifyContent: "center",
                             width: "100%",
                         }}>
-                            <h1 className="md:text-3xl text-xl"> Spring savings </h1>
+                            <h1 className="text-xl md:text-3xl"> Spring savings </h1>
                             <p className="">
                             Get lots to love at low, low prices
                             </p>

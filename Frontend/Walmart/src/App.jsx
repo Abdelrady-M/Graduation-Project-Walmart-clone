@@ -18,6 +18,8 @@ import Login from './pages/login/login.jsx';
 import Register from './pages/register/register.jsx';
 import PhoneVerification from "./pages/PhoneVerification/PhoneVerification.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
+import TermsOfUse from "./pages/TermsOfUse/TermsOfUse.jsx";
+import Account from "./pages/Account/Account.jsx";
 
 
 const routes = createBrowserRouter([
@@ -33,6 +35,14 @@ const routes = createBrowserRouter([
       {
         path: "/details",
         element: <Details />,
+      },
+      {
+        path: "/termsOfUse",
+        element: <TermsOfUse />,
+      },
+      {
+        path: "/account",
+        element: <Account />,
       },
       {
         path: "/electronics",

@@ -4,8 +4,8 @@ import { Breadcrumbs } from '@mui/material';
 
 const AccountSideBar = ({ sections }) => {
     return (
-        <section className='container mx-auto py-5 px-5  lg:pl-[22rem]'>
-            <div role="presentation" className='lg:flex hidden'>
+        <section className='container px-5 py-5 mx-auto '>
+            <div role="presentation" className='hidden lg:flex'>
                 <Breadcrumbs aria-label="breadcrumb">
                     <Link underline="hover" color="inherit" href="/">
                         My account
@@ -20,7 +20,7 @@ const AccountSideBar = ({ sections }) => {
                     </Link>
                 </Breadcrumbs>
             </div>
-            <div className='flex mt-5 flex-col'>
+            <div className='flex flex-col mt-5'>
                 <div className='sideBarAccount border-r-2 w-full md:w-[335px] hidden lg:block'>
                     <div className='pb-2'>
                         <h1 className='font-bold text-[24px]'>Hi, Abdelrady</h1>

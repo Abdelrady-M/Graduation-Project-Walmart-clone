@@ -104,12 +104,12 @@ const sections = [
 const Account = () => {
     return (
         <>
-            <div className='flex lg:flex-row'  >
+            <div className='flex px-10 lg:flex-row' >
                 <div>
                     <AccountSideBar sections={sections} />
                 </div>
-                <div className='rightAccount py-16 pl-5 md:w-[920px] '>
-                    <div className='flex justify-between items-center'>
+                <div className='rightAccount py-16 pl-5 w-[90%] '>
+                    <div className='grid md:grid-cols-2 items-center justify-between w-[100%]'>
                         <div>
                             <h1 className='flex items-center text-[32px] font-semibold text-[#2e2f32]'>Welcome to your Account</h1>
                         </div>
@@ -117,7 +117,7 @@ const Account = () => {
                             <h1 className='flex items-center text-[24px] text-[#002d58] font-semibold'><img src='https://i5.walmartimages.com/dfw/63fd9f59-b2d5/5c15110b-7c74-4282-8e87-43515087b5c9/v1/rewards-brand-yellow-logo.svg' className='w-[40px] mr-3 ' />$0 Walmart Cash <span className='underline text-[16px] ml-3 text-black'>How to get more</span></h1>
                         </div>
                     </div>
-                    <div className='flex justify-between py-5 px-5 rounded bg-[#f2f8fd] shadowAcc mt-10 cursor-pointer'>
+                    <div className='flex justify-between py-5 px-5 rounded bg-[#f2f8fd] shadowAcc mt-10 cursor-pointer w-[100%]'>
                         <div>
                             <h1 className='flex items-center text-[20px] font-medium'><IoReceiptOutline className='mr-5 text-[20px]' />Purchase history</h1>
                         </div>
@@ -125,7 +125,7 @@ const Account = () => {
                             <FaChevronRight />
                         </dv>
                     </div>
-                    <div className='rounded bg-[#f2f8fd] shadowAcc mt-10  py-5 px-5 '>
+                    <div className='rounded bg-[#f2f8fd] shadowAcc mt-10  py-5 px-5 w-[100%]'>
                         <div className='flex justify-between '>
                             <div>
                                 <h1 className='flex items-center text-[20px] font-semibold'><PaymentIcon className='mr-5 text-[20px]' />Wallet <span className='text-[20px] ml-3'>| Payment methods </span></h1>
@@ -137,7 +137,7 @@ const Account = () => {
                         <div className='mt-5'>
                             <h4 className='text-[14px]'>Learn more about <span className='underline text-[12px] cursor-pointer'>payment methods</span>  we accept.</h4>
                         </div>
-                        <div className='mt-5 flex flex-wrap '>
+                        <div className='flex flex-wrap mt-5 '>
                             <div className='flex flex-col items-center justify-center py-5 px-10 shadowBtn bg-white rounded-md mr-5 w-[192px] mb-5'>
                                 <img src='https://i5.walmartimages.com/dfw/63fd9f59-a0df/abc19199-c5c4-40ad-9d4e-8d13356fe6eb/v1/CC-bunch-logo-dark.svg' className='mb-3' />
                                 <span className='text-[#2e2f32] text-[14px] font-semibold'>Credit/debit card</span>
@@ -156,7 +156,7 @@ const Account = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='rounded shadowAcc mt-10'>
+                    <div className='mt-10 rounded shadowAcc'>
                         <div className='flex justify-between items-center py-5 px-5 bg-[#f2f8fd]'>
                             <div className='flex items-center'>
                                 <PaymentIcon className='mr-5 text-[20px] flex items-end' />
@@ -169,7 +169,7 @@ const Account = () => {
                                 <FaChevronRight />
                             </div>
                         </div>
-                        <div className='flex flex-wrap  '>
+                        <div className='flex flex-wrap '>
                             <div className='flex flex-col p-5 border-r border-gray w-[400px]'>
                                 <h1 className='text-[18px] font-semibold'>Email Address</h1>
                                 <h3 className='text-[14px]'>abdelrady.mohamed95@hotmail.com <span className='underline cursor-pointer'>Needs verification</span></h3>
@@ -178,7 +178,7 @@ const Account = () => {
                                 <h1 className='text-[18px] font-semibold '>Phone number</h1>
                                 <span className='underline text-[14px] cursor-pointer'>Add phone number</span>
                             </div>
-                            <div className='flex justify-between items-center w-full p-5  border-t border-gray'>
+                            <div className='flex items-center justify-between w-full p-5 border-t border-gray'>
                                 <div>
                                     <h1 className='text-[18px] font-semibold'>Add an Address</h1>
                                     <h3 className='text-[14px]'>Adding an address allows for quicker checkout and approximation of delivery times</h3>
@@ -193,7 +193,7 @@ const Account = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='rounded shadowAcc mt-10'>
+                    <div className='mt-10 rounded shadowAcc'>
                         <div className='flex justify-between py-5 px-5 rounded bg-[#f2f8fd]  mt-10 cursor-pointer'>
                             <div>
                                 <h1 className='flex items-center text-[20px] font-medium'><CiHeart className='mr-5 text-[28px]' />Lists (2)</h1>
@@ -202,7 +202,7 @@ const Account = () => {
                                 <FaChevronRight />
                             </div>
                         </div>
-                        <div className='flex justify-between items-center'>
+                        <div className='flex items-center justify-between'>
                             <div className='flex items-center px-10'>
                                 <div>
                                     <img src='https://i5.walmartimages.com/seo/Lenovo-Legion-Pro-5-16IRX8-16-0-165-Hz-IPS-Intel-Core-i7-13th-Gen-13700HX-2-10GHz-GeForce-RTX-4060-Laptop-GPU-16-GB-DDR5-1-TB-PCIe-SSD-Windows-11-Hom_3d446919-be1c-474c-b3c5-7d92ce704505.51b2e610aa84142bd421437e8a1af438.jpeg' className='w-[48px]' />
@@ -221,15 +221,15 @@ const Account = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='flex mt-10 '>
-                        <div className='shadowAcc w-[440px] rounded-md mr-5'>
+                    <div className='grid grid-cols-1 mt-10 md:space-x-5 space-y-14 md:space-y-0 md:grid-cols-2'>
+                        <div className='shadowAcc w-[100%] rounded-md mr-5'>
                             <div className='flex py-5 px-5 rounded bg-[#f2f8fd] cursor-pointer'>
                                 <div>
                                     <h1 className='flex items-center text-[20px] font-medium'><MdOutlineLocalConvenienceStore className='mr-5 text-[28px]' />Your selected Walmart store</h1>
                                 </div>
                             </div>
-                            <div className='flex justify-between p-5 w-[452px]'>
-                                <div className='flex flex-col justify-between items-center'>
+                            <div className='flex justify-between p-5 w-[100%]'>
+                                <div className='flex flex-col items-center justify-between'>
                                     <div>
                                         <h1 className='text-[14px] font-semibold'>Sacramento Supercenter</h1>
                                         <span className='text-[14px]'>8915 Gerber Road, CA 95829</span>
@@ -246,7 +246,7 @@ const Account = () => {
                             </div>
                         </div>
                         <div className='shadowAcc'>
-                            <div className=' w-[440px] rounded-md flex flex-col'>
+                            <div className=' w-[100%] rounded-md flex flex-col'>
                                 <div className='flex py-5 px-5 rounded bg-[#f2f8fd] cursor-pointer'>
                                     <div>
                                         <h1 className='flex items-center text-[20px] font-medium'><GrServices className='mr-5 text-[28px]' />Discover popular services</h1>
