@@ -13,14 +13,14 @@ export default function TermsOfUse(){
     </div>
     
 
-    <div className="w-[70%] h-[40vh] mt-7 mx-auto" style={{backgroundColor:"rgb(241, 241, 242)"}}>
+    <div className="w-[70%] h-[40vh] mt-7 mx-auto rounded-lg shadow-md" style={{backgroundColor:"rgb(242, 248, 253)"}}>
         <h1 className="flex justify-center py-4 mx-auto text-xl">Hi mohamed A,How can we help you?</h1>
         <div className="w-[60%] h-[12vh] bg-white border-2 shadow-sm mx-auto grid grid-cols-3 py-3">
             <a href="#" className="mx-auto text-xs hover:underline"><RiShoppingCartLine className="mx-auto text-xl"/>Track Your Order</a>
             <a href="#" className="mx-auto text-xs hover:underline"><TbShoppingBagEdit className="mx-auto text-xl"/>Edit or Cancel an Order</a>
             <a href="#" className="mx-auto text-xs hover:underline"><MdOutlineRemoveShoppingCart className="mx-auto text-xl"/>Returns & Refunds</a>
         </div>
-        <div className="pl-48 mx-auto my-1 ">
+        <div className="mx-auto my-1 md:pl-48 ">
             <h1 className="flex mx-auto">Search help topics</h1>
             <div>
             <input  type="text" placeholder="What do you need help with ?" className=" w-[75%] border-solid border-2 border-black rounded-md p-1"/>
@@ -44,10 +44,10 @@ export default function TermsOfUse(){
             </div>
             <div className="my-4">
                 <h1 className="text-xs font-bold">Didn't find what you were looking for?</h1>
-                <button className="px-3 py-1 mt-3 bg-blue-500 rounded-full hover:bg-blue-700">Chat With Us</button>
+                <button className="px-3 py-1 mt-3 text-white bg-blue-500 rounded-full hover:bg-blue-700">Chat With Us</button>
             </div>
         </div>
-        <div className="w-2/3 pr-32 text-sm pl-14" style={{textAlign:"justify"}}>
+        <div className="w-[70%] text-sm md:w-[80%] pl-14 pr-28 " style={{textAlign:"justify"}}>
             <h1 className="my-3 font-semibold">Walmart.com Terms of Use</h1>
             <hr />
             <p className="my-3">Last Updated March 5, 2024</p>
