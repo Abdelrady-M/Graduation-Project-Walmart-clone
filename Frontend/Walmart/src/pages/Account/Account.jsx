@@ -104,7 +104,7 @@ const sections = [
 const Account = () => {
     return (
         <>
-            <div className='flex px-10 lg:flex-row' >
+            <div className='container mx-auto flex px-10 lg:flex-row' >
                 <div>
                     <AccountSideBar sections={sections} />
                 </div>

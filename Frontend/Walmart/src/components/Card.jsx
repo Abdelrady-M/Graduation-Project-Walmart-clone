@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CiHeart } from "react-icons/ci";
 import { AiOutlinePlus } from "react-icons/ai";
+// import { useDispatch, useSelector } from "react-redux";
+// import { fetchProducts } from "../store/slices/product";
 
 const Card = ({ photo, title, price, discount }) => {
+    // const { products } = useSelector((state) => state.products);
+    // const dispatch = useDispatch();
+    // useEffect(() => {
+    //     dispatch(fetchProducts());
+    // }, [dispatch]);
+
     return (
 
         <div className="relative flex flex-col w-full h-auto">

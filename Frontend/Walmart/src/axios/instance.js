@@ -1,7 +1,10 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const instance = axios.create({
-    baseUrl: 'https://walmart-api-zl4b.onrender.com'
-})
+    baseURL: 'https://walmart-api-zl4b.onrender.com',
+    headers: {
+        'Content-Type': 'application/json',
+    }
+});
 
-export default instance
+export default instance;
