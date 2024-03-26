@@ -32,11 +32,11 @@ export default function ShopByPrice() {
         </div>
         <div className="w-1/6 px-2 flex flex-col items-center mt-2 grow-0 justify-start">
           <img src={headphones} alt="" />
-          <a href="">Cell phones</a>
+          <a href="">Cell phones under $25</a>
         </div>
         <div className="w-1/6 px-2 flex flex-col items-center mt-2 grow-0 justify-start text-center">
           <img src={printers} alt="" />
-          <a href="">Video games</a>
+          <a href="">Printers under $100</a>
         </div>
       </div>
     </div>

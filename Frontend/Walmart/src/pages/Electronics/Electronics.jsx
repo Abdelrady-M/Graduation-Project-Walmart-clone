@@ -1,5 +1,4 @@
 import React from "react";
-import MultiCarousal from "../../components/MultiCarousal";
 import LeftHandNavList from "../../components/LeftHandNavList/LeftHandNavList";
 import HeroCard from "../../components/HeroCard";
 import CustomSlider from "../../components/CustomSlider ";
@@ -111,13 +110,7 @@ export default function Electronics() {
 
   return (
     <>
-      <main className="container mx-auto">
-        <section className="my-5">
-          <MultiCarousal
-            title="Apple Deals"
-            desc="Save on the gadgets you love, for less."
-          />
-        </section>
+      <main className="container mx-auto my-8">
         <section className="flex justify-between">
           <aside className="h-100 relative w-1/4 flex flex-col px-8">
             <LeftHandNavList items={features} section="Features Shop" />
