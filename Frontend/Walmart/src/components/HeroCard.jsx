@@ -3,7 +3,7 @@ import React from "react";
 export default function HeroCard({ img, Title, desc, style }) {
   return (
     <div
-      className="relative overflow-hidden shadow-lg w-full h-100"
+      className="relative overflow-hidden shadow-lg w-full h-100 my-6"
       style={{ display: style }}
     >
       <div className="w-1/2 flex flex-col justify-center mx-8">

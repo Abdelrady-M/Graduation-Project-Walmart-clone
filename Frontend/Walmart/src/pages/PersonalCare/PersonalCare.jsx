@@ -104,7 +104,7 @@ export default function PersonalCare() {
       <div className="mx-8 my-4">
         <ShopByCategory categories={category} />
       </div>
-      <main className="flex justify-between">
+      <main className="flex justify-between container mx-auto py-6">
         <aside className="h-100 relative w-1/4 flex flex-col px-8">
           <LeftHandNavList items={categoriess} section="Categories" />
         </aside>
