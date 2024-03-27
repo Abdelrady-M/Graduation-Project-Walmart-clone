@@ -1,5 +1,18 @@
 import { TextField } from '@mui/material'
-import React from 'react'
+import axios from 'axios';
+import React from 'react';
+
+// فيه error هنا
+// const [email, setEmail] = React.useState();
+// const [password, setPassword] = React.useState();
+
+
+const handelSubmit = (e)=>{
+    e.preventDefault()
+    axios.post('https://openmarket.onrender.com/login',{email,password})
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+} 
 
 const Login = () => {
     return (
@@ -14,11 +27,14 @@ const Login = () => {
                         <span className='flex text-center items-center justify-center'>Not sure if you have an account?</span>
                         <span className='flex'>Enter your email and we’ll check for you.</span>
                     </div>
-                    <div className='flex flex-col w-full md:w-[472px]'>
-                        <TextField id="outlined-basic" label="Email Address" variant="outlined" />
-                        <button className="border border-gray-500 text-white bg-[#0071DC] font-medium py-2 px-4 rounded-full mt-4 hover:bg-[#2c3287]">
+                    <div className=' w-full md:w-[472px]'>
+                        <form onSubmit={handelSubmit} className='grid grid-cols-1 space-y-6'>
+                        <TextField id="outlined-basic" label="Email Address" variant="outlined" onChange={(e)=> setEmail(e.target.value)}/>
+                        <TextField id="outlined-basic" label="Password" variant="outlined" onChange={(e)=> setPassword(e.target.value)}/>
+                        <button type='submit' className="border border-gray-500 text-white bg-[#0071DC] font-medium py-2 px-4 rounded-full mt-4 hover:bg-[#2c3287]">
                             Continue
                         </button>
+                        </form>
                     </div>
                     <div className='flex flex-col mt-4 items-start md:w-[472px] pl-3'>
                         <span>Securing your personal information is our priority.</span>
