@@ -1,32 +1,60 @@
-import { Box, Checkbox, FormControl, FormControlLabel, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from '@mui/material'
-import React from 'react'
+import { Box, Checkbox, FormControl, FormControlLabel, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux'
+import { registerUser } from '../../store/slices/authSlice';
+import { useNavigate } from 'react-router';
+
+
 
 const Register = () => {
-    const [showPassword, setShowPassword] = React.useState(false);
+    const { loading, userInfo, error, success } = useSelector(
+        (state) => state.auth
+    )
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
+    const [showPassword, setShowPassword] = useState(false);
+    const { register, handleSubmit } = useForm();
+
+    const submitForm = (data) => {
+        if (data.password !== data.password) {
+            alert('Password mismatch');
+            return;
+        }
+        data.email = data.email.toLowerCase();
+        dispatch(registerUser(data));
+        console.log(data)
+    };
+    useEffect(() => {
+        if (success) {
+            navigate('/login'); // Redirect to the success route
+        }
+    }, [success, navigate]);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
+
     return (
         <>
             <div className='MainLogin container mx-auto'>
                 <div className='contentLog container mx-auto flex flex-col justify-center items-center py-6 w-full md:w-[472px]'>
                     <div className='mb-5'>
-                        <img src='https://i5.walmartimages.com/dfw/4ff9c6c9-d10e/k2-_ef2c8660-96ed-4f64-891d-329fa488c482.v1.png' />
+                        <img src='https://i5.walmartimages.com/dfw/4ff9c6c9-d10e/k2-_ef2c8660-96ed-4f64-891d-329fa488c482.v1.png' alt="Walmart Logo" />
                     </div>
                     <div className='flex flex-col mb-5 items-start  w-full md:w-[472px]'>
                         <h1 className='font-medium text-[20px] mb-5 flex ' >Create your Walmart account</h1>
                         <span className='flex text-[#74767c]'>Email address</span>
                         <span className='flex text-[#74767c]'>example@example.com <a href='#' className='underline ml-2 text-black'>Change</a></span>
                     </div>
-                    <div className='flex flex-col w-full md:w-[472px]'>
+                    <form onSubmit={handleSubmit(submitForm)} className='flex flex-col w-full md:w-[472px]'>
                         <Box sx={{
                             '& .MuiTextField-root': { m: 1, width: '472px' },
                         }}>
-                            <TextField error id="outlined-basic" label="First name" variant="outlined" />
-                            <TextField error id="outlined-basic" label="Last name" variant="outlined" />
+                            <TextField error id="outlined-basic" label="First name" variant="outlined" {...register('name')} />
+                            <TextField error id="outlined-basic" label="Email" variant="outlined" {...register('email')} />
                             <FormControl error sx={{ m: 1, width: '472px' }} variant="outlined">
                                 <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                                 <OutlinedInput
@@ -45,6 +73,7 @@ const Register = () => {
                                         </InputAdornment>
                                     }
                                     label="Password"
+                                    {...register('password')}
                                 />
                             </FormControl>
                         </Box>
@@ -59,10 +88,10 @@ const Register = () => {
                             />
                             <h5 className='text-[#74767c] text-[14px]'>By clicking Create Account, you acknowledge you have read and agreed to our <span className='underline cursor-pointer text-black'> Terms of Use</span> and <span className='underline cursor-pointer text-black'>Privacy Policy</span></h5>
                         </div>
-                        <button className="border border-gray-500 text-white bg-[#0071DC] font-medium py-2 px-4 rounded-full mt-4 hover:bg-[#2c3287]">
+                        <button type="submit" className="border border-gray-500 text-white bg-[#0071DC] font-medium py-2 px-4 rounded-full mt-4 hover:bg-[#2c3287]">
                             Create Account
                         </button>
-                    </div>
+                    </form>
 
                 </div>
                 <div className='footer flex flex-col md:flex-row justify-around w-full  text-center items-center border-t-2 py-5 mt-28 text-[14px]'>
@@ -82,7 +111,7 @@ const Register = () => {
                 </div>
             </div>
         </>
-    )
+    );
 }
 
-export default Register
+export default Register;
