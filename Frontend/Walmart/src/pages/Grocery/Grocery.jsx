@@ -134,13 +134,13 @@ export default function Grocery() {
     return (
         <>
                 <div className=" container h-[] w-[100%] relative mx-auto my-8">
-                        <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-49b2/k2-_90314a02-b0c6-4a2d-98be-1394b83bc8b9.v1.png" width={"1500vh"} />
-                        <div className="absolute bottom-4 w-full" style={{
+                        <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-49b2/k2-_90314a02-b0c6-4a2d-98be-1394b83bc8b9.v1.png" width={"1500vh"} />
+                        <div className="absolute w-full bottom-4" style={{
                             textAlign: "center",
                             justifyContent: "center",
                             width: "100%",
                         }}>
-                            <h1 className="md:text-3xl text-xl"> Your full stock-up is here </h1>
+                            <h1 className="text-xl md:text-3xl"> Your full stock-up is here </h1>
                             <p className="">
                             Find food & other daily go-tos..
                             </p>
@@ -155,21 +155,20 @@ export default function Grocery() {
                     </div>
 
 
-            <div className="ml-10">
+            <div className="p-8 mx-auto">
                 <div>
-                    <h2 className="font-bold text-xl mb-2">For your shopping list</h2>
+                    <h2 className="mb-2 text-xl font-bold">For your shopping list</h2>
                 </div>
-                <div className=" grid sm:grid-cols-1 md:grid-cols-3 justify-between space-y-2">
-                    <div className="">
-                        <div className="max-w-sm rounded overflow-hidden shadow-lg">
+                <div className="grid mx-auto mt-4 space-y-8 md:space-x-8 sm:grid-cols-1 md:grid-cols-3 md:space-y-0">
+                        <div className="max-w-sm overflow-hidden rounded shadow-lg">
                             <img
                                 className="w-full"
                                 src="https://i5.walmartimages.com/dfw/4ff9c6c9-7cde/k2-_4dd6073d-de23-4958-94d1-9742c332232a.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF"
                                 alt="Sunset in the mountains"
                             />
                             <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">Easter candy</div>
-                                <p className="text-gray-700 text-base">
+                                <div className="mb-2 text-xl font-bold">Easter candy</div>
+                                <p className="text-base text-gray-700">
                                     Fill their baskets with chocolate, jelly beans & more.
                                 </p>
                             </div>
@@ -179,19 +178,17 @@ export default function Grocery() {
                                 </button>
                             </div>
                         </div>
-                    </div>
-                    <div className="">
-                        <div className="max-w-sm rounded overflow-hidden shadow-lg">
+                        <div className="max-w-sm overflow-hidden rounded shadow-lg">
                             <img
                                 className="w-full"
                                 src="https://i5.walmartimages.com/dfw/4ff9c6c9-a57c/k2-_5b52a8f2-1c4e-476a-abd2-1aaa2b2843ac.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF"
                                 alt="Sunset in the mountains"
                             />
                             <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">
+                                <div className="mb-2 text-xl font-bold">
                                     Family-size comfort meals
                                 </div>
-                                <p className="text-gray-700 text-base">
+                                <p className="text-base text-gray-700">
                                     Warm up with filling pastas, soups & more.
                                 </p>
                             </div>
@@ -200,18 +197,16 @@ export default function Grocery() {
                                     Shop
                                 </button>
                             </div>
-                        </div>
                     </div>
-                    <div className="">
-                        <div className="max-w-sm rounded overflow-hidden shadow-lg">
+                        <div className="max-w-sm overflow-hidden rounded shadow-lg">
                             <img
                                 className="w-full"
                                 src="https://i5.walmartimages.com/dfw/4ff9c6c9-f192/k2-_e9ba341d-7736-46ea-9614-d84cabead0c2.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF"
                                 alt="Sunset in the mountains"
                             />
                             <div className="px-6 py-4">
-                                <div className="font-bold text-xl mb-2">Easy kids picks</div>
-                                <p className="text-gray-700 text-base">
+                                <div className="mb-2 text-xl font-bold">Easy kids picks</div>
+                                <p className="text-base text-gray-700">
                                     Stay stocked up on the food they're sure to finish.
                                 </p>
                             </div>
@@ -221,20 +216,19 @@ export default function Grocery() {
                                 </button>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
 
 
             <div className="flex mt-6 ml-8">
-            <div className=" w-1/6">
+            <div className="hidden w-1/6 grid-cols-1 lg:grid">
                 <LeftHandNavList items={features} section="Categories" />
                 <LeftHandNavList items={features} section="Savings" />
             </div>
                 <div className="w-9/2">
-                    <div className="font-bold text-xl mb-2 ml-8">Featured items</div>
-                    <div className="ml-20">
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-5 container mb-10 mx-auto mt-5">
+                    <div className="mb-2 ml-8 text-xl font-bold">Featured items</div>
+                    <div className="pl-10">
+                        <div className="container grid grid-cols-2 mx-auto mt-5 mb-10 md:grid-cols-3">
                             {cards.map((card, index) => (
                                 <div key={index} ><Card photo={card.photo} title={card.title} price={card.price} /></div>
                             ))}
@@ -243,13 +237,13 @@ export default function Grocery() {
 
                         
                         <div className=" container h-[] w-[100%] relative mx-auto my-8">
-                        <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-2788/k2-_10e61826-2453-4aff-8afe-c40cafaf38a9.v1.png" width={"1500vh"} />
+                        <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-2788/k2-_10e61826-2453-4aff-8afe-c40cafaf38a9.v1.png" width={"1500vh"} />
                         <div className="absolute bottom-0 w-full" style={{
                             textAlign: "center",
                             justifyContent: "center",
                             width: "100%",
                         }}>
-                            <h1 className="md:text-3xl text-xl"> Alcohol delivery from select stores </h1>
+                            <h1 className="text-xl md:text-3xl"> Alcohol delivery from select stores </h1>
                             <p className="">
                             Spring sips are (almost) at your door.
                             </p>
@@ -264,20 +258,20 @@ export default function Grocery() {
                     </div>
                         <div className="">
                             <div>
-                                <h2 className="font-bold text-xl mb-2">For your shopping list</h2>
+                                <h2 className="mb-2 text-xl font-bold">For your shopping list</h2>
                             </div>
-                            <div className="flex space-x-20">
-                                <div className=" flex w-1/2 md:w-1/4">
-                                    <div className="max-w-sm rounded overflow-hidden shadow-lg">
+                            <div className="grid grid-cols-1 space-x-4 space-y-3 md:space-y-0 md:grid-cols-3">
+                                <div className="">
+                                    <div className="max-w-sm overflow-hidden rounded shadow-lg">
                                         <img
                                             className="w-full"
                                             src="https://i5.walmartimages.com/dfw/4ff9c6c9-6e36/k2-_be13dc15-25e8-4fdd-a4fd-dbd8e716ef7a.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF"
                                             alt="Sunset in the mountains"
                                         />
                                         <div className="px-6 py-4">
-                                            <div className="font-bold text-xl mb-2">Peak-season produce
+                                            <div className="mb-2 text-xl font-bold">Peak-season produce
                                             </div>
-                                            <p className="text-gray-700 text-base">
+                                            <p className="text-base text-gray-700">
                                                 Save on our freshest fruits & vegetables.
                                             </p>
                                         </div>
@@ -288,18 +282,18 @@ export default function Grocery() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex w-1/2 md:w-1/4">
-                                    <div className="max-w-sm rounded overflow-hidden shadow-lg">
+                                <div className="">
+                                    <div className="max-w-sm overflow-hidden rounded shadow-lg">
                                         <img
                                             className="w-full"
                                             src="https://i5.walmartimages.com/dfw/4ff9c6c9-a57c/k2-_5b52a8f2-1c4e-476a-abd2-1aaa2b2843ac.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF"
                                             alt="Sunset in the mountains"
                                         />
                                         <div className="px-6 py-4">
-                                            <div className="font-bold text-xl mb-2">
+                                            <div className="mb-2 text-xl font-bold">
                                                 Gut-friendly favorites
                                             </div>
-                                            <p className="text-gray-700 text-base">
+                                            <p className="text-base text-gray-700">
                                                 Treat your tummy to probiotic foods & drinks for less.
                                             </p>
                                         </div>
@@ -310,16 +304,16 @@ export default function Grocery() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex w-1/2 md:w-1/4">
-                                    <div className="max-w-sm rounded overflow-hidden shadow-lg">
+                                <div className="">
+                                    <div className="max-w-sm overflow-hidden rounded shadow-lg">
                                         <img
                                             className="w-full"
                                             src="https://i5.walmartimages.com/dfw/4ff9c6c9-736b/k2-_814b2a53-db01-4618-a287-98ce05ab646e.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF"
                                             alt="Sunset in the mountains"
                                         />
                                         <div className="px-6 py-4">
-                                            <div className="font-bold text-xl mb-2">Easy kids picks</div>
-                                            <p className="text-gray-700 text-base">
+                                            <div className="mb-2 text-xl font-bold">Easy kids picks</div>
+                                            <p className="text-base text-gray-700">
                                                 Stay stocked up on the food they're sure to finish.
                                             </p>
                                         </div>
@@ -332,8 +326,8 @@ export default function Grocery() {
                                 </div>
                             </div>
                         </div>
-                        <div className="font-bold text-xl my-8"><h1>Save with Great Value</h1>
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-5 container mb-10 mx-auto mt-5">
+                        <div className="my-8 text-xl font-bold"><h1>Save with Great Value</h1>
+                        <div className="container grid grid-cols-2 mx-auto mt-5 mb-10 md:grid-cols-3">
                             {cards2.map((card, index) => (
                                 <div key={index} ><Card photo={card.photo} title={card.title} price={card.price} /></div>
                             ))}
@@ -346,14 +340,14 @@ export default function Grocery() {
             </div>
 
 
-            <div className=" container h-[] w-[100%] relative mx-auto my-8">
-                        <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-89ab/k2-_54948667-12e4-4f0a-bf0b-8bbb37e8ab76.v1.jpg" width={"1500vh"} />
-                        <div className="absolute bottom-4 w-full" style={{
+            <div className=" container h-[] w-[85%] relative mx-auto my-8">
+                        <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-89ab/k2-_54948667-12e4-4f0a-bf0b-8bbb37e8ab76.v1.jpg" width={"1400vh"} />
+                        <div className="absolute bottom-0 w-full" style={{
                             textAlign: "center",
                             justifyContent: "center",
                             width: "100%",
                         }}>
-                            <h1 className="md:text-3xl text-xl"> Try Walmart+ InHome for free! </h1>
+                            <h1 className="text-xl md:text-3xl"> Try Walmart+ InHome for free! </h1>
                             <p className="">
                             Get delivery into your kitchen & more
                             </p>

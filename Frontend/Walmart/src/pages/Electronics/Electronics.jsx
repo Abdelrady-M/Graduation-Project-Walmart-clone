@@ -110,7 +110,7 @@ export default function Electronics() {
 
   return (
     <>
-      <main className="container mx-auto py-6">
+      <main className="container mx-auto my-8">
         <section className="flex justify-between">
           <aside className="h-100 relative w-1/4 flex flex-col px-8">
             <LeftHandNavList items={features} section="Features Shop" />

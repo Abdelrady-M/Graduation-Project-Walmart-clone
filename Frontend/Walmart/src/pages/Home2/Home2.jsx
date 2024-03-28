@@ -206,41 +206,26 @@ const categories = [
 export default function Home2() {
     return (
         <>
-        <div className="container">
 
-
-            <div className="my-4 h-[] w-[100%] relative mx-8">
+        <div>
+        <div className=" container h-[] w-[100%] relative mx-auto my-8">
             <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-e2ad/k2-_4de43013-971a-444c-b405-4a3d339f0252.v1.jpg?" alt="" />
-            <div className="absolute bottom-10 px-4 py-3 w-full">
-                <h1 className="mt-20 md:text-3xl text-xl"></h1>
-                <p className="">
-                </p>
-                <p
-                    style={{
-                        position: "relative",
-                        textAlign: "start",
-                        justifyContent: "center",
-                        textDecoration: "underline",
-                    }}
-                >
-                </p>
-            </div>
-        </div>
 
-            <div>
+        </div>
+            {/* <div>
                 <div className="text-3xl">Shop the look</div>
                 <div className="container m-8">
                 <Deals />
                 </div>
-            </div>
+            </div> */}
 
             <div className="flex">
-                <div className="w-1/8 m-6">
+                <div className="hidden mx-4 w-1/8 lg:grid lg:grid-cols-1 ">
                     <LeftHandNavList items={features} section="Categories" />
                     <LeftHandNavList items={features} section="Savings" />
                 </div>
-                <div className="w-3/4 m-8">
-                    <div className="border-1 shadow-md rounded-2xl">
+                <div className="w-3/4 mx-auto">
+                    <div className="shadow-md border-1 rounded-2xl">
                         <img
                             className="justify-center"
                             style={{ width: "100%" }}
@@ -255,14 +240,32 @@ export default function Home2() {
                 <Deals />
                 </div>
                     </div>
-                    <div className="">
-                <div style={{width:"100%"}} className="border-1 shadow-md rounded-2xl relative isolate flex flex-col overflow-hidden my-6 ">
-                    <img  src="https://i5.walmartimages.com/dfw/4ff9c6c9-8e3a/k2-_417f2184-f7fb-4ce0-91b8-89b101436455.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70%201x,%20https://i5.walmartimages.com/dfw/4ff9c6c9-8e3a/k2-_417f2184-f7fb-4ce0-91b8-89b101436455.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70" />
-                </div>
-            </div>
-            <div className="font-bold text-xl my-8"><h1>Save with Great Value</h1>
 
-                                                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-16">
+                        <div className=" container h-[] w-[100%] relative mx-auto my-8">
+            <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-8e3a/k2-_417f2184-f7fb-4ce0-91b8-89b101436455.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70%201x,%20https://i5.walmartimages.com/dfw/4ff9c6c9-8e3a/k2-_417f2184-f7fb-4ce0-91b8-89b101436455.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70" alt="" />
+            <div className="absolute w-full px-4 py-3 bottom-20">
+                <p className="">
+                    Now at Walmart
+                </p>
+                <h1 className="mt-20 text-xl md:text-3xl"> Your style<br /> at Walmart </h1>
+                <p className="">
+                Spring forward with fashion <br /> home & beauty inspired <br /> by real life.
+                </p>
+                <p
+                    style={{
+                        position: "relative",
+                        textAlign: "start",
+                        justifyContent: "center",
+                        textDecoration: "underline",
+                    }}
+                >
+                    Shop Now
+                </p>
+            </div>
+        </div>
+            <div className="my-8 text-xl font-bold"><h1>Save with Great Value</h1>
+
+                                                <div className="grid grid-cols-2 gap-16 md:grid-cols-3">
                             {cards.map((card, index) => (
                                 <div key={index}>
                                     <Card

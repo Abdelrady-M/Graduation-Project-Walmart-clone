@@ -1,4 +1,5 @@
 import React from "react";
+import { Provider } from "react-redux";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AppLayout from "./AppLayout";
 import Electronics from "./pages/Electronics/Electronics.jsx";
@@ -22,6 +23,10 @@ import NotFound from "./pages/NotFound/NotFound.jsx";
 import Toys from "./pages/Toys/Toys.jsx";
 import AllDepartments from "./pages/AllDepartments/AllDepartments.jsx";
 import AllServices from './pages/AllServices/AllServices.jsx'
+import TermsOfUse from "./pages/TermsOfUse/TermsOfUse.jsx";
+import Account from "./pages/Account/Account.jsx";
+import store from "./store/store.js";
+
 
 const routes = createBrowserRouter([
   {
@@ -36,6 +41,14 @@ const routes = createBrowserRouter([
       {
         path: "/details",
         element: <Details />,
+      },
+      {
+        path: "/termsOfUse",
+        element: <TermsOfUse />,
+      },
+      {
+        path: "/account",
+        element: <Account />,
       },
       {
         path: "/electronics",
@@ -89,7 +102,15 @@ const routes = createBrowserRouter([
   { path: "/phoneverification", element: <PhoneVerification /> },
 ]);
 const App = () => {
-  return <RouterProvider router={routes} />;
+  return (
+    <>
+      <Provider store={store}>
+        <RouterProvider router={routes} />;
+      </Provider>
+    </>
+
+  )
+
 };
 
 export default App;

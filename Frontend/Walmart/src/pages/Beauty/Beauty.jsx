@@ -106,7 +106,7 @@ export default function Beauty() {
       <div className="mx-8 my-8">
         <ShopByCategory categories={category} />
       </div>
-      <main className="flex justify-between px-8">
+      <main className="flex justify-between mx-8">
         <aside className="h-100 relative w-1/4 flex flex-col px-8">
           <LeftHandNavList items={categoriess} section="Categories" />
         </aside>
