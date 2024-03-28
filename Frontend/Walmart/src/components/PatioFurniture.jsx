@@ -33,7 +33,7 @@ const PatioFurniture = () => {
                 <CustomSlider cards={cards} mainTitle={tittle} />
             </div>
             <div className='hidden xl:flex w-[50vw] h-[50vh] items-center justify-center'>
-                <video controls autostart autoPlay src={Video} type="video/mp4" />
+                <video controls autoPlay src={Video} type="video/mp4" />
             </div>
         </div>
     )
