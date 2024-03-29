@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import ShopByCategory from "../../components/ShopByCategory";
 import hairTools from "../../assets/hairTools.webp";
 import hairCare from "../../assets/hairCare.webp";
@@ -11,6 +13,8 @@ import frizz from "../../assets/fizz.webp";
 import LeftHandNavList from "../../components/LeftHandNavList/LeftHandNavList";
 import CustomSlider from "../../components/CustomSlider ";
 import HeroCard from "../../components/HeroCard";
+
+import { fetchProducts } from "../../store/slices/product";
 
 export default function Beauty() {
   const category = [
@@ -94,12 +98,28 @@ export default function Beauty() {
     },
   ];
 
-  const card = [
-    { photo: shampoo, title: "Monday Shampoo", price: "$7" },
-    { photo: shampoo, title: "Monday Shampoo", price: "$7" },
-    { photo: shampoo, title: "Monday Shampoo", price: "$7" },
-    { photo: shampoo, title: "Monday Shampoo", price: "$7" },
-  ];
+  // const card = [
+  //   { photo: shampoo, title: "Monday Shampoo", price: "$7" },
+  //   { photo: shampoo, title: "Monday Shampoo", price: "$7" },
+  //   { photo: shampoo, title: "Monday Shampoo", price: "$7" },
+  //   { photo: shampoo, title: "Monday Shampoo", price: "$7" },
+  // ];
+
+  const { products } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const fetchData = async () => {
+      await dispatch(fetchProducts());
+    };
+    fetchData();
+  }, [dispatch]);
+
+  const card = products.map((product) => ({
+    prdId:product._id,
+    photo: product.thumbnail,
+    title: product.title,
+    price: `$${product.price}`,
+  }));
 
   return (
     <>

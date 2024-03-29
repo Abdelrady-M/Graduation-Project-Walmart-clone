@@ -112,7 +112,8 @@ const Cart = () => {
             </div>
             <div className="container w-full my-5">
               <div style={{ width: "100%" }}>
-                <Accordion>
+                {cartData.map(()=>{
+                  <Accordion>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1-content"
@@ -391,6 +392,7 @@ const Cart = () => {
                     </div>
                   </AccordionDetails>
                 </Accordion>
+                })}
               </div>
             </div>
 

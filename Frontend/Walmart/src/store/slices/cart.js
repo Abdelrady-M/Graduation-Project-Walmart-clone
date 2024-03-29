@@ -8,7 +8,6 @@ export const fetchCartData = createAsyncThunk(
       const response = await instance.get("/cart", {
         // headers: {
         //   "Content-Type": "application/json",
-          
         // },
       });
       console.log(response.data);
@@ -19,6 +18,18 @@ export const fetchCartData = createAsyncThunk(
   }
 );
 
+export const addToCart = createAsyncThunk(
+  "cart/addToCart",
+  async (prdId, { rejectWithValue }) => {
+    try {
+      const response = await instance.post(`/cart/${prdId}`);
+
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
@@ -38,6 +49,19 @@ const cartSlice = createSlice({
         state.cartData = action.payload;
       })
       .addCase(fetchCartData.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      //add to cart handling
+      .addCase(addToCart.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(addToCart.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.cartData = action.payload;
+      })
+      .addCase(addToCart.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
