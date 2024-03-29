@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaLayerGroup } from "react-icons/fa";
 import { HiUserGroup } from "react-icons/hi";
 import { GoSearch } from "react-icons/go";
@@ -7,11 +7,30 @@ import { BiWorld } from "react-icons/bi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsPhone } from "react-icons/bs";
 import { MdOutlineLocationCity } from "react-icons/md";
+import { useDispatch, useSelector } from 'react-redux'
+import { userLogin } from '../store/slices/authLogin';
+import { userLogout } from '../store/slices/authLogin';
+import { jwtDecode } from "jwt-decode";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [showDepartmentsDropdown, setShowDepartmentsDropdown] = useState(false);
     const [showServicesDropdown, setShowServicesDropdown] = useState(false);
     const [showOverlay, setShowOverlay] = useState(false);
+    const [decodedToken, setDecodedToken] = useState(null);
+    const navigate = useNavigate()
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const token = Cookies.get('userToken'); // Retrieve token from cookie
+        if (token) {
+            const decoded = jwtDecode(token);
+            console.log(decoded);
+            setDecodedToken(decoded);
+        }
+    }, []);
 
     const toggleDepartmentsDropdown = () => {
         setShowOverlay(!showOverlay);
@@ -24,13 +43,19 @@ const Navbar = () => {
         setShowServicesDropdown(!showServicesDropdown);
         setShowDepartmentsDropdown(false);
     };
-
+    const handleLogout = () => {
+        dispatch(userLogout()); // Dispatch userLogout action
+        Cookies.remove('userToken'); // Remove token from cookie
+        navigate("login")
+    };
     return (
         <div className="">
             <div className="bg-[#0071dc] px-3 py-5 lg:px-8 text-white flex justify-between items-center">
                 <div className="flex items-center gap-x-3 shrink-0">
                     <div className="hover:bg-[#06529a] p-2 rounded-full">
-                        <img src="https://i5.walmartimages.com/dfw/63fd9f59-b3e1/7a569e53-f29a-4c3d-bfaf-6f7a158bfadd/v1/walmartLogo.svg" alt="" className=" h-8" />
+                        <Link to="/" className="text-[16px] font-semibold"><img src="https://i5.walmartimages.com/dfw/63fd9f59-b3e1/7a569e53-f29a-4c3d-bfaf-6f7a158bfadd/v1/walmartLogo.svg" alt="" className=" h-8" /></Link>
+
+
                     </div>
                     <div
                         className="md:flex items-center gap-2 hidden hover:bg-[#06529a] p-3 rounded-full cursor-pointer relative z-50"
@@ -100,25 +125,42 @@ const Navbar = () => {
                         <GoSearch className="text-black " />
                     </div>
                 </div>
-                <div className="flex  items-center gap-x-2">
-                    <div className="lg:flex hidden items-center gap-2 hover:bg-[#06529a] p-3 rounded-full cursor-pointer">
-                        <MdLogin className="text-[17px] rotate-90" />
-                        <p className="text-[16px] font-semibold">Register</p>
-                    </div>
-                    <div className="lg:flex hidden items-center gap-2 hover:bg-[#06529a] p-3 rounded-full whitespace-nowrap cursor-pointer">
-                        <MdLogout className="text-[20px] -rotate-90" />
-                        <p className="text-[16px] font-semibold">Sign in</p>
-                    </div>
-                    <div className="hover:bg-[#06529a] p-3 rounded-full relative cursor-pointer">
-                        <AiOutlineShoppingCart className="w-7 h-7" />
-                        <div
-                            className="absolute top-1 right-1 w-[16px] h-[16px] rounded-full flex justify-center text-center 
-                                bg-[#ffc220] text-black border text-[12px] border-black items-center">
-                            <span className="">0</span>
+                {decodedToken ? (
+                    <>
+                        <div className="flex items-center justify-center gap-x-3 hover:bg-[#004f9a] cursor-pointer rounded-full w-[100px] h-[50px]">
+                            <div className="gap-x-3 flex-col mr-5 flex items-center justify-center p-2">
+                                <div className="flex items-center justify-center">
+                                    Hi, {decodedToken.name}
+                                </div>
+                                <div className="flex items-center justify-center"><span>Account</span></div>
+                            </div>
                         </div>
+                        <button onClick={handleLogout} className="flex items-center justify-center gap-x-3 hover:bg-[#004f9a] cursor-pointer rounded-full w-[100px] h-[50px]">Logout</button>
+                    </>
+                ) : (
+
+                    <div className="flex  items-center gap-x-2">
+                        <div className="lg:flex hidden items-center gap-2 hover:bg-[#06529a] p-3 rounded-full cursor-pointer">
+                            <MdLogin className="text-[17px] rotate-90" />
+                            <Link to="register" className="text-[16px] font-semibold">Register</Link>
+                        </div>
+                        <div className="lg:flex hidden items-center gap-2 hover:bg-[#06529a] p-3 rounded-full whitespace-nowrap cursor-pointer">
+                            <MdLogout className="text-[20px] -rotate-90" />
+                            <Link to="login" className="text-[16px] font-semibold">Sign in</Link>
+                        </div>
+
+                    </div>
+                )
+                }
+                <div className="hover:bg-[#06529a] p-3 rounded-full relative cursor-pointer">
+                    <AiOutlineShoppingCart className="w-7 h-7" />
+                    <div
+                        className="absolute top-1 right-1 w-[16px] h-[16px] rounded-full flex justify-center text-center 
+                                bg-[#ffc220] text-black border text-[12px] border-black items-center">
+                        <span className="">0</span>
                     </div>
                 </div>
-            </div>
+            </div >
             <div className="hidden bg-[#0071dc] mt-[1px] text-white py-0 lg:px-10 lg:flex items-center justify-between ">
                 <div className="flex flex-col md:flex-row items-center gap-2 ">
                     <div className="flex items-center gap-2 hover:underline">
@@ -152,17 +194,19 @@ const Navbar = () => {
                     <a href="#" className="hover:underline font-semibold text-[14px]">Walmart+</a>
                 </div>
             </div>
-            {showOverlay && (
-                <div
-                    className="fixed inset-0 bg-black opacity-50 z-40"
-                    onClick={() => {
-                        setShowDepartmentsDropdown(false);
-                        setShowServicesDropdown(false);
-                        setShowOverlay(false);
-                    }}
-                ></div>
-            )}
-        </div>
+            {
+                showOverlay && (
+                    <div
+                        className="fixed inset-0 bg-black opacity-50 z-40"
+                        onClick={() => {
+                            setShowDepartmentsDropdown(false);
+                            setShowServicesDropdown(false);
+                            setShowOverlay(false);
+                        }}
+                    ></div>
+                )
+            }
+        </div >
     );
 };
 

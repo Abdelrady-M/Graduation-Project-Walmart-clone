@@ -1,7 +1,30 @@
-import { TextField } from '@mui/material'
-import React from 'react'
+import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, TextField } from '@mui/material'
+import React, { useState } from 'react'
+import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux'
+import { userLogin } from '../../store/slices/authLogin';
+import { useNavigate } from 'react-router';
+
 
 const Login = () => {
+    const [showPassword, setShowPassword] = useState(false);
+    // const { error } = useSelector((state) => state.user)
+    const { register, handleSubmit, formState } = useForm()
+    const dispatch = useDispatch()
+    const navigate = useNavigate();
+
+    const submitForm = (data) => {
+        dispatch(userLogin(data)).then(() => {
+            navigate('/');
+        });
+    }
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
+    const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+    };
+
+
     return (
         <>
             <div className='MainLogin'>
@@ -14,12 +37,33 @@ const Login = () => {
                         <span className='flex text-center items-center justify-center'>Not sure if you have an account?</span>
                         <span className='flex'>Enter your email and we’ll check for you.</span>
                     </div>
-                    <div className='flex flex-col w-full md:w-[472px]'>
-                        <TextField id="outlined-basic" label="Email Address" variant="outlined" />
-                        <button className="border border-gray-500 text-white bg-[#0071DC] font-medium py-2 px-4 rounded-full mt-4 hover:bg-[#2c3287]">
-                            Continue
+                    <form onSubmit={handleSubmit(submitForm)} className='flex flex-col w-full md:w-[472px]'>
+                        <TextField id="outlined-basic" label="Email Address" variant="outlined" {...register('email', { required: true })} />
+                        <FormControl sx={{ marginTop: "10px", width: '472px' }} variant="outlined">
+                            <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                            <OutlinedInput
+                                id="outlined-adornment-password"
+                                type={showPassword ? 'text' : 'password'}
+                                endAdornment={
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onClick={handleClickShowPassword}
+                                            onMouseDown={handleMouseDownPassword}
+                                            edge="end"
+                                        >
+                                            {showPassword ? <MdVisibilityOff /> : <MdVisibility />}
+                                        </IconButton>
+                                    </InputAdornment>
+                                }
+                                label="Password"
+                                {...register('password', { required: true })}
+                            />
+                        </FormControl>
+                        <button type="submit" disabled={!formState.isValid || formState.isSubmitting} className="border border-gray-500 text-white bg-[#0071DC] font-medium py-2 px-4 rounded-full mt-4 hover:bg-[#2c3287]">
+                            {formState.isSubmitting ? 'Logging in...' : 'Continue'}
                         </button>
-                    </div>
+                    </form>
                     <div className='flex flex-col mt-4 items-start md:w-[472px] pl-3'>
                         <span>Securing your personal information is our priority.</span>
                         <span className='underline cursor-pointer'>See our privacy measures.</span>
@@ -40,7 +84,7 @@ const Login = () => {
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }
