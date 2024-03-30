@@ -290,7 +290,7 @@ export default function BabyProducts() {
             title: "Toddler",
         },
     ];
-    return <>
+    return <div className="container mx-auto">
         <div className=" container h-[] w-[100%] relative mx-auto my-8">
             <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-d51d/k2-_d866af0e-bb1c-4bc3-b4d5-876764fbf45d.v1.png" width={"1500vh"} />
             <div className="absolute w-full bottom-2 md:bottom-6" style={{
@@ -585,5 +585,5 @@ export default function BabyProducts() {
                 </div>
             </div>
         </div>
-    </>
+    </div>
 }

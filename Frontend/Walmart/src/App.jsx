@@ -19,8 +19,9 @@ import Login from './pages/login/login.jsx';
 import Register from './pages/register/register.jsx';
 import PhoneVerification from "./pages/PhoneVerification/PhoneVerification.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
-import TermsOfUse from "./pages/TermsOfUse/TermsOfUse.jsx";
+import TermsOfUs from "./pages/TermsOfUs/TermsOfUs.jsx";
 import Account from "./pages/Account/Account.jsx";
+import Payment from "./pages/Payment/Payment.jsx";
 import store from "./store/store.js";
 
 
@@ -35,12 +36,16 @@ const routes = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/details",
+        path: "/details/:_id",
         element: <Details />,
       },
       {
-        path: "/termsOfUse",
-        element: <TermsOfUse />,
+        path: "/Payment",
+        element: <Payment />,
+      },
+      {
+        path: "/termsOfUs",
+        element: <TermsOfUs />,
       },
       {
         path: "/account",

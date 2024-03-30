@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import InnerImageZoom from 'react-inner-image-zoom';
 import { CiHeart } from "react-icons/ci";
 import Accordion from '@mui/material/Accordion';
@@ -10,8 +10,46 @@ import Button from '@mui/material/Button';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
 import Deals from '../../components/Deals';
 import Card from '../../components/Card';
+import axios from 'axios';
+import React,{ useEffect,useState } from 'react';
+import { useParams } from 'react-router-dom';
+
+
+
+// import 
 
 const Details = () => {
+
+
+        const { _id } = useParams()
+    const [product, setProduct] = useState()
+    const [price, setPrice] = useState()
+    const [priceAfterDescount, setPriceAfterDescount] = useState()
+    const [discountPercentage, setDiscountPercentage] = useState()
+    const [images, setImages] = useState([])
+    const [category, setCategory] = useState()
+    const [description, setDescription] = useState()
+    const [title, setTitle] = useState()
+    const [quantity, setQuantity] = useState()
+    useEffect(() => {
+      axios.get(`https://walmart-api-zl4b.onrender.com/product/${_id}`).then((res) => {
+
+        setProduct(res.data)
+        setPrice(res.data.data.price)
+        setPriceAfterDescount(res.data.data.priceAfterDescount)
+        setDiscountPercentage(res.data.data.discountPercentage)
+        setImages(res.data.data.images)
+        console.log(res.data.data.images[0])
+        setCategory(res.data.data.category)
+        setDescription(res.data.data.description)
+        setTitle(res.data.data.title)
+
+        setQuantity(res.data.data.quantity)
+      }).catch((err) => {
+        console.log(err)
+      })
+  
+    }, [])
     return (
         <>
             <nav className='container mx-auto xl:mb-36 xl:mt-7'>
@@ -30,23 +68,23 @@ const Details = () => {
                     <div className='rightSide w-[60%]'>
                         <div className='items-center justify-between hidden imagesShow md:flex'>
                             <div className='rightBar flex flex-col items-center justify-center w-[117px] h-[117px] mr-20'>
-                                <div className='p-2 mb-5 border-blue-800 rounded hover:border'>
+                                {/* <div className='p-2 mb-5 border-blue-800 rounded hover:border'>
                                     <img src='https://i5.walmartimages.com/seo/ALROCKET-Air-Purifier-with-H13-True-HEPA-Filter-Remove-99-9-Smoke-Dust-Allergies-for-300-SQ-ft_60eb9e3f-5d5d-4306-bdc1-91ab7729a09d.8b95fc2d3f2ee96ea70df58ae9ae9178.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF' />
+                                </div> */}
+                                <div className='mb-5 border-blue-800 rounded hover:border'>
+                                    <img src={images[3]} />
                                 </div>
                                 <div className='mb-5 border-blue-800 rounded hover:border'>
-                                    <img src='https://i5.walmartimages.com/seo/ALROCKET-Air-Purifier-with-H13-True-HEPA-Filter-Remove-99-9-Smoke-Dust-Allergies-for-300-SQ-ft_60eb9e3f-5d5d-4306-bdc1-91ab7729a09d.8b95fc2d3f2ee96ea70df58ae9ae9178.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF' />
+                                    <img src={images[2]} />
                                 </div>
                                 <div className='mb-5 border-blue-800 rounded hover:border'>
-                                    <img src='https://i5.walmartimages.com/seo/ALROCKET-Air-Purifier-with-H13-True-HEPA-Filter-Remove-99-9-Smoke-Dust-Allergies-for-300-SQ-ft_60eb9e3f-5d5d-4306-bdc1-91ab7729a09d.8b95fc2d3f2ee96ea70df58ae9ae9178.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF' />
-                                </div>
-                                <div className='mb-5 border-blue-800 rounded hover:border'>
-                                    <img src='https://i5.walmartimages.com/seo/ALROCKET-Air-Purifier-with-H13-True-HEPA-Filter-Remove-99-9-Smoke-Dust-Allergies-for-300-SQ-ft_60eb9e3f-5d5d-4306-bdc1-91ab7729a09d.8b95fc2d3f2ee96ea70df58ae9ae9178.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF' />
+                                    <img src={images[1]} />
                                 </div>
 
                             </div>
                             <div className='middleBar'>
                                 <div className='w-[80%] h-[640px]'>
-                                    <InnerImageZoom src='https://i5.walmartimages.com/seo/ALROCKET-Air-Purifier-with-H13-True-HEPA-Filter-Remove-99-9-Smoke-Dust-Allergies-for-300-SQ-ft_60eb9e3f-5d5d-4306-bdc1-91ab7729a09d.8b95fc2d3f2ee96ea70df58ae9ae9178.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF' />
+                                    <InnerImageZoom src={images[0]} />
 
                                 </div>
                             </div>
@@ -144,11 +182,11 @@ const Details = () => {
                             </span>
                         </div>
                         <div className='mt-3'>
-                            <a href='#' className='text-[16px] underline'>VILINICE</a>
+                            <a href='#' className='text-[16px] underline'>{title}</a>
                         </div>
                         <div>
                             <div className='productTitle text-[20px] font-medium mt-3'>
-                                <h1>VILINICE Wireless Bluetooth Over The Ear Headphones with Microphone , Active Noise Cancelling Headphones for Travel, Sport</h1>
+                                <h1>{description}</h1>
                                 <div className="flex w-auto mt-2 space-x-1 lg:space-x-1">
                                     <button>
                                         <svg className="w-3 h-auto fill-current text-black-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
@@ -182,12 +220,13 @@ const Details = () => {
                             </div>
                             <div className='mt-3 ProductPrice'>
                                 <div className='flex items-center'>
-                                    <h1 className='text-[28px] text-[#2A8703] font-medium'>Now $37.99</h1>
-                                    <span className='line-through ml-2 text-[14px]'>$99.99</span>
+                                    {/* <h1 className='text-[28px] text-[#2A8703] font-medium'>Now $37.99</h1> */}
+                                    <h1 className='text-[28px] text-[#2A8703] font-medium'>Now {priceAfterDescount}</h1>
+                                    <span className='line-through ml-2 text-[14px]'>${price}</span>
                                 </div>
                                 <div className='flex items-center'>
-                                    <span class="py-1 px-2.5 border-none rounded text-[#2A8703] bg-[#eaf3e6] text-[12px] font-bold">You Save</span>
-                                    <h1 className='text-[14px] text-[#2A8703] font-bold ml-2'>$62.99</h1>
+                                    <span class="py-1 px-2.5 border-none rounded text-[#2A8703] bg-[#eaf3e6] text-[12px] font-bold">You Saved</span>
+                                    <h1 className='text-[14px] text-[#2A8703] font-bold ml-2'>%{discountPercentage}</h1>
                                 </div>
                                 <div>
                                     <span className='text-[12px]'>Price when purchased online</span>
