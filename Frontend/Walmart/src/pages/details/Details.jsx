@@ -39,7 +39,7 @@ const Details = () => {
         setPriceAfterDescount(res.data.data.priceAfterDescount)
         setDiscountPercentage(res.data.data.discountPercentage)
         setImages(res.data.data.images)
-        console.log(res.data.data.images[0])
+        // console.log(res.data.data.images[0])
         setCategory(res.data.data.category)
         setDescription(res.data.data.description)
         setTitle(res.data.data.title)
