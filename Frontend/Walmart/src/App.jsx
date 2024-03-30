@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Provider } from "react-redux";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter, useNavigate } from "react-router-dom";
 import AppLayout from "./AppLayout";
 import Electronics from "./pages/Electronics/Electronics.jsx";
 import Grocery from "./pages/Grocery/Grocery.jsx";
@@ -22,6 +22,10 @@ import NotFound from "./pages/NotFound/NotFound.jsx";
 import TermsOfUse from "./pages/TermsOfUse/TermsOfUse.jsx";
 import Account from "./pages/Account/Account.jsx";
 import store from "./store/store.js";
+import { AuthGuard } from "./utils/AuthGuard.jsx";
+import { PrivateRoute } from "./utils/AuthGuard.jsx";
+import { useRoutes } from "react-router-dom";
+
 
 
 const routes = createBrowserRouter([
@@ -86,6 +90,16 @@ const routes = createBrowserRouter([
       { path: "/beauty", element: <Beauty /> },
     ],
   },
+  // {
+  //   path: '/',
+  //   element: !isLoggedIn ? <Home /> : <Navigate to="/" />,
+  //   children: [
+  //     { path: '/login', element: <Login /> },
+
+
+  //   ],
+  // },
+
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Register /> },
   { path: "/phoneverification", element: <PhoneVerification /> },
@@ -95,7 +109,7 @@ const App = () => {
   return (
     <>
       <Provider store={store}>
-        <RouterProvider router={routes} />;
+        <RouterProvider router={routes} />
       </Provider>
     </>
 
