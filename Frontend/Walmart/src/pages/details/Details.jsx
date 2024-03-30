@@ -11,7 +11,7 @@ import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
 import Deals from '../../components/Deals';
 import Card from '../../components/Card';
 import axios from 'axios';
-import React,{ useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 
@@ -21,7 +21,7 @@ import { useParams } from 'react-router-dom';
 const Details = () => {
 
 
-        const { _id } = useParams()
+    const { _id } = useParams()
     const [product, setProduct] = useState()
     const [price, setPrice] = useState()
     const [priceAfterDescount, setPriceAfterDescount] = useState()
@@ -32,23 +32,23 @@ const Details = () => {
     const [title, setTitle] = useState()
     const [quantity, setQuantity] = useState()
     useEffect(() => {
-      axios.get(`https://walmart-api-zl4b.onrender.com/product/${_id}`).then((res) => {
+        axios.get(`https://walmart-api-zl4b.onrender.com/product/${_id}`).then((res) => {
 
-        setProduct(res.data)
-        setPrice(res.data.data.price)
-        setPriceAfterDescount(res.data.data.priceAfterDescount)
-        setDiscountPercentage(res.data.data.discountPercentage)
-        setImages(res.data.data.images)
-        console.log(res.data.data.images[0])
-        setCategory(res.data.data.category)
-        setDescription(res.data.data.description)
-        setTitle(res.data.data.title)
+            setProduct(res.data)
+            setPrice(res.data.data.price)
+            setPriceAfterDescount(res.data.data.priceAfterDescount)
+            setDiscountPercentage(res.data.data.discountPercentage)
+            setImages(res.data.data.images)
+            console.log(res.data.data.images[0])
+            setCategory(res.data.data.category)
+            setDescription(res.data.data.description)
+            setTitle(res.data.data.title)
 
-        setQuantity(res.data.data.quantity)
-      }).catch((err) => {
-        console.log(err)
-      })
-  
+            setQuantity(res.data.data.quantity)
+        }).catch((err) => {
+            console.log(err)
+        })
+
     }, [])
     return (
         <>
