@@ -56,7 +56,27 @@ const Register = () => {
                             <TextField error id="outlined-basic" label="First name" variant="outlined" {...register('name')} />
                             <TextField error id="outlined-basic" label="Email" variant="outlined" {...register('email')} />
                             <FormControl error sx={{ m: 1, width: '472px' }} variant="outlined">
-                                <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                                <InputLabel htmlFor="outlined-adornment-password" onChange={(e)=> setPassword(e.target.value)}>Password</InputLabel>
+                                <OutlinedInput
+                                    id="outlined-adornment-password"
+                                    type={showPassword ? 'text' : 'password'}
+                                    endAdornment={
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                                aria-label="toggle password visibility"
+                                                onClick={handleClickShowPassword}
+                                                onMouseDown={handleMouseDownPassword}
+                                                edge="end"
+                                            >
+                                                {showPassword ? <MdVisibilityOff /> : <MdVisibility />}
+                                            </IconButton>
+                                        </InputAdornment>
+                                    }
+                                    label="Password"
+                                />
+                            </FormControl>
+                            <FormControl error sx={{ m: 1, width: '472px' }} variant="outlined">
+                                <InputLabel htmlFor="outlined-adornment-password" onChange={(e)=> setConfPassword(e.target.value)}>Confirm Password</InputLabel>
                                 <OutlinedInput
                                     id="outlined-adornment-password"
                                     type={showPassword ? 'text' : 'password'}
