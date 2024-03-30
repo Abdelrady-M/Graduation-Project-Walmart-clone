@@ -66,28 +66,32 @@ const Navbar = () => {
                         {showDepartmentsDropdown && (
                             <div className="absolute top-full left-0 bg-[#FFFFFF] text-black max-h-[761px] overflow-auto rounded shadow-md z-50 w-[246px] flex flex-col">
                                 <a className="p-3 font-semibold text-2xs rounded">All Department</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Deals</a>
+                                <Link to="/Electronics" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Electronics</Link>
+                                <Link to="/PatioGarden" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Patio & Garden</Link>
+                                <Link to="/BabyProducts" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Baby</Link>
+                                <Link to="/Beauty" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Beauty</Link>
+                                <Link to="/AutoTires" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Auto & Tires</Link>
+                                <Link to="/HomeImprovement" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Home Improvement</Link>
+                                <Link to="/Fashion" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Fashion</Link>
+                                <Link to="/Grocery" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Grocery</Link>
+                                <Link to="/Home2" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Home</Link>
+                                <Link to="/" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Pharmacy, Health & Wellness</Link>
+                                <Link to="/TermsOfUs" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Terms Of Us</Link>
+                                {/* <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Deals</a>
                                 <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Easter</a>
                                 <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Home, Furniture & Appliances</a>
                                 <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Closing, Shoes & Accessories</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Electronics</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Patio & Garden</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Baby</a>
                                 <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Kids</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Toys & Videos Games</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Pharmacy, Health & Wellness</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Beauty</a>
                                 <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Personal Care</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Auto & Tires</a>
+                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Toys & Videos Games</a>
                                 <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Sports & Outdoors</a>
                                 <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Pets</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Home Improvement</a>
                                 <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Household Essentials</a>
                                 <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Seasonal Decor & Party Supplies</a>
                                 <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">School, Office & Art Supplies</a>
                                 <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Movies, Music & Books</a>
                                 <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Gift Cards</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Shop With Purpose</a>
+                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Shop With Purpose</a> */}
                             </div>
                         )}
                     </div>
@@ -152,14 +156,14 @@ const Navbar = () => {
                     </div>
                 )
                 }
-                <div className="hover:bg-[#06529a] p-3 rounded-full relative cursor-pointer">
+                <Link to="/Cart" className="hover:bg-[#06529a] p-3 rounded-full relative cursor-pointer">
                     <AiOutlineShoppingCart className="w-7 h-7" />
                     <div
                         className="absolute top-1 right-1 w-[16px] h-[16px] rounded-full flex justify-center text-center 
                                 bg-[#ffc220] text-black border text-[12px] border-black items-center">
                         <span className="">0</span>
                     </div>
-                </div>
+                </Link>
             </div >
             <div className="hidden bg-[#0071dc] mt-[1px] text-white py-0 lg:px-10 lg:flex items-center justify-between ">
                 <div className="flex flex-col md:flex-row items-center gap-2 ">
@@ -180,7 +184,22 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="text-white xl:py-2 xl:flex items-center gap-4 lg:text-[10px] ">
-                    <a href="#" className="hover:underline font-semibold text-[14px]">Deals</a>
+
+                    <Link to="/Electronics" className="hover:underline font-semibold text-[14px]">Electronics</Link>
+                    <Link to="/PatioGarden" className="hover:underline font-semibold text-[14px]">Patio & Garden</Link>
+                    <Link to="/BabyProducts" className="hover:underline font-semibold text-[14px]">Baby</Link>
+                    <Link to="/Beauty" className="hover:underline font-semibold text-[14px]">Beauty</Link>
+                    <Link to="/AutoTires" className="hover:underline font-semibold text-[14px]">Auto & Tires</Link>
+                    <Link to="/HomeImprovement" className="hover:underline font-semibold text-[14px]">Home Improvement</Link>
+                    <Link to="/Fashion" className="hover:underline font-semibold text-[14px]">Fashion</Link>
+                    <Link to="/Grocery" className="hover:underline font-semibold text-[14px]">Grocery</Link>
+                    <Link to="/Home2" className="hover:underline font-semibold text-[14px]">Home</Link>
+                    <Link to="/" className="hover:underline font-semibold text-[14px]">Pharmacy, Health & Wellness</Link>
+                    {/* <a href="#" className="hover:underline font-semibold text-[14px]">Registry</a>
+                    <a href="#" className="hover:underline font-semibold text-[14px]">ONE Debit</a>
+                    <a href="#" className="hover:underline font-semibold text-[14px]">Walmart+</a> */}
+                    
+                    {/* <a href="#" className="hover:underline font-semibold text-[14px]">Deals</a>
                     <a href="#" className="hover:underline font-semibold text-[14px]">Grocery & Essentials</a>
                     <a href="#" className="hover:underline font-semibold text-[14px]">Easter</a>
                     <a href="#" className="hover:underline font-semibold text-[14px]">Walmart Style</a>
@@ -188,10 +207,7 @@ const Navbar = () => {
                     <a href="#" className="hover:underline font-semibold text-[14px]">Black & Unlimited</a>
                     <a href="#" className="hover:underline font-semibold text-[14px]">Fashion</a>
                     <a href="#" className="hover:underline font-semibold text-[14px]">Home</a>
-                    <a href="#" className="hover:underline font-semibold text-[14px]">Spring Outdoor Refresh</a>
-                    <a href="#" className="hover:underline font-semibold text-[14px]">Registry</a>
-                    <a href="#" className="hover:underline font-semibold text-[14px]">ONE Debit</a>
-                    <a href="#" className="hover:underline font-semibold text-[14px]">Walmart+</a>
+                    <a href="#" className="hover:underline font-semibold text-[14px]">Spring Outdoor Refresh</a> */}
                 </div>
             </div>
             {
