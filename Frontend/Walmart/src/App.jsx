@@ -23,9 +23,7 @@ import TermsOfUs from "./pages/TermsOfUs/TermsOfUs.jsx";
 import Account from "./pages/Account/Account.jsx";
 import Payment from "./pages/Payment/Payment.jsx";
 import store from "./store/store.js";
-import { AuthGuard } from "./utils/AuthGuard.jsx";
-import { PrivateRoute } from "./utils/AuthGuard.jsx";
-import { useRoutes } from "react-router-dom";
+
 
 
 
@@ -40,11 +38,11 @@ const routes = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/details/:_id",
+        path: "/details/:id",
         element: <Details />,
       },
       {
-        path: "/Payment",
+        path: "/payment",
         element: <Payment />,
       },
       {

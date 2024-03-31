@@ -24,7 +24,7 @@ const Navbar = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const token = Cookies.get('userToken'); // Retrieve token from cookie
+        const token = localStorage.getItem('token'); // Retrieve token from cookie
         if (token) {
             const decoded = jwtDecode(token);
             console.log(decoded);
@@ -44,8 +44,8 @@ const Navbar = () => {
         setShowDepartmentsDropdown(false);
     };
     const handleLogout = () => {
-        dispatch(userLogout()); // Dispatch userLogout action
-        Cookies.remove('userToken'); // Remove token from cookie
+        dispatch(userLogout());
+        localStorage.clear('token');
         navigate("login")
     };
     return (
@@ -198,7 +198,7 @@ const Navbar = () => {
                     {/* <a href="#" className="hover:underline font-semibold text-[14px]">Registry</a>
                     <a href="#" className="hover:underline font-semibold text-[14px]">ONE Debit</a>
                     <a href="#" className="hover:underline font-semibold text-[14px]">Walmart+</a> */}
-                    
+
                     {/* <a href="#" className="hover:underline font-semibold text-[14px]">Deals</a>
                     <a href="#" className="hover:underline font-semibold text-[14px]">Grocery & Essentials</a>
                     <a href="#" className="hover:underline font-semibold text-[14px]">Easter</a>

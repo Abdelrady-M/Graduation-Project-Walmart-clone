@@ -61,7 +61,7 @@ const CustomSlider = ({ cards, mainTitle }) => {
             <Slider ref={slider} {...settings}>
                 {cards.map((card, index) => (
                     <div key={index}>
-                        <Card photo={card.photo} title={card.title} price={card.price} _id={card._id} />
+                        <Card photo={card.photo} title={card.title} price={card.price} id={card.id} isFavorite={card.isFavorite} />
                     </div>
                 ))}
             </Slider>
