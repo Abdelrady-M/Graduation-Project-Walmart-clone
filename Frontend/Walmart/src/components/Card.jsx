@@ -4,6 +4,7 @@ import { AiOutlineHeart, AiOutlinePlus } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBothCartsAction } from "../store/slices/cart";
+import { addToCartAction } from "../store/slices/cart"
 import { addToWishListAction, removeFromWishAction } from "../store/slices/wishList";
 import { Toaster } from "react-hot-toast";
 // import { useDispatch, useSelector } from "react-redux";
