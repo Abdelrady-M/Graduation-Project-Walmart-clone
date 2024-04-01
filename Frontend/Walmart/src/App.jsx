@@ -22,6 +22,7 @@ import NotFound from "./pages/NotFound/NotFound.jsx";
 import TermsOfUs from "./pages/TermsOfUs/TermsOfUs.jsx";
 import Account from "./pages/Account/Account.jsx";
 import Payment from "./pages/Payment/Payment.jsx";
+import Wishlist from "./pages/Wishlist/wishlist.jsx";
 import store from "./store/store.js";
 
 
@@ -44,6 +45,10 @@ const routes = createBrowserRouter([
       {
         path: "/payment",
         element: <Payment />,
+      },
+      {
+        path: "/Wishlist",
+        element: <Wishlist />,
       },
       {
         path: "/termsOfUs",
