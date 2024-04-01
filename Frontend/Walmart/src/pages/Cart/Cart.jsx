@@ -18,6 +18,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteCart } from '../../store/slices/cart';
 import { cartRequestAction, modifyBothProductAction, removeFromCartAction, } from "./../../store/slices/cart";
 import toast from "react-hot-toast";
+import { FaArrowRight } from 'react-icons/fa';
+
 
 const Cart = ({ product, quantity }) => {
 
@@ -54,7 +56,22 @@ const Cart = ({ product, quantity }) => {
     const [subTotal, setSubTotal] = useState(0);
     const [inputField, setInput] = useState(false);
     const [inputValue, setInputValue] = useState();
-
+    const showToast = () => {
+        toast.error("Please login first!", {
+            position: "top",
+            autoClose: 3000, // 3 seconds
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    };
+    const MyComponent = ({ token }) => {
+        const showToast = () => {
+            toast.error("Please login first!");
+        };
+    }
 
     function modifyProduct(newQuantity) {
         if (newQuantity > 0) {
@@ -259,9 +276,14 @@ const Cart = ({ product, quantity }) => {
                         </div>
                         <div class='rightSideCheckout shadow-1 sm:relative xl:fixed xl:top-1/4 xl:right-[28rem] flex flex-col rounded p-5'>
                             <div>
-                                <button className=" border border-gray-500 text-white bg-[#0071DC] font-medium py-2 px-4 rounded-full xl:w-[346px] hover:bg-[#2c3287] mb-5">
-                                    Continue to checkout
-                                </button>
+                                <Link to={token ? "/checkout" : ""}>
+                                    <button
+                                        className="border border-gray-500 text-white bg-[#0071DC] font-medium py-2 px-4 rounded-full xl:w-[346px] hover:bg-[#2c3287] mb-5"
+                                        onClick={() => !token && showToast()}
+                                    >
+                                        Continue to checkout
+                                    </button>
+                                </Link>
                                 <hr></hr>
                                 <div className='flex flex-col py-2'>
                                     <div className='flex justify-between py-3'>
