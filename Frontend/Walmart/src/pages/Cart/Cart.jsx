@@ -249,7 +249,7 @@ const Cart = ({ product, quantity }) => {
 
                                         </Accordion>
                                     ) : (
-                                        <h3 className='text-center fw-semibold'>Your cart is empty!</h3>
+                                        <h3 className='text-center font-bold text-[25px]'>Your cart is empty!</h3>
                                     )}
                                 </div>
                             </div>

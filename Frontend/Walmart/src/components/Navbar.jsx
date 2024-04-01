@@ -14,17 +14,56 @@ import { jwtDecode } from "jwt-decode";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router";
 import { Link } from 'react-router-dom';
+import toast, { Toaster } from "react-hot-toast";
+import i18next from "i18next";
+import { cartRequestAction } from "../store/slices/cart";
+import { useTranslation } from 'react-i18next';
+import cookie from "js-cookie";
+import { GrLanguage } from "react-icons/gr";
 
 const Navbar = () => {
     const [showDepartmentsDropdown, setShowDepartmentsDropdown] = useState(false);
     const [showServicesDropdown, setShowServicesDropdown] = useState(false);
     const [showOverlay, setShowOverlay] = useState(false);
     const [decodedToken, setDecodedToken] = useState(null);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    var cartList = useSelector((state) => state.cart.cartProducts);
+
+    const { t } = useTranslation();
+    const languages = [
+        {
+            code: "en",
+            name: "English",
+            country_code: "gb",
+        },
+        {
+            code: "ar",
+            name: "العربيه",
+            country_code: "sa",
+            dir: "rtl",
+        },
+    ];
+    // catch lang code from cookie  => get the languge from the array
+    const currentLanguageCode = cookie.get("i18next") || "en";
+    const currentLanguage = languages.find((l) => l.code === currentLanguageCode);
+
     const navigate = useNavigate()
     const dispatch = useDispatch();
+    useEffect(() => {
+
+        //  dispatch(cartAction())
+        // dispatch(cartRequestAction());
+        // dispatch(wishListRequestAction());
+
+        // localization
+        document.body.dir = currentLanguage.dir || "ltr";
+    }, [currentLanguageCode]);
+
+    useEffect(() => { }, [currentLanguage]);
 
     useEffect(() => {
-        const token = localStorage.getItem('token'); // Retrieve token from cookie
+        const token = localStorage.getItem('token');
         if (token) {
             const decoded = jwtDecode(token);
             console.log(decoded);
@@ -32,21 +71,29 @@ const Navbar = () => {
         }
     }, []);
 
+
     const toggleDepartmentsDropdown = () => {
         setShowOverlay(!showOverlay);
         setShowDepartmentsDropdown(!showDepartmentsDropdown);
         setShowServicesDropdown(false);
     };
-
     const toggleServicesDropdown = () => {
         setShowOverlay(!showOverlay);
         setShowServicesDropdown(!showServicesDropdown);
         setShowDepartmentsDropdown(false);
     };
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
     const handleLogout = () => {
         dispatch(userLogout());
         localStorage.clear('token');
-        navigate("login")
+        toast.success("Successfully logged out!", {
+            position: "top",
+        });
+        setTimeout(() => {
+            navigate("login");
+        }, 2000);
     };
     return (
         <div className="">
@@ -118,6 +165,41 @@ const Navbar = () => {
                             </div>
                         )}
                     </div>
+                    <div className="relative">
+                        <button
+                            id="dropdownDefaultButton"
+                            onClick={toggleDropdown}
+                            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                            type="button"
+                        >
+                            <GrLanguage></GrLanguage>
+                        </button>
+                        {isDropdownOpen && (
+                            <div
+                                id="dropdown"
+                                className="z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+                            >
+                                <ul
+                                    className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                                    aria-labelledby="dropdownDefaultButton"
+                                >
+
+                                    {languages.map(({ code, name, country_code }) => (
+                                        <li key={country_code}>
+                                            <button
+                                                onClick={() => i18next.changeLanguage(code)}>
+                                                <span className={`block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white fi fi-${country_code}`} >
+                                                    {name}
+                                                </span>
+                                            </button>
+
+                                        </li>
+                                    ))}
+
+                                </ul>
+                            </div>
+                        )}
+                    </div>
                 </div>
                 <div className="relative lg:flex items-center flex-1 mx-6 ">
                     <input
@@ -158,10 +240,13 @@ const Navbar = () => {
                 }
                 <Link to="/Cart" className="hover:bg-[#06529a] p-3 rounded-full relative cursor-pointer">
                     <AiOutlineShoppingCart className="w-7 h-7" />
+
                     <div
                         className="absolute top-1 right-1 w-[16px] h-[16px] rounded-full flex justify-center text-center 
                                 bg-[#ffc220] text-black border text-[12px] border-black items-center">
-                        <span className="">0</span>
+                        {cartList ? cartList.length > 0 && (
+                            <span className=""> {cartList.length}</span>
+                        ) : ""}
                     </div>
                 </Link>
             </div >
@@ -222,6 +307,8 @@ const Navbar = () => {
                     ></div>
                 )
             }
+            <Toaster />
+
         </div >
     );
 };
