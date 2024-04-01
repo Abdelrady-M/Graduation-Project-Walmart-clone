@@ -11,14 +11,24 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     // const { error } = useSelector((state) => state.user)
     const { register, handleSubmit, formState } = useForm()
+    const [loginError, setLoginError] = useState('');
     const dispatch = useDispatch()
     const navigate = useNavigate();
 
-    const submitForm = (data) => {
-        dispatch(userLogin(data)).then(() => {
+    const submitForm = async (data) => {
+        try {
+            await dispatch(userLogin(data));
             navigate('/');
-        });
-    }
+        } catch (error) {
+            if (error.response && error.response.data) {
+                setLoginError(error.response.data.message);
+            } else {
+                setLoginError('An error occurred. Please try again later.');
+            }
+            toast.error('Login failed. Please check your credentials.');
+        }
+    };
+
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
@@ -60,6 +70,7 @@ const Login = () => {
                                 {...register('password', { required: true })}
                             />
                         </FormControl>
+                        {loginError && <div className="text-red-500">{loginError}</div>}
                         <button type="submit" disabled={!formState.isValid || formState.isSubmitting} className="border border-gray-500 text-white bg-[#0071DC] font-medium py-2 px-4 rounded-full mt-4 hover:bg-[#2c3287]">
                             {formState.isSubmitting ? 'Logging in...' : 'Continue'}
                         </button>

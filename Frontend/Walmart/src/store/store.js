@@ -6,7 +6,7 @@ import subCategoriesReducer from "./slices/subcategory"
 import categoryReducer from "./slices/categories"
 import cartReducer from "./slices/cart"
 import wishListReducer from "./slices/wishList"
-
+import oneOrderSlice from "./slices/order";
 
 
 const store = configureStore({
@@ -18,6 +18,7 @@ const store = configureStore({
         categories: categoryReducer,
         cart: cartReducer,
         wishList: wishListReducer,
+        oneOrder: oneOrderSlice,
     },
 });
 
