@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import instance from "../../axios/instance";
 
 export const fetchProducts = createAsyncThunk(
+<<<<<<< HEAD
   "products/fetchProducts",
   // Declare the type your function argument here:
   async (_, { rejectWithValue }) => {
@@ -36,6 +37,23 @@ const productsSlice = createSlice({
       state.error = action.payload;
     });
   },
+=======
+    "products/getAll",
+    async (currentPage) => {
+        var res = await instance.get(`/product?page=${currentPage}`);
+        return res.data.data;
+    })
+
+
+const productsSlice = createSlice({
+    name: "products",
+    initialState: { products: [] },
+    extraReducers: (builder) => {
+        builder.addCase(fetchProducts.fulfilled, (state, action) => {
+            state.products = action.payload;
+        });
+    },
+>>>>>>> origin/main
 });
 
 export default productsSlice.reducer;

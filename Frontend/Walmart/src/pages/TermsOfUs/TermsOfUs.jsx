@@ -3,7 +3,7 @@ import { TbShoppingBagEdit } from "react-icons/tb";
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 
 
-export default function TermsOfUse(){
+export default function TermsOfUs(){
     return <>
     <div className="pt-4 ml-52">
         <a href="#" className="text-xs hover:underline">Walmart</a> /

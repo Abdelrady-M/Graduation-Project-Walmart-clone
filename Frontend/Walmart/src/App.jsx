@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Provider } from "react-redux";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter, useNavigate } from "react-router-dom";
 import AppLayout from "./AppLayout";
 import Electronics from "./pages/Electronics/Electronics.jsx";
 import Grocery from "./pages/Grocery/Grocery.jsx";
@@ -20,12 +20,19 @@ import Login from "./pages/login/login.jsx";
 import Register from "./pages/register/register.jsx";
 import PhoneVerification from "./pages/PhoneVerification/PhoneVerification.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
+<<<<<<< HEAD
 import Toys from "./pages/Toys/Toys.jsx";
 import AllDepartments from "./pages/AllDepartments/AllDepartments.jsx";
 import AllServices from './pages/AllServices/AllServices.jsx'
 import TermsOfUse from "./pages/TermsOfUse/TermsOfUse.jsx";
+=======
+import TermsOfUs from "./pages/TermsOfUs/TermsOfUs.jsx";
+>>>>>>> origin/main
 import Account from "./pages/Account/Account.jsx";
+import Payment from "./pages/Payment/Payment.jsx";
 import store from "./store/store.js";
+
+
 
 
 const routes = createBrowserRouter([
@@ -39,12 +46,16 @@ const routes = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/details",
+        path: "/details/:id",
         element: <Details />,
       },
       {
-        path: "/termsOfUse",
-        element: <TermsOfUse />,
+        path: "/payment",
+        element: <Payment />,
+      },
+      {
+        path: "/termsOfUs",
+        element: <TermsOfUs />,
       },
       {
         path: "/account",
@@ -97,6 +108,16 @@ const routes = createBrowserRouter([
       { path: "/allServices", element: <AllServices /> },
     ],
   },
+  // {
+  //   path: '/',
+  //   element: !isLoggedIn ? <Home /> : <Navigate to="/" />,
+  //   children: [
+  //     { path: '/login', element: <Login /> },
+
+
+  //   ],
+  // },
+
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Register /> },
   { path: "/phoneverification", element: <PhoneVerification /> },
@@ -105,7 +126,7 @@ const App = () => {
   return (
     <>
       <Provider store={store}>
-        <RouterProvider router={routes} />;
+        <RouterProvider router={routes} />
       </Provider>
     </>
 

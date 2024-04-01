@@ -45,6 +45,7 @@ const Deals = () => {
         photo: product.thumbnail,
         title: product.title,
         price: `$${product.price}`,
+        id: product._id,
     }));
 
     return (

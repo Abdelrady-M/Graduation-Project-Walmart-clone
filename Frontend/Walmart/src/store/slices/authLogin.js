@@ -1,14 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import instance from "../../axios/instance";
-import Cookies from 'js-cookie'; // Import js-cookie
 
 export const userLogin = createAsyncThunk(
     'auth/login',
     async ({ email, password }, { rejectWithValue }) => {
         try {
             const response = await instance.post('/users/signin', { email, password });
-            Cookies.set('userToken', response.data.token); // Set userToken in cookie
+            localStorage.setItem('token', response.data.token);
             return response.data;
         } catch (error) {
             // Return custom error message from API if any
@@ -25,7 +24,7 @@ export const userLogout = createAsyncThunk(
     'auth/logout',
     async (_, { rejectWithValue }) => {
         try {
-            Cookies.remove('userToken'); // Remove userToken cookie
+            localStorage.removeItem('token');
             return null;
         } catch (error) {
             return rejectWithValue(error.message);
@@ -33,9 +32,7 @@ export const userLogout = createAsyncThunk(
     }
 );
 
-
-
-const userToken = Cookies.get('userToken') || null;
+const userToken = localStorage.getItem('token') || null; // Retrieve user token from local storage
 
 const initialState = {
     loading: false,
@@ -73,4 +70,4 @@ const userSlice = createSlice({
     },
 })
 
-export default userSlice.reducer
+export default userSlice.reducer;
