@@ -16,7 +16,7 @@ const Card = ({ prdId, photo, title, price }) => {
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    dispatch(addToCart(prdId));
+    dispatch(addToCart(prdId, 1));
   };
 
   return (
