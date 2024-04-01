@@ -290,7 +290,6 @@ const Cart = () => {
                             </div>
                           </div>
                         </div>
-<<<<<<< HEAD
                         <div className="flex justify-end items-center">
                           <div>
                             <a className="underline mr-5 cursor-pointer">
@@ -572,13 +571,5 @@ const Cart = () => {
     </>
   );
 };
-=======
-                    </div>
-                </section>
-            )}
-        </>
-    )
-}
->>>>>>> origin/main
 
 export default Cart;
