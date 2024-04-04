@@ -23,9 +23,15 @@ import TermsOfUs from "./pages/TermsOfUs/TermsOfUs.jsx";
 import Account from "./pages/Account/Account.jsx";
 import Payment from "./pages/Payment/Payment.jsx";
 import store from "./store/store.js";
+import WishList from "./pages/wishlist/WishList.jsx";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 
-
+const initialOptions = {
+  clientId: "AfV2ZxANOOjrWZ5UnMfXeqetA4nM-RC8MmN8zu6Sym5EBmFa0IE6SfodYWMN0K-6VT8NtH8JRkaBCXjU",
+  currency: "USD",
+  intent: "capture",
+};
 
 const routes = createBrowserRouter([
   {
@@ -50,7 +56,7 @@ const routes = createBrowserRouter([
         element: <TermsOfUs />,
       },
       {
-        path: "/account",
+        path: "/account/:id",
         element: <Account />,
       },
       {
@@ -89,6 +95,9 @@ const routes = createBrowserRouter([
         path: "/checkout",
         element: <Checkout />,
       },
+      {
+        path: "/wishlist", element: <WishList />
+      },
       { path: "/fashion", element: <Fashion /> },
       { path: "/beauty", element: <Beauty /> },
     ],
@@ -111,9 +120,12 @@ const routes = createBrowserRouter([
 const App = () => {
   return (
     <>
-      <Provider store={store}>
-        <RouterProvider router={routes} />
-      </Provider>
+      <PayPalScriptProvider options={initialOptions}>
+        <Provider store={store}>
+          <RouterProvider router={routes} />
+
+        </Provider>
+      </PayPalScriptProvider>
     </>
 
   )

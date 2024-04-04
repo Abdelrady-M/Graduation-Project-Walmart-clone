@@ -6,19 +6,20 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { TbRestore } from "react-icons/tb";
 import { GoPlus } from "react-icons/go";
 import { HiMinus } from "react-icons/hi2";
-import Deals from '../../components/Deals';
 import CustomSlider from '../../components/CustomSlider ';
 import costume from "../../assets/costume.jpg";
 import jacket from "../../assets/jacket.jpg";
 import jacket2 from "../../assets/2.jpg";
 import jacket3 from "../../assets/3.jpg";
 import Loader from "../../components/Loader/loader";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteCart } from '../../store/slices/cart';
 import { cartRequestAction, modifyBothProductAction, removeFromCartAction, } from "./../../store/slices/cart";
 import toast from "react-hot-toast";
+import { oneOrderAction } from '../../store/slices/order';
 import { FaArrowRight } from 'react-icons/fa';
+import { deleteCart } from '../../store/slices/cart';
+import Deals from '../../components/Deals';
 
 
 const Cart = ({ product, quantity }) => {
@@ -47,11 +48,9 @@ const Cart = ({ product, quantity }) => {
     const tittle = "Recommended with your order"
     const dispatch = useDispatch();
     const [quantityCart, setQuantityCart] = useState(1);
-
-    const user = useSelector((state) => state.user);
+    const { id } = useParams();
     const isLoading = useSelector((state) => state.cart.loading);
     const cartList = useSelector((state) => state.cart.cartProducts);
-    const checkOutStatus = useSelector((state) => state.checkOut);
     const token = localStorage.getItem("token");
     const [subTotal, setSubTotal] = useState(0);
     const [inputField, setInput] = useState(false);
@@ -72,6 +71,19 @@ const Cart = ({ product, quantity }) => {
             toast.error("Please login first!");
         };
     }
+    // const handleCheckout = () => {
+    //     if (token) {
+    //         // Dispatch the createOrder action with the cart items
+    //         dispatch(createOrder(cartList)).then(() => {
+    //             // Redirect to the checkout page or handle success action
+
+    //             navigate('/checkout');
+    //         });
+    //     } else {
+    //         // Show toast message for login required
+    //         showToast();
+    //     }
+    // };
 
     function modifyProduct(newQuantity) {
         if (newQuantity > 0) {
@@ -106,10 +118,6 @@ const Cart = ({ product, quantity }) => {
         }
     }, [cartList]);
 
-    useEffect(() => {
-
-        dispatch(cartRequestAction());
-    }, [dispatch, quantity]);
 
     useEffect(() => {
         setQuantityCart(quantity);
@@ -130,6 +138,26 @@ const Cart = ({ product, quantity }) => {
             toast.error('Quantity cannot be less than 1');
         }
     }
+
+
+
+    // useEffect(() => {
+    //     dispatch(oneOrderAction(id));
+    // }, []);
+    // const handleCheckout = () => {
+    //     if (token) {
+    //         // Dispatch the oneOrderAction to get the order details
+    //         dispatch(oneOrderAction(id)).then(() => {
+    //             // Redirect to the checkout page
+    //             navigate('/checkout');
+    //         });
+    //     } else {
+    //         // Show toast message for login required
+    //         showToast();
+    //     }
+    // };
+
+    // order && console.log(" this is the order from order ", order);
 
     return (
         <>
@@ -274,7 +302,7 @@ const Cart = ({ product, quantity }) => {
                                 <CustomSlider cards={cards} mainTitle={tittle} />
                             </div>
                         </div>
-                        <div class='rightSideCheckout shadow-1 sm:relative xl:fixed xl:top-1/4 xl:right-[28rem] flex flex-col rounded p-5'>
+                        <div className='rightSideCheckout shadow-1 sm:relative xl:fixed xl:top-1/4 xl:right-[28rem] flex flex-col rounded p-5'>
                             <div>
                                 <Link to={token ? "/checkout" : ""}>
                                     <button
@@ -292,7 +320,7 @@ const Cart = ({ product, quantity }) => {
                                     </div>
                                     <div className='flex justify-between'>
                                         <h1 className='font-bold text-[#46474a]'>Savings</h1>
-                                        <span class="py-1 px-2.5 border-none rounded text-[#2A8703] bg-[#eaf3e6] text-[16px] font-semibold">-$324.53</span>
+                                        <span className="py-1 px-2.5 border-none rounded text-[#2A8703] bg-[#eaf3e6] text-[16px] font-semibold">-$324.53</span>
                                     </div>
                                     <span className='flex justify-end mt-3 font-semibold text-[#2A8703] items-center text-center text-[16px] '>{subTotal} EGP</span>
                                 </div>
@@ -304,7 +332,7 @@ const Cart = ({ product, quantity }) => {
                                     </div>
                                     <div className='flex justify-between mb-3'>
                                         <h1 className='font-bold'>Taxes</h1>
-                                        <span class="py-1 px-2.5 border-none rounded  bg-[#eaf3e6] text-[14px] ">Calculated at checkout
+                                        <span className="py-1 px-2.5 border-none rounded  bg-[#eaf3e6] text-[14px] ">Calculated at checkout
                                         </span>
                                     </div>
                                     <hr></hr>

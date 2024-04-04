@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Accordion from '@mui/material/Accordion';
@@ -9,8 +9,175 @@ import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { MdPayments } from "react-icons/md";
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from "react-redux";
+import { deleteCart } from '../../store/slices/cart';
+import instance from '../../axios/instance';
+import { cartRequestAction, modifyBothProductAction, removeFromCartAction, } from "./../../store/slices/cart";
+import { userAction } from '../../store/slices/user';
+import {
+    changeTotal,
+    setDiscount,
+    setSubTotal,
+} from "../../store/slices/checkOut";
+import { postOneOrder } from '../../store/slices/order';
+import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+import { PayPalButtons } from '@paypal/react-paypal-js';
+import Payment from '../../components/Payment';
 
 const Checkout = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const user = useSelector((state) => state.user.user);
+    const userCart = useSelector((state) => state.cart.cartProducts);
+    const userCheckoutPrice = useSelector((state) => state.checkOut);
+    const [order, setOrder] = useState({});
+    const [pricing, setPricing] = useState({
+        subTotal: 0,
+        discount: 0,
+        delivery: 0,
+        total: 0,
+    });
+
+    // ===========< decode token to take user._id >===========
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            const decodedToken = jwtDecode(token);
+            const userId = decodedToken.id;
+            dispatch(userAction(userId));
+        }
+    }, [dispatch]);
+    // ===========< show order>===========
+
+    useEffect(() => {
+        handlingPrice();
+        console.log("this is the order", order);
+    }, [userCart, userCheckoutPrice]);
+
+    // ===========< checkout price >===========
+    const handlingPrice = () => {
+        if (!user || !user._id) {
+            console.log('User or user._id is undefined');
+            return;
+        }
+
+        if (!userCart || userCart.length === 0) {
+            console.log('User cart is empty');
+            return;
+        }
+
+        let subtotal = 0;
+        let items = [];
+        for (let i = 0; i < userCart.length; i++) {
+            let prdPrice = userCart[i].priceWhenAdded;
+            let prdQun = userCart[i].quantity;
+            subtotal += prdPrice * prdQun;
+            items.push(userCart[i]); // Push the entire cart item
+        }
+
+        setPricing({ ...pricing, subTotal: subtotal });
+        dispatch(setSubTotal(subtotal));
+        dispatch(changeTotal());
+
+        setOrder({
+            userId: user._id,
+            amount: userCheckoutPrice.total,
+            items: items,
+            status: 'Waiting for Supplier',
+            createdAt: new Date().toISOString(), // Set the creation date
+        });
+    };
+
+
+
+
+    // const handlingPrice = () => {
+    //     if (!user || !user._id) {
+    //         // Check if user or user._id is undefined
+    //         console.log('User or user._id is undefined');
+    //         return;
+    //     }
+
+    //     userCart && userCart.length > 0 && console.log("userCart", userCart);
+    //     let subtotal = 0;
+    //     let items = [];
+    //     console.log("this is the user cart =====> ", userCart);
+    //     for (let i = 0; i < userCart.length; i++) {
+    //         let prdPrice = userCart[i].priceWhenAdded;
+    //         let prdQun = userCart[i].quantity;
+    //         subtotal = subtotal + prdPrice * prdQun;
+
+    //         console.log('this is the product before i push to the items');
+    //         items.push(prd);
+    //     }
+
+    //     setPricing({ ...pricing, subTotal: subtotal });
+    //     dispatch(setSubTotal(subtotal));
+    //     dispatch(changeTotal());
+
+    //     setOrder({
+    //         ...order,
+    //         userId: user._id,
+    //         amount: userCheckoutPrice.total,
+    //         items: items,
+    //         status: 'Waiting for Supplier',
+    //     });
+    // };
+
+
+
+
+    // const orderFormSubmit = (e) => {
+    //     e.preventDefault();
+    //     console.log('place an order action', order);
+    //     console.log('this is order ', order);
+
+    //     if (order.paymentStatus == 'Paid Online') {
+    //         axios
+    //             .post(`http://localhost:4000/stripe/create-checkout-session`, {
+    //                 order,
+    //                 userId: user._id,
+    //             })
+    //             .then((res) => {
+    //                 if (res.data.url) {
+    //                     window.location.href = res.data.url;
+    //                 }
+    //             })
+    //             .catch((err) => {
+    //                 console.log('err.message', err.message);
+    //             });
+    //     } else {
+    //         console.log(' making an order ');
+    //         setTimeout(() => {
+    //             dispatch(postOneOrder(order));
+    //             if (user && user._id) {
+    //                 dispatch(deleteCart(user._id));
+    //             }
+    //             navigate(`/`);
+    //         }, 2000);
+    //     }
+    // };
+    const orderFormSubmit = (e) => {
+        e.preventDefault();
+        console.log('Placing an order', order);
+
+        // Handle payment processing if needed
+
+        setTimeout(() => {
+            dispatch(postOneOrder(order));
+            if (user && user._id) {
+                dispatch(deleteCart(user._id));
+            }
+            navigate(`/`);
+        }, 2000);
+    };
+
+    console.log("this is the order =>>>>>>>>>>>>>>>>>>>>>>>", order);
+    // const date = new Date(order.createdAt);
+
     return (
         <section className='h-[200vh] relative'>
 
@@ -237,6 +404,8 @@ const Checkout = () => {
                                                 />
                                             </Grid>
                                         </Grid>
+
+                                        <Payment lassName='mt-5' />
                                     </AccordionDetails>
                                 </Accordion>
                             </div>
@@ -244,19 +413,19 @@ const Checkout = () => {
                     </div>
 
                 </div>
-                <div class='rightSideCheckout xl:w-[394px] shadow-1 sm:relative xl:fixed xl:top-1/4 xl:right-[25rem] flex flex-col rounded p-5'>
+                <div className='rightSideCheckout xl:w-[394px] shadow-1 sm:relative xl:fixed xl:top-1/4 xl:right-[25rem] flex flex-col rounded p-5'>
                     <div>
 
                         <div className='flex flex-col py-2'>
                             <div className='flex justify-between py-3'>
-                                <h1 className='font-bold'>Subtotal <span> (2 items)</span></h1>
-                                <span className='line-through text-[18px] text-[#46474a] font-normal'>$2,044.00</span>
+                                <h1 className='font-bold'> Subtotal <span> ({userCart.length} items)</span></h1>
+                                <span className='line-through text-[18px] text-[#46474a] font-normal'>${pricing.subTotal.toFixed(2)}</span>
                             </div>
                             <div className='flex justify-between'>
                                 <h1 className='font-bold text-[#46474a]'>Savings</h1>
-                                <span class="py-1 px-2.5 border-none rounded text-[#2A8703] bg-[#eaf3e6] text-[16px] font-semibold">-$324.53</span>
+                                <span className="py-1 px-2.5 border-none rounded text-[#2A8703] bg-[#eaf3e6] text-[16px] font-semibold">-$324.53</span>
                             </div>
-                            <span className='flex justify-end mt-3 font-semibold text-[#2A8703] items-center text-center text-[16px] '>$1,719.47</span>
+                            <span className='flex justify-end mt-3 font-semibold text-[#2A8703] items-center text-center text-[16px] '> ${userCheckoutPrice.total.toFixed(2)}</span>
                         </div>
                         <hr></hr>
                         <div className='flex flex-col py-2'>
@@ -266,14 +435,22 @@ const Checkout = () => {
                             </div>
                             <div className='flex justify-between mb-3'>
                                 <h1 className='font-bold'>Taxes</h1>
-                                <span class="py-1 px-2.5 border-none rounded  bg-[#eaf3e6] text-[14px] ">Pending
+                                <span className="py-1 px-2.5 border-none rounded  bg-[#eaf3e6] text-[14px] ">Pending
                                 </span>
                             </div>
                             <hr></hr>
                             <div className='flex justify-between py-3'>
                                 <h1 className='font-semibold '>Estimated total</h1>
-                                <span className='flex justify-end font-semibold text-[#2A8703] items-center text-center text-[16px] '>$1,719.47</span>
+                                <span className='flex justify-end font-semibold text-[#2A8703] items-center text-center text-[16px] '>${userCheckoutPrice.total.toFixed(2)}</span>
                             </div>
+                            <Link to='/'>
+                                <button
+                                    className='border border-gray-500 text-white bg-[#0071DC] font-medium py-2 px-4 rounded-full xl:w-[346px] hover:bg-[#2c3287] mb-5'
+                                    onClick={orderFormSubmit}
+                                >
+                                    Place Order
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

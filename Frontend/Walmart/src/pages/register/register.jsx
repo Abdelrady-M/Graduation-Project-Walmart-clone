@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux'
 import { registerUser } from '../../store/slices/authSlice';
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 
 
 
@@ -41,9 +42,11 @@ const Register = () => {
         <>
             <div className='MainLogin container mx-auto'>
                 <div className='contentLog container mx-auto flex flex-col justify-center items-center py-6 w-full md:w-[472px]'>
-                    <div className='mb-5'>
-                        <img src='https://i5.walmartimages.com/dfw/4ff9c6c9-d10e/k2-_ef2c8660-96ed-4f64-891d-329fa488c482.v1.png' alt="Walmart Logo" />
-                    </div>
+                    <Link to={"/"}>
+                        <div className='mb-5'>
+                            <img src='https://i5.walmartimages.com/dfw/4ff9c6c9-d10e/k2-_ef2c8660-96ed-4f64-891d-329fa488c482.v1.png' alt="Walmart Logo" />
+                        </div>
+                    </Link>
                     <div className='flex flex-col mb-5 items-start  w-full md:w-[472px]'>
                         <h1 className='font-medium text-[20px] mb-5 flex ' >Create your Walmart account</h1>
                         <span className='flex text-[#74767c]'>Email address</span>
@@ -56,7 +59,7 @@ const Register = () => {
                             <TextField error id="outlined-basic" label="First name" variant="outlined" {...register('name')} />
                             <TextField error id="outlined-basic" label="Email" variant="outlined" {...register('email')} />
                             <FormControl error sx={{ m: 1, width: '472px' }} variant="outlined">
-                                <InputLabel htmlFor="outlined-adornment-password" onChange={(e)=> setPassword(e.target.value)}>Password</InputLabel>
+                                <InputLabel htmlFor="outlined-adornment-password" onChange={(e) => setPassword(e.target.value)}>Password</InputLabel>
                                 <OutlinedInput
                                     id="outlined-adornment-password"
                                     type={showPassword ? 'text' : 'password'}
@@ -76,7 +79,7 @@ const Register = () => {
                                 />
                             </FormControl>
                             <FormControl error sx={{ m: 1, width: '472px' }} variant="outlined">
-                                <InputLabel htmlFor="outlined-adornment-password" onChange={(e)=> setConfPassword(e.target.value)}>Confirm Password</InputLabel>
+                                <InputLabel htmlFor="outlined-adornment-password" onChange={(e) => setConfPassword(e.target.value)}>Confirm Password</InputLabel>
                                 <OutlinedInput
                                     id="outlined-adornment-password"
                                     type={showPassword ? 'text' : 'password'}
@@ -129,7 +132,7 @@ const Register = () => {
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     );
 }

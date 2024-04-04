@@ -41,7 +41,8 @@ export function addToWishListAction(id) {
     toast.success("Added to wishlist", { position: "top-center" });
     return (dispatch) => {
         dispatch(addToWishListRequestAction(id)).then(() => {
-            console.log("af req");
+            console.log("Added to wishlist");
+            console.log('>>>>>>>>>>>', id)
             dispatch(wishListRequestAction());
         });
     };

@@ -20,6 +20,7 @@ import { cartRequestAction } from "../store/slices/cart";
 import { useTranslation } from 'react-i18next';
 import cookie from "js-cookie";
 import { GrLanguage } from "react-icons/gr";
+import { categoryAction } from "../store/slices/categories";
 
 const Navbar = () => {
     const [showDepartmentsDropdown, setShowDepartmentsDropdown] = useState(false);
@@ -27,6 +28,8 @@ const Navbar = () => {
     const [showOverlay, setShowOverlay] = useState(false);
     const [decodedToken, setDecodedToken] = useState(null);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const categories = useSelector((state) => state.categories.categories);
+    var subCategoies = useSelector((state) => state.subCategories.subCategories);
 
     var cartList = useSelector((state) => state.cart.cartProducts);
 
@@ -50,6 +53,11 @@ const Navbar = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(categoryAction());
+        // dispatch(subCategoryAction());
+    }, []);
+
     useEffect(() => {
 
         //  dispatch(cartAction())
@@ -109,11 +117,12 @@ const Navbar = () => {
                         onClick={toggleDepartmentsDropdown}
                     >
                         <FaLayerGroup className="text-[17px]" />
-                        <p className="text-[16px] font-normal">Departments</p>
+                        <p className="text-[16px] font-normal">{t("Categories")}</p>
+
                         {showDepartmentsDropdown && (
                             <div className="absolute top-full left-0 bg-[#FFFFFF] text-black max-h-[761px] overflow-auto rounded shadow-md z-50 w-[246px] flex flex-col">
                                 <a className="p-3 font-semibold text-2xs rounded">All Department</a>
-                                <Link to="/Electronics" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Electronics</Link>
+                                {/*<Link to="/Electronics" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Electronics</Link>
                                 <Link to="/PatioGarden" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Patio & Garden</Link>
                                 <Link to="/BabyProducts" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Baby</Link>
                                 <Link to="/Beauty" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Beauty</Link>
@@ -123,22 +132,12 @@ const Navbar = () => {
                                 <Link to="/Grocery" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Grocery</Link>
                                 <Link to="/Home2" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Home</Link>
                                 <Link to="/" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Pharmacy, Health & Wellness</Link>
-                                <Link to="/TermsOfUs" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Terms Of Us</Link>
-                                {/* <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Deals</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Easter</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Home, Furniture & Appliances</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Closing, Shoes & Accessories</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Kids</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Personal Care</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Toys & Videos Games</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Sports & Outdoors</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Pets</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Household Essentials</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Seasonal Decor & Party Supplies</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">School, Office & Art Supplies</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Movies, Music & Books</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Gift Cards</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Shop With Purpose</a> */}
+                        <Link to="/TermsOfUs" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Terms Of Us</Link>*/}
+                                {categories.map((category) => (
+                                    <Link key={category.id} to={`/${category.name}`} className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc] hover:border-l-4 border-indigo-500">
+                                        {category.name}
+                                    </Link>
+                                ))}
                             </div>
                         )}
                     </div>
@@ -215,10 +214,12 @@ const Navbar = () => {
                     <>
                         <div className="flex items-center justify-center gap-x-3 hover:bg-[#004f9a] cursor-pointer rounded-full w-[100px] h-[50px]">
                             <div className="gap-x-3 flex-col mr-5 flex items-center justify-center p-2">
-                                <div className="flex items-center justify-center">
-                                    Hi, {decodedToken.name}
-                                </div>
-                                <div className="flex items-center justify-center"><span>Account</span></div>
+                                <Link to={`/account/${decodedToken.id}`}>
+                                    <div className="flex items-center justify-center">
+                                        Hi, {decodedToken.name}
+                                    </div>
+                                    <div className="flex items-center justify-center"><span>Account</span></div>
+                                </Link>
                             </div>
                         </div>
                         <button onClick={handleLogout} className="flex items-center justify-center gap-x-3 hover:bg-[#004f9a] cursor-pointer rounded-full w-[100px] h-[50px]">Logout</button>
