@@ -179,7 +179,7 @@ const Checkout = () => {
     // const date = new Date(order.createdAt);
 
     return (
-        <section className='h-[200vh] relative'>
+        <section className='h-screen relative'>
 
             <div className='mainSection container mx-auto xl:flex  items-center justify-between '>
                 <div className='leftSide'>

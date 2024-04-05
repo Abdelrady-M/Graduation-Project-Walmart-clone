@@ -21,6 +21,7 @@ import { useTranslation } from 'react-i18next';
 import cookie from "js-cookie";
 import { GrLanguage } from "react-icons/gr";
 import { categoryAction } from "../store/slices/categories";
+import { wishListRequestAction } from "../store/slices/wishList";
 
 const Navbar = () => {
     const [showDepartmentsDropdown, setShowDepartmentsDropdown] = useState(false);
@@ -50,6 +51,7 @@ const Navbar = () => {
     // catch lang code from cookie  => get the languge from the array
     const currentLanguageCode = cookie.get("i18next") || "en";
     const currentLanguage = languages.find((l) => l.code === currentLanguageCode);
+    const [searchValue, setSearchValue] = useState("");
 
     const navigate = useNavigate()
     const dispatch = useDispatch();
@@ -60,9 +62,9 @@ const Navbar = () => {
 
     useEffect(() => {
 
-        //  dispatch(cartAction())
-        // dispatch(cartRequestAction());
-        // dispatch(wishListRequestAction());
+        // dispatch(cartAction())
+        dispatch(cartRequestAction());
+        dispatch(wishListRequestAction());
 
         // localization
         document.body.dir = currentLanguage.dir || "ltr";
@@ -79,7 +81,12 @@ const Navbar = () => {
         }
     }, []);
 
-
+    //handel search
+    const handleSearch = () => {
+        if (searchValue.trim() !== '') {
+            navigate(`search?q=${searchValue}`);
+        }
+    };
     const toggleDepartmentsDropdown = () => {
         setShowOverlay(!showOverlay);
         setShowDepartmentsDropdown(!showDepartmentsDropdown);
@@ -200,14 +207,16 @@ const Navbar = () => {
                         )}
                     </div>
                 </div>
-                <div className="relative lg:flex items-center flex-1 mx-6 ">
+                <div className="relative lg:flex items-center flex-1 mx-6">
                     <input
                         type="search"
                         className="text-black rounded-full py-2 px-5 outline-0 flex-1"
                         placeholder="Search Everything at Walmart online and in store"
+                        value={searchValue}
+                        onChange={(e) => setSearchValue(e.target.value)}
                     />
-                    <div className="absolute bg-[#ffc220] p-2 rounded-full lg:right-1.5 top-1">
-                        <GoSearch className="text-black " />
+                    <div className="absolute bg-[#ffc220] p-2 rounded-full lg:right-1.5 top-1 cursor-pointer" onClick={handleSearch}>
+                        <GoSearch className="text-black" />
                     </div>
                 </div>
                 {decodedToken ? (
