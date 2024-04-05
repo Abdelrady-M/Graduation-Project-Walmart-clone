@@ -21,6 +21,8 @@ import instance from '../../axios/instance';
 const Details = () => {
     const [quantity, setQuantity] = useState(1);
     const [product, setProduct] = useState({});
+    const [mainImage, useMainImage] = useState(product)
+    // console.log(product.images);
     const { id } = useParams();
 
     const dispatch = useDispatch();
@@ -75,7 +77,8 @@ const Details = () => {
                             <div className='rightBar flex flex-col items-center justify-center mr-20'>
                                 {product.images && product.images.length > 0 && (
                                     product.images.map((image, index) => (
-                                        <div key={index} className='mb-5 border-blue-800 rounded hover:border'>
+                                        <div key={index} className='mb-5 border-blue-500 rounded hover:border-4'>
+                                            {/* <img src={image} className='w-[120px] h-[80px] flex'  onClick={useMainImage(image)}/> */}
                                             <img src={image} className='w-[120px] h-[80px] flex' />
                                         </div>
                                     ))
@@ -83,7 +86,8 @@ const Details = () => {
                             </div>
                             <div className='middleBar '>
                                 <div className='w-[80%] h-[640px]'>
-                                    <InnerImageZoom src={product.thumbnail} />
+                                    <InnerImageZoom src={mainImage.thumbnail} />
+                                    {/* <InnerImageZoom src={product.thumbnail} /> */}
                                 </div>
                             </div>
                         </div>

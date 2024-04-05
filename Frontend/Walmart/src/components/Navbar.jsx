@@ -129,17 +129,6 @@ const Navbar = () => {
                         {showDepartmentsDropdown && (
                             <div className="absolute top-full left-0 bg-[#FFFFFF] text-black max-h-[761px] overflow-auto rounded shadow-md z-50 w-[246px] flex flex-col">
                                 <a className="p-3 font-semibold text-2xs rounded">All Department</a>
-                                {/*<Link to="/Electronics" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Electronics</Link>
-                                <Link to="/PatioGarden" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Patio & Garden</Link>
-                                <Link to="/BabyProducts" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Baby</Link>
-                                <Link to="/Beauty" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Beauty</Link>
-                                <Link to="/AutoTires" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Auto & Tires</Link>
-                                <Link to="/HomeImprovement" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Home Improvement</Link>
-                                <Link to="/Fashion" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Fashion</Link>
-                                <Link to="/Grocery" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Grocery</Link>
-                                <Link to="/Home2" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Home</Link>
-                                <Link to="/" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Pharmacy, Health & Wellness</Link>
-                        <Link to="/TermsOfUs" className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Terms Of Us</Link>*/}
                                 {categories.map((category) => (
                                     <Link key={category.id} to={`/${category.name}`} className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc] hover:border-l-4 border-indigo-500">
                                         {category.name}
@@ -279,30 +268,11 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="text-white xl:py-2 xl:flex items-center gap-4 lg:text-[10px] ">
-
-                    <Link to="/Electronics" className="hover:underline font-semibold text-[14px]">Electronics</Link>
-                    <Link to="/PatioGarden" className="hover:underline font-semibold text-[14px]">Patio & Garden</Link>
-                    <Link to="/BabyProducts" className="hover:underline font-semibold text-[14px]">Baby</Link>
-                    <Link to="/Beauty" className="hover:underline font-semibold text-[14px]">Beauty</Link>
-                    <Link to="/AutoTires" className="hover:underline font-semibold text-[14px]">Auto & Tires</Link>
-                    <Link to="/HomeImprovement" className="hover:underline font-semibold text-[14px]">Home Improvement</Link>
-                    <Link to="/Fashion" className="hover:underline font-semibold text-[14px]">Fashion</Link>
-                    <Link to="/Grocery" className="hover:underline font-semibold text-[14px]">Grocery</Link>
-                    <Link to="/Home2" className="hover:underline font-semibold text-[14px]">Home</Link>
-                    <Link to="/" className="hover:underline font-semibold text-[14px]">Pharmacy, Health & Wellness</Link>
-                    {/* <a href="#" className="hover:underline font-semibold text-[14px]">Registry</a>
-                    <a href="#" className="hover:underline font-semibold text-[14px]">ONE Debit</a>
-                    <a href="#" className="hover:underline font-semibold text-[14px]">Walmart+</a> */}
-
-                    {/* <a href="#" className="hover:underline font-semibold text-[14px]">Deals</a>
-                    <a href="#" className="hover:underline font-semibold text-[14px]">Grocery & Essentials</a>
-                    <a href="#" className="hover:underline font-semibold text-[14px]">Easter</a>
-                    <a href="#" className="hover:underline font-semibold text-[14px]">Walmart Style</a>
-                    <a href="#" className="hover:underline font-semibold text-[14px]">Baby Days</a>
-                    <a href="#" className="hover:underline font-semibold text-[14px]">Black & Unlimited</a>
-                    <a href="#" className="hover:underline font-semibold text-[14px]">Fashion</a>
-                    <a href="#" className="hover:underline font-semibold text-[14px]">Home</a>
-                    <a href="#" className="hover:underline font-semibold text-[14px]">Spring Outdoor Refresh</a> */}
+                    {categories.map((category) => (
+                                    <Link key={category.id} to={`/${category.name}`} className="hover:underline font-semibold text-[14px]">
+                                        {category.name}
+                                    </Link>
+                                ))}
                 </div>
             </div>
             {
