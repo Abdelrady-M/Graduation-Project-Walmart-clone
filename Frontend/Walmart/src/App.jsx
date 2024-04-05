@@ -22,9 +22,9 @@ import NotFound from "./pages/NotFound/NotFound.jsx";
 import TermsOfUs from "./pages/TermsOfUs/TermsOfUs.jsx";
 import Account from "./pages/Account/Account.jsx";
 import Payment from "./pages/Payment/Payment.jsx";
-import Wishlist from "./pages/Wishlist/wishlist.jsx";
+// import Wishlist from "./pages/Wishlist/WishList.jsx";
 import store from "./store/store.js";
-import WishList from "./pages/wishlist/WishList.jsx";
+// import WishList from "./pages/wishlist/WishList.jsx";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 
@@ -52,10 +52,10 @@ const routes = createBrowserRouter([
         path: "/payment",
         element: <Payment />,
       },
-      {
-        path: "/Wishlist",
-        element: <Wishlist />,
-      },
+      // {
+      //   path: "/Wishlist",
+      //   element: <Wishlist />,
+      // },
       {
         path: "/termsOfUs",
         element: <TermsOfUs />,
@@ -73,7 +73,7 @@ const routes = createBrowserRouter([
         element: <Grocery />,
       },
       {
-        path: "/Home2",
+        path: "/Home",
         element: <Home2 />,
       },
       {
@@ -81,15 +81,15 @@ const routes = createBrowserRouter([
         element: <PatioGarden />,
       },
       {
-        path: "/HomeImprovement",
+        path: "/Home-Improvement",
         element: <HomeImprovement />,
       },
       {
-        path: "/AutoTires",
+        path: "/Auto&Tires",
         element: <AutoTires />,
       },
       {
-        path: "/BabyProducts",
+        path: "/Baby",
         element: <BabyProducts />,
       },
       {
@@ -100,9 +100,9 @@ const routes = createBrowserRouter([
         path: "/checkout",
         element: <Checkout />,
       },
-      {
-        path: "/wishlist", element: <WishList />
-      },
+      // {
+      //   path: "/wishlist", element: <WishList />
+      // },
       { path: "/fashion", element: <Fashion /> },
       { path: "/beauty", element: <Beauty /> },
     ],
