@@ -7,7 +7,8 @@ import categoryReducer from "./slices/categories"
 import cartReducer from "./slices/cart"
 import wishListReducer from "./slices/wishList"
 import oneOrderSlice from "./slices/order";
-
+import checkOutReducer from "./slices/checkOut"
+import userReducer from './slices/user'
 
 const store = configureStore({
     reducer: {
@@ -19,6 +20,9 @@ const store = configureStore({
         cart: cartReducer,
         wishList: wishListReducer,
         oneOrder: oneOrderSlice,
+        checkOut: checkOutReducer,
+        user: userReducer,
+
     },
 });
 

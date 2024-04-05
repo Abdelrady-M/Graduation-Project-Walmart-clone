@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Slider from "react-slick";
+import { categoryAction } from '../store/slices/categories';
 
 const Departments = () => {
     const slider = React.useRef(null);
+    const dispatch = useDispatch();
+    const categories = useSelector((state) => state.categories.categories);
+
+    useEffect(() => {
+        dispatch(categoryAction());
+    }, [dispatch]);
 
     const slides = [
         {
@@ -94,11 +102,11 @@ const Departments = () => {
             <div className='mb-7'>
                 <h1 className=' font-bold'>Get it all right here</h1>
             </div>
-            <Slider ref={slider} {...settings}>
-                {slides.map((slide, index) => (
-                    <div key={index} className='departSlide flex-col text-center justify-center items-center w-[128px] h-[145px]'>
-                        <img src={slide.imageUrl} alt={slide.label} className='flex items-center text-center justify-center' />
-                        <span>{slide.label}</span>
+            <Slider {...settings}>
+                {categories.map((category) => (
+                    <div key={category.id} className='departSlide flex-col text-center justify-center items-center w-[128px] h-[145px]'>
+                        <img src={category.image} alt={category.name} className='flex items-center text-center justify-center rounded w-[80px] h-[80px]' />
+                        <span>{category.name}</span>
                     </div>
                 ))}
             </Slider>

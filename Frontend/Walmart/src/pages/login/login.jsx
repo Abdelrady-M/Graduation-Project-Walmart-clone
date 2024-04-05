@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux'
 import { userLogin } from '../../store/slices/authLogin';
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 
 
 const Login = () => {
@@ -39,9 +40,11 @@ const Login = () => {
         <>
             <div className='MainLogin'>
                 <div className='contentLog container mx-auto flex flex-col justify-center items-center py-6 '>
-                    <div className='mb-5'>
-                        <img src='https://i5.walmartimages.com/dfw/4ff9c6c9-d10e/k2-_ef2c8660-96ed-4f64-891d-329fa488c482.v1.png' />
-                    </div>
+                    <Link to={"/"}>
+                        <div className='mb-5'>
+                            <img src='https://i5.walmartimages.com/dfw/4ff9c6c9-d10e/k2-_ef2c8660-96ed-4f64-891d-329fa488c482.v1.png' />
+                        </div>
+                    </Link>
                     <div className='flex flex-col mb-5'>
                         <h1 className='font-medium text-[20px] mb-5 flex text-center items-center justify-center' >Sign in or create your account</h1>
                         <span className='flex text-center items-center justify-center'>Not sure if you have an account?</span>

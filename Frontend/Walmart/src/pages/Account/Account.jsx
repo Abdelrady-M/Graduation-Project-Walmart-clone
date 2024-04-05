@@ -1,6 +1,6 @@
 import { Breadcrumbs } from '@mui/material'
-import Link from '@mui/material/Link';
-import React from 'react'
+// import Link from '@mui/material/Link';
+import React, { useEffect } from 'react'
 import SavingsIcon from '@mui/icons-material/Savings';
 import PaymentIcon from '@mui/icons-material/Payment';
 import PetsIcon from '@mui/icons-material/Pets';
@@ -27,8 +27,11 @@ import AccountSideBar from '../../components/AccountSideBar';
 import { IoReceiptOutline } from "react-icons/io5";
 import { FaChevronRight } from "react-icons/fa6";
 import { GrServices } from "react-icons/gr";
-
 import { MdOutlineLocalConvenienceStore } from "react-icons/md";
+import { jwtDecode } from "jwt-decode";
+import { useDispatch, useSelector } from 'react-redux'
+import { userAction } from '../../store/slices/user'
+import { Link } from 'react-router-dom';
 
 const sections = [
     {
@@ -102,6 +105,21 @@ const sections = [
 ];
 
 const Account = () => {
+    const token = localStorage.getItem("token");
+    const user = useSelector((state) => state.user.user)
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (token) {
+            const decodedToken = jwtDecode(token);
+            const userId = decodedToken.id;
+            dispatch(userAction(userId));
+        }
+    }, [dispatch]);
+
+
+
+
     return (
         <>
             <div className='container mx-auto flex px-10 lg:flex-row' >
@@ -172,7 +190,7 @@ const Account = () => {
                         <div className='flex flex-wrap '>
                             <div className='flex flex-col p-5 border-r border-gray w-[400px]'>
                                 <h1 className='text-[18px] font-semibold'>Email Address</h1>
-                                <h3 className='text-[14px]'>abdelrady.mohamed95@hotmail.com <span className='underline cursor-pointer'>Needs verification</span></h3>
+                                <h3 className='text-[14px]'>{user.email} <span className='underline cursor-pointer'>Needs verification</span></h3>
                             </div>
                             <div className='flex flex-col p-5 border-b w-[460px] border-gray'>
                                 <h1 className='text-[18px] font-semibold '>Phone number</h1>
@@ -207,17 +225,21 @@ const Account = () => {
                                 <div>
                                     <img src='https://i5.walmartimages.com/seo/Lenovo-Legion-Pro-5-16IRX8-16-0-165-Hz-IPS-Intel-Core-i7-13th-Gen-13700HX-2-10GHz-GeForce-RTX-4060-Laptop-GPU-16-GB-DDR5-1-TB-PCIe-SSD-Windows-11-Hom_3d446919-be1c-474c-b3c5-7d92ce704505.51b2e610aa84142bd421437e8a1af438.jpeg' className='w-[48px]' />
                                 </div>
+
                                 <div className='flex flex-col p-5 '>
-                                    <h1 className='text-[18px] font-semibold'>Abdelrady's List</h1>
+                                    <h1 className='text-[18px] font-semibold'>{user.name} List</h1>
                                     <span className='cursor-pointer'>3 items - Primary</span>
                                 </div>
+
                             </div>
                             <div className='flex p-5'>
-                                <button
-                                    className="bg-inherit text-[12px] font-bold p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[80px] h-[32px] hover:border-2 border-black "
-                                >
-                                    View list
-                                </button>
+                                <Link to={"/wishlist"}>
+                                    <button
+                                        className="bg-inherit text-[12px] font-bold p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[80px] h-[32px] hover:border-2 border-black "
+                                    >
+                                        View list
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
