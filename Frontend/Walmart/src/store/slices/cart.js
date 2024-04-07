@@ -37,6 +37,8 @@ export const addToCartAction = createAsyncThunk(
                     headers: { token2 },
                 }
             );
+            console.log("status", status);
+
             return status.data.data;
         }
         const status = await instance.post(`/cart/${id}`);
