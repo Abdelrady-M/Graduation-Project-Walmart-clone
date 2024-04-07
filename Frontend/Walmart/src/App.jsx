@@ -69,23 +69,23 @@ const routes = createBrowserRouter([
         element: <Grocery />,
       },
       {
-        path: "/Home2",
+        path: "/Home",
         element: <Home2 />,
       },
       {
-        path: "/PatioGarden",
+        path: "/Patio&Garden",
         element: <PatioGarden />,
       },
       {
-        path: "/HomeImprovement",
+        path: "/Home-Improvement",
         element: <HomeImprovement />,
       },
       {
-        path: "/AutoTires",
+        path: "/Auto&tires",
         element: <AutoTires />,
       },
       {
-        path: "/BabyProducts",
+        path: "/Baby",
         element: <BabyProducts />,
       },
       {

@@ -18,11 +18,12 @@ import { addToBothCartsAction } from '../../store/slices/cart';
 import { useDispatch } from 'react-redux';
 import starRating from '../../utils/starRating';
 import instance from '../../axios/instance';
-const Details = () => {
+const Details = ( ) => {
     const [quantity, setQuantity] = useState(1);
     const [product, setProduct] = useState({});
-    const [mainImage, useMainImage] = useState(product)
-    // console.log(product.images);
+    const [mainImage, setMainImage] = useState('');
+    const [imagesShow, setImagesShow] = useState(false);
+
     const { id } = useParams();
 
     const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const Details = () => {
         const fetchData = async () => {
             try {
                 const response = await instance(`product/${id}`);
-                console.log("response.data.data", response.data.data);
+                // console.log("response.data.data", response.data.data);
                 setProduct(response.data.data);
             } catch (error) {
                 console.error("Error fetching product", error);
@@ -40,8 +41,10 @@ const Details = () => {
         fetchData();
     }, [id]);
 
-
-
+    const useMainImage = (image) => {
+        setMainImage(image);
+        setImagesShow(true);
+    };
 
 
     function addToCart(id, quantity) {
@@ -77,22 +80,20 @@ const Details = () => {
                             <div className='rightBar flex flex-col items-center justify-center mr-20'>
                                 {product.images && product.images.length > 0 && (
                                     product.images.map((image, index) => (
-                                        <div key={index} className='mb-5 border-blue-500 rounded hover:border-4'>
-                                            {/* <img src={image} className='w-[120px] h-[80px] flex'  onClick={useMainImage(image)}/> */}
-                                            <img src={image} className='w-[120px] h-[80px] flex' />
+                                        <div key={index} className='mb-5 border-blue-500 rounded hover:border-4' onClick={() => useMainImage(image)}>
+                                            <img src={image} className='w-[120px] h-[80px] flex'  />
                                         </div>
                                     ))
                                 )}
                             </div>
                             <div className='middleBar '>
                                 <div className='w-[80%] h-[640px]'>
-                                    <InnerImageZoom src={mainImage.thumbnail} />
-                                    {/* <InnerImageZoom src={product.thumbnail} /> */}
+                                    <InnerImageZoom src={mainImage||product.thumbnail} />
                                 </div>
                             </div>
                         </div>
 
-                        <div className='mt-20 mb-5'>
+                        {/* <div className='mt-20 mb-5'>
                             <h1 className='font-bold text-[20px]'>At a glance</h1>
                         </div>
                         <div className='glance bg-[#f8f8f8] rounded p-5 flex flex-col md:flex-row'>
@@ -125,7 +126,7 @@ const Details = () => {
                                     <span className='text-[14px]'>16 in</span>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                         <div className='ProductInfo'>
                             <div className='py-5 mt-20'>
                                 <h1 className='font-bold text-[20px]'>About this item</h1>
@@ -138,10 +139,19 @@ const Details = () => {
                                         aria-controls="panel1-content"
                                         id="panel1-header"
                                     >
-                                        Product details
+                                        Product details:
                                     </AccordionSummary>
                                     <AccordionDetails>
-                                        product des
+                                        Title: {product.title}
+                                    </AccordionDetails>
+                                    <AccordionDetails>
+                                        Price: ${product.price}
+                                    </AccordionDetails>
+                                    <AccordionDetails>
+                                    Category: {product.category}
+                                    </AccordionDetails>
+                                    <AccordionDetails>
+                                    Quantity: {product.quantity} pices
                                     </AccordionDetails>
                                 </Accordion>
                                 <Accordion>
@@ -150,11 +160,10 @@ const Details = () => {
                                         aria-controls="panel2-content"
                                         id="panel2-header"
                                     >
-                                        About the brand
+                                        About the brand:
                                     </AccordionSummary>
                                     <AccordionDetails>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                                        malesuada lacus ex, sit amet blandit leo lobortis eget.
+                                    {product.description}
                                     </AccordionDetails>
                                 </Accordion>
                                 <Accordion defaultExpanded>
@@ -166,12 +175,22 @@ const Details = () => {
                                         Specifications
                                     </AccordionSummary>
                                     <AccordionDetails>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                                        malesuada lacus ex, sit amet blandit leo lobortis eget.
+                                    {product.description}
                                     </AccordionDetails>
 
                                 </Accordion>
                             </div>
+
+                            {/* <div className='rightBar flex flex-col items-center justify-center mr-20'>
+                                {product.images && product.images.length > 0 && (
+                                    product.images.map((image, index) => (
+                                        <div key={index} className='m-8' onClick={() => useMainImage(image)}>
+                                            <img src={image} className='w-[300px] h-[300px] flex'  />
+                                        </div>
+                                    ))
+                                )}
+                            </div> */}
+                            
                             <div className='lg:w-[900px] mt-20'>
                                 <Deals />
                             </div>

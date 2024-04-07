@@ -408,7 +408,7 @@ export default function PatioGarden() {
                                         photo={card.photo}
                                         title={card.title}
                                         price={card.price}
-                                        _id={card._id}
+                                        id={card._id}
                                     />
                                 </div>
                             ))}

@@ -153,32 +153,7 @@ export default function BabyProducts() {
         {
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-62b9/k2-_059bedd2-983f-4f1b-b14d-d04e0d51d053.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Toddler furniture",
-        },
-        {
-            Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-30e7/k2-_f40c5a4a-a8d4-4fbf-9151-36e6978526cf.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Car seats",
-        },
-        {
-            Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-bcda/k2-_3cef912c-2cd7-40e0-841e-f6a5e6a5b43f.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Strollers",
-        },
-        {
-            Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-c488/k2-_03b7b9e6-cfa2-4768-86c6-4db280e748fd.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Baby gear",
-        },
-        {
-            Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-ea7a/k2-_2a1992be-0c06-485c-9e5d-67946f404423.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Infant activity",
-        },
-        {
-            Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-77da/k2-_912df48a-6acf-44d7-bf38-dc637a9ba3ef.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Nursery & decor",
-        },
-        {
-            Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-62b9/k2-_059bedd2-983f-4f1b-b14d-d04e0d51d053.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Toddler furniture",
-        },
-
+        }
     ];
 
     const category3 = [
@@ -210,65 +185,7 @@ export default function BabyProducts() {
         {
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-aab1/k2-_e5b50ebe-3206-4d43-83ff-885c1b580a74.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
             title: "Baby Dove",
-        },
-        {
-            Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-4ff0/k2-_08b2a636-cb42-4b79-a437-3605c40e2a07.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Pampers",
-        },
-
-        {
-            Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-e918/k2-_3003ceee-74aa-4506-890d-00b01fa90cb2.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Carter's Child of Mine",
-        },
-
-        {
-            Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-9b23/k2-_9965a81e-47e4-46cc-8815-abe98576d499.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Graco",
-        },
-
-        {
-            Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-96e4/k2-_cfd58664-7439-4d10-b5e5-50fd237d32fb.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Enfamil",
-        },
-
-        {
-            Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-254a/k2-_4f2b2daf-9e58-495c-bffa-dee84faf03de.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Evenflo",
-        },
-
-        {
-            Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-aab1/k2-_e5b50ebe-3206-4d43-83ff-885c1b580a74.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Baby Dove",
-        },
-        {
-            Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-4ff0/k2-_08b2a636-cb42-4b79-a437-3605c40e2a07.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Pampers",
-        },
-
-        {
-            Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-e918/k2-_3003ceee-74aa-4506-890d-00b01fa90cb2.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Carter's Child of Mine",
-        },
-
-        {
-            Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-9b23/k2-_9965a81e-47e4-46cc-8815-abe98576d499.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Graco",
-        },
-
-        {
-            Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-96e4/k2-_cfd58664-7439-4d10-b5e5-50fd237d32fb.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Enfamil",
-        },
-
-        {
-            Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-254a/k2-_4f2b2daf-9e58-495c-bffa-dee84faf03de.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Evenflo",
-        },
-
-        {
-            Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-aab1/k2-_e5b50ebe-3206-4d43-83ff-885c1b580a74.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Baby Dove",
-        },
+        }
 
     ];
 
@@ -315,7 +232,7 @@ export default function BabyProducts() {
 
 
         <div className=" container h-[] w-[100%] relative mx-auto my-8">
-            <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-1d8f/k2-_0713c3bc-5c88-4e05-8455-0731eed435f9.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70 1x, https://i5.walmartimages.com/dfw/4ff9c6c9-1d8f/k2-_0713c3bc-5c88-4e05-8455-0731eed435f9.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70 2x" alt="" />
+            <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-1d8f/k2-_0713c3bc-5c88-4e05-8455-0731eed435f9.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70 1x, https://i5.walmartimages.com/dfw/4ff9c6c9-1d8f/k2-_0713c3bc-5c88-4e05-8455-0731eed435f9.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70 2x" width={"1500vh"} alt="" />
             <div className="absolute w-full px-4 py-3 bottom-20">
                 <p className="">
                     Now at Walmart
@@ -338,9 +255,8 @@ export default function BabyProducts() {
         </div>
 
         <div className="flex ">
-            <div className="hidden w-1/6 lg:grid-cols-1 lg:grid">
+            <div className="w-1/6 md:flex sm:hidden">
                 <LeftHandNavList items={features} section="Categories" />
-                <LeftHandNavList items={features} section="Savings" />
             </div>
             <div className="w-3/4 mx-auto ">
                 <Deals />

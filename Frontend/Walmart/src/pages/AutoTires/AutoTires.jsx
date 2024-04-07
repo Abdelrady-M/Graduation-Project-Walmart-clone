@@ -300,7 +300,7 @@ export default function AutoTires() {
     return <>
 
         <div className=" container h-[] w-[100%] relative mx-auto my-8">
-            <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-cde1/k2-_241c007d-b3ac-41ca-923f-3ee55f3fa634.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70%201x,%20https://i5.walmartimages.com/dfw/4ff9c6c9-cde1/k2-_241c007d-b3ac-41ca-923f-3ee55f3fa634.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70%202x" alt="" />
+            <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-cde1/k2-_241c007d-b3ac-41ca-923f-3ee55f3fa634.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70%201x,%20https://i5.walmartimages.com/dfw/4ff9c6c9-cde1/k2-_241c007d-b3ac-41ca-923f-3ee55f3fa634.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70%202x" width={"1500vh"} alt="" />
             <div className="absolute w-full px-4 py-3 bottom-16 md:bottom-28">
                 <h1 className="mt-20 text-xl md:text-3xl"> Stay on top<br /> of your  auto care </h1>
                 <p className="">
@@ -323,14 +323,14 @@ export default function AutoTires() {
             <CustomSlider cards={cards} mainTitle={tittle} />
             </div>
 
-        <div className="flex w-[100%]">
-            <div className="hidden w-1/6 lg:flex">
+        <div className="flex">
+            <div className="w-1/6 md:flex sm:hidden">
                 <LeftHandNavList items={features} section="Categories" />
             </div>
-            <div className="w-[100%]">
-                <div className="ml-8">
-                    <div>
-                        <h2 className="mb-2 text-xl font-bold">
+            <div className="">
+                <div className="mx-auto">
+                    {/* <div>
+                        <h2 className="text-xl font-bold">
                             Auto services
 
                         </h2>
@@ -376,7 +376,7 @@ export default function AutoTires() {
                         </div>
 
 
-                    </div>
+                    </div> */}
 
                     <div>
                         <header className="flex items-baseline justify-between">
@@ -384,7 +384,7 @@ export default function AutoTires() {
                             </h2>
                             <button>See less</button>
                         </header>
-                        <div className="flex flex-wrap w-full mx-auto mb-4">
+                        <div className="flex flex-wrap mx-auto mb-4">
                             {category.map((ctg, index) => (
                                 <div
                                     key={index}
@@ -398,7 +398,7 @@ export default function AutoTires() {
                     </div>
 
                     <div className=" container h-[] w-[100%] relative mx-auto my-8">
-                        <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-89b1/k2-_d409ad9e-22b5-4946-aaf3-16448705bef7.v1.jpg"  />
+                        <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-89b1/k2-_d409ad9e-22b5-4946-aaf3-16448705bef7.v1.jpg" width={"1500vh"} />
                         <div className="absolute bottom-0 w-full" style={{
                             textAlign: "center",
                             justifyContent: "center",
