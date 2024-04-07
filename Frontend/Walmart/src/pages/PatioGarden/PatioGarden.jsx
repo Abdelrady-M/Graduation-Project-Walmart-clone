@@ -274,14 +274,14 @@ export default function PatioGarden() {
     return (
         <>
 
-        <div className=" container h-[] w-[100%] relative mx-auto my-8">
-                        <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-89b1/k2-_d409ad9e-22b5-4946-aaf3-16448705bef7.v1.jpg" width={"1500vh"} />
-                        <div className="absolute w-full bottom-4" style={{
+        <div className=" container h-[] w-[80%] relative mx-auto my-8">
+                        <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-ade1/k2-_ae69e3a6-6399-4567-a98b-629f88cbb731.v1.jpg" width={"1500vh"} />
+                        <div className="absolute w-full md:bottom-4 bottom-0 text-sm md:text-3xl" style={{
                             textAlign: "center",
                             justifyContent: "center",
                             width: "100%",
                         }}>
-                            <h1 className="text-xl md:text-3xl"> Pickup or delivery </h1>
+                            <h1 className=""> Pickup or delivery </h1>
                             <p className="">
                             Easy ways to create your outdoor oasis.
                             </p>
@@ -295,16 +295,16 @@ export default function PatioGarden() {
                         </div>
                     </div>
 
-        <div className=" container h-[] w-[100%] relative mx-auto my-8">
+        <div className=" container h-[] w-[80%] relative mx-auto my-8">
                         <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-c871/k2-_ac0cf1ef-28ef-4156-966c-7a586fa2897c.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70" width={"1500vh"} />
-                        <div className="absolute w-full bottom-8" style={{
+                        <div className="absolute w-full md:bottom-32 bottom-4 text-sm md:text-3xl" style={{
                             textAlign: "center",
                             justifyContent: "center",
                             width: "100%",
                         }}>
                             <h1 className="text-xl md:text-3xl"> Mainstays </h1>
                             <p className="">
-                            Stylish finds made to be lived in, for less.
+                            Stylish finds made to<br /> be lived in, for less.
                             </p>
                             <p
                                 style={{
@@ -320,9 +320,6 @@ export default function PatioGarden() {
             <div className="flex ">
                 <div className="hidden mx-8 w-1/8 lg:flex-row">
                     <LeftHandNavList items={features} section="Categories" />
-                    <LeftHandNavList items={features} section="Savings" />
-                    <LeftHandNavList items={features} section="Categories" />
-                    <LeftHandNavList items={features} section="Savings" />
                 </div>
                 <div className="mx-auto lg:w-3/4 ">
                         <div>
@@ -330,11 +327,11 @@ export default function PatioGarden() {
                         </div>
                         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-2">
                             <div
-                                className="max-w-sm overflow-hidden rounded shadow-lg"
+                                className="max-w-sm overflow-hidden rounded shadow-lg mx-auto"
                                 style={{ minHeight: "55vh" }}
                             >
                                 <img
-                                    className="w-full"
+                                    className=" "
                                     src="https://i5.walmartimages.com/dfw/4ff9c6c9-13e1/k2-_43421eda-9f9f-4e3d-9032-1e384713a25a.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF"
                                     alt="Sunset in the mountains"
                                 />
@@ -353,11 +350,11 @@ export default function PatioGarden() {
                                 </div>
                             </div>
                             <div
-                                className="max-w-sm overflow-hidden rounded shadow-lg"
+                                className="max-w-sm overflow-hidden rounded shadow-lg mx-auto"
                                 style={{ minHeight: "55vh" }}
                             >
                                 <img
-                                    className="w-full"
+                                    className=" "
                                     src="https://i5.walmartimages.com/dfw/4ff9c6c9-bd0a/k2-_6d2dce92-ddd4-4482-b5a6-eafaa40b25de.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF"
                                     alt="Sunset in the mountains"
                                 />
@@ -376,11 +373,11 @@ export default function PatioGarden() {
                                 </div>
                             </div>
                             <div
-                                className="max-w-sm overflow-hidden rounded shadow-lg"
+                                className="max-w-sm overflow-hidden rounded shadow-lg mx-auto"
                                 style={{ minHeight: "55vh" }}
                             >
                                 <img
-                                    className="w-full"
+                                    className=""
                                     src="https://i5.walmartimages.com/dfw/4ff9c6c9-96ca/k2-_99091afe-aea3-4130-86a6-6bed94bbd2ac.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF"
                                     alt="Sunset in the mountains"
                                 />
@@ -399,8 +396,8 @@ export default function PatioGarden() {
                                 </div>
                             </div>
                         </div>
-                    <div>
-                        <div className="m-8 text-xl font-bold">Refresh your outdoors</div>
+                    <div className="">
+                        <div className="mx-auto my-8 text-xl font-bold">Refresh your outdoors</div>
                         <div className="grid grid-cols-2 gap-16 md:grid-cols-3">
                             {cards.map((card, index) => (
                                 <div key={index}>
@@ -421,11 +418,11 @@ export default function PatioGarden() {
                             </div>
                             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                                 <div
-                                    className="max-w-sm overflow-hidden rounded shadow-lg"
-                                    style={{ minHeight: "55vh" }}
+                                    className="max-w-sm overflow-hidden rounded shadow-lg mx-auto"
+                                    // style={{ minHeight: "55vh"  }}
                                 >
                                     <img
-                                        className="w-full"
+                                        className=" "
                                         src="https://i5.walmartimages.com/dfw/4ff9c6c9-ca49/k2-_ae20ef0e-4a5b-4724-94c6-7ee72e3cd70d.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF"
                                         alt="Sunset in the mountains"
                                     />
@@ -444,11 +441,11 @@ export default function PatioGarden() {
                                     </div>
                                 </div>
                                 <div
-                                    className="max-w-sm overflow-hidden rounded shadow-lg"
-                                    style={{ minHeight: "55vh" }}
+                                    className="max-w-sm overflow-hidden rounded shadow-lg mx-auto"
+                                    // style={{ minHeight: "55vh" }}
                                 >
                                     <img
-                                        className="w-full"
+                                        className=" "
                                         src="https://i5.walmartimages.com/dfw/4ff9c6c9-3360/k2-_4d044082-dae4-4871-a336-26f764f0c06f.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF"
                                         alt="Sunset in the mountains"
                                     />
@@ -467,11 +464,11 @@ export default function PatioGarden() {
                                     </div>
                                 </div>
                                 <div
-                                    className="max-w-sm overflow-hidden rounded shadow-lg"
-                                    style={{ minHeight: "55vh" }}
+                                    className="max-w-sm overflow-hidden rounded shadow-lg mx-auto"
+                                    // style={{ minHeight: "55vh" }}
                                 >
                                     <img
-                                        className="w-full"
+                                        className=" "
                                         src="https://i5.walmartimages.com/dfw/4ff9c6c9-dfe7/k2-_af69c2ae-5c7e-49ce-a45e-abf4bec15dff.v1.jpg?odnHeight=222&odnWidth=395&odnBg=FFFFFF"
                                         alt="Sunset in the mountains"
                                     />
@@ -491,10 +488,10 @@ export default function PatioGarden() {
                                 </div>
                             </div>
 
-                            <div className=" container h-[] w-[100%] relative mx-auto my-8">
-            <img className="rounded-lg shadow-lg" src="https://i5.walmartimages.com/dfw/4ff9c6c9-b6e4/k2-_b4bc9a86-5b49-4f55-8815-0c5b2eade04e.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70" alt="" />
-            <div className="absolute w-full px-4 py-3 bottom-10">
-                <h1 className="mt-20 text-xl md:text-3xl"> Garden center</h1>
+                            <div className="  h-[] w-[85%] relative  my-8 mx-auto">
+            <img className="rounded-lg shadow-lg mx-auto" src="https://i5.walmartimages.com/dfw/4ff9c6c9-b6e4/k2-_b4bc9a86-5b49-4f55-8815-0c5b2eade04e.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70" alt="" />
+            <div className="absolute w-full px-4 py-3 md:bottom-10 bottom-0 text-sm md:text-3xl">
+                <h1 className="mt-20 "> Garden center</h1>
                 <p className="">
                 Welcome spring with <br /> a yard that’s ready <br/> for sunshine.
                 </p>
@@ -511,34 +508,17 @@ export default function PatioGarden() {
             </div>
         </div>
 
-
-            {/* <div>
-                        <div className="m-8 text-xl font-bold">Refresh your outdoors</div>
-                        <div className="grid grid-cols-2 gap-16 md:grid-cols-3 ">
-                            {card1.map((card, index) => (
-                                <div key={index}>
-                                    <Card
-                                        photo={card.photo}
-                                        title={card.title}
-                                        price={card.price}
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    </div> */}
-
             <div>
-            <div className="ml-10">
+            <div className="">
                         <div>
                             <h2 className="mb-2 text-xl font-bold">Mulch & Soil</h2>
                         </div>
                         <div className="grid gap-20 md:grid-cols-1 lg:grid-cols-2">
                             <div
-                                className="max-w-sm overflow-hidden rounded shadow-lg"
-                                style={{ minHeight: "55vh",minWidth:"60vh" }}
-                            >
+                                className="max-w-sm overflow-hidden rounded shadow-lg mx-auto"
+                                >
                                 <img
-                                    className="w-full"
+                                    className=""
                                     src="https://i5.walmartimages.com/dfw/4ff9c6c9-1d3e/k2-_36972e7f-ba7d-49cb-a9b6-089ca867ab8d.v1.jpg?odnHeight=340&odnWidth=604&odnBg=FFFFFF"
                                     alt="Sunset in the mountains"
                                 />
@@ -557,11 +537,11 @@ export default function PatioGarden() {
                                 </div>
                             </div>
                             <div
-                                className="max-w-sm overflow-hidden rounded shadow-lg"
-                                style={{ minHeight: "55vh",minWidth:"60vh" }}
+                                className="max-w-sm overflow-hidden rounded shadow-lg mx-auto"
+                                
                             >
                                 <img
-                                    className="w-full"
+                                    className=""
                                     src="https://i5.walmartimages.com/dfw/4ff9c6c9-10c3/k2-_47e8b5b2-9fb8-475d-93d2-69345fa2335d.v1.jpg?odnHeight=340&odnWidth=604&odnBg=FFFFFF"
                                     alt="Sunset in the mountains"
                                 />
@@ -583,14 +563,14 @@ export default function PatioGarden() {
                     </div>
             </div>
 
-            <div className=" container h-[] w-[100%] relative mx-auto my-8">
+            <div className=" container h-[] w-[80%] relative mx-auto my-8">
                         <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-bfde/k2-_d045c7dc-4349-493c-a14f-045a5df8be4f.v1.jpg" width={"1500vh"} />
-                        <div className="absolute w-full bottom-4" style={{
+                        <div className="absolute w-full md:bottom-4 bottom-0 text-sm md:text-3xl" style={{
                             textAlign: "center",
                             justifyContent: "center",
                             width: "100%",
                         }}>
-                            <h1 className="text-xl md:text-3xl"> Spring savings </h1>
+                            <h1 className=""> Spring savings </h1>
                             <p className="">
                             Get lots to love at low, low prices
                             </p>

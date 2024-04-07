@@ -133,7 +133,7 @@ export default function Grocery() {
 
     return (
         <>
-                <div className=" container h-[] w-[100%] relative mx-auto my-8">
+                <div className=" container h-[] w-[90%] relative mx-auto my-8">
                         <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-49b2/k2-_90314a02-b0c6-4a2d-98be-1394b83bc8b9.v1.png" width={"1500vh"} />
                         <div className="absolute w-full bottom-4" style={{
                             textAlign: "center",
@@ -155,7 +155,7 @@ export default function Grocery() {
                     </div>
 
 
-            {/* <div className="p-8 mx-auto">
+            <div className="p-8 mx-auto">
                 <div>
                     <h2 className="mb-2 text-xl font-bold">For your shopping list</h2>
                 </div>
@@ -217,16 +217,16 @@ export default function Grocery() {
                             </div>
                         </div>
                 </div>
-            </div> */}
+            </div>
 
                 {/* <div className="hidden  grid-cols-1 lg:grid">
                 <LeftHandNavList items={features} section="Categories" />
             </div> */}
 
-                    <div className="pl-24">
+                    <div className="">
                         <div className="container mx-auto">
                     <div className=" text-xl font-bold">Featured items</div>
-                        <div className="container grid grid-cols-2 mx-auto mt-5 mb-10 md:grid-cols-3">
+                        <div className=" grid grid-cols-2 my-10 md:grid-cols-3">
                             {cards.map((card, index) => (
                                 <div key={index} ><Card photo={card.photo} title={card.title} price={card.price} /></div>
                             ))}
@@ -324,9 +324,9 @@ export default function Grocery() {
                             </div>
                         </div>
                         
-                        <div className="">
+                        <div className="container mx-auto">
                         <div className="my-8 text-xl font-bold"><h1>Save with Great Value</h1>
-                        <div className="container grid grid-cols-2 mx-auto mt-5 mb-10 md:grid-cols-3">
+                        <div className="grid grid-cols-2 mt-5 my-10 md:grid-cols-3">
                             {cards2.map((card, index) => (
                                 <div key={index} ><Card photo={card.photo} title={card.title} price={card.price} /></div>
                             ))}

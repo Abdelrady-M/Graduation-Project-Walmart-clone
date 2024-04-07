@@ -27,7 +27,7 @@ const Card = (props) => {
     return (
 
         <div className="relative flex flex-col w-full h-auto" >
-            <div className="flex flex-col w-[13rem] mb-2 "
+            <div className="flex flex-col w-[11rem] mb-2 "
                 onClick={() => x(`/details/${props.id}`)}
             >
                 <img src={props.photo} alt="" className="w-[160px] h-[160px] " />
