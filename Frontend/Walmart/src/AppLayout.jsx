@@ -17,7 +17,7 @@ const AppLayout = () => {
     return (
         <>
             <div>
-                {/* <Navbar /> */}
+                <Navbar />
                 <Outlet></Outlet>
                 <Footer />
             </div>

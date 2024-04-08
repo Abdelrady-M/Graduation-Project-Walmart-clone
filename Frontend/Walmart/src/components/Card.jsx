@@ -27,12 +27,12 @@ const Card = (props) => {
     return (
 
         <div className="relative flex flex-col w-full h-auto" >
-            <div className="flex flex-col w-[11rem] mb-2 "
+            <div className="mx-auto flex flex-col w-[11rem] mb-2 "
                 onClick={() => x(`/details/${props.id}`)}
             >
-                <img src={props.photo} alt="" className="w-[160px] h-[160px] " />
-                <p className="font-bold text-[#2A8703] text-[18px]">Now {props.price}</p>
-                <p className="text-[16px] text-[#46474a] overflow-hidden w-auto whitespace-normal line-clamp-2"
+                <img src={props.photo} alt="" className="w-[120px] h-[120px] mx-auto " />
+                <p className="mx-auto font-bold text-[#2A8703] text-[18px]">Now {props.price}</p>
+                <p className="mx-auto text-[16px] text-[#46474a] overflow-hidden w-auto whitespace-normal line-clamp-2"
                 >
                     {props.title}
 
@@ -54,7 +54,7 @@ const Card = (props) => {
 
             </div>
             <button
-                className="bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-black"
+                className="mx-auto bg-inherit font-medium p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[65px] hover:border-2 border-blue-600 text-blue-600"
                 onClick={() => addToCart(props.id)}
             >
                 <AiOutlinePlus />

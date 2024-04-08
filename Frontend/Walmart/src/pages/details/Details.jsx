@@ -69,7 +69,7 @@ const Details = ( ) => {
                     </li>
                     <a href='#' className='mr-2 hover:underline'><span>/</span></a>
                     <li>
-                        <a href='#' className='mr-2 hover:underline'><span>electronic</span></a>
+                        <a href='#' className='mr-2 hover:underline'><span>{product.category}</span></a>
                     </li>
                 </ol>
             </nav>
@@ -243,13 +243,13 @@ const Details = ( ) => {
                             <div className='mt-3 ProductPrice'>
                                 <div className='flex items-center'>
                                     {/* <h1 className='text-[28px] text-[#2A8703] font-medium'>Now $37.99</h1> */}
-                                    <h1 className='text-[28px] text-[#2A8703] font-medium'>Now {product.priceAfterDescount}</h1>
-                                    <span className='line-through ml-2 text-[14px]'>${product.price}</span>
+                                    <h1 className='text-[28px] text-[#2A8703] font-medium'>Now ${product.price}</h1>
+                                    {/* <span className='line-through ml-2 text-[14px]'>${product.price}</span> */}
                                 </div>
-                                <div className='flex items-center'>
+                                {/* <div className='flex items-center'>
                                     <span class="py-1 px-2.5 border-none rounded text-[#2A8703] bg-[#eaf3e6] text-[12px] font-bold">You Saved</span>
                                     <h1 className='text-[14px] text-[#2A8703] font-bold ml-2'>%{product.discountPercentage}</h1>
-                                </div>
+                                </div> */}
                                 <div>
                                     <span className='text-[12px]'>Price when purchased online</span>
                                 </div>
