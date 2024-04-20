@@ -2,7 +2,7 @@ import LeftHandNavList from "../../components/LeftHandNavList/LeftHandNavList";
 import Card from "../../components/Card";
 import Deals from "../../components/Deals";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../../store/slices/product";
+import { fetchProductsCat } from "../../store/slices/productCategor";
 import React, { useEffect, useState } from "react";
 
 
@@ -112,7 +112,7 @@ export default function PatioGarden() {
     const dispatch = useDispatch();
     useEffect(() => {
         const fetchData = async () => {
-            await dispatch(fetchProducts());
+            await dispatch(fetchProductsCat("Patio&Garden"));
         };
         fetchData();
     }, [dispatch]);

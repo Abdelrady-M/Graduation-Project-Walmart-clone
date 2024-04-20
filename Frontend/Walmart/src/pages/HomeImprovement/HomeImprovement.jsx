@@ -1,7 +1,10 @@
-import React from "react";
+// import React from "react";
 import LeftHandNavList from "../../components/LeftHandNavList/LeftHandNavList.jsx";
-
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductsCat } from "../../store/slices/productCategor";
+import React, { useEffect, useState } from "react";
 import CustomSlider from "../../components/CustomSlider .jsx";
+import Card from "../../components/Card";
 
 export default function HomeImprovement() {
     const category = [
@@ -150,7 +153,7 @@ export default function HomeImprovement() {
         },
     ];
 
-    const cards = [
+    const cards1 = [
         {
             photo:
                 "https://i5.walmartimages.com/seo/Mainstays-1500W-Ceramic-Fan-Forced-Electric-Space-Heater-WSH10C2AWW-White_736efaf6-6b14-4eb4-b99d-c4bbaf81d7aa.7057bf884d1c9ea48c573b891329cf38.jpeg?odnHeight=576&odnWidth=576&odnBg=FFFFFF",
@@ -257,6 +260,21 @@ export default function HomeImprovement() {
             price: "$17",
         },
     ];
+    const { products } = useSelector((state) => state.products);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const fetchData = async () => {
+            await dispatch(fetchProductsCat("Home-Improvement"));
+        };
+        fetchData();
+    }, [dispatch]);
+
+    const cards = products.map((product) => ({
+        photo: product.thumbnail,
+        title: product.title,
+        price: `$${product.price}`,
+        _id: product._id,
+    }));
     const tittle = "Home Improvement deals";
     return (
         <>
@@ -293,6 +311,23 @@ export default function HomeImprovement() {
                     <LeftHandNavList items={features} section="Categories" />
                 </div>
                 <div className="px-4 mx-auto lg:w-3/4">
+                    
+            <div className="container mx-auto">
+                        <div className="mx-auto my-8 text-xl font-bold">Refresh your outdoors</div>
+                        <div className="grid grid-cols-2 gap-16 md:grid-cols-3">
+                            {cards.map((card, index) => (
+                                <div key={index}>
+                                    <Card
+                                        photo={card.photo}
+                                        title={card.title}
+                                        price={card.price}
+                                        id={card._id}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
                     <div>
                         <h2 className="mb-2 text-xl font-bold">
                             Make things clean & tidy

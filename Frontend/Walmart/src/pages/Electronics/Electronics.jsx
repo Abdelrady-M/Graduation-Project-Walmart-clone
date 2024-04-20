@@ -1,9 +1,14 @@
-import React from "react";
 import LeftHandNavList from "../../components/LeftHandNavList/LeftHandNavList";
 import HeroCard from "../../components/HeroCard";
 import CustomSlider from "../../components/CustomSlider ";
 import ShopByCategory from "../../components/ShopByCategory";
 import ShopByPrice from "../../components/ShopByPrice";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductsCat } from "../../store/slices/productCategor";
+import React, { useEffect, useState } from "react";
+// import CustomSlider from "../../components/CustomSlider .jsx";
+import Card from "../../components/Card";
+
 
 import costume from "../../assets/costume.jpg";
 import jacket from "../../assets/jacket.jpg";
@@ -90,7 +95,7 @@ export default function Electronics() {
     },
   ];
 
-  const cards = [
+  const cards1 = [
     { photo: costume, title: "Costume", price: "$17" },
     { photo: jacket, title: "Costume", price: "$17" },
     { photo: jacket2, title: "Costume", price: "$17" },
@@ -107,7 +112,21 @@ export default function Electronics() {
     { photo: jacket, title: "Costume", price: "$17" },
     { photo: jacket2, title: "Costume", price: "$17" },
   ];
+  const { products } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+  useEffect(() => {
+      const fetchData = async () => {
+          await dispatch(fetchProductsCat("electronics"));
+      };
+      fetchData();
+  }, [dispatch]);
 
+  const cards = products.map((product) => ({
+      photo: product.thumbnail,
+      title: product.title,
+      price: `$${product.price}`,
+      _id: product._id,
+  }));
   return (
     <>
       <main className="container mx-auto my-8">
@@ -115,7 +134,7 @@ export default function Electronics() {
           <aside className="h-100 relative w-1/4 flex flex-col px-8">
             <LeftHandNavList items={features} section="Features Shop" />
             <LeftHandNavList items={categories} section="Categories" />
-            <LeftHandNavList items={brands} section="Featured Brands" />
+            {/* <LeftHandNavList items={brands} section="Featured Brands" /> */}
           </aside>
 
           <article className="h-100 w-3/4 relative flex flex-col px-8">
@@ -127,6 +146,21 @@ export default function Electronics() {
             />
             <CustomSlider mainTitle="Apple deals" cards={cards} />
             <ShopByCategory categories={category} />
+                        <div className="container mx-auto">
+                        <div className="mx-auto my-8 text-xl font-bold">Refresh your outdoors</div>
+                        <div className="grid grid-cols-2 gap-16 md:grid-cols-3">
+                            {cards.map((card, index) => (
+                                <div key={index}>
+                                    <Card
+                                        photo={card.photo}
+                                        title={card.title}
+                                        price={card.price}
+                                        id={card._id}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
             <section className="relative overflow-hidden shadow-lg w-full h-100 flex flex-col my-8">
               <div>
                 <img src={trending} alt="" />

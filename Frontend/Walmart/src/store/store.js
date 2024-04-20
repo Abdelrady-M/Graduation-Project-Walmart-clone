@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import productReducer from "./slices/product"
+import productCatReducer from "./slices/productCategor"
 import authReducer from './slices/authSlice'
 import logReducer from './slices/authLogin'
 import subCategoriesReducer from "./slices/subcategory"
@@ -13,6 +14,7 @@ import userReducer from './slices/user'
 const store = configureStore({
     reducer: {
         products: productReducer,
+        productsCat: productCatReducer,
         auth: authReducer,
         login: logReducer,
         subCategories: subCategoriesReducer,

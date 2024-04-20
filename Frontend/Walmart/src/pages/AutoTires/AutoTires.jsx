@@ -1,8 +1,12 @@
 import CustomSlider from "../../components/CustomSlider ";
 import LeftHandNavList from "../../components/LeftHandNavList/LeftHandNavList";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductsCat } from "../../store/slices/productCategor";
+import React, { useEffect, useState } from "react";
+import Card from "../../components/Card";
 
 export default function AutoTires() {
-    const cards = [
+    const cards1 = [
         {
             photo:
                 "https://i5.walmartimages.com/seo/Shell-Rotella-T4-Triple-Protection-15W-40-Diesel-Motor-Oil-1-Gallon_d9648fde-0c7b-446f-a0a4-d5be83b1c5b8.7ce188bc3f1ae83477d9501e83a95595.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF",
@@ -293,6 +297,21 @@ export default function AutoTires() {
             title: "Castrol",
         },
     ];
+    const { products } = useSelector((state) => state.products);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const fetchData = async () => {
+            await dispatch(fetchProductsCat("Auto&tires"));
+        };
+        fetchData();
+    }, [dispatch]);
+
+    const cards = products.map((product) => ({
+        photo: product.thumbnail,
+        title: product.title,
+        price: `$${product.price}`,
+        _id: product._id,
+    }));
     return <>
 <div className="container mx-auto">
         <div className=" container h-[] w-[80%] relative mx-auto my-8">
@@ -318,7 +337,21 @@ export default function AutoTires() {
         <div className="px-12">
             <CustomSlider cards={cards} mainTitle={tittle} />
             </div>
-
+            <div className="container mx-auto">
+                        <div className="mx-auto my-8 text-xl font-bold">Refresh your outdoors</div>
+                        <div className="grid grid-cols-2 gap-16 md:grid-cols-3">
+                            {cards.map((card, index) => (
+                                <div key={index}>
+                                    <Card
+                                        photo={card.photo}
+                                        title={card.title}
+                                        price={card.price}
+                                        id={card._id}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
         <div className="flex ">
             {/* <div className="w-1/6 md:flex hidden">
                 <LeftHandNavList items={features} section="Categories" />

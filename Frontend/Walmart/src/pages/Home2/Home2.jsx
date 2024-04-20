@@ -2,20 +2,9 @@ import CustomSlider from "../../components/CustomSlider ";
 import Deals from "../../components/Deals";
 import LeftHandNavList from "../../components/LeftHandNavList/LeftHandNavList";
 import Card from "../../components/Card";
-
-const cards = [
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-
-];
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductsCat } from "../../store/slices/productCategor";
+import React, { useEffect, useState } from "react";
 
 const features = [
     { title: "Appliances", listItems: [
@@ -103,30 +92,24 @@ const features = [
     ] },
 ];
 
-const categories = [
-    {
-        //has Image
-        title: "TV & Video",
-        listItems: ["All TV & Video", "Smart TVs", "Roku TVs"],
-    },
-    {
-        title: "Computers & Tablets",
-        listItems: ["All Computers", "Laptops", "Chromebook"],
-    },
-    {
-        title: "Video Games",
-        listItems: ["All Video Games", "Xbox", "PlayStation"],
-    },
-    {
-        title: "PC Gaming",
-        listItems: ["PC Gaming", "Gaming Laptops", "Gaming Desktops"],
-    },
-    { title: "Audio", listItems: ["AirPods", "Sound Bars"] },
-];
-
 
 
 export default function Home2() {
+    const { products } = useSelector((state) => state.products);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const fetchData = async () => {
+            await dispatch(fetchProductsCat("Home"));
+        };
+        fetchData();
+    }, [dispatch]);
+
+    const cards = products.map((product) => ({
+        photo: product.thumbnail,
+        title: product.title,
+        price: `$${product.price}`,
+        _id: product._id,
+    }));
     return (
         <>
 
@@ -177,20 +160,23 @@ export default function Home2() {
                 </p>
             </div>
         </div>
-            <div className="my-8 text-xl font-bold"><h1>Save with Great Value</h1>
-
-                                                <div className="grid grid-cols-2 gap-16 md:grid-cols-3">
+        <div className="container mx-auto">
+                        <div className="mx-auto my-8 text-xl font-bold">Refresh your outdoors</div>
+                        <div className="grid grid-cols-2 gap-16 md:grid-cols-3">
                             {cards.map((card, index) => (
                                 <div key={index}>
                                     <Card
                                         photo={card.photo}
                                         title={card.title}
                                         price={card.price}
+                                        id={card._id}
                                     />
                                 </div>
                             ))}
                         </div>
-                        </div>
+                    </div>
+
+
                 </div>
             </div>
             </div>

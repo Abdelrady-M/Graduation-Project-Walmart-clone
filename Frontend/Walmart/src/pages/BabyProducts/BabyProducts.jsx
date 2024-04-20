@@ -1,5 +1,10 @@
 import Deals from "../../components/Deals";
 import LeftHandNavList from "../../components/LeftHandNavList/LeftHandNavList";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductsCat } from "../../store/slices/productCategor";
+import React, { useEffect, useState } from "react";
+import CustomSlider from "../../components/CustomSlider .jsx";
+import Card from "../../components/Card";
 
 export default function BabyProducts() {
     const features = [
@@ -207,6 +212,22 @@ export default function BabyProducts() {
             title: "Toddler",
         },
     ];
+
+    const { products } = useSelector((state) => state.products);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const fetchData = async () => {
+            await dispatch(fetchProductsCat("Baby"));
+        };
+        fetchData();
+    }, [dispatch]);
+
+    const cards = products.map((product) => ({
+        photo: product.thumbnail,
+        title: product.title,
+        price: `$${product.price}`,
+        _id: product._id,
+    }));
     return <div className="container ">
         <div className=" container h-[] w-[80%] relative  mx-auto my-8">
             <img className="rounded-md shadow-md mx-auto" src="https://i5.walmartimages.com/dfw/4ff9c6c9-d51d/k2-_d866af0e-bb1c-4bc3-b4d5-876764fbf45d.v1.png" width={"1500vh"} />
@@ -261,7 +282,21 @@ export default function BabyProducts() {
             <div className="w-3/4 mx-auto ">
                 <Deals />
                 <hr />
-
+                <div className="container mx-auto">
+                        <div className="mx-auto my-8 text-xl font-bold">Refresh your outdoors</div>
+                        <div className="grid grid-cols-2 gap-16 md:grid-cols-3">
+                            {cards.map((card, index) => (
+                                <div key={index}>
+                                    <Card
+                                        photo={card.photo}
+                                        title={card.title}
+                                        price={card.price}
+                                        id={card._id}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 <div className="">
                     <header className="flex items-baseline justify-between">
                         <h2 className="font-bold">Shop by age</h2>
@@ -409,7 +444,6 @@ export default function BabyProducts() {
                         </div>
                     </div>
                 </div>
-                <div><Deals /></div>
                 <div>
                     <div className="font-bold text-1xl">Complete their routine</div>
                     <div className="grid grid-cols-1 mx-auto mt-10 space-y-4 md:grid-cols-3 md:space-y-0 md:space-x-4">
