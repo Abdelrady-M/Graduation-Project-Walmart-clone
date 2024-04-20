@@ -22,6 +22,7 @@ import cookie from "js-cookie";
 import { GrLanguage } from "react-icons/gr";
 import { categoryAction } from "../store/slices/categories";
 import { wishListRequestAction } from "../store/slices/wishList";
+import { FaHeart } from "react-icons/fa";
 
 const Navbar = () => {
     const [showDepartmentsDropdown, setShowDepartmentsDropdown] = useState(false);
@@ -116,8 +117,6 @@ const Navbar = () => {
                 <div className="flex items-center gap-x-3 shrink-0">
                     <div className="hover:bg-[#06529a] p-2 rounded-full">
                         <Link to="/" className="text-[16px] font-semibold"><img src="https://i5.walmartimages.com/dfw/63fd9f59-b3e1/7a569e53-f29a-4c3d-bfaf-6f7a158bfadd/v1/walmartLogo.svg" alt="" className=" h-8" /></Link>
-
-
                     </div>
                     <div
                         className="md:flex items-center gap-2 hidden hover:bg-[#06529a] p-3 rounded-full cursor-pointer relative z-50"
@@ -130,7 +129,7 @@ const Navbar = () => {
                             <div className="absolute top-full left-0 bg-[#FFFFFF] text-black max-h-[761px] overflow-auto rounded shadow-md z-50 w-[246px] flex flex-col">
                                 <a className="p-3 font-semibold text-2xs rounded">All Department</a>
                                 {categories.map((category) => (
-                                    <Link key={category.id} to={`/${category.name}`} className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc] hover:border-l-4 border-indigo-500">
+                                    <Link key={category._id} to={`/${category.name}`} className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc] hover:border-l-4 border-indigo-500">
                                         {category.name}
                                     </Link>
                                 ))}
@@ -237,6 +236,9 @@ const Navbar = () => {
                     </div>
                 )
                 }
+                <Link to="/wishlist">
+                <FaHeart className="w-7 h-7"/>
+                </Link>
                 <Link to="/Cart" className="hover:bg-[#06529a] p-3 rounded-full relative cursor-pointer">
                     <AiOutlineShoppingCart className="w-7 h-7" />
 
@@ -245,7 +247,7 @@ const Navbar = () => {
                                 bg-[#ffc220] text-black border text-[12px] border-black items-center">
                         {cartList ? cartList.length > 0 && (
                             <span className=""> {cartList.length}</span>
-                        ) : ""}
+                        ) : "0"}
                     </div>
                 </Link>
             </div >
@@ -269,10 +271,10 @@ const Navbar = () => {
                 </div>
                 <div className="text-white xl:py-2 xl:flex items-center gap-4 lg:text-[10px] ">
                     {categories.map((category) => (
-                                    <Link key={category.id} to={`/${category.name}`} className="hover:underline font-semibold text-[14px]">
-                                        {category.name}
-                                    </Link>
-                                ))}
+                        <Link key={category._id} to={`/${category.name}`} className="hover:underline font-semibold text-[14px]">
+                            {category.name}
+                        </Link>
+                    ))}
                 </div>
             </div>
             {

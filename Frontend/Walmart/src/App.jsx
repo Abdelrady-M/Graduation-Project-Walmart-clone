@@ -26,6 +26,8 @@ import store from "./store/store.js";
 import WishList from "./pages/wishlist/WishList.jsx";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import Search from "./pages/search/Search.jsx";
+import CheckoutSuccess from "./components/CheckoutSuccess/CheckoutSuccess.jsx";
+import Order from "./pages/Order/Order.jsx";
 
 
 const initialOptions = {
@@ -92,6 +94,7 @@ const routes = createBrowserRouter([
         path: "/cart",
         element: <Cart />,
       },
+      { path: "/Order/:id", element: <Order /> },
       {
         path: "/checkout",
         element: <Checkout />,
@@ -105,6 +108,8 @@ const routes = createBrowserRouter([
       },
       { path: "/fashion", element: <Fashion /> },
       { path: "/beauty", element: <Beauty /> },
+      { path: "checkoutSuccess", element: <CheckoutSuccess /> },
+
     ],
   },
   // {

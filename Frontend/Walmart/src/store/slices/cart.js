@@ -18,47 +18,44 @@ export const cartRequestAction = createAsyncThunk("cart/getAll", async () => {
 export const addToCartAction = createAsyncThunk(
     "cart/addProduct",
     async ({ id, quantity }) => {
-        let { token, token2 } = localStorage;
-        if (token) {
-            const status = await instance.post(
-                `/cart/${id}`,
-                { quantity },
-                {
-                    headers: { token },
-                }
-            );
-            console.log("status", status);
-            return status;
-        } else if (token2) {
-            const status = await instance.post(
-                `/cart/${id}`,
-                { quantity },
-                {
-                    headers: { token2 },
-                }
-            );
-            console.log("status", status);
-
-            return status.data.data;
-        }
-        const status = await instance.post(`/cart/${id}`);
-        token2 = JSON.stringify({
-            userId: status.data.data.userId,
-            cartId: status.data.data._id,
-        });
-        localStorage.setItem("token2", token2);
+      let { token, token2 } = localStorage;
+      if (token) {
+        const status = await instance.post(
+          `/cart/${id}`,
+          { quantity },
+          {
+            headers: { token },
+          }
+        );
+        console.log("status", status);
+        return status;
+      } else if (token2) {
+        const status = await instance.post(
+          `/cart/${id}`,
+          { quantity },
+          {
+            headers: { token2 },
+          }
+        );
         return status.data.data;
+      }
+      const status = await instance.post(`/cart/${id}`);
+      token2 = JSON.stringify({
+        userId: status.data.data.userId,
+        cartId: status.data.data._id,
+      });
+      localStorage.setItem("token2", token2);
+      return status.data.data;
     }
-);
-
-export function addToBothCartsAction(id, quantity) {
+  );
+  export function addToBothCartsAction(id, quantity) {
     return (dispatch) => {
-        dispatch(addToCartAction({ id, quantity })).then(() => {
-            toast.success(`Product added to the cart successfully`);
-            dispatch(cartRequestAction());
-        });
+      dispatch(addToCartAction({ id, quantity })).then(() => {
+        toast.success(`Product added to the cart successfully`);
+        dispatch(cartRequestAction());
+      });
     };
-}
+  }
 
 export const modifyProductAction = createAsyncThunk(
     "cart/modifyProduct",
@@ -116,7 +113,7 @@ export function removeFromCartAction(id) {
 
 export const deleteCart = createAsyncThunk("cart/delete", async (id) => {
     console.log(id);
-    const res = axios.delete(`http://localhost:4000/cart/${id}`);
+    const res = axios.delete(`http://localhost:3000/cart/${id}`);
     console.log(res);
     return res.data;
 });

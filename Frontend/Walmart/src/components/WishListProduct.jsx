@@ -29,7 +29,7 @@ function WishListProduct({ product }) {
                 </div>
             </div>
             <div className="flex flex-col md:w-6/12 w-full md:flex-row items-center">
-                <div className="mb-2 md:mb-0">
+                <div className="mb-2 md:mb-0 mr-5">
                     <button onClick={() => moveToCart(product._id._id)} className="rounded-pill px-5 py-3 bg-blue-500 text-white">
                         Move To Cart
                     </button>

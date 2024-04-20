@@ -13,8 +13,6 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { deleteCart } from '../../store/slices/cart';
 import instance from '../../axios/instance';
-import { cartRequestAction, modifyBothProductAction, removeFromCartAction, } from "./../../store/slices/cart";
-import { userAction } from '../../store/slices/user';
 import {
     changeTotal,
     setDiscount,
@@ -25,13 +23,37 @@ import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import { PayPalButtons } from '@paypal/react-paypal-js';
 import Payment from '../../components/Payment';
+import axios from 'axios';
+import { userAction, userAddressPostAction} from '../../store/slices/user';
+import { getAddress, userAddressGetAction } from '../../store/slices/userAddress';
+import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 
 const Checkout = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const user = useSelector((state) => state.user.user);
     const userCart = useSelector((state) => state.cart.cartProducts);
+    const userAddresses = useSelector((state) => state.address.address);
     const userCheckoutPrice = useSelector((state) => state.checkOut);
+    const addressValue = userAddresses?.length;
+    const [newAddress, setAddress] = useState({
+        country: "",
+        fullName: "",
+        phoneNumber: "",
+        city: "",
+        area: "",
+        zipCode: "",
+        street: "",
+        building: "",
+        floor: "",
+        apartment: "",
+        extraDetails: "",
+      });
+      const [sentAddress, setShippingAddress] = useState({
+        id: "",
+      });
     const [order, setOrder] = useState({});
     const [pricing, setPricing] = useState({
         subTotal: 0,
@@ -41,7 +63,11 @@ const Checkout = () => {
     });
 
     // ===========< decode token to take user._id >===========
-
+    useEffect(() => {
+        dispatch(userAddressGetAction(user._id));
+    }, [dispatch, userCart]);
+    console.log('User Addresses:', userAddresses);
+    
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
@@ -59,131 +85,118 @@ const Checkout = () => {
 
     // ===========< checkout price >===========
     const handlingPrice = () => {
-        if (!user || !user._id) {
-            console.log('User or user._id is undefined');
-            return;
-        }
-
-        if (!userCart || userCart.length === 0) {
-            console.log('User cart is empty');
-            return;
-        }
-
+        userCart && userCart.length > 0 && console.log("userCart", userCart);
         let subtotal = 0;
         let items = [];
+        console.log("this is the user cart =====> ", userCart);
         for (let i = 0; i < userCart.length; i++) {
-            let prdPrice = userCart[i].priceWhenAdded;
-            let prdQun = userCart[i].quantity;
-            subtotal += prdPrice * prdQun;
-            items.push(userCart[i]); // Push the entire cart item
+          let prdPrice = userCart[i].priceWhenAdded;
+          let prdQun = userCart[i].quantity;
+          subtotal = subtotal + prdPrice * prdQun;
+    
+          let prd = {
+            _id: userCart[i]._id._id,
+            title: userCart[i]._id.title,
+            thumbnail: userCart[i]._id.thumbnail,
+            description: userCart[i]._id.description,
+            quantity: userCart[i].quantity,
+            price: userCart[i].priceWhenAdded,
+          };
+    
+          console.log("this is the product before i push to the items");
+          items.push(prd);
         }
-
+    
         setPricing({ ...pricing, subTotal: subtotal });
         dispatch(setSubTotal(subtotal));
         dispatch(changeTotal());
-
+    
         setOrder({
-            userId: user._id,
-            amount: userCheckoutPrice.total,
-            items: items,
-            status: 'Waiting for Supplier',
-            createdAt: new Date().toISOString(), // Set the creation date
+          ...order,
+          userId: user._id,
+          amount: userCheckoutPrice.total,
+          items: items,
+          status: "Waiting for Supplier",
         });
-    };
+      };
 
+      const inputChange = (e) => {
+        setAddress({ ...newAddress, [e.target.name]: e.target.value });
+        console.log("input change order", order);
+      };
+      const orderInputChange = (e) => {
+        setOrder({ ...order, shippingAddress: userAddresses[e.target.value] });
+      };
+    
+  // ===========< handle adding new address >===========
 
+  const addressFormSubmit = (e) => {
+    e.preventDefault();
 
+    const sentAddress = [
+      { id: user._id },
+      [...userAddresses, { ...newAddress }],
+    ];
 
-    // const handlingPrice = () => {
-    //     if (!user || !user._id) {
-    //         // Check if user or user._id is undefined
-    //         console.log('User or user._id is undefined');
-    //         return;
-    //     }
+    dispatch(getAddress(sentAddress, user._id));
+    handleClose();
+  };
+  
+ 
+  // ===========< handle submit order  >===========
 
-    //     userCart && userCart.length > 0 && console.log("userCart", userCart);
-    //     let subtotal = 0;
-    //     let items = [];
-    //     console.log("this is the user cart =====> ", userCart);
-    //     for (let i = 0; i < userCart.length; i++) {
-    //         let prdPrice = userCart[i].priceWhenAdded;
-    //         let prdQun = userCart[i].quantity;
-    //         subtotal = subtotal + prdPrice * prdQun;
-
-    //         console.log('this is the product before i push to the items');
-    //         items.push(prd);
-    //     }
-
-    //     setPricing({ ...pricing, subTotal: subtotal });
-    //     dispatch(setSubTotal(subtotal));
-    //     dispatch(changeTotal());
-
-    //     setOrder({
-    //         ...order,
-    //         userId: user._id,
-    //         amount: userCheckoutPrice.total,
-    //         items: items,
-    //         status: 'Waiting for Supplier',
-    //     });
-    // };
-
-
-
-
-    // const orderFormSubmit = (e) => {
-    //     e.preventDefault();
-    //     console.log('place an order action', order);
-    //     console.log('this is order ', order);
-
-    //     if (order.paymentStatus == 'Paid Online') {
-    //         axios
-    //             .post(`http://localhost:4000/stripe/create-checkout-session`, {
-    //                 order,
-    //                 userId: user._id,
-    //             })
-    //             .then((res) => {
-    //                 if (res.data.url) {
-    //                     window.location.href = res.data.url;
-    //                 }
-    //             })
-    //             .catch((err) => {
-    //                 console.log('err.message', err.message);
-    //             });
-    //     } else {
-    //         console.log(' making an order ');
-    //         setTimeout(() => {
-    //             dispatch(postOneOrder(order));
-    //             if (user && user._id) {
-    //                 dispatch(deleteCart(user._id));
-    //             }
-    //             navigate(`/`);
-    //         }, 2000);
-    //     }
-    // };
     const orderFormSubmit = (e) => {
         e.preventDefault();
-        console.log('Placing an order', order);
-
-        // Handle payment processing if needed
-
-        setTimeout(() => {
+        console.log("place an order action", order);
+        console.log("this is order ", order);
+    
+        if (order) {
+          axios
+            .post(`http://localhost:3000/stripe/create-checkout-session`, {
+              order,
+              userId: user._id,
+            })
+            .then((res) => {
+              if (res.data.url) {
+                window.location.href = res.data.url;
+              }
+            })
+            .catch((err) => {
+              console.log("err.message", err.message);
+            });
+        } else {
+          console.log(" making an order ");
+          setTimeout(() => {
             dispatch(postOneOrder(order));
-            if (user && user._id) {
-                dispatch(deleteCart(user._id));
-            }
-            navigate(`/`);
-        }, 2000);
-    };
-
+            dispatch(deleteCart(user._id));
+            navigate(`/checkoutSuccess`);
+          }, 2000);
+        }
+      };
+      const [open, setOpen] = React.useState(false);
+      const handleOpen = () => setOpen(true);
+      const handleClose = () => setOpen(false);
+      const style = {
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        width: 800,
+        bgcolor: "background.paper",
+        boxShadow: 24,
+        p: 4,
+      }
+    
     console.log("this is the order =>>>>>>>>>>>>>>>>>>>>>>>", order);
     // const date = new Date(order.createdAt);
 
     return (
-        <section className='h-screen relative'>
-
+        <section className='h-[200vh] relative'>
+            <form onSubmit={(e) => {
+                orderFormSubmit(e);
+              }}>
             <div className='mainSection container mx-auto xl:flex  items-center justify-between '>
                 <div className='leftSide'>
-
                     <div className='container w-full my-10 '>
                         <div  >
                             <Accordion>
@@ -206,212 +219,281 @@ const Checkout = () => {
                                 </AccordionSummary>
                                 <AccordionDetails className='checkOutForm'>
                                     <div className='p-5'>
-                                        <span className='flex mb-8 text-[14px]'>
-                                            * Required fields
-                                        </span>
-                                        <h1 className='font-bold mb-2'>
-                                            Shipping address
-                                        </h1>
-                                        <span className='flex mb-5 text-[14px]'>
-                                            Where should we deliver your order?
-                                        </span>
-                                        <Grid container spacing={3}>
-                                            <Grid item xs={12} sm={6}>
-                                                <TextField
-                                                    required
-                                                    id="firstName"
-                                                    name="firstName"
-                                                    label="First name"
-                                                    fullWidth
-                                                    autoComplete="given-name"
-                                                    variant="standard"
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12} sm={6}>
-                                                <TextField
-                                                    required
-                                                    id="lastName"
-                                                    name="lastName"
-                                                    label="Last name"
-                                                    fullWidth
-                                                    autoComplete="family-name"
-                                                    variant="standard"
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12}>
-                                                <TextField
-                                                    required
-                                                    id="address1"
-                                                    name="address1"
-                                                    label="Address line 1"
-                                                    fullWidth
-                                                    autoComplete="shipping address-line1"
-                                                    variant="standard"
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12}>
-                                                <TextField
-                                                    id="address2"
-                                                    name="address2"
-                                                    label="Address line 2"
-                                                    fullWidth
-                                                    autoComplete="shipping address-line2"
-                                                    variant="standard"
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12} sm={6}>
-                                                <TextField
-                                                    required
-                                                    id="city"
-                                                    name="city"
-                                                    label="City"
-                                                    fullWidth
-                                                    autoComplete="shipping address-level2"
-                                                    variant="standard"
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12} sm={6}>
-                                                <TextField
-                                                    id="state"
-                                                    name="state"
-                                                    label="State/Province/Region"
-                                                    fullWidth
-                                                    variant="standard"
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12} sm={6}>
-                                                <TextField
-                                                    required
-                                                    id="zip"
-                                                    name="zip"
-                                                    label="Zip / Postal code"
-                                                    fullWidth
-                                                    autoComplete="shipping postal-code"
-                                                    variant="standard"
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12} sm={6}>
-                                                <TextField
-                                                    required
-                                                    id="country"
-                                                    name="country"
-                                                    label="Country"
-                                                    fullWidth
-                                                    autoComplete="shipping country"
-                                                    variant="standard"
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12} sm={6}>
-                                                <TextField
-                                                    required
-                                                    id="PhoneNumber"
-                                                    name="PhoneNumber"
-                                                    label="Phone number"
-                                                    fullWidth
-                                                    autoComplete="shipping postal-code"
-                                                    variant="standard"
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12}>
-                                                <TextField
-
-                                                    id="notes"
-                                                    name="notes"
-                                                    label="Delivery notes"
-                                                    multiline
-                                                    rows={4}
-                                                    fullWidth
-                                                    autoComplete="shipping address-line1"
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12}>
-                                                <FormControlLabel
-                                                    control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-                                                    label="Use this address for payment details"
-                                                />
-                                            </Grid>
-                                        </Grid>
+                                      <div className='flex justify-between'>
+                                        <div>
+                                                <span className='flex mb-8 text-[14px]'>
+                                                * Required fields
+                                                </span>
+                                                <h1 className='font-bold mb-2'>
+                                                Shipping address
+                                                </h1>
+                                                <span className='flex mb-5 text-[14px]'>
+                                                Where should we deliver your order?
+                                            </span>
+                                        </div>
+                                        <div>
+                                                    <div >
+                                                    <Button onClick={handleOpen} className='cursor-pointer'>add New</Button>
+                                                    <form>
+                                                    <Modal
+                                                    open={open}
+                                                    onClose={handleClose}
+                                                    aria-labelledby="modal-modal-title"
+                                                    aria-describedby="modal-modal-description"
+                                                    >
+                                                    <Box sx={style}>
+                                                    <Grid container spacing={3}>
+                                                    <Grid item xs={12} sm={6}>
+                                                        <TextField
+                                                            required
+                                                            id="newAddressFullName"
+                                                            name="fullName"
+                                                            label="fullName"
+                                                            fullWidth
+                                                            autoComplete="fullName"
+                                                            variant="standard"
+                                                            onChange={(e) => {
+                                                              inputChange(e);
+                                                            }}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={12} sm={6}>
+                                                        <TextField
+                                                            required
+                                                            id="newAddressRegion"
+                                                            name="country"
+                                                            label="country"
+                                                            fullWidth
+                                                            autoComplete="country"
+                                                            variant="standard"
+                                                            onChange={(e) => {
+                                                              inputChange(e);
+                                                            }}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={12}>
+                                                        <TextField
+                                                            required
+                                                            id="newAddressFloor"
+                                                            name="floor"
+                                                            label="Floor"
+                                                            fullWidth
+                                                            autoComplete="floor"
+                                                            variant="standard"
+                                                            value={newAddress.floor}
+                                                            onChange={(e) => {
+                                                              inputChange(e);
+                                                            }}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={12}>
+                                                    <TextField
+                                                        required
+                                                        id="newAddressApartment"
+                                                        name="apartment"
+                                                        label="Apartment"
+                                                        fullWidth
+                                                        autoComplete="apartment"
+                                                        variant="standard"
+                                                        value={newAddress.apartment}
+                                                        onChange={(e) => {
+                                                          inputChange(e);
+                                                        }}
+                                                    />
+                                                </Grid>
+                                                    <Grid item xs={12}>
+                                                        <TextField
+                                                            id="newAddressBuilding"
+                                                            name="building"
+                                                            label="Building"
+                                                            fullWidth
+                                                            autoComplete="Building"
+                                                            variant="standard"
+                                                            value={newAddress.building}
+                                                            onChange={(e) => {
+                                                              inputChange(e);
+                                                            }}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={12} sm={6}>
+                                                        <TextField
+                                                            required
+                                                            id="newAddressStreet"
+                                                            name="street"
+                                                            label="Street"
+                                                            fullWidth
+                                                            autoComplete="shipping address-level2"
+                                                            variant="standard"
+                                                            value={newAddress.street}
+                                                            onChange={(e) => {
+                                                              inputChange(e);
+                                                            }}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={12} sm={6}>
+                                                        <TextField
+                                                            id="newAddressArea"
+                                                            name="area"
+                                                            label="State/Province/Region"
+                                                            fullWidth
+                                                            variant="standard"
+                                                            value={newAddress.area}
+                                                            onChange={(e) => {
+                                                              inputChange(e);
+                                                            }}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={12} sm={6}>
+                                                        <TextField
+                                                            required
+                                                            id="newAddressZipCode"
+                                                            name="zipCode"
+                                                            label="Zip / Postal code"
+                                                            fullWidth
+                                                            autoComplete="shipping postal-code"
+                                                            variant="standard"
+                                                            value={newAddress.zipCode}
+                                                            onChange={(e) => {
+                                                              inputChange(e);
+                                                            }}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={12} sm={6}>
+                                                        <TextField
+                                                            required
+                                                            id="newAddressCity"
+                                                            name="city"
+                                                            label="city"
+                                                            fullWidth
+                                                            autoComplete="city"
+                                                            variant="standard"
+                                                            value={newAddress.city}
+                                                            onChange={(e) => {
+                                                              inputChange(e);
+                                                            }}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={12} sm={6}>
+                                                        <TextField
+                                                            required
+                                                            id="phoneNumber"
+                                                            name="phoneNumber"
+                                                            label="Phone number"
+                                                            fullWidth
+                                                            autoComplete="phoneNumber"
+                                                            variant="standard"
+                                                            onChange={(e) => {
+                                                              inputChange(e);
+                                                            }}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={12}>
+                                                        <TextField
+        
+                                                            id="notes"
+                                                            name="newAddressDetails"
+                                                            label="Extra Details"
+                                                            multiline
+                                                            rows={4}
+                                                            fullWidth
+                                                            autoComplete="Delivery notes"
+                                                            value={newAddress.extraDetails}
+                                                            onChange={(e) => {
+                                                              inputChange(e);
+                                                            }}
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={12}>
+                                                        <FormControlLabel
+                                                            control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
+                                                            label="Use this address for payment details"
+                                                        />
+                                                    </Grid>
+                                                </Grid>
+                                                      <Button
+                                                          variant="primary"
+                                                          type="button"
+                                                          onClick={(e) => {
+                                                            addressFormSubmit(e);
+                                                          }}
+                                                        >
+                                                          Save Changes
+                                                    </Button>
+                                                    </Box>
+                                                    
+                                                    </Modal>
+                                                
+                                                    </form>
+                                                </div>
+                                        </div>
+                                      </div>
+                                       
+                                      {addressValue ? (
+                                        <>
+                                          {userAddresses.map((address, index) => (
+                                            <div className="col-span-12" key={address._id}>
+                                              <div className="card p-2">
+                                                <div className="grid grid-cols-12 gap-4 items-top">
+                                                  <div className="col-span-5">
+                                                    <p className="text-sm my-0 leading-6">
+                                                      Name: {address.fullName}
+                                                    </p>
+                                                    <p className="text-sm my-0 leading-6">
+                                                      Phone: {address.phoneNumber}
+                                                    </p>
+                                                    {/* Additional fields */}
+                                                  </div>
+                                                  <div className="col-span-5">
+                                                    <p className="text-sm my-0 leading-6">
+                                                      {address.city}, {address.country}
+                                                    </p>
+                                                    <p className="text-sm my-0 leading-6">
+                                                      {address.area}, {address.street}
+                                                    </p>
+                                                    <p className="text-sm my-0 leading-6">
+                                                      Building {address.building}, Floor {address.floor}
+                                                    </p>
+                                                  </div>
+                                                  <div className="col-span-2 flex items-center justify-center">
+                                                    <input
+                                                      type="radio"
+                                                      name="shippingAddress"
+                                                      id={`address-${index}`}
+                                                      value={index}
+                                                      required
+                                                      onChange={(e) => {
+                                                        orderInputChange(e);
+                                                      }}
+                                                    />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          ))}
+                                        </>
+                                      ) : (
+                                        <div className="col-span-12 p-0 text-center">
+                                          <div className="card p-2">
+                                            <div className="grid justify-items-center items-center" style={{ height: "100px" }}>
+                                              <div className="col-span-12">
+                                                <button
+                                                  className="btn btn-outline-primary"
+                                                  type="button"
+                                                 
+                                                >
+                                                  Add an address now 
+                                                </button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      )}
+                                      
                                     </div>
                                 </AccordionDetails>
                             </Accordion>
                         </div>
-                        <div className='container w-full'>
-                            <div >
-                                <Accordion>
-                                    <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel1-content"
-                                        id="panel1-header"
-                                        sx={{
-                                            backgroundColor: "#f2f8fd"
-                                        }}
-                                    >
-                                        <div className='flex items-center text-center'>
-                                            <MdPayments className='mr-5' />
-                                            <h1 className='font-bold text-[24px] '>2. Payment method</h1>
-                                        </div>
-                                    </AccordionSummary>
-                                    <AccordionDetails className='paymentForm'>
-                                        <Typography variant="h6" gutterBottom>
-                                            Payment method
-                                        </Typography>
-                                        <Grid container spacing={3}>
-                                            <Grid item xs={12} md={6}>
-                                                <TextField
-                                                    required
-                                                    id="cardName"
-                                                    label="Name on card"
-                                                    fullWidth
-                                                    autoComplete="cc-name"
-                                                    variant="standard"
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12} md={6}>
-                                                <TextField
-                                                    required
-                                                    id="cardNumber"
-                                                    label="Card number"
-                                                    fullWidth
-                                                    autoComplete="cc-number"
-                                                    variant="standard"
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12} md={6}>
-                                                <TextField
-                                                    required
-                                                    id="expDate"
-                                                    label="Expiry date"
-                                                    fullWidth
-                                                    autoComplete="cc-exp"
-                                                    variant="standard"
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12} md={6}>
-                                                <TextField
-                                                    required
-                                                    id="cvv"
-                                                    label="CVV"
-                                                    helperText="Last three digits on signature strip"
-                                                    fullWidth
-                                                    autoComplete="cc-csc"
-                                                    variant="standard"
-                                                />
-                                            </Grid>
-                                            <Grid item xs={12}>
-                                                <FormControlLabel
-                                                    control={<Checkbox color="secondary" name="saveCard" value="yes" />}
-                                                    label="Remember credit card details for next time"
-                                                />
-                                            </Grid>
-                                        </Grid>
-
-                                        <Payment lassName='mt-5' />
-                                    </AccordionDetails>
-                                </Accordion>
-                            </div>
-                        </div>
                     </div>
-
                 </div>
                 <div className='rightSideCheckout xl:w-[394px] shadow-1 sm:relative xl:fixed xl:top-1/4 xl:right-[25rem] flex flex-col rounded p-5'>
                     <div>
@@ -455,6 +537,7 @@ const Checkout = () => {
                     </div>
                 </div>
             </div>
+            </form>
         </section>
     )
 }

@@ -245,7 +245,7 @@ const Cart = ({ product, quantity }) => {
                                                                 <h3 className='text-[14px]'>Sold and shipped by <span className='underline cursor-pointer'> Certified 2 Day Express</span> </h3>
                                                             </div>
                                                             <div className='my-3'>
-                                                                <span class="py-1 px-2.5 mr-3 border-none rounded bg-indigo-100 text-[14px] text-indigo-800 font-medium">Best seller</span>
+                                                                <span className="py-1 px-2.5 mr-3 border-none rounded bg-indigo-100 text-[14px] text-indigo-800 font-medium">Best seller</span>
                                                             </div>
                                                             <div className='flex items-start justify-between'>
                                                                 <div>

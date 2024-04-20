@@ -104,7 +104,7 @@ const Departments = () => {
             </div>
             <Slider {...settings}>
                 {categories.map((category) => (
-                    <div key={category.id} className='departSlide flex-col text-center justify-center items-center w-[128px] h-[145px]'>
+                    <div key={category._id} className='departSlide flex-col text-center justify-center items-center w-[128px] h-[145px]'>
                         <img src={category.image} alt={category.name} className='flex items-center text-center justify-center rounded w-[80px] h-[80px]' />
                         <span>{category.name}</span>
                     </div>
