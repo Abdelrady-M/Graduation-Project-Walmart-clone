@@ -1,13 +1,13 @@
-import { Breadcrumbs } from '@mui/material'
+import { Breadcrumbs } from "@mui/material";
 // import Link from '@mui/material/Link';
-import React, { useEffect } from 'react'
-import SavingsIcon from '@mui/icons-material/Savings';
-import PaymentIcon from '@mui/icons-material/Payment';
-import PetsIcon from '@mui/icons-material/Pets';
-import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
+import React, { useEffect } from "react";
+import SavingsIcon from "@mui/icons-material/Savings";
+import PaymentIcon from "@mui/icons-material/Payment";
+import PetsIcon from "@mui/icons-material/Pets";
+import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import { CiHeart } from "react-icons/ci";
 import { TbReorder } from "react-icons/tb";
 import { BsCashCoin } from "react-icons/bs";
@@ -23,17 +23,18 @@ import { CiViewList } from "react-icons/ci";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 import { CiCircleInfo } from "react-icons/ci";
 import { PiSignOutLight } from "react-icons/pi";
-import AccountSideBar from '../../components/AccountSideBar';
+import AccountSideBar from "../../components/AccountSideBar";
 import { IoReceiptOutline } from "react-icons/io5";
 import { FaChevronRight } from "react-icons/fa6";
 import { GrServices } from "react-icons/gr";
 import { MdOutlineLocalConvenienceStore } from "react-icons/md";
 import { jwtDecode } from "jwt-decode";
-import { useDispatch, useSelector } from 'react-redux'
-import { userAction } from '../../store/slices/user'
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { userAction } from "../../store/slices/user";
+import { Link } from "react-router-dom";
 
 const sections = [
+
     {
         items: [
             { icon: IoReceiptOutline, label: 'Past Orders' },
@@ -42,23 +43,21 @@ const sections = [
         ],
     },
    
+
 ];
 
 const Account = () => {
-    const token = localStorage.getItem("token");
-    const user = useSelector((state) => state.user.user)
-    const dispatch = useDispatch();
+  const token = localStorage.getItem("token");
+  const user = useSelector((state) => state.user.user);
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        if (token) {
-            const decodedToken = jwtDecode(token);
-            const userId = decodedToken.id;
-            dispatch(userAction(userId));
-        }
-    }, [dispatch]);
-
-
-
+  useEffect(() => {
+    if (token) {
+      const decodedToken = jwtDecode(token);
+      const userId = decodedToken.id;
+      dispatch(userAction(userId));
+    }
+  }, [dispatch]);
 
     return (
         <>
@@ -118,6 +117,7 @@ const Account = () => {
                             </div>
                         </div>
                       <div>
+
                      
                       <div className='flex flex-wrap '>
                         <div className='flex flex-col p-5 border-r border-gray w-[400px]'>
@@ -125,6 +125,7 @@ const Account = () => {
                             <h3 className='text-[16px]'>{user.email}</h3>
                         </div>
                            
+
                   </div>
                       </div>
                     </div>
