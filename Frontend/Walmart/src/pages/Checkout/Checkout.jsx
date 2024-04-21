@@ -38,6 +38,8 @@ const Checkout = () => {
     const userAddresses = useSelector((state) => state.address.address);
     const userCheckoutPrice = useSelector((state) => state.checkOut);
     const addressValue = userAddresses?.length;
+    const addressBook = useSelector((state)=>state.user.user.addressBook)
+    const value = addressBook?.length
     const [newAddress, setAddress] = useState({
         country: "",
         fullName: "",
