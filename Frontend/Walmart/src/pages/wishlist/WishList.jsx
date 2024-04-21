@@ -6,13 +6,13 @@ function WishList() {
     const isLoading = useSelector((state) => state.wishList.loading);
     const wishList = useSelector((state) => state.wishList.list);
     const token = localStorage.getItem("token");
-
+    console.log("wishList>>>>>>>>>>>>>>.", wishList)
     return (
         <>
             {isLoading ? (
                 <Loader />
             ) : (
-                <div className="flex flex-col items-center justify-center w-full">
+                <div className="flex flex-col items-center justify-center w-full h-screen">
                     <h1 className="font-bold text-3xl my-5">My Wish List</h1>
                     <div className="w-full md:w-10/12">
                         {wishList && wishList.length > 0 ? (
@@ -30,11 +30,7 @@ function WishList() {
                                         </div>
                                     ))}
                                 </div>
-                                <div className="flex justify-center mt-5">
-                                    <button className="btn btn-red px-8 py-3">
-                                        Clear Wish List
-                                    </button>
-                                </div>
+                             
                             </>
                         ) : (
                             <h3 className="font-semibold text-center mt-8">

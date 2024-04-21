@@ -10,6 +10,8 @@ import wishListReducer from "./slices/wishList"
 import oneOrderSlice from "./slices/order";
 import checkOutReducer from "./slices/checkOut"
 import userReducer from './slices/user'
+import addressReducer from "./slices/userAddress"
+import ordersReducer from './slices/orders'
 
 const store = configureStore({
     reducer: {
@@ -24,8 +26,10 @@ const store = configureStore({
         oneOrder: oneOrderSlice,
         checkOut: checkOutReducer,
         user: userReducer,
-
+        address : addressReducer,
+        orders : ordersReducer,
     },
+
 });
 
 export default store;

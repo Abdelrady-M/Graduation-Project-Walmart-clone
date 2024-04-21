@@ -48,13 +48,10 @@ const Cart = ({ product, quantity }) => {
     const tittle = "Recommended with your order"
     const dispatch = useDispatch();
     const [quantityCart, setQuantityCart] = useState(1);
-    const { id } = useParams();
     const isLoading = useSelector((state) => state.cart.loading);
     const cartList = useSelector((state) => state.cart.cartProducts);
     const token = localStorage.getItem("token");
     const [subTotal, setSubTotal] = useState(0);
-    const [inputField, setInput] = useState(false);
-    const [inputValue, setInputValue] = useState();
     const showToast = () => {
         toast.error("Please login first!", {
             position: "top",
@@ -71,19 +68,7 @@ const Cart = ({ product, quantity }) => {
             toast.error("Please login first!");
         };
     }
-    // const handleCheckout = () => {
-    //     if (token) {
-    //         // Dispatch the createOrder action with the cart items
-    //         dispatch(createOrder(cartList)).then(() => {
-    //             // Redirect to the checkout page or handle success action
 
-    //             navigate('/checkout');
-    //         });
-    //     } else {
-    //         // Show toast message for login required
-    //         showToast();
-    //     }
-    // };
 
     function modifyProduct(newQuantity) {
         if (newQuantity > 0) {
@@ -119,45 +104,29 @@ const Cart = ({ product, quantity }) => {
     }, [cartList]);
 
 
-    useEffect(() => {
-        setQuantityCart(quantity);
-    }, [quantity]);
-
-    function inc() {
-        const newQuantity = quantityCart + 1;
-        setQuantityCart(newQuantity);
-        modifyProduct(newQuantity);
+    function inc(product) {
+        const newQuantity = product.quantity + 1;
+        modifyProduct(product, newQuantity);
     }
 
-    function dec() {
-        const newQuantity = quantityCart - 1;
+    function dec(product) {
+        const newQuantity = product.quantity - 1;
         if (newQuantity > 0) {
-            setQuantityCart(newQuantity);
-            modifyProduct(newQuantity);
+            modifyProduct(product, newQuantity);
         } else {
             toast.error('Quantity cannot be less than 1');
         }
     }
 
-
-
-    // useEffect(() => {
-    //     dispatch(oneOrderAction(id));
-    // }, []);
-    // const handleCheckout = () => {
-    //     if (token) {
-    //         // Dispatch the oneOrderAction to get the order details
-    //         dispatch(oneOrderAction(id)).then(() => {
-    //             // Redirect to the checkout page
-    //             navigate('/checkout');
-    //         });
-    //     } else {
-    //         // Show toast message for login required
-    //         showToast();
-    //     }
-    // };
-
-    // order && console.log(" this is the order from order ", order);
+    function modifyProduct(product, newQuantity) {
+        // Dispatch an action to modify the quantity of the product in the cart
+        dispatch(
+            modifyBothProductAction({
+                productId: product._id._id,
+                quantity: newQuantity,
+            })
+        );
+    }
 
     return (
         <>
@@ -168,7 +137,7 @@ const Cart = ({ product, quantity }) => {
                     <div className='container mx-auto CountItems my-5'>
                         <div className='flex items-center'>
                             <h1 className='mr-1 text-[18px] font-bold'>Cart</h1>
-                            <span className='text-[18px]'>(3 items)</span>
+                            <span className='text-[18px]'>({cartList.length} items)</span>
                         </div>
                     </div>
                     <div className='mainSection container mx-auto xl:flex  items-center justify-between '>
@@ -225,7 +194,7 @@ const Cart = ({ product, quantity }) => {
                                                         <img src='https://i5.walmartimages.com/dfw/63fd9f59-1b5e/5452ae02-a31f-4ef1-9a45-62ac0b06c13b/v1/mci-shipping.svg' />
                                                     </div>
                                                     <div className='flex flex-col  '>
-                                                        <h1 className='font-bold text-[24px] '>Free shipping arrives between Wed, Feb 28 – Mon, Mar 4</h1>
+                                                        <h1 className='font-bold text-[24px] '>Free shipping arrives between Mon, Apr 22 – Tus, Apr 30</h1>
                                                         <span className='underline'>95829</span>
                                                     </div>
                                                 </div>
@@ -245,7 +214,7 @@ const Cart = ({ product, quantity }) => {
                                                                 <h3 className='text-[14px]'>Sold and shipped by <span className='underline cursor-pointer'> Certified 2 Day Express</span> </h3>
                                                             </div>
                                                             <div className='my-3'>
-                                                                <span class="py-1 px-2.5 mr-3 border-none rounded bg-indigo-100 text-[14px] text-indigo-800 font-medium">Best seller</span>
+                                                                <span className="py-1 px-2.5 mr-3 border-none rounded bg-indigo-100 text-[14px] text-indigo-800 font-medium">Best seller</span>
                                                             </div>
                                                             <div className='flex items-start justify-between'>
                                                                 <div>
@@ -279,12 +248,12 @@ const Cart = ({ product, quantity }) => {
                                                             <div>
                                                                 <span className='flex items-center justify-between border border-black w-[120px] h-[34px] rounded-full p-5'>
                                                                     <button
-                                                                        onClick={dec}
+                                                                    onClick={() => inc(prod)}
                                                                     ><GoPlus className='w-[25px] h-[25px] rounded-full z-50 hover:bg-stone-500' /></button>
                                                                     <span className='px-3 text-[14px] font-bold'>{prod.quantity}</span>
                                                                     <a
-                                                                        onClick={inc}
-                                                                    ><HiMinus className='w-[25px] h-[25px] rounded-full z-50 hover:bg-stone-500' /></a>
+                                                                    onClick={() => dec(prod)}
+                                                                    ><HiMinus className='w-[25px] h-[25px] rounded-full z-50 hover:bg-stone-500 cursor-pointer' /></a>
                                                                 </span>
                                                             </div>
                                                         </div>

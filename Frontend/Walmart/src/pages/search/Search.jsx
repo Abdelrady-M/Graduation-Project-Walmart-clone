@@ -37,13 +37,13 @@ const Search = () => {
                 </div>
                 {products.length > 0 ? (
                     products.map((product) => (
-                        <div key={product._id} className='Cards flex justify-around items-center'>
-                            <div className='img'>
+                        <div key={product._id} className='Cards flex items-center'>
+                            <div className='img mr-10 mb-5'>
                                 <img src={product.thumbnail} alt={product.title} className='w-[350px] h-[250px]' />
                             </div>
                             <div className='info flex flex-col'>
                                 <div>
-                                    <h1 className='font-semibold text-[20px]'>{product.price}</h1>
+                                    <h1 className='font-semibold text-[20px]'>${product.price}</h1>
                                 </div>
                                 <div className='mt-3'>
                                     <h2>{product.title}</h2>

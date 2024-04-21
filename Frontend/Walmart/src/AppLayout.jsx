@@ -29,16 +29,3 @@ export default AppLayout;
 
 
 
-//   <>
-//             <div >
-//                 <Navbar />
-//                 <Hero />
-//                 <Deals />
-//                 <PatioFurniture />
-//                 <Hero />
-//                 <Departments />
-//                 <Footer />
-//                 <Outlet />
-//             </div>
-
-//         </>

@@ -6,29 +6,62 @@ import { useDispatch, useSelector } from 'react-redux'
 import { userLogin } from '../../store/slices/authLogin';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
+import toast from "react-hot-toast";
 
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     // const { error } = useSelector((state) => state.user)
-    const { register, handleSubmit, formState } = useForm()
+    const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
     const [loginError, setLoginError] = useState('');
+  
     const dispatch = useDispatch()
     const navigate = useNavigate();
+   
+
+
+
+//    const submitForm = async (data) => {
+//         try {
+//             const result = await dispatch(userLogin(data));
+//             if (result.payload) {
+//                 toast.success(result.payload.message);
+//                 localStorage.removeItem("token2");
+//                 localStorage.setItem("token", result.data.token);
+//                 navigate('/');
+//             }
+//         } catch (error) {
+//             if (error.response) {
+//                 const errorMessage = error.response.data.message;
+//                 toast.error(errorMessage, { position: "top-center" });
+//             } else {
+//                 toast.error('An error occurred. Please try again later.', { position: "top-center" });
+//             }
+//         }
+//     };
 
     const submitForm = async (data) => {
         try {
-            await dispatch(userLogin(data));
-            navigate('/');
+            const response = await dispatch(userLogin(data));
+            if (response.payload) {
+                navigate('/');
+            }else{
+                setLoginError('Invalid username or password.');
+                toast.error('Invalid username or password.');
+            }
         } catch (error) {
             if (error.response && error.response.data) {
                 setLoginError(error.response.data.message);
+                toast.error(error.response.data.message);
             } else {
                 setLoginError('An error occurred. Please try again later.');
+                toast.error('An error occurred. Please try again later.');
             }
-            toast.error('Login failed. Please check your credentials.');
         }
     };
+
+
+
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const handleMouseDownPassword = (event) => {
@@ -51,32 +84,40 @@ const Login = () => {
                         <span className='flex'>Enter your email and we’ll check for you.</span>
                     </div>
                     <form onSubmit={handleSubmit(submitForm)} className='flex flex-col w-full md:w-[472px]'>
-                        <TextField id="outlined-basic" label="Email Address" variant="outlined" {...register('email', { required: true })} />
+                    <TextField
+                            id="outlined-basic"
+                            label="Email Address"
+                            variant="outlined"
+                            {...register('email', { required: "Email is required", pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/ })}
+                         />
+                            {errors.email && <div className="text-red-500">{errors.email.message}</div>}
+
                         <FormControl sx={{ marginTop: "10px", width: '472px' }} variant="outlined">
                             <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                             <OutlinedInput
                                 id="outlined-adornment-password"
                                 type={showPassword ? 'text' : 'password'}
                                 endAdornment={
-                                    <InputAdornment position="end">
+                                    <InputAdornment position="end" >
                                         <IconButton
                                             aria-label="toggle password visibility"
                                             onClick={handleClickShowPassword}
                                             onMouseDown={handleMouseDownPassword}
                                             edge="end"
+                                           
                                         >
                                             {showPassword ? <MdVisibilityOff /> : <MdVisibility />}
                                         </IconButton>
                                     </InputAdornment>
                                 }
                                 label="Password"
-                                {...register('password', { required: true })}
+                                {...register('password', { required: "Password is required", minLength: { value: 6, message: "Password must be at least 6 characters long" } })}
                             />
                         </FormControl>
-                        {loginError && <div className="text-red-500">{loginError}</div>}
-                        <button type="submit" disabled={!formState.isValid || formState.isSubmitting} className="border border-gray-500 text-white bg-[#0071DC] font-medium py-2 px-4 rounded-full mt-4 hover:bg-[#2c3287]">
-                            {formState.isSubmitting ? 'Logging in...' : 'Continue'}
-                        </button>
+                        {errors.password && <div className="text-red-500">{errors.password.message}</div>}
+                        <button type="submit" disabled={isSubmitting} className="border border-gray-500 text-white bg-[#0071DC] font-medium py-2 px-4 rounded-full mt-4 hover:bg-[#2c3287]">
+                        {isSubmitting ? 'Logging in...' : 'Continue'}
+                    </button>
                     </form>
                     <div className='flex flex-col mt-4 items-start md:w-[472px] pl-3'>
                         <span>Securing your personal information is our priority.</span>
