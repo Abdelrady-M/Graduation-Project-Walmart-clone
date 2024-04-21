@@ -136,29 +136,7 @@ const Navbar = () => {
                             </div>
                         )}
                     </div>
-                    <div
-                        className="md:flex  items-center gap-2 hidden hover:bg-[#06529a] p-3 rounded-full cursor-pointer relative z-50" onClick={toggleServicesDropdown}
-                    >
-                        <HiUserGroup className="text-[20px]" />
-                        <p className="text-[16px] font-normal">Services</p>
-                        {showServicesDropdown && (
-                            <div className="absolute top-full left-0 bg-[#FFFFFF] text-black max-h-[761px] overflow-auto rounded shadow-md z-50 w-[246px] flex flex-col">
-                                <a className="p-3 font-semibold text-2xs rounded">All Services</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Auto Care Center Services</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Pharmacy</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Health & Wellness</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Registry, Lists & Gifts</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Custom Cakes</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Photo Services</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Money Services</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Production, Home & Tech</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Subscriptions</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Community & Giving</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Ordering Online</a>
-                                <a className="p-3 text-[14px] text-[#46474a] hover:bg-[#e6f1fc]  hover:border-l-4 border-indigo-500">Get Inspired</a>
-                            </div>
-                        )}
-                    </div>
+                 
                     <div className="relative">
                         <button
                             id="dropdownDefaultButton"
@@ -195,7 +173,7 @@ const Navbar = () => {
                         )}
                     </div>
                 </div>
-                <div className="relative lg:flex items-center flex-1 mx-6">
+                <div className="relative md:flex items-center flex-1 mx-6 hidden">
                     <input
                         type="search"
                         className="text-black rounded-full py-2 px-5 outline-0 flex-1"
