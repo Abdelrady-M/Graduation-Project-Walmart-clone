@@ -91,22 +91,20 @@ const Register = () => {
                 error={!!errors.name}
               />
               {errors.name && (
-                <p className="text-[#742424] ps-4">First name is required</p>
+                <p className="text-red-500 ps-4">First name is required</p>
               )}
               <TextField
                 id="outlined-basic"
                 label="Email"
                 variant="outlined"
                 {...register("email", {
-                  required: true,
-                  pattern: /^\S+@\S+$/i,
+                  required: "Email is required",
+                  pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                 })}
                 error={!!errors.email}
               />
               {errors.email && (
-                <p className="text-[#742424] ps-4">
-                  Please enter a valid email
-                </p>
+                <p className="text-red-500 ps-4">Please enter a valid email</p>
               )}
               <FormControl sx={{ m: 1, width: "472px" }} variant="outlined">
                 <InputLabel
@@ -131,11 +129,17 @@ const Register = () => {
                     </InputAdornment>
                   }
                   label="Password"
-                  {...register("password", { required: true })}
+                  {...register("password", {
+                    required: "Password is required",
+                    minLength: {
+                      value: 6,
+                      message: "Password must be at least 6 characters long",
+                    },
+                  })}
                   error={!!errors.password}
                 />
                 {errors.password && (
-                  <p className="text-[#742424] ps-4">Password is required</p>
+                  <p className="text-red-500 ps-4">Password is required</p>
                 )}
               </FormControl>
               <FormControl sx={{ m: 1, width: "472px" }} variant="outlined">
@@ -165,7 +169,7 @@ const Register = () => {
                   error={!!errors.confirmpassword}
                 />
                 {errors.confirmpassword && (
-                  <p className="text-[#742424] ps-4">
+                  <p className="text-red-500 ps-4">
                     Please confirm your password
                   </p>
                 )}
