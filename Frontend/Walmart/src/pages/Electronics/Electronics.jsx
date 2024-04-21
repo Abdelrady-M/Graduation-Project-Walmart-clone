@@ -1,15 +1,11 @@
 import HeroCard from "../../components/HeroCard";
 import CustomSlider from "../../components/CustomSlider ";
 import ShopByCategory from "../../components/ShopByCategory";
-import ShopByPrice from "../../components/ShopByPrice";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsCat } from "../../store/slices/productCategor";
 import React, { useEffect, useState } from "react";
 import Card from "../../components/Card";
-import trending from "../../assets/trending.jpg";
 import laptop1 from "../../assets/laptop.png";
-import gift from "../../assets/gift.webp";
-import gamers from "../../assets/gamer.webp";
 import phones from "../../assets/phones.webp";
 import savings from "../../assets/savings.webp";
 import games from "../../assets/games.webp";

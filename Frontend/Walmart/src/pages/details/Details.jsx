@@ -1,22 +1,16 @@
-// import React from 'react';
 import InnerImageZoom from 'react-inner-image-zoom';
 import { CiHeart } from "react-icons/ci";
 import Accordion from '@mui/material/Accordion';
-import AccordionActions from '@mui/material/AccordionActions';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Button from '@mui/material/Button';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
 import Deals from '../../components/Deals';
-import Card from '../../components/Card';
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, Outlet } from 'react-router-dom';
 import { addToWishListAction } from '../../store/slices/wishList';
 import { addToBothCartsAction } from '../../store/slices/cart';
 import { useDispatch } from 'react-redux';
-import starRating from '../../utils/starRating';
 import instance from '../../axios/instance';
 const Details = ( ) => {
     const [quantity, setQuantity] = useState(1);
@@ -32,7 +26,6 @@ const Details = ( ) => {
         const fetchData = async () => {
             try {
                 const response = await instance(`product/${id}`);
-                // console.log("response.data.data", response.data.data);
                 setProduct(response.data.data);
             } catch (error) {
                 console.error("Error fetching product", error);
@@ -54,10 +47,6 @@ const Details = ( ) => {
     function addToWishlist(id) {
         dispatch(addToWishListAction(id));
     }
-
-    // const stars = product ? starRating(product.rating) : [];
-    // const prdDescription = product ? product.description : "";
-    // console.log("product.description from parent ", product.description);
 
     return (
 

@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsCat } from "../../store/slices/productCategor";
 import React, { useEffect, useState } from "react";
-import CustomSlider from "../../components/CustomSlider .jsx";
 import Card from "../../components/Card";
+import Deals from "../../components/Deals.jsx";
 
 export default function HomeImprovement() {
     const { products } = useSelector((state) => state.products);
@@ -48,7 +48,7 @@ export default function HomeImprovement() {
             </div>
 
             <div className="p-8">
-                <CustomSlider cards={cards} mainTitle={tittle} />
+                <Deals />
             </div>
 
             <div className="flex">

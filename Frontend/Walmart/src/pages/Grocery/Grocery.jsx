@@ -46,6 +46,7 @@ export default function Grocery() {
                     </div>
 
 <div className="container mx-auto">
+<Deals />
                         <div className="mx-auto my-8 text-xl font-bold">Refresh your outdoors</div>
                         <div className="grid grid-cols-2 gap-16 md:grid-cols-3">
                             {cards.map((card, index) => (

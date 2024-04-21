@@ -7,13 +7,13 @@ import { fetchProductsCat } from "../store/slices/productCategor";
 const tittle = "Deals"
 
 
-const Deals = () => {
+const Deals = ({CatName}) => {
 
     const { products } = useSelector((state) => state.products);
     const dispatch = useDispatch();
     useEffect(() => {
         const fetchData = async () => {
-            await dispatch(fetchProductsCat("electronics"));
+            await dispatch(fetchProductsCat(CatName));
         };
         fetchData();
     }, [dispatch]);

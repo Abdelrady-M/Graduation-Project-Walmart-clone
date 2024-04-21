@@ -7,8 +7,6 @@ import { addToBothCartsAction } from "../store/slices/cart";
 import { addToCartAction } from "../store/slices/cart"
 import { addToWishListAction, removeFromWishAction } from "../store/slices/wishList";
 import { Toaster } from "react-hot-toast";
-// import { useDispatch, useSelector } from "react-redux";
-// import { fetchProducts } from "../store/slices/product";
 
 const Card = (props) => {
     var dispatch = useDispatch();

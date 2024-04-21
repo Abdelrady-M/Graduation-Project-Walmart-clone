@@ -1,8 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsCat } from "../store/slices/productCategor";
 import React, { useEffect, useState } from "react";
-// import Card from "../../components/Card";
-
 import CustomSlider from "./CustomSlider ";
 import Video from "../assets/Walmart.mp4";
 
@@ -33,6 +31,7 @@ const cards = products.map((product) => ({
                 <video controls autoPlay src={Video} type="video/mp4" />
             </div>
         </div>
+        
     )
 }
 

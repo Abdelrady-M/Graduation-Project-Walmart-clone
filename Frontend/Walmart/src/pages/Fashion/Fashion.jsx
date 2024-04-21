@@ -1,29 +1,16 @@
 import HeroCard from "../../components/HeroCard";
-import ShopByCategory from "../../components/ShopByCategory";
 import fashion from "../../assets/HeroFashion.jpg";
 import girls from "../../assets/kidsFashion.webp";
 import boys from "../../assets/boysFashion.webp";
-import baby from "../../assets/baby.webp";
-import men from "../../assets/men.webp";
-import sheos from "../../assets/shoes.webp";
-import women from "../../assets/women's.webp";
-import womenPlus from "../../assets/womenPlus.webp";
-import young from "../../assets/young.webp";
 import Card from "../../components/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsCat } from "../../store/slices/productCategor";
 import React, { useEffect, useState } from "react";
+import Deals from "../../components/Deals";
 
 
 export default function Fashion() {
-  const category = [
-    { Img: { baby }, title: "Baby's", category: "baby" },
-    { Img: { women }, title: "Women's", category: "women" },
-    { Img: { womenPlus }, title: "Women's plus", category: "womenPlus" },
-    { Img: { men }, title: "Men's", category: "men" },
-    { Img: { sheos }, title: "Shoes", category: "sheos" },
-    { Img: { young }, title: "Young Adult", category: "young" },
-  ];
+
   const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -91,8 +78,8 @@ export default function Fashion() {
             />
           </div>
         </section>
-        {/* <ShopByCategory categories={category} /> */}
-      </main>
+        <Deals />
+              </main>
     </>
   );
 }

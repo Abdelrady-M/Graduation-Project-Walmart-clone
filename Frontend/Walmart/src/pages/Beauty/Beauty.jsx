@@ -1,29 +1,14 @@
-import ShopByCategory from "../../components/ShopByCategory";
-import hairTools from "../../assets/hairTools.webp";
-import hairCare from "../../assets/hairCare.webp";
-import makeup from "../../assets/makeup.webp";
-import nails from "../../assets/nails.webp";
-import suncare from "../../assets/suncare.webp";
-import skincare from "../../assets/skincare.webp";
-import shampoo from "../../assets/mondayShampoo.webp";
 import frizz from "../../assets/fizz.webp";
-import CustomSlider from "../../components/CustomSlider ";
 import HeroCard from "../../components/HeroCard";
 import Card from "../../components/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsCat } from "../../store/slices/productCategor";
 import React, { useEffect, useState } from "react";
+import Deals from "../../components/Deals";
 
 
 export default function Beauty() {
-  const category = [
-    { Img: { hairTools }, title: "Tech savings", category: "hairTools" },
-    { Img: { hairCare }, title: "Cell phones", category: "hairCare" },
-    { Img: { makeup }, title: "Video games", category: "makeup" },
-    { Img: { nails }, title: "Smart TVs", category: "nails" },
-    { Img: { suncare }, title: "Tablets", category: "suncare" },
-    { Img: { skincare }, title: "Computers", category: "skincare" },
-  ];
+
 
   const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
@@ -42,13 +27,11 @@ export default function Beauty() {
   }));
   return (
     <>
-      {/* <div className="mx-auto my-4">
-        <ShopByCategory categories={category} />
-      </div> */}
+
       <main className="flex justify-between mx-8">
         <article className="h-100 relative flex flex-col mx-auto">
-          <CustomSlider mainTitle="New arrivals" cards={cards} />
-          <HeroCard
+        <Deals />
+                  <HeroCard
             img={frizz}
             Title="More texture less frizz"
             desc="Bring your best curls into sharp focus"

@@ -8,106 +8,6 @@ import React, { useEffect, useState } from "react";
 
 
 export default function PatioGarden() {
-    const features = [
-        {
-            title: "Appliances",
-            listItems: [
-                "Shop All Appliances",
-                "Air Conditioners",
-                "Dishwashers",
-                "Fans",
-                "Freezers",
-                "Irons, Steamers & Accessories",
-                "Kitchen Appliances",
-                "Ovens & Ranges",
-                "Refrigerators",
-                "Space Heaters & Fireplaces",
-                "Vacuums, Steamers & Floor Care",
-                "Vacuums, Steamers & Floor Care",
-                "Washers & Dryers",
-            ],
-        },
-        {
-            title: "Bath",
-            listItems: [
-                "Shop all Paht",
-                "Bathroom Accessories",
-                "Bathroom Furniture",
-                "Bath Towels",
-                "Bathroom Rugs & Bath Mats",
-                "Bathroom Storage",
-                "Beach Towels",
-                "Shower Curtain & Accessories",
-            ],
-        },
-        {
-            title: "Bedding",
-            listItems: [
-                "Shop All Bedding",
-                "Air Mattresses",
-                "Bed In A Bag",
-                "Bedding Sets",
-                "Blankets & Throws",
-                "Comforters",
-                "Duvet Covers",
-                "Heated Blankets",
-                "Mattress Toppers",
-                "Pillows",
-                "Quilts",
-                "Sheets",
-            ],
-        },
-        {
-            title: "Décor",
-            listItems: [
-                "Shop All",
-                "Candles & Home Fragrance",
-                "Clocks",
-                "Curtains & Window Treatments",
-                "Decorative Accents",
-                "Frames",
-                "Lighting & Light Fixtures",
-                "Mirrors",
-                "Rugs",
-                "Throw Pillows",
-                "Wall Art",
-                "Wall Decor",
-            ],
-        },
-        {
-            title: "Furniture",
-            listItems: [
-                "Shop All Furniture",
-                "Bathroom Furniture",
-                "Bedroom Furniture",
-                "Entryway Furniture",
-                "Kitchen & Dining Furniture",
-                "Living Room Furniture",
-                "Office Furniture",
-                "Patio Furniture",
-            ],
-        },
-
-        {
-            title: "Kitchen & Dining",
-            listItems: [
-                "Kitchen & Dining",
-                "Bakeware",
-                "Bowls",
-                "Cookware",
-                "Cutlery",
-                "Dinnerware Sets",
-                "Drinking Glasses",
-                "Flatware",
-                "Kitchen Appliances",
-                "Mugs",
-                "KiPlatestchen",
-                "Serveware",
-                "Tools & Gadgets",
-            ],
-        },
-    ];
-
     const { products } = useSelector((state) => state.products);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -173,7 +73,7 @@ export default function PatioGarden() {
 
             <div className="flex ">
                 <div className="mx-auto lg:w-3/4 ">
-
+                <Deals />
                     <div className="">
                         <div className="mx-auto my-8 text-xl font-bold">Refresh your outdoors</div>
                         <div className="grid grid-cols-2 gap-16 md:grid-cols-3">

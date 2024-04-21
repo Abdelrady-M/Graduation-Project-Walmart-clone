@@ -35,12 +35,6 @@ export default function Home2() {
 
                 <div className="w-3/4 mx-auto">
                     <div className="shadow-md border-1 rounded-2xl">
-                        {/* <img
-                            className=" mx-auto"
-                            style={{ width: "80%" }}
-                            src="https://i5.walmartimages.com/dfw/4ff9c6c9-603e/k2-_710168df-eb48-46ac-b6fe-7c98ba7db9b6.v1.jpg?odnHeight=680&odnWidth=1208&odnBg=FFFFFF"
-                            alt=""
-                        /> */}
                         <div className="ml-8 md:text-2xl text-sm">
                             <h1 className="text-lg">Perk up your bedroom</h1>
                             <p>A few new pieces will have you primed to seize the day.</p>
