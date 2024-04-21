@@ -8,9 +8,9 @@ export const userAddressPostAction = createAsyncThunk(
       const { id } = address[0];
       const sendAddress = address[1];
       const res = await instance.put(`/users/address/${id}`, [...sendAddress]);
-      return res.data; // Return the data from the response
+      return res.data; 
     } catch (error) {
-      throw error; // Throw the error to be caught by the Redux thunk middleware
+      throw error; 
     }
   }
 );

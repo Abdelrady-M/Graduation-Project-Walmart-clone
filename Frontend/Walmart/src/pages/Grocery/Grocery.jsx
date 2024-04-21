@@ -1,34 +1,11 @@
-import React from "react";
 import Deals from "../../components/Deals";
-import Card from "../../components/Card";
 import LeftHandNavList from "../../components/LeftHandNavList/LeftHandNavList";
+import Card from "../../components/Card";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductsCat } from "../../store/slices/productCategor";
+import React, { useEffect, useState } from "react";
 
-const cards = [
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-d626/k2-_303f18c5-d2b7-4ca0-af55-84b04a6578ed.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-d626/k2-_303f18c5-d2b7-4ca0-af55-84b04a6578ed.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-d626/k2-_303f18c5-d2b7-4ca0-af55-84b04a6578ed.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-d626/k2-_303f18c5-d2b7-4ca0-af55-84b04a6578ed.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-d626/k2-_303f18c5-d2b7-4ca0-af55-84b04a6578ed.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-d626/k2-_303f18c5-d2b7-4ca0-af55-84b04a6578ed.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-d626/k2-_303f18c5-d2b7-4ca0-af55-84b04a6578ed.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-d626/k2-_303f18c5-d2b7-4ca0-af55-84b04a6578ed.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-d626/k2-_303f18c5-d2b7-4ca0-af55-84b04a6578ed.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-d626/k2-_303f18c5-d2b7-4ca0-af55-84b04a6578ed.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
 
-];
-const cards2 = [
-    { photo: "https://i5.walmartimages.com/seo/Great-Value-White-Round-Top-Bread-Loaf-20-oz_8e69fca6-dda1-47b1-959c-7ec4d84b0a58.8cae75bc1ffe9c3d1ece768c0e5447a2.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/seo/Great-Value-White-Round-Top-Bread-Loaf-20-oz_8e69fca6-dda1-47b1-959c-7ec4d84b0a58.8cae75bc1ffe9c3d1ece768c0e5447a2.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/seo/Great-Value-White-Round-Top-Bread-Loaf-20-oz_8e69fca6-dda1-47b1-959c-7ec4d84b0a58.8cae75bc1ffe9c3d1ece768c0e5447a2.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/seo/Great-Value-White-Round-Top-Bread-Loaf-20-oz_8e69fca6-dda1-47b1-959c-7ec4d84b0a58.8cae75bc1ffe9c3d1ece768c0e5447a2.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/seo/Great-Value-White-Round-Top-Bread-Loaf-20-oz_8e69fca6-dda1-47b1-959c-7ec4d84b0a58.8cae75bc1ffe9c3d1ece768c0e5447a2.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/seo/Great-Value-White-Round-Top-Bread-Loaf-20-oz_8e69fca6-dda1-47b1-959c-7ec4d84b0a58.8cae75bc1ffe9c3d1ece768c0e5447a2.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/seo/Great-Value-White-Round-Top-Bread-Loaf-20-oz_8e69fca6-dda1-47b1-959c-7ec4d84b0a58.8cae75bc1ffe9c3d1ece768c0e5447a2.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/seo/Great-Value-White-Round-Top-Bread-Loaf-20-oz_8e69fca6-dda1-47b1-959c-7ec4d84b0a58.8cae75bc1ffe9c3d1ece768c0e5447a2.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/seo/Great-Value-White-Round-Top-Bread-Loaf-20-oz_8e69fca6-dda1-47b1-959c-7ec4d84b0a58.8cae75bc1ffe9c3d1ece768c0e5447a2.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/seo/Great-Value-White-Round-Top-Bread-Loaf-20-oz_8e69fca6-dda1-47b1-959c-7ec4d84b0a58.8cae75bc1ffe9c3d1ece768c0e5447a2.jpeg?odnHeight=117&odnWidth=117&odnBg=FFFFFF", title: "Costume", price: "$17" },
-
-];
 
 const features = [
     {
@@ -130,10 +107,25 @@ const features = [
     },
 ];
 export default function Grocery() {
+    const { products } = useSelector((state) => state.products);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const fetchData = async () => {
+            await dispatch(fetchProductsCat("Grocery"));
+        };
+        fetchData();
+    }, [dispatch]);
 
+    const cards = products.map((product) => ({
+        photo: product.thumbnail,
+        title: product.title,
+        price: `$${product.price}`,
+        _id: product._id,
+    }));
+    
     return (
         <>
-                <div className=" container h-[] w-[100%] relative mx-auto my-8">
+                <div className=" container h-[] w-[90%] relative mx-auto my-8">
                         <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-49b2/k2-_90314a02-b0c6-4a2d-98be-1394b83bc8b9.v1.png" width={"1500vh"} />
                         <div className="absolute w-full bottom-4" style={{
                             textAlign: "center",
@@ -155,7 +147,7 @@ export default function Grocery() {
                     </div>
 
 
-            {/* <div className="p-8 mx-auto">
+            <div className="p-8 mx-auto">
                 <div>
                     <h2 className="mb-2 text-xl font-bold">For your shopping list</h2>
                 </div>
@@ -217,21 +209,27 @@ export default function Grocery() {
                             </div>
                         </div>
                 </div>
-            </div> */}
+            </div>
 
                 {/* <div className="hidden  grid-cols-1 lg:grid">
                 <LeftHandNavList items={features} section="Categories" />
             </div> */}
 
-                    <div className="pl-24">
-                        <div className="container mx-auto">
-                    <div className=" text-xl font-bold">Featured items</div>
-                        <div className="container grid grid-cols-2 mx-auto mt-5 mb-10 md:grid-cols-3">
+<div className="container mx-auto">
+                        <div className="mx-auto my-8 text-xl font-bold">Refresh your outdoors</div>
+                        <div className="grid grid-cols-2 gap-16 md:grid-cols-3">
                             {cards.map((card, index) => (
-                                <div key={index} ><Card photo={card.photo} title={card.title} price={card.price} /></div>
+                                <div key={index}>
+                                    <Card
+                                        photo={card.photo}
+                                        title={card.title}
+                                        price={card.price}
+                                        id={card._id}
+                                    />
+                                </div>
                             ))}
                         </div>
-                        </div>
+                    </div>
 
 
                         
@@ -324,15 +322,21 @@ export default function Grocery() {
                             </div>
                         </div>
                         
-                        <div className="">
-                        <div className="my-8 text-xl font-bold"><h1>Save with Great Value</h1>
-                        <div className="container grid grid-cols-2 mx-auto mt-5 mb-10 md:grid-cols-3">
-                            {cards2.map((card, index) => (
-                                <div key={index} ><Card photo={card.photo} title={card.title} price={card.price} /></div>
+                        <div className="container mx-auto">
+                        <div className="mx-auto my-8 text-xl font-bold">Refresh your outdoors</div>
+                        <div className="grid grid-cols-2 gap-16 md:grid-cols-3">
+                            {cards.map((card, index) => (
+                                <div key={index}>
+                                    <Card
+                                        photo={card.photo}
+                                        title={card.title}
+                                        price={card.price}
+                                        id={card._id}
+                                    />
+                                </div>
                             ))}
                         </div>
-                        </div>
-                        </div>
+                    </div>
 
                         <div className=" container h-[] w-[85%] relative mx-auto my-8">
                         <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-89ab/k2-_54948667-12e4-4f0a-bf0b-8bbb37e8ab76.v1.jpg" width={"1500vh"} />
@@ -353,7 +357,6 @@ export default function Grocery() {
                                 Free 30-day trial
                             </p>
                         </div>
-                    </div>
                     </div>
             
         </>

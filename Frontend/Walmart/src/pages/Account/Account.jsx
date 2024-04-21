@@ -187,29 +187,31 @@ const Account = () => {
                                 <FaChevronRight />
                             </div>
                         </div>
-                        <div className='flex flex-wrap '>
-                            <div className='flex flex-col p-5 border-r border-gray w-[400px]'>
-                                <h1 className='text-[18px] font-semibold'>Email Address</h1>
-                                <h3 className='text-[14px]'>{user.email} <span className='underline cursor-pointer'>Needs verification</span></h3>
-                            </div>
-                            <div className='flex flex-col p-5 border-b w-[460px] border-gray'>
-                                <h1 className='text-[18px] font-semibold '>Phone number</h1>
-                                <span className='underline text-[14px] cursor-pointer'>Add phone number</span>
-                            </div>
-                            <div className='flex items-center justify-between w-full p-5 border-t border-gray'>
-                                <div>
-                                    <h1 className='text-[18px] font-semibold'>Add an Address</h1>
-                                    <h3 className='text-[14px]'>Adding an address allows for quicker checkout and approximation of delivery times</h3>
-                                </div>
-                                <div>
-                                    <button
-                                        className="bg-inherit text-[12px] font-bold p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[127px] h-[32px] hover:border-2 border-black "
-                                    >
-                                        Add an address
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                      <div>
+                      <div className='flex flex-wrap '>
+                      <div className='flex flex-col p-5 border-r border-gray w-[400px]'>
+                          <h1 className='text-[18px] font-semibold'>Email Address</h1>
+                          <h3 className='text-[14px]'>{user.email} <span className='underline cursor-pointer'>Needs verification</span></h3>
+                      </div>
+                      <div className='flex flex-col p-5 border-b w-[460px] border-gray'>
+                          <h1 className='text-[18px] font-semibold '>Phone number</h1>
+                          <span className='underline text-[14px] cursor-pointer'></span>
+                      </div>
+                      <div className='flex items-center justify-between w-full p-5 border-t border-gray'>
+                          <div>
+                              <h1 className='text-[18px] font-semibold'>Add an Address</h1>
+                              <h3 className='text-[14px]'>Adding an address allows for quicker checkout and approximation of delivery times</h3>
+                          </div>
+                          <div>
+                              <button
+                                  className="bg-inherit text-[12px] font-bold p-1 rounded-full flex text-center justify-center items-center gap-1 border border-black-800 w-[127px] h-[32px] hover:border-2 border-black "
+                              >
+                                  Add an address
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                      </div>
                     </div>
                     <div className='mt-10 rounded shadowAcc'>
                         <div className='flex justify-between py-5 px-5 rounded bg-[#f2f8fd]  mt-10 cursor-pointer'>

@@ -1,7 +1,10 @@
-import React from "react";
+// import React from "react";
 import LeftHandNavList from "../../components/LeftHandNavList/LeftHandNavList.jsx";
-
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductsCat } from "../../store/slices/productCategor";
+import React, { useEffect, useState } from "react";
 import CustomSlider from "../../components/CustomSlider .jsx";
+import Card from "../../components/Card";
 
 export default function HomeImprovement() {
     const category = [
@@ -150,7 +153,7 @@ export default function HomeImprovement() {
         },
     ];
 
-    const cards = [
+    const cards1 = [
         {
             photo:
                 "https://i5.walmartimages.com/seo/Mainstays-1500W-Ceramic-Fan-Forced-Electric-Space-Heater-WSH10C2AWW-White_736efaf6-6b14-4eb4-b99d-c4bbaf81d7aa.7057bf884d1c9ea48c573b891329cf38.jpeg?odnHeight=576&odnWidth=576&odnBg=FFFFFF",
@@ -257,17 +260,32 @@ export default function HomeImprovement() {
             price: "$17",
         },
     ];
+    const { products } = useSelector((state) => state.products);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const fetchData = async () => {
+            await dispatch(fetchProductsCat("Home-Improvement"));
+        };
+        fetchData();
+    }, [dispatch]);
+
+    const cards = products.map((product) => ({
+        photo: product.thumbnail,
+        title: product.title,
+        price: `$${product.price}`,
+        _id: product._id,
+    }));
     const tittle = "Home Improvement deals";
     return (
         <>
-            <div className=" container h-[] w-[100%] relative mx-auto my-8">
+            <div className=" container h-[] w-[90%] relative mx-auto my-8">
                 <img
                     className="mx-auto rounded-lg shadow-lg "
                     src="https://i5.walmartimages.com/dfw/4ff9c6c9-36ef/k2-_f2a04374-5396-4ec2-8276-cd314d82984d.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70"
                     alt=""
                 />
-                <div className="absolute w-full px-8 py-3 bottom-16 md:bottom-16">
-                    <h1 className="mt-20 text-xl md:text-3xl">Lots to love for less</h1>
+                <div className="absolute w-full px-4 py-3 md:px-8 md:bottom-16 bottom-8 text-sm md:text-3xl">
+                    <h1 className="">Lots to love for less</h1>
                     <p className="">
                         Refresh? No stress! <br /> All you need is here.
                     </p>
@@ -291,9 +309,25 @@ export default function HomeImprovement() {
             <div className="flex">
                 <div className="hidden w-1/6 lg:grid lg:grid-cols-1">
                     <LeftHandNavList items={features} section="Categories" />
-                    <LeftHandNavList items={features} section="Savings" />
                 </div>
                 <div className="px-4 mx-auto lg:w-3/4">
+                    
+            <div className="container mx-auto">
+                        <div className="mx-auto my-8 text-xl font-bold">Refresh your outdoors</div>
+                        <div className="grid grid-cols-2 gap-16 md:grid-cols-3">
+                            {cards.map((card, index) => (
+                                <div key={index}>
+                                    <Card
+                                        photo={card.photo}
+                                        title={card.title}
+                                        price={card.price}
+                                        id={card._id}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
                     <div>
                         <h2 className="mb-2 text-xl font-bold">
                             Make things clean & tidy
@@ -417,8 +451,8 @@ export default function HomeImprovement() {
                             src="https://i5.walmartimages.com/dfw/4ff9c6c9-59b3/k2-_9cb26a87-e068-4f82-a73c-95bbb6fc7031.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70%201x,%20https://i5.walmartimages.com/dfw/4ff9c6c9-59b3/k2-_9cb26a87-e068-4f82-a73c-95bbb6fc7031.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70%202x"
                             alt=""
                         />
-                        <div className="absolute w-full px-4 py-3 bottom-8">
-                            <h1 className="mt-20 text-xl md:text-3xl">
+                        <div className="absolute w-full px-4 py-3 md:bottom-16 bottom-8 text-sm md:text-3xl">
+                            <h1 className="">
                                 Best bets for a<br /> bathroom reno
                             </h1>
                             <p className="">Best bets for a bathroom reno</p>
@@ -435,13 +469,13 @@ export default function HomeImprovement() {
                         </div>
                     </div>
 
-                    <div className="grid justify-between grid-cols-1 ml-8 md:space-x-4 md:grid-cols-2 ">
+                    <div className="grid justify-between grid-cols-1 md:space-x-4 md:grid-cols-2 ">
                         <div
-                            className="max-w-sm overflow-hidden rounded shadow-lg"
+                            className="max-w-sm overflow-hidden rounded shadow-lg mx-auto"
                             style={{ minHeight: "55vh" }}
                         >
                             <img
-                                className="w-full"
+                                className=""
                                 src="https://i5.walmartimages.com/dfw/4ff9c6c9-a5b6/k2-_917beeff-7335-45d9-9a80-8673e431b2a5.v1.jpg?odnHeight=340&odnWidth=604&odnBg=FFFFFF"
                                 alt="Sunset in the mountains"
                             />
@@ -458,11 +492,11 @@ export default function HomeImprovement() {
                             </div>
                         </div>
                         <div
-                            className="max-w-sm overflow-hidden rounded shadow-lg"
+                            className="max-w-sm overflow-hidden rounded shadow-lg mx-auto"
                             style={{ minHeight: "55vh" }}
                         >
                             <img
-                                className="w-full"
+                                className=""
                                 src="https://i5.walmartimages.com/dfw/4ff9c6c9-8461/k2-_3e7c67b8-f934-43a8-bb00-73bfdb9dbc6b.v1.jpg?odnHeight=340&odnWidth=604&odnBg=FFFFFF"
                                 alt="Sunset in the mountains"
                             />
@@ -485,8 +519,8 @@ export default function HomeImprovement() {
                             src="https://i5.walmartimages.com/dfw/4ff9c6c9-4afa/k2-_a5ce58da-0b01-4153-908c-df464596dfa8.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70%201x,%20https://i5.walmartimages.com/dfw/4ff9c6c9-4afa/k2-_a5ce58da-0b01-4153-908c-df464596dfa8.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70%202x"
                             alt=""
                         />
-                        <div className="absolute w-full px-4 py-3 bottom-8">
-                            <h1 className="mt-20 text-xl md:text-3xl">
+                        <div className="absolute w-full px-4 py-3 md:bottom-16 bottom-6 text-sm md:text-3xl">
+                            <h1 className="">
                                 Now here:
                                 <br /> color of the year
                             </h1>

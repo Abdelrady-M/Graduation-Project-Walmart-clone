@@ -2,20 +2,9 @@ import CustomSlider from "../../components/CustomSlider ";
 import Deals from "../../components/Deals";
 import LeftHandNavList from "../../components/LeftHandNavList/LeftHandNavList";
 import Card from "../../components/Card";
-
-const cards = [
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-    { photo: "https://i5.walmartimages.com/dfw/4ff9c6c9-4048/k2-_fa15c298-1f31-4354-87aa-d780953d14e0.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF", title: "Costume", price: "$17" },
-
-];
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductsCat } from "../../store/slices/productCategor";
+import React, { useEffect, useState } from "react";
 
 const features = [
     { title: "Appliances", listItems: [
@@ -103,137 +92,48 @@ const features = [
     ] },
 ];
 
-const categories = [
-    {
-        //has Image
-        title: "TV & Video",
-        listItems: ["All TV & Video", "Smart TVs", "Roku TVs"],
-    },
-    {
-        title: "Computers & Tablets",
-        listItems: ["All Computers", "Laptops", "Chromebook"],
-    },
-    {
-        title: "Video Games",
-        listItems: ["All Video Games", "Xbox", "PlayStation"],
-    },
-    {
-        title: "PC Gaming",
-        listItems: ["PC Gaming", "Gaming Laptops", "Gaming Desktops"],
-    },
-    { title: "Audio", listItems: ["AirPods", "Sound Bars"] },
-];
 
-// const cards = [
-//     {
-//         title:
-//             "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)",
-//         price: "$17",
-//     },
-//     {
-//         title:
-//             "Lenovo Legion Pro 5 16IRX8 - 16.0 165 Hz IPS - Intel Core i7 13th Gen 13700HX(2.10GHz) - NVIDIA GeForce RTX 4060 Laptop GPU - 16 GB DDR5 - 1 TB PCIe SSD - Windows 11 Home 64 - bit - Gaming Laptop(82W)",
-//         price: "$17",
-//     },
-//     {
-//         title:
-//             "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)",
-//         price: "$17",
-//     },
-//     {
-//         title:
-//             "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)",
-//         price: "$17",
-//     },
-//     {
-//         title:
-//             "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)",
-//         price: "$17",
-//     },
-//     {
-//         title:
-//             "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)",
-//         price: "$17",
-//     },
-//     {
-//         title:
-//             "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)",
-//         price: "$17",
-//     },
-//     {
-//         title:
-//             "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)",
-//         price: "$17",
-//     },
-//     {
-//         title:
-//             "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)",
-//         price: "$17",
-//     },
-//     {
-//         title:
-//             "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)",
-//         price: "$17",
-//     },
-//     {
-//         title:
-//             "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)",
-//         price: "$17",
-//     },
-//     {
-//         title:
-//             "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)",
-//         price: "$17",
-//     },
-//     {
-//         title:
-//             "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)",
-//         price: "$17",
-//     },
-//     {
-//         title:
-//             "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)",
-//         price: "$17",
-//     },
-//     {
-//         title:
-//             "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)",
-//         price: "$17",
-//     },
-// ];
-// const tittle = "ddddddd";
 
 export default function Home2() {
+    const { products } = useSelector((state) => state.products);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const fetchData = async () => {
+            await dispatch(fetchProductsCat("Home"));
+        };
+        fetchData();
+    }, [dispatch]);
+
+    const cards = products.map((product) => ({
+        photo: product.thumbnail,
+        title: product.title,
+        price: `$${product.price}`,
+        _id: product._id,
+    }));
     return (
         <>
 
-        <div>
-        <div className=" container h-[] w-[100%] relative mx-auto my-8">
+        <div className="container mx-auto">
+        <div className=" container h-[] w-[80%] relative mx-auto m-8">
             <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-e2ad/k2-_4de43013-971a-444c-b405-4a3d339f0252.v1.jpg?" alt="" />
 
         </div>
-            {/* <div>
-                <div className="text-3xl">Shop the look</div>
-                <div className="container m-8">
-                <Deals />
-                </div>
-            </div> */}
+
 
             <div className="flex">
                 <div className="hidden mx-4 w-1/8 lg:grid lg:grid-cols-1 ">
                     <LeftHandNavList items={features} section="Categories" />
-                    <LeftHandNavList items={features} section="Savings" />
                 </div>
                 <div className="w-3/4 mx-auto">
                     <div className="shadow-md border-1 rounded-2xl">
                         <img
-                            className="justify-center"
-                            style={{ width: "100%" }}
+                            className=" mx-auto"
+                            style={{ width: "80%" }}
                             src="https://i5.walmartimages.com/dfw/4ff9c6c9-603e/k2-_710168df-eb48-46ac-b6fe-7c98ba7db9b6.v1.jpg?odnHeight=680&odnWidth=1208&odnBg=FFFFFF"
                             alt=""
                         />
-                        <div className="ml-8">
-                            <h1 className="text-2xl">Perk up your bedroom</h1>
+                        <div className="ml-8 md:text-2xl text-sm">
+                            <h1 className="text-lg">Perk up your bedroom</h1>
                             <p>A few new pieces will have you primed to seize the day.</p>
                         </div>
                         <div className="container p-4">
@@ -243,11 +143,8 @@ export default function Home2() {
 
                         <div className=" container h-[] w-[100%] relative mx-auto my-8">
             <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-8e3a/k2-_417f2184-f7fb-4ce0-91b8-89b101436455.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70%201x,%20https://i5.walmartimages.com/dfw/4ff9c6c9-8e3a/k2-_417f2184-f7fb-4ce0-91b8-89b101436455.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70" alt="" />
-            <div className="absolute w-full px-4 py-3 bottom-20">
-                <p className="">
-                    Now at Walmart
-                </p>
-                <h1 className="mt-20 text-xl md:text-3xl"> Your style<br /> at Walmart </h1>
+            <div className="absolute w-full px-4 py-3 md:bottom-20 bottom-0 mt-20 text-sm md:text-3xl">
+                <h1 className=""> Your style<br /> at Walmart </h1>
                 <p className="">
                 Spring forward with fashion <br /> home & beauty inspired <br /> by real life.
                 </p>
@@ -263,20 +160,23 @@ export default function Home2() {
                 </p>
             </div>
         </div>
-            <div className="my-8 text-xl font-bold"><h1>Save with Great Value</h1>
-
-                                                <div className="grid grid-cols-2 gap-16 md:grid-cols-3">
+        <div className="container mx-auto">
+                        <div className="mx-auto my-8 text-xl font-bold">Refresh your outdoors</div>
+                        <div className="grid grid-cols-2 gap-16 md:grid-cols-3">
                             {cards.map((card, index) => (
                                 <div key={index}>
                                     <Card
                                         photo={card.photo}
                                         title={card.title}
                                         price={card.price}
+                                        id={card._id}
                                     />
                                 </div>
                             ))}
                         </div>
-                        </div>
+                    </div>
+
+
                 </div>
             </div>
             </div>

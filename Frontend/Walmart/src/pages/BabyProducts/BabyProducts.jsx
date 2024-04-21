@@ -1,5 +1,10 @@
 import Deals from "../../components/Deals";
 import LeftHandNavList from "../../components/LeftHandNavList/LeftHandNavList";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductsCat } from "../../store/slices/productCategor";
+import React, { useEffect, useState } from "react";
+import CustomSlider from "../../components/CustomSlider .jsx";
+import Card from "../../components/Card";
 
 export default function BabyProducts() {
     const features = [
@@ -164,7 +169,7 @@ export default function BabyProducts() {
 
         {
             Img: "https://i5.walmartimages.com/dfw/4ff9c6c9-e918/k2-_3003ceee-74aa-4506-890d-00b01fa90cb2.v1.jpg?odnHeight=290&odnWidth=290&odnBg=FFFFFF",
-            title: "Carter's Child of Mine",
+            title: "Carter",
         },
 
         {
@@ -207,20 +212,37 @@ export default function BabyProducts() {
             title: "Toddler",
         },
     ];
-    return <div className="container mx-auto">
-        <div className=" container h-[] w-[100%] relative mx-auto my-8">
-            <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-d51d/k2-_d866af0e-bb1c-4bc3-b4d5-876764fbf45d.v1.png" width={"1500vh"} />
+
+    const { products } = useSelector((state) => state.products);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const fetchData = async () => {
+            await dispatch(fetchProductsCat("Baby"));
+        };
+        fetchData();
+    }, [dispatch]);
+
+    const cards = products.map((product) => ({
+        photo: product.thumbnail,
+        title: product.title,
+        price: `$${product.price}`,
+        _id: product._id,
+    }));
+    return <div className="container ">
+        <div className=" container h-[] w-[80%] relative  mx-auto my-8">
+            <img className="rounded-md shadow-md mx-auto" src="https://i5.walmartimages.com/dfw/4ff9c6c9-d51d/k2-_d866af0e-bb1c-4bc3-b4d5-876764fbf45d.v1.png" width={"1500vh"} />
             <div className="absolute w-full bottom-2 md:bottom-6" style={{
                 textAlign: "center",
                 justifyContent: "center",
                 width: "100%",
             }}>
-                <h1 className="text-xl md:text-3xl"> Up to 20% off activity & gear </h1>
-                <p className="">
+                <h1 className="text-sm md:text-3xl"> Up to 20% off activity & gear </h1>
+                <p className="text-sm md:text-3xl">
                     Save big on top brands.
 
                 </p>
                 <p
+                    className="text-sm md:text-3xl"
                     style={{
                         textDecoration: "underline",
                     }}
@@ -231,17 +253,16 @@ export default function BabyProducts() {
         </div>
 
 
-        <div className=" container h-[] w-[100%] relative mx-auto my-8">
-            <img className="rounded-md shadow-md" src="https://i5.walmartimages.com/dfw/4ff9c6c9-1d8f/k2-_0713c3bc-5c88-4e05-8455-0731eed435f9.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70 1x, https://i5.walmartimages.com/dfw/4ff9c6c9-1d8f/k2-_0713c3bc-5c88-4e05-8455-0731eed435f9.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70 2x" width={"1500vh"} alt="" />
-            <div className="absolute w-full px-4 py-3 bottom-20">
-                <p className="">
-                    Now at Walmart
-                </p>
-                <h1 className="mt-20 text-xl md:text-3xl"> Stay on top<br /> 4moms baby gear </h1>
-                <p className="">
+        <div className=" container h-[] w-[80%] relative mx-auto my-8">
+            <img className="rounded-md shadow-md mx-auto" src="https://i5.walmartimages.com/dfw/4ff9c6c9-1d8f/k2-_0713c3bc-5c88-4e05-8455-0731eed435f9.v1.jpg?odnHeight=470&odnWidth=1232&odnBg=&odnDynImageQuality=70 1x, https://i5.walmartimages.com/dfw/4ff9c6c9-1d8f/k2-_0713c3bc-5c88-4e05-8455-0731eed435f9.v1.jpg?odnHeight=940&odnWidth=2464&odnBg=&odnDynImageQuality=70 2x" width={"1500vh"} alt="" />
+            <div className="absolute w-full px-4 py-3 md:bottom-20 bottom-5">
+
+                <h1 className="mt-20 text-sm md:text-3xl"> Stay on top<br /> 4moms baby gear </h1>
+                <p className="text-sm md:text-3xl">
                     High-tech designs that make it <br /> easier to navigate parenthood.
                 </p>
-                <p
+                <p  
+                    className="text-sm md:text-3xl"
                     style={{
                         position: "relative",
                         textAlign: "start",
@@ -255,13 +276,27 @@ export default function BabyProducts() {
         </div>
 
         <div className="flex ">
-            <div className="w-1/6 md:flex sm:hidden">
+            <div className="hidden w-1/6 md:flex">
                 <LeftHandNavList items={features} section="Categories" />
             </div>
             <div className="w-3/4 mx-auto ">
                 <Deals />
                 <hr />
-
+                <div className="container mx-auto">
+                        <div className="mx-auto my-8 text-xl font-bold">Refresh your outdoors</div>
+                        <div className="grid grid-cols-2 gap-16 md:grid-cols-3">
+                            {cards.map((card, index) => (
+                                <div key={index}>
+                                    <Card
+                                        photo={card.photo}
+                                        title={card.title}
+                                        price={card.price}
+                                        id={card._id}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 <div className="">
                     <header className="flex items-baseline justify-between">
                         <h2 className="font-bold">Shop by age</h2>
@@ -300,11 +335,11 @@ export default function BabyProducts() {
                 <hr />
                 <div>
                     <div className="font-bold text-1xl">More you’ll both love</div>
-                    <div className="grid mt-10 ml-10 space-y-8 sm:grid-cols-1 md:grid-cols-2 md:space-y-0">
+                    <div className="grid mt-10 space-y-8 sm:grid-cols-1 md:grid-cols-2 md:space-y-0">
                         <div className="">
-                            <div className="max-w-sm overflow-hidden rounded shadow-lg">
+                            <div className="max-w-sm overflow-hidden rounded shadow-lg mx-auto">
                                 <img
-                                    className="w-full"
+                                    className=" "
                                     src="https://i5.walmartimages.com/dfw/4ff9c6c9-27d2/k2-_6561ba9f-d6e0-43ae-884a-5d4fcbaa9048.v1.jpg?odnHeight=340&odnWidth=604&odnBg=FFFFFF"
                                     alt="Sunset in the mountains"
                                 />
@@ -324,9 +359,9 @@ export default function BabyProducts() {
                             </div>
                         </div>
                         <div className="">
-                            <div className="max-w-sm overflow-hidden rounded shadow-lg">
+                            <div className="max-w-sm overflow-hidden rounded shadow-lg mx-auto">
                                 <img
-                                    className="w-full"
+                                    className=""
                                     src="https://i5.walmartimages.com/dfw/4ff9c6c9-2460/k2-_1026a6cf-088d-441f-8dfe-c9a11f85e11b.v1.jpg?odnHeight=340&odnWidth=604&odnBg=FFFFFF"
                                     alt="Sunset in the mountains"
                                 />
@@ -364,11 +399,11 @@ export default function BabyProducts() {
                 </div>
                 <div>
                     <div className="font-bold text-1xl">Smile, Baby Days are on</div>
-                    <div className="grid mt-10 ml-10 space-y-8 sm:grid-cols-1 md:grid-cols-2 md:space-y-0">
+                    <div className="grid mt-10 space-y-8 sm:grid-cols-1 md:grid-cols-2 md:space-y-0">
                         <div className="">
-                            <div className="max-w-sm overflow-hidden rounded shadow-lg">
+                            <div className="max-w-sm overflow-hidden rounded shadow-lg mx-auto">
                                 <img
-                                    className="w-full"
+                                    className=""
                                     src="https://i5.walmartimages.com/dfw/4ff9c6c9-af77/k2-_e3ba67d3-c9a3-4137-8ef6-eba03bca9fc6.v1.jpg?odnHeight=340&odnWidth=604&odnBg=FFFFFF"
                                     alt="Sunset in the mountains"
                                 />
@@ -409,7 +444,6 @@ export default function BabyProducts() {
                         </div>
                     </div>
                 </div>
-                <div><Deals /></div>
                 <div>
                     <div className="font-bold text-1xl">Complete their routine</div>
                     <div className="grid grid-cols-1 mx-auto mt-10 space-y-4 md:grid-cols-3 md:space-y-0 md:space-x-4">
