@@ -1,32 +1,29 @@
-import React from 'react'
-import costume from "../assets/costume.jpg";
-import jacket from "../assets/jacket.jpg";
-import jacket2 from "../assets/2.jpg";
-import jacket3 from "../assets/3.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductsCat } from "../store/slices/productCategor";
+import React, { useEffect, useState } from "react";
+// import Card from "../../components/Card";
+
 import CustomSlider from "./CustomSlider ";
 import Video from "../assets/Walmart.mp4";
 
-
-const cards = [
-    { photo: costume, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
-    { photo: jacket, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
-    { photo: jacket2, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
-    { photo: jacket3, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
-    { photo: costume, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
-    { photo: jacket, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
-    { photo: jacket2, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
-    { photo: jacket3, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
-    { photo: costume, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
-    { photo: jacket, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
-    { photo: jacket2, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
-    { photo: jacket3, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
-    { photo: costume, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
-    { photo: jacket, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
-    { photo: jacket2, title: "Restored Apple iPhone 12 Pro Max - Carrier Unlocked - 128GB Graphite (Refurbished)", price: "$17" },
-];
 const tittle = "Renew your everything"
 
 const PatioFurniture = () => {
+    const { products } = useSelector((state) => state.products);
+const dispatch = useDispatch();
+useEffect(() => {
+    const fetchData = async () => {
+        await dispatch(fetchProductsCat("Grocery"));
+    };
+    fetchData();
+}, [dispatch]);
+
+const cards = products.map((product) => ({
+    photo: product.thumbnail,
+    title: product.title,
+    price: `$${product.price}`,
+    _id: product._id,
+}));
     return (
         <div className='container mx-auto flex items-center justify-between w-[100vw] gap-10'>
             <div className=' w-[40vw] flex items-center justify-center'>
