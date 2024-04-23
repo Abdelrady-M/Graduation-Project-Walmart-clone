@@ -189,7 +189,7 @@ const Navbar = () => {
                     <>
                         <div className="flex items-center justify-center gap-x-3 hover:bg-[#004f9a] cursor-pointer rounded-full w-[100px] h-[50px]">
                             <div className="gap-x-3 flex-col mr-5 flex items-center justify-center p-2">
-                                <Link to={`/account/${decodedToken.id}`}>
+                                <Link to={`/userprofile`}>
                                     <div className="flex items-center justify-center">
                                         Hi, {decodedToken.name}
                                     </div>

@@ -20,7 +20,6 @@ import Register from './pages/register/register.jsx';
 import PhoneVerification from "./pages/PhoneVerification/PhoneVerification.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import TermsOfUs from "./pages/TermsOfUs/TermsOfUs.jsx";
-import Account from "./pages/Account/Account.jsx";
 import Payment from "./pages/Payment/Payment.jsx";
 import store from "./store/store.js";
 import WishList from "./pages/wishlist/WishList.jsx";
@@ -28,6 +27,11 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import Search from "./pages/search/Search.jsx";
 import CheckoutSuccess from "./components/CheckoutSuccess/CheckoutSuccess.jsx";
 import Order from "./pages/Order/Order.jsx";
+import UserComingOrders from "./pages/User/userComingOrders.jsx";
+import UserProfile from "./components/UserProfile/UserProfile.jsx";
+import UserEdit from "./pages/User/userEdit.jsx";
+import UserAddress from "./pages/User/userAddress.jsx";
+import UserOrders from "./pages/User/userOrders.jsx";
 
 
 const initialOptions = {
@@ -59,8 +63,31 @@ const routes = createBrowserRouter([
         element: <TermsOfUs />,
       },
       {
-        path: "/account/:id",
-        element: <Account />,
+        path: "/userprofile",
+        element:  <UserProfile />,
+        children: [
+          {
+            index: true,
+            element: (<UserEdit />),
+          },
+          {
+            path: "address",
+            element: <UserAddress />,
+          },
+
+          {
+            path: "pastOrders",
+            element: <UserOrders />,
+          },
+          {
+            path: "upcomingOrders",
+            element: <UserComingOrders />,
+          },
+          // {
+          //   path: "orderReviews",
+          //   element: <ProductReviews />,
+          // },
+        ],
       },
       {
         path: "/electronics",
